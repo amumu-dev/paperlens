@@ -6,7 +6,7 @@ def Extrack(buf):
     p2 = buf.find('<', p1)
     key = buf[0:p1]
     value = buf[p1:p2]
-    return list(key,value)
+    return [key,value]
 
 data = open("../../../data/dblp.xml")
 
