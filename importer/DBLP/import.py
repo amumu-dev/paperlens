@@ -17,7 +17,7 @@ for line in data:
     if line.find('<incollection') >= 0:
         authors = []
         title = ''
-    else if line.find('</incollection>') >= 0:
+    elif line.find('</incollection>') >= 0:
         authors = []
         title = ''
     else:
