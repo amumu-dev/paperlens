@@ -1,4 +1,4 @@
-def Extrack(buf)
+def Extrack(buf):
     p1 = buf.find('>')
     key = ''
     value = ''
