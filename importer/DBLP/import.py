@@ -22,4 +22,5 @@ for line in data:
         title = ''
     else:
         [key,value] = Extrack(line)
-        print key, value
+        if key == "<author>":
+            print key, value
