@@ -1,3 +1,6 @@
+import _mysql
+import sys
+
 def Extrack(buf):
     p1 = buf.find('>')
     key = ''
@@ -8,19 +11,21 @@ def Extrack(buf):
     value = buf[p1:p2]
     return [key,value]
 
-data = open("../../../data/dblp.xml")
+connection = _mysql.connect('localhost', 'paperlens', 'paper1ens', 'paperlens')
 
-authors = []
-title = ''
-
-for line in data:
-    if line.find('<incollection') >= 0:
-        authors = []
-        title = ''
-    elif line.find('</incollection>') >= 0:
-        authors = []
-        title = ''
-    else:
-        [key,value] = Extrack(line)
-        if key == "<author>":
-            print key, value
+##data = open("../../../data/dblp.xml")
+##
+##authors = []
+##title = ''
+##
+##for line in data:
+##    if line.find('<incollection') >= 0:
+##        authors = []
+##        title = ''
+##    elif line.find('</incollection>') >= 0:
+##        authors = []
+##        title = ''
+##    else:
+##        [key,value] = Extrack(line)
+##        if key == "<author>":
+##            print key, value
