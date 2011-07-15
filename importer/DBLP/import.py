@@ -25,7 +25,7 @@ try:
         if line.find('<incollection') >= 0:
             item = Paper()
         elif line.find('</incollection>') >= 0:
-            cursor.execute("insert into paper(title,year,booktitle) values ('%s',%s,'%s');", (item.title, item.publish_year, item.booktitle))
+            cursor.execute("insert into paper(title,year,booktitle) values (%s,%s,%s);", (item.title, item.publish_year, item.booktitle))
             conn.commit()
             item = Paper()
         else:
