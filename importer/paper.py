@@ -14,3 +14,4 @@ class Paper:
         for author in self.authors:
             info = info + author + ', '
         info = info + str(self.publish_year)
+        print info
