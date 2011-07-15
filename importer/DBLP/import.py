@@ -46,7 +46,9 @@ try:
             item.dblp_key = dblp_key
         endTag = ExtractEndTag(line);
         if endTag in paper_types:
-            cursor.execute("insert into paper(title,year,booktitle,type,dblp_key) values (%s,%s,%s,%s,%s);", (item.title, item.publish_year, item.booktitle, endTag, item.dblp_key))
+            cursor.execute("insert into paper(title,year,booktitle,type,dblp_key,journal,school,publisher) values (%s,%s,%s,%s,%s,%s,%s,%s);",
+                           (item.title, item.publish_year, item.booktitle, endTag, item.dblp_key,
+                            item.journal,item.school,item.publisher))
             n = n + 1
             if n % 10000 == 0:
                 print str(n)
@@ -61,6 +63,14 @@ try:
                 item.publish_year = int(value)
             elif key == "<booktitle>":
                 item.booktitle = value
+            elif key == "<journal>":
+                item.journal = value
+            elif key == "<school>":
+                item.school = value
+            elif key == "<cite>":
+                item.cites.append(value)
+            elif key == "<publisher>":
+                item.publisher = value
     connection.commit()
     cursor.close()
     connection.close()

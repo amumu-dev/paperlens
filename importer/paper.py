@@ -10,6 +10,10 @@ class Paper:
         self.abstract = ''
         self.booktitle = ''
         self.dblp_key = ''
+        self.journal = ''
+        self.cites = []
+        self.school = ''
+        self.publisher = ''
 
     def printData(self):
         if len(self.authors) > 0:
