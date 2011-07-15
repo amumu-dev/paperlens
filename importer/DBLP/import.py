@@ -30,6 +30,6 @@ for line in data:
         if key == "<author>":
             item.authors.append(value)
         elif key == "<title>":
-            item.title = value
+            item.title = value.strip('.')
         elif key == "<year>":
             item.publish_year = int(value)
