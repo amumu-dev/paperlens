@@ -1,3 +1,4 @@
+import md5
 
 class Paper:
 
@@ -13,5 +14,8 @@ class Paper:
         info = self.title + ', '
         for author in self.authors:
             info = info + author + ', '
-        info = info + str(self.publish_year)
+        info = info + str(self.publish_year) + ' ' + hashCode()
         print info
+
+    def hashCode(self):
+        return md5.new(title.lower() + self.authors[0][0:1] + str(self.year)).hexdigest()
