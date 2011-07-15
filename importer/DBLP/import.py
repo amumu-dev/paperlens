@@ -18,6 +18,18 @@ def ExtractEndTag(buf):
     p2 = buf.find('>',p1)
     return buf[p1:p2]
 
+def ExtractStartTag(buf):
+    p1 = buf.find('<') + 1
+    p2 = buf.find(' ',p1)
+    return buf[p1:p2]
+
+def ExtractDBLPKey(buf):
+    if buf.find('mdate=') < 0:
+        return ''
+    p1 = buf.find('key=\"') + len('key=\"')
+    p2 = buf.find('\"', p1)
+    return buf[p1:p2]
+
 connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
 cursor = connection.cursor()
 
@@ -29,11 +41,14 @@ paper_types = set(['article','inproceedings','proceedings','book','incollection'
 try:
     n = 0
     for line in data:
+        dblp_key = ExtractDBLPKey(line)
+        if len(dblp_key) == 0:
+            item.dblp_key = dblp_key
         endTag = ExtractEndTag(line);
         if endTag in paper_types:
-            cursor.execute("insert into paper(title,year,booktitle,type) values (%s,%s,%s,%s);", (item.title, item.publish_year, item.booktitle, endTag))
+            cursor.execute("insert into paper(title,year,booktitle,type,dblp_key) values (%s,%s,%s,%s,%s);", (item.title, item.publish_year, item.booktitle, endTag, item.dblp_key))
             n = n + 1
-            if n % 1000 == 0:
+            if n % 10000 == 0:
                 print str(n)
             item = Paper()
         else:

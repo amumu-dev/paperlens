@@ -9,6 +9,7 @@ class Paper:
         self.type = ''
         self.abstract = ''
         self.booktitle = ''
+        self.dblp_key = ''
 
     def printData(self):
         if len(self.authors) > 0:
