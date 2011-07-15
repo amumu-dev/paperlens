@@ -21,11 +21,15 @@ data = open("../../../data/dblp.xml")
 item = Paper()
 
 try:
+    n = 0
     for line in data:
         if line.find('<incollection') >= 0:
             item = Paper()
         elif line.find('</incollection>') >= 0:
             cursor.execute("insert into paper(title,year,booktitle) values (%s,%s,%s);", (item.title, item.publish_year, item.booktitle))
+            n = n + 1
+            if n % 1000 == 0:
+                print str(n) + '\r'
             item = Paper()
         else:
             [key,value] = Extrack(line)
