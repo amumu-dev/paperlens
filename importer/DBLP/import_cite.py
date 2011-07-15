@@ -39,7 +39,7 @@ data = open("../../../data/dblp.xml")
 dblp_key_map = dict()
 dblp_key = ''
 try:
-    cursor.execute("select id,dblp_key from paper")
+    cursor.execute("select id,dblp_key from paper limit 10000")
     n = 0
     while 1:
         row = cursor.fetchone()
