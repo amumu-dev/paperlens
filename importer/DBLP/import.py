@@ -1,4 +1,4 @@
-#import _mysql
+import _mysql
 import sys
 sys.path.append("../")
 from paper import Paper
@@ -13,7 +13,7 @@ def Extrack(buf):
     value = buf[p1:p2]
     return [key,value]
 
-#connection = _mysql.connect('localhost', 'paperlens', 'paper1ens', 'paperlens')
+connection = _mysql.connect('localhost', 'paperlens', 'paper1ens', 'paperlens')
 
 data = open("../../../data/dblp.xml")
 
