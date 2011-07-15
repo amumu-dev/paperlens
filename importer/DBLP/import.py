@@ -26,7 +26,6 @@ try:
             item = Paper()
         elif line.find('</incollection>') >= 0:
             cursor.execute("insert into paper(title,year,booktitle) values (%s,%s,%s);", (item.title, item.publish_year, item.booktitle))
-            conn.commit()
             item = Paper()
         else:
             [key,value] = Extrack(line)
@@ -38,7 +37,7 @@ try:
                 item.publish_year = int(value)
             elif key == "<booktitle>":
                 item.booktitle = value
-
+    connection.commit()
     cursor.close()
     connection.close()
 except MySQLdb.Error, e:
