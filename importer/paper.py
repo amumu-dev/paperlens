@@ -1,4 +1,4 @@
-import md5
+import hashlib
 
 class Paper:
 
@@ -11,11 +11,12 @@ class Paper:
         self.conference = ''
 
     def printData(self):
-        info = self.title + ', '
-        for author in self.authors:
-            info = info + author + ', '
-        info = info + str(self.publish_year) + ' ' + self.hashCode()
-        print info
+        if len(authors) > 0:
+            info = self.title + ', '
+            for author in self.authors:
+                info = info + author + ', '
+            info = info + str(self.publish_year) + ' ' + self.hashCode()
+            print info
 
     def hashCode(self):
-        return md5.new(self.title.lower() + self.authors[0][0:1] + str(self.publish_year)).hexdigest()
+        return hashlib.md5(self.title.lower() + self.authors[0][0:1] + str(self.year)).hexdigest()
