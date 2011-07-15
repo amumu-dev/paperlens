@@ -13,7 +13,7 @@ def Extrack(buf):
     value = buf[p1:p2]
     return [key,value]
 
-connection = MySQLdb.connect (host = "localhost", user = "paperlens", passwd = "paper1ens", db = "paperlens")
+connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
 
 data = open("../../../data/dblp.xml")
 
