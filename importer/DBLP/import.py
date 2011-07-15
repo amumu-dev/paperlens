@@ -33,7 +33,7 @@ try:
         if endTag in paper_types:
             cursor.execute("insert into paper(title,year,booktitle,type) values (%s,%s,%s,%s);", (item.title, item.publish_year, item.booktitle, endTag))
             n = n + 1
-            if n % 100 == 0:
+            if n % 1000 == 0:
                 print str(n)
             item = Paper()
         else:
