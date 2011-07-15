@@ -8,7 +8,7 @@ if (!$result) {
 
 $record = mysql_fetch_field($result, 0);
 
-echo $record->title;
+echo $record;
 
 mysql_free_result($result);
 
