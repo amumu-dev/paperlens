@@ -46,11 +46,13 @@ try:
         if row == None:
             break
         dblp_key_map[row[1]] = (int)(row[0])
+        print row[1],row[0]
         n = n + 1
         if n % 10000 == 0:
             print str(n)
         if n > 10000:
             break
+    print 'ok'
     n = 0
     for line in data:
         dblp_key_tmp = ExtractDBLPKey(line)
