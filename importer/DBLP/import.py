@@ -25,7 +25,6 @@ try:
         if line.find('<incollection') >= 0:
             item = Paper()
         elif line.find('</incollection>') >= 0:
-            print "insert into paper(title,year,booktitle) values ('?',?,'?');", (item.title, item.publish_year,item.booktitle)
             cursor.execute("insert into paper(title,year,booktitle) values ('%s',%s,'%s');", (item.title, item.publish_year, item.booktitle))
             conn.commit()
             item = Paper()
@@ -43,4 +42,4 @@ try:
     cursor.close()
     connection.close()
 except MySQLdb.Error, e:
-    print e.args[0], e.args[0]
+    print e.args[0], e.args[1]
