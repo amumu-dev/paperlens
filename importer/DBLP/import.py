@@ -23,6 +23,7 @@ item = Paper()
 try:
     n = 0
     for line in data:
+        print line
         if line.find('<incollection') >= 0:
             item = Paper()
         elif line.find('</incollection>') >= 0:
