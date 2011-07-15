@@ -28,8 +28,8 @@ try:
         elif line.find('</incollection>') >= 0:
             cursor.execute("insert into paper(title,year,booktitle) values (%s,%s,%s);", (item.title, item.publish_year, item.booktitle))
             n = n + 1
-            if n % 1000 == 0:
-                print str(n) + '\r'
+            if n % 100 == 0:
+                print str(n)
             item = Paper()
         else:
             [key,value] = Extrack(line)
