@@ -41,5 +41,5 @@ try:
 
     cursor.close()
     connection.close()
-except MySQLdb.Error, e
+except MySQLdb.Error, e:
     print e.args[0], e.args[0]
