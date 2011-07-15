@@ -31,5 +31,5 @@ for line in data:
             item.authors.append(value)
         elif key == "<title>":
             item.title = value
-        elif key == "<year>"
+        elif key == "<year>":
             item.publish_year = int(value)
