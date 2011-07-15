@@ -14,6 +14,7 @@ class Paper:
         self.cites = []
         self.school = ''
         self.publisher = ''
+        self.journal = ''
 
     def printData(self):
         if len(self.authors) > 0:
