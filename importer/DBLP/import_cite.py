@@ -32,7 +32,6 @@ def ExtractDBLPKey(buf):
 
 connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
 cursor = connection.cursor()
-cursor.execute("truncate table paper;")
 connection.commit()
 data = open("../../../data/dblp.xml")
 
