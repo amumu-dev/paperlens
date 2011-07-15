@@ -8,7 +8,7 @@ class Paper:
         self.authors = []
         self.type = ''
         self.abstract = ''
-        self.conference = ''
+        self.booktitle = ''
 
     def printData(self):
         if len(self.authors) > 0:
