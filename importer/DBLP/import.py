@@ -13,18 +13,25 @@ def Extrack(buf):
     value = buf[p1:p2]
     return [key,value]
 
+def ExtractEndTag(buf):
+    p1 = buf.find('</') + 2
+    p2 = buf.find('>',p1)
+    return buf[p1:p2]
+
 connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
 cursor = connection.cursor()
 
 data = open("../../../data/dblp.xml")
 
 item = Paper()
+paper_types = set(['article','inproceedings','proceedings','book','incollection','phdthesis','mastersthesis','www']);
 
 try:
     n = 0
     for line in data:
-        if line.find('</incollection>') >= 0 or line.find('</book>') >= 0:
-            cursor.execute("insert into paper(title,year,booktitle) values (%s,%s,%s);", (item.title, item.publish_year, item.booktitle))
+        endTag = ExtractEndTag(line);
+        if endTag in paper_types:
+            cursor.execute("insert into paper(title,year,booktitle,type) values (%s,%s,%s,%s);", (item.title, item.publish_year, item.booktitle, endTag))
             n = n + 1
             if n % 100 == 0:
                 print str(n)
