@@ -19,4 +19,4 @@ class Paper:
             print info
 
     def hashCode(self):
-        return hashlib.md5(self.title.lower() + self.authors[0][0:1] + str(self.year)).hexdigest()
+        return hashlib.md5(self.title.lower() + self.authors[0][0:1] + str(self.publish_year)).hexdigest()
