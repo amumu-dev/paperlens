@@ -52,9 +52,9 @@ try:
             break
     n = 0
     for line in data:
-        dblp_key = ExtractDBLPKey(line)
-        if len(dblp_key) > 0:
-            item.dblp_key = dblp_key
+        dblp_key_tmp = ExtractDBLPKey(line)
+        if len(dblp_key_tmp) > 0:
+            dblp_key = dblp_key_tmp
         if dblp_key not in dblp_key_map:
             continue
         src_id = dblp_key_map[dblp_key]
