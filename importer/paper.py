@@ -11,7 +11,7 @@ class Paper:
         self.conference = ''
 
     def printData(self):
-        if len(authors) > 0:
+        if len(self.authors) > 0:
             info = self.title + ', '
             for author in self.authors:
                 info = info + author + ', '
