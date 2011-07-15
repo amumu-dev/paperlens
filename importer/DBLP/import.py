@@ -43,7 +43,7 @@ try:
     n = 0
     for line in data:
         dblp_key = ExtractDBLPKey(line)
-        if len(dblp_key) == 0:
+        if len(dblp_key) > 0:
             item.dblp_key = dblp_key
         endTag = ExtractEndTag(line);
         if endTag in paper_types:
