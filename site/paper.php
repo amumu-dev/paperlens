@@ -6,10 +6,10 @@ if (!$result) {
     die('Query failed: ' . mysql_error());
 }
 
-$record = mysql_fetch_field($result, 0);
-
-echo $record;
-
+while ($row = mysql_fetch_row($result))
+{
+	echo $row[0];
+}
 mysql_free_result($result);
 
 ?>
