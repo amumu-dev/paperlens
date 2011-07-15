@@ -14,7 +14,7 @@ class Paper:
         info = self.title + ', '
         for author in self.authors:
             info = info + author + ', '
-        info = info + str(self.publish_year) + ' ' + hashCode()
+        info = info + str(self.publish_year) + ' ' + self.hashCode()
         print info
 
     def hashCode(self):
