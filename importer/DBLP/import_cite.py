@@ -37,6 +37,7 @@ connection.commit()
 data = open("../../../data/dblp.xml")
 
 dblp_key_map = dict()
+dblp_key = ''
 try:
     cursor.execute("select id,dblp_key from paper")
     n = 0
