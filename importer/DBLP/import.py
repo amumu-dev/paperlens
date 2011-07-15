@@ -1,5 +1,7 @@
 import _mysql
 import sys
+sys.path.append("../")
+from paper import Paper
 
 def Extrack(buf):
     p1 = buf.find('>')
@@ -13,19 +15,21 @@ def Extrack(buf):
 
 connection = _mysql.connect('localhost', 'paperlens', 'paper1ens', 'paperlens')
 
-##data = open("../../../data/dblp.xml")
-##
-##authors = []
-##title = ''
-##
-##for line in data:
-##    if line.find('<incollection') >= 0:
-##        authors = []
-##        title = ''
-##    elif line.find('</incollection>') >= 0:
-##        authors = []
-##        title = ''
-##    else:
-##        [key,value] = Extrack(line)
-##        if key == "<author>":
-##            print key, value
+data = open("../../../data/dblp.xml")
+
+item = Paper()
+
+for line in data:
+    if line.find('<incollection') >= 0:
+        item = Paper()
+    elif line.find('</incollection>') >= 0:
+        item.printData()
+        item = Paper()
+    else:
+        [key,value] = Extrack(line)
+        if key == "<author>":
+            item.authors.append(value)
+        elif key == "<title>":
+            item.title = value
+        elif key == "<year>"
+            item.publish_year = int(value)
