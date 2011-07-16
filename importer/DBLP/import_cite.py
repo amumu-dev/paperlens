@@ -54,6 +54,9 @@ try:
         dblp_key_tmp = ExtractDBLPKey(line)
         if len(dblp_key_tmp) > 0:
             dblp_key = dblp_key_tmp
+            n = n + 1
+            if n % 10000 == 0:
+                print str(n)
         if dblp_key not in dblp_key_map:
             continue
         src_id = dblp_key_map[dblp_key]

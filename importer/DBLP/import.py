@@ -33,6 +33,7 @@ def ExtractDBLPKey(buf):
 connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
 cursor = connection.cursor()
 cursor.execute("truncate table paper;")
+cursor.execute("truncate table paper_author;")
 connection.commit()
 data = open("../../../data/dblp.xml")
 
@@ -46,10 +47,12 @@ try:
         if len(dblp_key) > 0:
             item.dblp_key = dblp_key
         endTag = ExtractEndTag(line);
-        if endTag in paper_types:
-            cursor.execute("insert into paper(title,year,booktitle,type,dblp_key,journal,school,publisher) values (%s,%s,%s,%s,%s,%s,%s,%s);",
-                           (item.title, item.publish_year, item.booktitle, endTag, item.dblp_key,
+        if endTag in paper_types and len(item.authors) > 0:
+            cursor.execute("insert into paper(id,title,year,booktitle,type,dblp_key,journal,school,publisher) values (%s,%s,%s,%s,%s,%s,%s,%s,%s);",
+                           (n, item.title, item.publish_year, item.booktitle, endTag, item.dblp_key,
                             item.journal,item.school,item.publisher))
+            for author in item.authors:
+                cursor.execute("insert into paper_author(id, author) values (%s, %s);", (n, author))
             n = n + 1
             if n % 10000 == 0:
                 print str(n)
