@@ -52,7 +52,7 @@ try:
                            (n, item.title, item.publish_year, item.booktitle, endTag, item.dblp_key,
                             item.journal,item.school,item.publisher))
             for author in item.authors:
-                cursor.execute("insert into paper_author(paper_id, author) values (%s, %s);", (n, author))
+                cursor.execute("replace into paper_author(paper_id, author) values (%s, %s);", (n, author))
             n = n + 1
             if n % 10000 == 0:
                 print str(n)
