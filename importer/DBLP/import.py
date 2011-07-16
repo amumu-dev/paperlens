@@ -59,8 +59,6 @@ try:
             n = n + 1
             if n % 10000 == 0:
                 print str(n)
-            if n > 10000:
-                break
             item = Paper()
         else:
             [key,value] = Extrack(line)
