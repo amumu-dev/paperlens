@@ -63,7 +63,7 @@ try:
             if value not in dblp_key_map:
                 continue
             dst_id = dblp_key_map[value]
-            cursor.execute("insert into cite(src_id,dst_id) values (%s,%s);",
+            cursor.execute("replace into cite(src_id,dst_id) values (%s,%s);",
                            (src_id,dst_id))
     connection.commit()
     cursor.close()
