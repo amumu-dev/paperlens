@@ -39,6 +39,7 @@ data = open("../../../data/dblp.xml")
 
 item = Paper()
 paper_types = set(['article','inproceedings','proceedings','book','incollection','phdthesis','mastersthesis','www']);
+author_index = dict()
 
 try:
     n = 0
@@ -52,10 +53,14 @@ try:
                            (n, item.title, item.publish_year, item.booktitle, endTag, item.dblp_key,
                             item.journal,item.school,item.publisher))
             for author in item.authors:
-                cursor.execute("replace into paper_author(paper_id, author) values (%s, %s);", (n, author))
+                if author not in author_index:
+                    author_index[author] = len(author_index)
+                cursor.execute("replace into paper_author(paper_id, author) values (%s, %s);", (n, author_index[author]))
             n = n + 1
             if n % 10000 == 0:
                 print str(n)
+            if n > 10000:
+                break
             item = Paper()
         else:
             [key,value] = Extrack(line)
@@ -75,6 +80,8 @@ try:
                 item.cites.append(value)
             elif key == "<publisher>":
                 item.publisher = value
+    for (name,author_id) in author_index.items():
+        cursor.execute("insert into author(id, name) values (%s, %s);", (author_id, name))
     connection.commit()
     cursor.close()
     connection.close()
