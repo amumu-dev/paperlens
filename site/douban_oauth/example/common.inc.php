@@ -6,7 +6,7 @@ require_once("../OAuth_TestServer.php");
  * Config Section
  */
 $domain = $_SERVER['HTTP_HOST'];
-$base = "/oauth/example";
+$base = "/site/douban_oauth/example";
 $base_url = "http://$domain$base";
 
 /**

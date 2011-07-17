@@ -2,7 +2,7 @@
 require_once("common.inc.php");
 
 
-$test_consumer = new OAuthConsumer("key", "secret", NULL);
+$test_consumer = new OAuthConsumer("0f6a9dcfd38347412e3fd96f7a89d5c3", "?f3fbb0b8ecd35c2", NULL);
 $req_token = new OAuthConsumer("requestkey", "requestsecret", 1);
 $acc_token = new OAuthConsumer("accesskey", "accesssecret", 1);
 
