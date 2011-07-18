@@ -35,5 +35,5 @@ function makingRecommendation($uid, $relatedTables)
 }
 
 $relatedTables = array("papersim_cite" => 1);
-makeingRecommendation(0);
+makeingRecommendation(0, $relatedTables);
 ?>
