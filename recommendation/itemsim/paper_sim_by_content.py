@@ -7,7 +7,7 @@ cursor = connection.cursor()
 simTable = dict()
 
 for mod in range(30):
-    cursor.execute("select paper_id,author_id from paper_author where author_id%30=" + str(mod) " order by author_id;")
+    cursor.execute("select paper_id,author_id from paper_author where author_id%30=" + str(mod) + " order by author_id;")
 
     numrows = int(cursor.rowcount)
     print numrows
