@@ -10,15 +10,11 @@ for mod in range(30):
     cursor.execute("select paper_id,author_id from paper_author where author_id%30=" + str(mod) + " order by author_id;")
 
     numrows = int(cursor.rowcount)
-    print numrows
+    print mod, numrows
 
-    n = 0
     prev_author = -1
     papers = []
     for k in range(numrows):
-        n = n + 1
-        if n % 10000 == 0:
-            print n
         row = cursor.fetchone()
         author_id = row[1]
         paper_id = row[0]
@@ -32,6 +28,9 @@ for mod in range(30):
                     if j not in simTable[i]:
                         simTable[i][j] = 0
                     simTable[i][j] = simTable[i][j] + 1
+            prev_author = author_id
+            papers = []
+    print len(simTable)
                     
 
 
