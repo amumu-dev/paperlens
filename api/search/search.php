@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: text/xml');
 
-require_once('db.php');
+require_once('../db.php');
 
 $query = $_GET['query'];
 
