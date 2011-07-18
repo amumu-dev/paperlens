@@ -4,6 +4,9 @@ require_once("../db.php");
 require_once("behavior.php");
 require_once("related_items.php");
 require_once("recommendation_core.php");
+require_once("explanation.php");
+require_once("ranking.php");
+require_once("filtering.php");
 
 function combineArray($A, $B, $w)
 {
