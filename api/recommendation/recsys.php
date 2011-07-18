@@ -19,7 +19,7 @@ function combineArray(&$A, $B, $w)
 
 function makingRecommendation($uid, $relatedTables)
 {
-	$recommendations = s
+	$recommendations = array();
 	$behaviors = GetBehavior($uid);
 	$features = $behaviors;
 	
