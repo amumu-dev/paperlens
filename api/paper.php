@@ -32,7 +32,7 @@ function getPaperInfo($paper_id)
 	while ($row = mysql_fetch_row($result))
 	{
 		$ret['title'] = $row[0];
-		$ret['booktitle'] = $row[1]
+		$ret['booktitle'] = $row[1];
 	}
 	mysql_free_result($result);
 	
