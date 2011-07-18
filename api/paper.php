@@ -56,7 +56,7 @@ $paper_info = getPaperInfo($id);
 echo "<paper>";
 echo "<title>" . $paper_info['title'] . "</title>";
 echo "<booktitle>" . $paper_info['booktitle'] . "</booktitle>";
-foreach($ret['author'] as $author)
+foreach($paper_info['author'] as $author)
 {
 	echo "<author>" . $author. "</author>";
 }
