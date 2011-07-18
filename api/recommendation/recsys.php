@@ -1,12 +1,18 @@
 <?php
 require_once("../db.php");
 
-require_once("behavior.php");
-require_once("related_items.php");
-require_once("recommendation_core.php");
-require_once("explanation.php");
-require_once("ranking.php");
-require_once("filtering.php");
+//extrac user behaviors
+require_once("./behavior/behavior.php");
+
+//get related items of a given item
+require_once("./relate/related_items.php");
+
+//generate raw recommendations from a set of source items
+require_once("./core/recommendation_core.php");
+
+require_once("./explanation/explanation.php");
+require_once("./rank/ranking.php");
+require_once("./filter/filtering.php");
 
 function combineArray($A, $B, $w)
 {
