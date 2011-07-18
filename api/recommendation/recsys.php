@@ -25,7 +25,7 @@ function makingRecommendation($uid, $relatedTables)
 	
 	foreach($relatedTables as $table_name => $table_weight)
 	{
-		combineArray(&$recommendations, recommendationCore($features, $table_name), $table_weight);
+		combineArray(&$recommendations, recommendationCore($features, $table_name, 10), $table_weight);
 	}
 	
 	selectExplanation(&$recommendations);
