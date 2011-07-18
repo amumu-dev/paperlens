@@ -1,6 +1,6 @@
 <?php
 
-function selectExplanation(&$recommendations)
+function selectExplanation($recommendations)
 {
 	
 }

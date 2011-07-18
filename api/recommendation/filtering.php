@@ -1,6 +1,6 @@
 <?php
 
-function filtering(&$recommendations)
+function filtering($recommendations)
 {
 	
 }

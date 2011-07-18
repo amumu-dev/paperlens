@@ -5,7 +5,7 @@ require_once("behavior.php");
 require_once("related_items.php");
 require_once("recommendation_core.php");
 
-function combineArray(&$A, $B, $w)
+function combineArray($A, $B, $w)
 {
 	foreach($B as $key => $value)
 	{
@@ -25,12 +25,12 @@ function makingRecommendation($uid, $relatedTables)
 	
 	foreach($relatedTables as $table_name => $table_weight)
 	{
-		combineArray(&$recommendations, recommendationCore($features, $table_name, 10), $table_weight);
+		combineArray($recommendations, recommendationCore($features, $table_name, 10), $table_weight);
 	}
 	
-	selectExplanation(&$recommendations);
-	filtering(&$recommendations);
-	ranking(&$recommendations);
+	selectExplanation($recommendations);
+	filtering($recommendations);
+	ranking($recommendations);
 	
 }
 
