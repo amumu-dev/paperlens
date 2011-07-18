@@ -6,13 +6,13 @@ cursor = connection.cursor()
 cursor.execute("select paper_id,author_id from paper_author;")
 
 numrows = int(cursor.rowcount)
+print numrows
 author_papers = dict()
 
 n = 0
 for i in range(numrows):
     n = n + 1
-    if n % 10000 == 0:
-        print n
+    print n
     row = cursor.fetchone()
     author_id = row[1]
     paper_id = row[1]
