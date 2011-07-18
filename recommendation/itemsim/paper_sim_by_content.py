@@ -30,6 +30,7 @@ for mod in range(30):
                     simTable[i][j] = simTable[i][j] + 1
             prev_author = author_id
             papers = []
+        papers.append(paper_id)
     print len(simTable)
                     
 
