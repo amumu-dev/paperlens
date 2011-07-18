@@ -10,7 +10,7 @@ if (!$result) {
     die('Query failed: ' . mysql_error());
 }
 
-echo "<result>"
+echo "<result>";
 
 while ($row = mysql_fetch_row($result))
 {
@@ -18,6 +18,6 @@ while ($row = mysql_fetch_row($result))
 	echo file_get_contents('http://127.0.0.1/api/paper.php?id=' . $id);
 }
 
-echo "</result>"
+echo "</result>";
 
 ?>
