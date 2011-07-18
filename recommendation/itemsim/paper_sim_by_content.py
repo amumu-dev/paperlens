@@ -6,8 +6,8 @@ cursor = connection.cursor()
 
 simTable = dict()
 
-for mod in range(30):
-    cursor.execute("select paper_id,author_id from paper_author where author_id%30=" + str(mod) + " order by author_id;")
+for mod in range(10):
+    cursor.execute("select paper_id,author_id from paper_author where author_id%10=" + str(mod) + " order by author_id;")
 
     numrows = int(cursor.rowcount)
     print mod, numrows
@@ -19,19 +19,25 @@ for mod in range(30):
         author_id = row[1]
         paper_id = row[0]
         if prev_author != author_id:
-            for i in papers:
-                if i not in simTable:
-                    simTable[i] = dict()
-                for j in papers:
-                    if i == j:
-                        continue
-                    if j not in simTable[i]:
-                        simTable[i][j] = 0
-                    simTable[i][j] = simTable[i][j] + 1
+            if len(papers) < 50:
+                for i in papers:
+                    if i not in simTable:
+                        simTable[i] = dict()
+                    for j in papers:
+                        if i == j:
+                            continue
+                        if j not in simTable[i]:
+                            simTable[i][j] = 0
+                        simTable[i][j] = simTable[i][j] + 1
             prev_author = author_id
             papers = []
         papers.append(paper_id)
     print len(simTable)
+
+for i, rels in simTable.items():
+    for j, weight in rels.items():
+        cursor.execute("insert into papersim_author(src_id,dst_id,weight) values (%s,%s,%s);",
+                           (i, j, weight))
                     
 
 
