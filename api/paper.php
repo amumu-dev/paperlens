@@ -54,11 +54,11 @@ function getPaperInfo($paper_id)
 $paper_info = getPaperInfo($id);
 
 echo "<paper>";
-echo "<title>$paper_info['title']</title>";
-echo "<booktitle>$paper_info['title']</booktitle>";
+echo "<title>" . $paper_info['title'] . "</title>";
+echo "<booktitle>" . $paper_info['booktitle'] . "</booktitle>";
 foreach($ret['author'] as $author)
 {
-	echo "<author>$author</author>";
+	echo "<author>" . $author. "</author>";
 }
 echo "</paper>";
 
