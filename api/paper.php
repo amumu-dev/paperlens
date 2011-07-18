@@ -7,7 +7,7 @@ $id = $_GET['id'];
 
 function getAuthorName($author_id)
 {
-	$result = mysql_query('select name from paper where id='.$author_id);
+	$result = mysql_query('select name from author where id='.$author_id);
 	if (!$result) {
 	    return '';
 	}
@@ -38,7 +38,7 @@ function getPaperInfo($paper_id)
 	
 	//get author
 	$ret['author'] = array();
-	$result = mysql_query('select author_id from paper where id='.$paper_id);
+	$result = mysql_query('select author_id from paper_author where paper_id='.$paper_id);
 	if (!$result) {
 	    die('Query failed: ' . mysql_error());
 	}
