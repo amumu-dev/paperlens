@@ -10,14 +10,14 @@ if (!$result) {
     die('Query failed: ' . mysql_error());
 }
 
-echo "<result>\n";
+echo "<result>";
 
 while ($row = mysql_fetch_row($result))
 {
 	$id = $row[0];
-	echo file_get_contents('http://127.0.0.1/api/paper.php?id=' . $id) . '\n';
+	echo file_get_contents('http://127.0.0.1/api/paper.php?id=' . $id) ;
 }
 
-echo "</result>\n";
+echo "</result>";
 
 ?>

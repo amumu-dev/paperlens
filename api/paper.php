@@ -17,7 +17,7 @@ function getAuthorName($author_id)
 		$name = $row[0];
 	}
 	mysql_free_result($result);
-	return $name;
+	return str_replace('&', '', $name);
 }
 
 function getPaperInfo($paper_id)
