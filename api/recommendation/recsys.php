@@ -7,7 +7,7 @@ require_once("recommendation_core.php");
 
 function combineArray(&$A, $B, $w)
 {
-	for($B as $key => $value)
+	foreach($B as $key => $value)
 	{
 		if(!array_key_exists($A, $key))
 		{
@@ -28,9 +28,9 @@ function makingRecommendation($uid, $relatedTables)
 		combineArray(&$recommendations, recommendationCore($features, $table_name), $table_weight);
 	}
 	
-	selectExplanation($recommendations);
-	filtering($recommendations);
-	ranking($recommendations);
+	selectExplanation(&$recommendations);
+	filtering(&$recommendations);
+	ranking(&$recommendations);
 	
 }
 

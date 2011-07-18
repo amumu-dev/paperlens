@@ -1,6 +1,6 @@
 <?php
 
-function ranking($recommendations)
+function ranking(&$recommendations)
 {
 	
 }
