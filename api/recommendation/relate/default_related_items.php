@@ -4,7 +4,7 @@ require_once("../../db.php");
 function GetRelatedItems($item, $topN)
 {
 	$ret = array();
-	$result = mysql_query('select author_id,rank from paper_author where paper_id='. $item . '  order by rank limit 10');
+	$result = mysql_query('select author_id,rank from paper_author where paper_id='. $item . '  order by rank limit 3');
 	if (!$result) {
 	    die('Query failed: ' . mysql_error());
 	}
@@ -12,7 +12,10 @@ function GetRelatedItems($item, $topN)
 	while ($row = mysql_fetch_row($result))
 	{
 		$author_id = $row[0];
-		$rel_results = mysql_query('select paper_id from paper_author where author_id='.$author_id);
+		$rank = $row[1];
+		if($rank == 0) $rank_query = 'rank == 0';
+		else $rank_query = 'rank > 0';
+		$rel_results = mysql_query('select paper_id from paper_author where author_id='.$author_id . ' ' . $rank_query);
 		if(!$rel_results) continue;
 		while($rel_row = mysql_fetch_row($rel_results))
 		{
