@@ -10,7 +10,7 @@ simTable = dict()
 cursor.execute("select paper_id,author_id from paper_author where rank<2 order by author_id;")
 
 numrows = int(cursor.rowcount)
-print paper_mod, author_mod, numrows
+print numrows
 
 prev_author = -1
 papers = []
