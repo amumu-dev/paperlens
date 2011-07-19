@@ -52,10 +52,12 @@ try:
             cursor.execute("insert into paper(id,title,year,booktitle,type,dblp_key,journal,school,publisher) values (%s,%s,%s,%s,%s,%s,%s,%s,%s);",
                            (n, item.title, item.publish_year, item.booktitle, endTag, item.dblp_key,
                             item.journal,item.school,item.publisher))
+            author_rank = 0
             for author in item.authors:
                 if author not in author_index:
                     author_index[author] = len(author_index)
-                cursor.execute("replace into paper_author(paper_id, author) values (%s, %s);", (n, author_index[author]))
+                cursor.execute("replace into paper_author(paper_id, author, rank) values (%s, %s, %s);", (n, author_index[author], author_rank))
+                author_rank = author_rank + 1
             n = n + 1
             if n % 10000 == 0:
                 print str(n)
