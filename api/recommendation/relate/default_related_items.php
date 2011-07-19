@@ -19,7 +19,7 @@ function GetRelatedItems($item, $topN)
 	while ($row = mysql_fetch_row($result))
 	{
 		$id = $row[0];
-		if($id = $item) continue;
+		if($id == $item) continue;
 		$weight = $row[1];
 		$ret[$id] = $weight;
 	}
