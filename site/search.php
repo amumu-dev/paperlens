@@ -41,7 +41,7 @@ if(!$dom->load('http://127.0.0.1/api/search/search.php?query=' . str_replace(' '
 						{
 							echo '<span class=\"author\">' . $author->nodeValue . '</span>';
 						}
-						echo '<br />
+						echo '<br />';
 						echo "</div>";
 					}
 					?>
