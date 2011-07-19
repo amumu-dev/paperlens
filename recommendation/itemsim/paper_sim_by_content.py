@@ -7,8 +7,8 @@ cursor = connection.cursor()
 simTable = dict()
 
 
-for author_mod in range(10):
-    for paper_mod in range(10):
+for paper_mod in range(5):
+    for author_mod in range(10):
         cursor.execute("select paper_id,author_id from paper_author where author_id%10=" + str(author_mod) + " order by author_id;")
 
         numrows = int(cursor.rowcount)
@@ -25,7 +25,7 @@ for author_mod in range(10):
                     for i in papers:
                         if i not in simTable:
                             simTable[i] = dict()
-                        if i % 10 != paper_mod:
+                        if i % 5 != paper_mod:
                             continue
                         for j in papers:
                             if i == j:
