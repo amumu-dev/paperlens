@@ -67,8 +67,12 @@ def authorBasedPaperSim():
     print len(simTable)
 
     for i, rels in simTable.items():
-        for j, weight in rels.items():
+        k = 0
+        for j, weight in sorted(rels.items, key=lambda rels:rels[1] * (-1)):
             cursor.execute("replace into papersim_author(src_id,dst_id,weight) values (%s,%s,%s);",(i, j, weight))
+            k = k + 1
+            if k > 10:
+                continue
 
     connection.commit()
     cursor.close()
