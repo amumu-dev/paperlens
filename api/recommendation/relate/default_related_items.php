@@ -1,6 +1,5 @@
 <?php
 require_once("../../db.php");
-require_once("../../paper_functions.php");
 
 function GetRelatedItems($item, $topN)
 {
