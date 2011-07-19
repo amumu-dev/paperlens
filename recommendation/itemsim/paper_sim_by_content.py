@@ -2,28 +2,29 @@ import MySQLdb
 import sys
 sys.path.append("../../include/python/")
 from paper import Paper
+import math
 
 
-
-def getPaperYear():
+def getPaperInfo():
     ret = dict()
     connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
     cursor = connection.cursor()
-    cursor.execute("select id,year from paper where type = %s;", ("inproceedings"))
+    cursor.execute("select id,year,booktitle from paper where length(booktitle) >0 and type = %s;", ("inproceedings"))
     numrows = int(cursor.rowcount)
     for k in range(numrows):
         row = cursor.fetchone()
         paper_id = row[0]
         year = row[1]
-        ret[paper_id] = year
+        booktitle = row[2]
+        ret[paper_id] = (year, booktitle)
     cursor.close()
     connection.close()
     return ret
     
 
 def authorBasedPaperSim():
-    paper_year = getPaperYear()
-    print len(paper_year)
+    paper_info = getPaperInfo()
+    print len(paper_info)
     connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
     cursor = connection.cursor()
 
@@ -39,21 +40,27 @@ def authorBasedPaperSim():
         row = cursor.fetchone()
         author_id = row[1]
         paper_id = row[0]
-        if paper_id not in paper_year:
+        if paper_id not in paper_info:
             continue
         if prev_author != author_id:
             if len(papers) < 50:
                 for i in papers:
                     if i not in simTable:
                         simTable[i] = dict()
+                    (year_i, booktitle_i) = paper_info[i]
                     for j in papers:
                         if i == j:
                             continue
-                        if abs(paper_year[i] - paper_year[j]) > 10:
+                        (year_j, booktitle_j) = paper_info[i]
+                        if abs(year_j - year_i) > 10:
                             continue
                         if j not in simTable[i]:
                             simTable[i][j] = 0
-                        simTable[i][j] = simTable[i][j] + 1
+                        weight = 1 / math.log(2 + len(papers))
+                        if booktitle_i == booktitle_j:
+                            weight = weight * 2
+                        weight = weight / (1 + 0.1 * abs(year_j - year_i))
+                        simTable[i][j] = simTable[i][j] + weight
             prev_author = author_id
             papers = []
         papers.append(paper_id)
