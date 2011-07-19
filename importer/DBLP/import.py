@@ -1,6 +1,6 @@
 import MySQLdb
 import sys
-sys.path.append("../")
+sys.path.append("../../include/")
 from paper import Paper
 
 def Extrack(buf):
