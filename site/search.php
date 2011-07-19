@@ -8,13 +8,6 @@ if(!$dom->load('http://127.0.0.1/api/search/search.php?query=' . str_replace(' '
 	return;
 }
 
-$papers = $dom->getElementsByTagName('paper');
-foreach($papers as $paper)
-{
-	$title = $paper->getElementsByTagName('title');
-	echo $title->item(0)->nodeValue;
-}
-
 ?>
 <html>
 	<head>
@@ -27,11 +20,15 @@ foreach($papers as $paper)
 		</div>
 		
 		<div id="main">
-			<div id="searchbox">
-				<form action="search.php" method="get">
-					<input type="text" name="query" />
-					<input type="submit" value="Search!" />
-				</form>
+			<div id="searchret">
+				<?php
+				$papers = $dom->getElementsByTagName('paper');
+				foreach($papers as $paper)
+				{
+					$title = $paper->getElementsByTagName('title');
+					echo "<span>$title</span>";
+				}
+				?>
 			</div>
 		</div>
 	</body>
