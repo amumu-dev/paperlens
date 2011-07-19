@@ -32,11 +32,17 @@ if(!$dom->load('http://127.0.0.1/api/search/search.php?query=' . str_replace(' '
 					$papers = $dom->getElementsByTagName('paper');
 					foreach($papers as $paper)
 					{
+						echo "<div class=\"paper\">";
 						$title = $paper->getElementsByTagName('title');
-						echo '<span>' . $title->item(0)->nodeValue . '</span><br />';
-						$author = $paper->getElementsByTagName('author');
+						echo '<span class=\"title\">' . $title->item(0)->nodeValue . '</span><br />';
+						$authors = $paper->getElementsByTagName('author');
 						$k = 0;
-					
+						while($author = $authors>item($k++) )
+						{
+							echo '<span class=\"author\">' . $author->nodeValue . '</span>';
+						}
+						echo '<br />
+						echo "</div>";
 					}
 					?>
 				</div>
