@@ -17,6 +17,12 @@ body
 {
 	width:100%;
 	text-align:left;
+	margin-top:20px;
+}
+
+#main
+{
+	margin-top:10px;
 }
 
 #header #logo
@@ -29,14 +35,14 @@ body
 
 #header .search_box
 {
-	float:right;
+	float:left;
 	width:600px;
 	margin-right:10px;
 }
 
 #header .search_button
 {
-	float:right;
+	float:left;
 	width:100px;
 }
 
