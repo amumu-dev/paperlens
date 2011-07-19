@@ -12,13 +12,11 @@ function GetRelatedItems($item, $topN)
 	while ($row = mysql_fetch_row($result))
 	{
 		$author_id = $row[0];
-		echo $author_id . ' : ';
 		$rel_results = mysql_query('select paper_id from paper_author where author_id='.$author_id);
 		if(!$rel_results) continue;
 		while($rel_row = mysql_fetch_row($rel_results))
 		{
 			$rel_paper_id = $rel_row[0];
-			echo $rel_paper_id . ' , ';
 			if($rel_paper_id != $item)
 			{
 				if(!array_key_exists($rel_paper_id, $ret))
@@ -35,7 +33,7 @@ $related_items = GetRelatedItems($id, 10);
 header('Content-Type: text/xml');
 foreach($related_items as $id => $weight)
 {
-	echo $id . ' ' . $weight;
+	echo $id . ',' . $weight . '    ';
 	//echo file_get_contents('http://127.0.0.1/api/paper.php?id=' . $id) ;
 }
 
