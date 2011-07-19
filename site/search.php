@@ -26,7 +26,7 @@ if(!$dom->load('http://127.0.0.1/api/search/search.php?query=' . str_replace(' '
 				foreach($papers as $paper)
 				{
 					$title = $paper->getElementsByTagName('title');
-					echo '<span>' . $title->item(0)->nodeValue . '</span>';
+					echo '<span>' . $title->item(0)->nodeValue . '</span><br />';
 				}
 				?>
 			</div>
