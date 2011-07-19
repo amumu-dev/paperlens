@@ -3,7 +3,7 @@ import sys
 sys.path.append("../../include/python/")
 from paper import Paper
 import math
-
+from operator import itemgetter
 
 def getPaperInfo():
     ret = dict()
@@ -72,7 +72,7 @@ def authorBasedPaperSim():
         if n % 10000 == 0:
             print n
         k = 0
-        for j, weight in sorted(rels.items, key=lambda rels:rels[1] * (-1)):
+        for j, weight in sorted(rels.items(), key=itemgetter(1), reverse=True):
             cursor.execute("replace into papersim_author(src_id,dst_id,weight) values (%s,%s,%s);",(i, j, weight))
             k = k + 1
             if k > 10:
