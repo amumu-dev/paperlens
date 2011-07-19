@@ -2,7 +2,7 @@
 $query = $_GET["query"];
 
 $dom = new DOMDocument();
-if(!$dom=>load('http://127.0.0.1/api/search/search.php?query=' . str_replace(' ','+',$query)))
+if(!$dom->load('http://127.0.0.1/api/search/search.php?query=' . str_replace(' ','+',$query)))
 {
 	echo 'load xml failed';
 	return;
