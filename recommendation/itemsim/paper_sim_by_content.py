@@ -23,7 +23,7 @@ def getPaperYear():
 
 def authorBasedPaperSim():
     paper_year = getPaperYear()
-    print len(paperYear)
+    print len(paper_year)
     connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
     cursor = connection.cursor()
 
@@ -49,7 +49,7 @@ def authorBasedPaperSim():
                     for j in papers:
                         if i == j:
                             continue
-                        if abs(paperYear[i] - paperYear[j]) > 10:
+                        if abs(paper_year[i] - paper_year[j]) > 10:
                             continue
                         if j not in simTable[i]:
                             simTable[i][j] = 0
