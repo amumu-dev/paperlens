@@ -40,7 +40,7 @@ if(!$dom->load('http://127.0.0.1/api/search/search.php?query=' . str_replace(' '
 						echo "<span class=\"author\">";
 						while($author = $authors->item($k++) )
 						{
-							echo $author->nodeValue . "&nbsp;";
+							echo "<a href=/site/author.php>" . $author->nodeValue . "</a>&nbsp;";
 						}
 						echo "</span><br />";
 						echo "</div>";
