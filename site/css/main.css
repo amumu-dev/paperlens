@@ -12,3 +12,8 @@ body
 	width:900px;
 	margin:0 auto;
 }
+
+#searchret span
+{
+	float:left;
+}
