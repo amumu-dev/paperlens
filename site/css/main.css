@@ -59,6 +59,7 @@ body
 }
 .paper .title
 {
+	width:100%;
 	float:left;
 	margin-left:1px;
 }
