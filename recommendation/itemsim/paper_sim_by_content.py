@@ -23,8 +23,6 @@ for k in range(numrows):
             for i in papers:
                 if i not in simTable:
                     simTable[i] = dict()
-                if i % 5 != paper_mod:
-                    continue
                 for j in papers:
                     if i == j:
                         continue
