@@ -1,0 +1,14 @@
+body
+{
+	font-size:13px;
+	font-family:Verdana;
+	margin:0 auto;
+	text-align:center;
+	line-height:22px;
+}
+
+#content
+{
+	width:900px;
+	margin:0 auto;
+}
