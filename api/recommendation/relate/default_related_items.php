@@ -4,29 +4,26 @@ require_once("../../db.php");
 function GetRelatedItems($item, $topN)
 {
 	$ret = array();
-	$result = mysql_query('select author_id,rank from paper_author where paper_id='. $item . '  order by rank limit 3');
+	$title_result = mysql_query('select title from paper where id='.$item);
+	if (!$title_result) return $ret;
+	$title = '';
+	while ($row = mysql_fetch_row($title_result))
+	{
+		$title = $row[0];
+	}
+	
+	$result = mysql_query('select id,weight from sphinx  where query=\'@title \"' . str_replace(' ', '+', $title) . '\";mode=any;sort=relevance;limit=10;index=idx1\';');
 	if (!$result) {
 	    die('Query failed: ' . mysql_error());
 	}
 
+	echo "<result>";
+
 	while ($row = mysql_fetch_row($result))
 	{
-		$author_id = $row[0];
-		$rank = $row[1];
-		if($rank == 0) $rank_query = ' and rank == 0';
-		else $rank_query = ' and rank > 0';
-		$rel_results = mysql_query('select paper_id from paper_author where author_id='.$author_id . ' ' . $rank_query);
-		if(!$rel_results) continue;
-		while($rel_row = mysql_fetch_row($rel_results))
-		{
-			$rel_paper_id = $rel_row[0];
-			if($rel_paper_id != $item)
-			{
-				if(!array_key_exists($rel_paper_id, $ret))
-					$ret[$rel_paper_id] = 0;
-				$ret[$rel_paper_id]++;
-			}
-		}
+		$id = $row[0];
+		$weight = $row[1];
+		$ret[$id] = $weight;
 	}
 	arsort($ret);
 	return array_slice($ret, 0, $topN, TRUE);
