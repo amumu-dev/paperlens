@@ -66,8 +66,8 @@ try:
             if value not in dblp_key_map:
                 continue
             dst_id = dblp_key_map[value]
-            cursor.execute("replace into cite(src_id,dst_id) values (%s,%s);",
-                           (src_id,dst_id))
+            cursor.execute("replace into cite(src_id,dst_id, weight) values (%s,%s, %s);",
+                           (src_id,dst_id, 1))
     connection.commit()
     cursor.close()
     connection.close()
