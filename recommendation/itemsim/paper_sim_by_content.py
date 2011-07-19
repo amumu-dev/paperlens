@@ -6,12 +6,13 @@ cursor = connection.cursor()
 
 simTable = dict()
 
-for paper_mod in range(10):
-    for author_mod in range(10):
+
+for author_mod in range(10):
+    for paper_mod in range(10):
         cursor.execute("select paper_id,author_id from paper_author where author_id%10=" + str(author_mod) + " order by author_id;")
 
         numrows = int(cursor.rowcount)
-        print mod, numrows
+        print paper_mod, author_mod, numrows
 
         prev_author = -1
         papers = []
