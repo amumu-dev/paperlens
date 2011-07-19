@@ -9,7 +9,7 @@ def getPaperInfo():
     ret = dict()
     connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
     cursor = connection.cursor()
-    cursor.execute("select id,year,booktitle from paper where length(booktitle) >0 and type = %s;", ("inproceedings"))
+    cursor.execute("select id,year,booktitle from paper where length(booktitle) > 0 and year > 0 and type = %s;", ("inproceedings"))
     numrows = int(cursor.rowcount)
     for k in range(numrows):
         row = cursor.fetchone()
