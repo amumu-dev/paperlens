@@ -56,7 +56,7 @@ try:
             for author in item.authors:
                 if author not in author_index:
                     author_index[author] = len(author_index)
-                cursor.execute("replace into paper_author(paper_id, author, rank) values (%s, %s, %s);", (n, author_index[author], author_rank))
+                cursor.execute("replace into paper_author(paper_id, author_id, rank) values (%s, %s, %s);", (n, author_index[author], author_rank))
                 author_rank = author_rank + 1
             n = n + 1
             if n % 10000 == 0:
