@@ -25,7 +25,7 @@ function GetRelatedItems($item, $topN)
 			}
 		}
 	}
-	return $ret;
+	return array_slice(arsort($ret), 0, $topN, TRUE);
 }
 
 $id = $_GET['id'];
