@@ -13,7 +13,7 @@ if(!$dom->load('http://127.0.0.1/api/search/search.php?query=' . str_replace(' '
 	<head>
 		<title>PaperLens : Open Source Academic Recommender System</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel=¡±stylesheet¡± type=¡±text/css¡± href=¡±./css/main.css¡±>
+		<link rel="stylesheet" type="text/css" href="./css/main.css" />
 	</head>
 	
 	<body>
