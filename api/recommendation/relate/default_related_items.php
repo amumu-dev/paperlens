@@ -13,8 +13,8 @@ function GetRelatedItems($item, $topN)
 	{
 		$author_id = $row[0];
 		$rank = $row[1];
-		if($rank == 0) $rank_query = 'rank == 0';
-		else $rank_query = 'rank > 0';
+		if($rank == 0) $rank_query = ' and rank == 0';
+		else $rank_query = ' and rank > 0';
 		$rel_results = mysql_query('select paper_id from paper_author where author_id='.$author_id . ' ' . $rank_query);
 		if(!$rel_results) continue;
 		while($rel_row = mysql_fetch_row($rel_results))
