@@ -12,7 +12,7 @@ function GetRelatedItems($item, $topN)
 	while ($row = mysql_fetch_row($result))
 	{
 		$author_id = $row[0];
-		echo $author_id . '\n'
+		echo $author_id . '\n';
 		$rel_results = mysql_query('select paper_id from paper_author where author_id='.$author_id);
 		if(!$rel_results) continue;
 		while($rel_row = mysql_fetch_row($rel_results))
