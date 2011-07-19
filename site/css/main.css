@@ -16,4 +16,7 @@ body
 #searchret span
 {
 	float:left;
+	width:98%;
+	margin-left:1%;
+	text-align:left;
 }
