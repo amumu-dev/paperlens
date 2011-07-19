@@ -16,9 +16,6 @@ function GetRelatedItems($item, $topN)
 	if (!$result) {
 	    die('Query failed: ' . mysql_error());
 	}
-
-	echo "<result>";
-
 	while ($row = mysql_fetch_row($result))
 	{
 		$id = $row[0];
