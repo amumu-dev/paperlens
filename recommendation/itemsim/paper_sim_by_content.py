@@ -61,7 +61,7 @@ def authorBasedPaperSim():
 
     for i, rels in simTable.items():
         for j, weight in rels.items():
-            cursor.execute("insert into papersim_author(src_id,dst_id,weight) values (%s,%s,%s);",(i, j, weight))
+            cursor.execute("replace into papersim_author(src_id,dst_id,weight) values (%s,%s,%s);",(i, j, weight))
 
     connection.commit()
     cursor.close()
