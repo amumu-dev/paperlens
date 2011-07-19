@@ -37,11 +37,12 @@ if(!$dom->load('http://127.0.0.1/api/search/search.php?query=' . str_replace(' '
 						echo "<span class=\"title\">" . $title->item(0)->nodeValue . "</span><br />";
 						$authors = $paper->getElementsByTagName('author');
 						$k = 0;
+						echo "<span class=\"author\">"
 						while($author = $authors->item($k++) )
 						{
-							echo "<span class=\"author\">" . $author->nodeValue . "</span>";
+							echo $author->nodeValue . "&nbsp;";
 						}
-						echo "<br />";
+						echo "</span><br />";
 						echo "</div>";
 					}
 					?>
