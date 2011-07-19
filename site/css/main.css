@@ -36,14 +36,19 @@ body
 #header .search_box
 {
 	float:left;
-	width:600px;
-	margin-right:10px;
+	width:500px;
+	margin-left:10px;
+	height:30px;
+	border:#000 solid 1px;
 }
 
 #header .search_button
 {
 	float:left;
+	margin-left:5px;
 	width:100px;
+	border:#000 solid 1px;
+	color:#CCC;
 }
 
 #searchret span
