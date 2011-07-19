@@ -1,6 +1,6 @@
 <?php
 require_once("../../db.php");
-require_once("default_related_items.php")
+require_once("default_related_items.php");
 
 $id = $_GET['id'];
 $related_items = GetRelatedItems($id, 10);
