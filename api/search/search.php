@@ -5,7 +5,7 @@ require_once('../db.php');
 
 $query = $_GET['query'];
 
-$result = mysql_query('select * from sphinx  where query=\'@title \"' . $query . '\";mode=any;sort=attr_desc:year;limit=10;index=idx1\';');
+$result = mysql_query('select * from sphinx  where query=\'@title \"' . $query . '\";mode=relevance;limit=10;index=idx1\';');
 if (!$result) {
     die('Query failed: ' . mysql_error());
 }
