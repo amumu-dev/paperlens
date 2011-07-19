@@ -34,14 +34,14 @@ if(!$dom->load('http://127.0.0.1/api/search/search.php?query=' . str_replace(' '
 					{
 						echo "<div class=\"paper\">";
 						$title = $paper->getElementsByTagName('title');
-						echo '<span class=\"title\">' . $title->item(0)->nodeValue . '</span><br />';
+						echo "<span class=\"title\">" . $title->item(0)->nodeValue . "</span><br />";
 						$authors = $paper->getElementsByTagName('author');
 						$k = 0;
 						while($author = $authors->item($k++) )
 						{
-							echo '<span class=\"author\">' . $author->nodeValue . '</span>';
+							echo "<span class=\"author\">" . $author->nodeValue . "</span>";
 						}
-						echo '<br />';
+						echo "<br />";
 						echo "</div>";
 					}
 					?>
