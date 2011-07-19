@@ -13,6 +13,33 @@ body
 	margin:0 auto;
 }
 
+#header
+{
+	width:100%;
+	text-align:left;
+}
+
+#header #logo
+{
+	width:100px;
+	height:30px;
+	font-size:32px;
+	float:left;
+}
+
+#header .search_box
+{
+	float:right;
+	width:600px;
+	margin-right:10px;
+}
+
+#header .search_button
+{
+	float:right;
+	width:100px;
+}
+
 #searchret span
 {
 	float:left;

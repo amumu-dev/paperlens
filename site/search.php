@@ -19,6 +19,11 @@ if(!$dom->load('http://127.0.0.1/api/search/search.php?query=' . str_replace(' '
 	<body>
 		<div id="content">
 			<div id="header">
+				<div id="logo">PaperLens</div>
+				<form action="search.php">
+					<input class="search_box" type="text" name="query" />
+					<input class="search_button" type="submit" value="Search!" />
+				</form>
 			</div>
 			
 			<div id="main">
