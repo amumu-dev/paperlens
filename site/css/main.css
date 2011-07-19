@@ -52,16 +52,20 @@ body
 	background-color:#CCC;
 }
 
-#searchret span
+.paper
 {
 	float:left;
-	width:98%;
-	margin-left:0%;
-	text-align:left;
+	margin-top:5px;
 }
-
-#searchret .author
+.paper .title
+{
+	float:left;
+	margin-left:1px;
+}
+.paper .author
 {
 	font-size:13px;
 	color:#555;
+	float:left;
+	padding-right:5px;
 }
