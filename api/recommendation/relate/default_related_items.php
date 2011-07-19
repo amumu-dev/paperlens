@@ -33,8 +33,9 @@ function GetRelatedItems($item, $topN)
 $id = $_GET['id'];
 $related_items = GetRelatedItems($id, 10);
 header('Content-Type: text/xml');
-foreach($related_items as $id)
+foreach($related_items as $id => $weight)
 {
+	echo $id . ' ' . $weight;
 	echo file_get_contents('http://127.0.0.1/api/paper.php?id=' . $id) ;
 }
 
