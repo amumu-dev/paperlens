@@ -13,9 +13,9 @@
 			<div id="main">
 				<div id="login">
 					<form action="index.php" method="get">
-						<span>Email <input type="text" name="email" class="textinput"/> </span><br/>
-						<span>Password <input type="text" name="password" class="textinput"/> </span><br/>
-						<span><input type="submit" value="SignUp/Login" /></span>
+						<span>Email</span><input type="text" name="email" class="textinput"/>
+						<span>Password</span><input type="text" name="password" class="textinput"/>
+						<input type="submit" value="SignUp/Login" class="button" />
 					</form>
 				</div>
 			</div>
