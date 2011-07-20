@@ -13,8 +13,8 @@
 			
 			<div id="login">
 				<form action="index.php" method="get" style="width:100%;float:left;">
-					<span>Email</span><input type="text" name="email" class="textinput"/><span style="float:left;width:55%;">
-					<span>Password</span><input type="text" name="password" class="textinput"/><span style="float:left;width:55%;">
+					<span>Email</span><input type="text" name="email" class="textinput"/><span style="float:left;width:55%;"></span>
+					<span>Password</span><input type="text" name="password" class="textinput"/><span style="float:left;width:55%;"></span>
 					<input type="submit" value="SignUp / Login" class="button" />
 				</form>
 			</div>
