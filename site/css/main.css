@@ -103,7 +103,8 @@ body
 
 .feedback
 {
-	
+	width:100%;
+	float:left;
 }
 #main .author
 {
