@@ -43,6 +43,7 @@ body
 	line-height:30px;
 	width:80px;
 	height:30px;
+	margin-top:5px;
 }
 
 #login .textinput
@@ -51,6 +52,16 @@ body
 	height:32px;
 	float:left;
 	line-height:30px;
+	margin-top:5px;
+}
+
+#login .button
+{
+	border:#333 solid 1px;
+	width:120px;
+	height:30px;
+	float:left;
+	margin-left:200px;
 }
 
 #side
