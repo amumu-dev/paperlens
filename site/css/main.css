@@ -43,9 +43,10 @@ body
 	float:left;
 	font-size:15px;
 	line-height:30px;
-	width:80px;
+	width:150px;
 	height:30px;
 	margin-top:5px;
+	text-align:right;
 }
 
 #login .textinput
@@ -63,7 +64,7 @@ body
 	width:100px;
 	height:30px;
 	float:left;
-	margin-left:220px;
+	margin-left:290px;
 	margin-top:5px;
 }
 
