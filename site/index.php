@@ -15,7 +15,7 @@
 					<form action="index.php" method="get">
 						<span>Email</span><input type="text" name="email" class="textinput"/>
 						<span>Password</span><input type="text" name="password" class="textinput"/>
-						<input type="submit" value="SignUp/Login" class="button" />
+						<input type="submit" value="SignUp / Login" class="button" />
 					</form>
 				</div>
 			</div>
