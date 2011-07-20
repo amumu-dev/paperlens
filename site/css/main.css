@@ -33,6 +33,8 @@ body
 #login
 {
 	width:360px;
+	float:left;
+	margin-top:30px;
 }
 
 #login span
