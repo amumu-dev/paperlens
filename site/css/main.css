@@ -54,10 +54,9 @@ body
 	background-color:#CCC;
 }
 
-.paper, .related_author
+.paper,.related_author
 {
 	float:left;
-	margin-top:5px;
 	width:95%;
 	margin-left:2%;
 }
