@@ -30,6 +30,24 @@ body
 	float:left;
 }
 
+#login
+{
+	width:100%;
+	float:left;
+}
+
+#login span
+{
+	float:left;
+	width:100%;
+}
+
+#login .textinput
+{
+	width:200px;
+	float:left;
+}
+
 #side
 {
 	width:22%;
