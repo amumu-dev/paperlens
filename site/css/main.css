@@ -83,6 +83,12 @@ body
 	margin-left:1px;
 	font-weight:bold;
 }
+.paper .title a
+{
+	text-decoration:none;
+	font-size:13px;
+	color:#0080ff;
+}
 #main .author
 {
 	float:left;
