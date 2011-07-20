@@ -32,9 +32,10 @@ body
 
 #login
 {
-	width:360px;
+	width:100%;
 	float:left;
 	margin-top:30px;
+	text-align:left;
 }
 
 #login span

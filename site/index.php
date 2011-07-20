@@ -12,7 +12,7 @@
 			</div>
 			
 			<div id="login">
-				<form action="index.php" method="get">
+				<form action="index.php" method="get" style="width:100%;float:left;">
 					<span>Email</span><input type="text" name="email" class="textinput"/>
 					<span>Password</span><input type="text" name="password" class="textinput"/>
 					<input type="submit" value="SignUp / Login" class="button" />
