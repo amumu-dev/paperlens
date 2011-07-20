@@ -90,6 +90,15 @@ body
 	font-size:13px;
 	color:#1F81CD;
 }
+.paper .info
+{
+	font-size:12px;
+}
+.paper .info a
+{
+	color:#999;
+	font-size:12px;
+}
 #main .author
 {
 	float:left;
