@@ -78,3 +78,13 @@ a
 {
 	color:#0096e0;
 }
+
+h2
+{
+	width:100%;
+	float:left;
+	font-size:14px;
+	font-weight:bold;
+	line-height:32px;
+	height:32px;
+}

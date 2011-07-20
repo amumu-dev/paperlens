@@ -28,6 +28,7 @@ if(!$dom->load('http://127.0.0.1/api/search/search.php?query=' . str_replace(' '
 			
 			<div id="main">
 				<div id="searchret">
+					<h2>Papers Discussing : <?php echo "\"" . $query . "\"" ?></h2>
 					<?php
 					$papers = $dom->getElementsByTagName('paper');
 					foreach($papers as $paper)
