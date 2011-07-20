@@ -7,7 +7,7 @@ if(!$dom->load('http://127.0.0.1/api/search/search.php?n=20&query=' . str_replac
 	echo 'load xml failed';
 	return;
 }
-
+$related_authors = array();
 ?>
 <html>
 	<head>
@@ -42,11 +42,30 @@ if(!$dom->load('http://127.0.0.1/api/search/search.php?n=20&query=' . str_replac
 						while($author = $authors->item($k++) )
 						{
 							echo "<a href=/site/author.php>" . $author->nodeValue . "</a>&nbsp;";
+							if(!array_key_exists($author->nodeValue, $related_authors))
+							{
+								$related_authors[$author->nodeValue] = 1;
+							}
+							else
+							{
+								$related_authors[$author->nodeValue]++;
+							}
 						}
 						echo "</span><br />";
 						echo "</div>";
 					}
 					?>
+					<h2>Authors About : <?php echo "\"" . $query . "\"" ?></h2>
+					<div class="related_author">
+					<?php
+					arsort($related_authors);
+					foreach($related_authors as $author)
+					{
+						echo "<span class=\"author\"><a href=/site/author.php>" . $author . "</a></span>";
+					}
+					?>
+					</div>
+					</span>
 				</div>
 			</div>
 		</div>
