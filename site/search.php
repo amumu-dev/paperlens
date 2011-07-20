@@ -59,7 +59,7 @@ $related_authors = array();
 					<div class="related_author">
 					<?php
 					arsort($related_authors);
-					foreach($related_authors as $author)
+					foreach($related_authors as $author=>$weight)
 					{
 						echo "<span class=\"author\"><a href=/site/author.php>" . $author . "</a></span>";
 					}
