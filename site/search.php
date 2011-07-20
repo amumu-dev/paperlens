@@ -56,7 +56,9 @@ $related_authors = array();
 							}
 						}
 						echo "</span><br />";
-						echo "<span class=feedback><font color=#647B0F>&#9679;&nbsp;</font><a>Recommend</a>&nbsp;<font color=#FFCC00>&#9679;&nbsp;</font><a>Dislike</a></span>";
+						echo "<span class=feedback><font color=#647B0F>&#9679;&nbsp;</font><a>Recommend</a>&nbsp;"
+							. "<font color=#FFCC00>&#9679;&nbsp;</font><a>Like</a>&nbsp;"
+							. "<font color=#047ED1>&#9679;&nbsp;</font><a>Dislike</a>&nbsp;</span>";
 						echo "</div>";
 					}
 					?>
