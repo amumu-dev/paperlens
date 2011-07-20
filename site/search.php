@@ -35,7 +35,7 @@ $related_authors = array();
 					{
 						echo "<div class=\"paper\">";
 						$title = $paper->getElementsByTagName('title');
-						echo "<span class=\"title\">" . strTruncate($title->item(0)->nodeValue, 80) . "</span><br />";
+						echo "<span class=\"title\"><a href=/site/paper.php>" . strTruncate($title->item(0)->nodeValue, 80) . "</a></span><br />";
 						$authors = $paper->getElementsByTagName('author');
 						$k = 0;
 						echo "<span class=\"author\">by&nbsp;";
