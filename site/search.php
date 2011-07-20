@@ -38,7 +38,8 @@ $related_authors = array();
 						echo "<span class=\"title\"><a href=/site/paper.php>" . strTruncate($title->item(0)->nodeValue, 80) . "</a></span><br />";
 						$booktitle = $paper->getElementsByTagName('booktitle');
 						$year = $paper->getElementsByTagName('year');
-						echo "<span class=\"info\"><a href=/site/paper.php>" . $booktitle->item(0)->nodeValue . "</a>&nbsp;" .$year->item(0)->nodeValue. "</span><br />";
+						if(strlen($booktitle->item(0)->nodeValue) > 0)
+							echo "<span class=\"info\"><a href=/site/paper.php>" . $booktitle->item(0)->nodeValue . "</a>&nbsp;" .$year->item(0)->nodeValue. "</span><br />";
 						$authors = $paper->getElementsByTagName('author');
 						$k = 0;
 						echo "<span class=\"author\">by&nbsp;";
@@ -55,6 +56,7 @@ $related_authors = array();
 							}
 						}
 						echo "</span><br />";
+						echo "<span class=feedback><font color=#647B0F>&#9679;</font><a>Recommend</a>&nbsp;<font color=#FFCC00>&#9679;</font><a>Dislike</a></span>";
 						echo "</div>";
 					}
 					?>
