@@ -32,14 +32,16 @@ body
 
 #login
 {
-	width:100%;
+	width:360px;
 	float:left;
 }
 
 #login span
 {
 	float:left;
-	width:40px;
+	font-size:15px;
+	line-height:30px;
+	width:80px;
 	height:30px;
 }
 
@@ -48,6 +50,7 @@ body
 	width:240px;
 	height:32px;
 	float:left;
+	line-height:30px;
 }
 
 #side
