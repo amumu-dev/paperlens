@@ -92,11 +92,12 @@ body
 }
 .paper .info
 {
+	color:#222;
 	font-size:12px;
 }
 .paper .info a
 {
-	color:#999;
+	color:#222;
 	font-size:12px;
 }
 #main .author
