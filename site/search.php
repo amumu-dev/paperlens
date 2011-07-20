@@ -1,6 +1,6 @@
 <?php
+require_once("functions.php");
 $query = $_GET["query"];
-
 $dom = new DOMDocument();
 if(!$dom->load('http://127.0.0.1/api/search/search.php?n=20&query=' . str_replace(' ','+',$query)))
 {
@@ -35,7 +35,7 @@ $related_authors = array();
 					{
 						echo "<div class=\"paper\">";
 						$title = $paper->getElementsByTagName('title');
-						echo "<span class=\"title\">" . $title->item(0)->nodeValue . "</span><br />";
+						echo "<span class=\"title\">" . strTruncate($title->item(0)->nodeValue, 48) . "</span><br />";
 						$authors = $paper->getElementsByTagName('author');
 						$k = 0;
 						echo "<span class=\"author\">by&nbsp;";
@@ -71,5 +71,6 @@ $related_authors = array();
 				</div>
 			</div>
 		</div>
+	<br/>
 	</body>
 </html>
