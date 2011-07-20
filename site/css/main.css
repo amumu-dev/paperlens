@@ -85,8 +85,7 @@ body
 }
 #main .author a
 {
-	font-family:bold;
-	font-size:11px;
+	font-weight:bold;
 }
 #side .author
 {
@@ -99,7 +98,7 @@ a
 }
 #main a
 {
-	font-size:11px;
+	font-size:12px;
 }
 h2
 {
