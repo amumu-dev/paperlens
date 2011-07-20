@@ -92,19 +92,19 @@ body
 }
 .paper .info
 {
-	color:#222;
+	color:#777;
 	font-size:12px;
 }
 .paper .info a
 {
-	color:#222;
+	color:#777;
 	font-size:12px;
 }
 #main .author
 {
 	float:left;
 	padding-right:5px;
-	color:#888;
+	color:#777;
 }
 #main .author a
 {
