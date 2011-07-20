@@ -59,8 +59,10 @@ $related_authors = array();
 					<div class="related_author">
 					<?php
 					arsort($related_authors);
+					array_slice($related_authors, 0, 8);
 					foreach($related_authors as $author=>$weight)
 					{
+						if($weight < 2) continue;
 						echo "<span class=\"author\"><a href=/site/author.php>" . $author . "</a></span>";
 					}
 					?>
