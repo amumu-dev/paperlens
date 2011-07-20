@@ -11,7 +11,7 @@
 				<div id="logo">PaperLens</div>
 			</div>
 			
-			<div id="login">
+			<div class="login">
 				<form action="index.php" method="get" style="width:100%;float:left;">
 					<div style="float:left;width:100%;"><span>Email&nbsp;</span><input type="text" name="email" class="textinput"/></div>
 					<div style="float:left;width:100%;"><span>Password&nbsp;</span><input type="text" name="password" class="textinput"/></div>
@@ -20,7 +20,7 @@
 				</form>
 			</div>
 			
-			<div id="login">
+			<div class="login">
 				<form action="index.php" method="get" style="width:100%;float:left;">
 					<div style="float:left;width:100%;"><span>Email&nbsp;</span><input type="text" name="email" class="textinput"/></div>
 					<div style="float:left;width:100%;"><span>Password&nbsp;</span><input type="text" name="password" class="textinput"/></div>
