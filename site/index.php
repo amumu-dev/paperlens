@@ -8,6 +8,7 @@
 	<body>
 		<div id="content">
 			<div id="header">
+				<div id="logo">PaperLens</div>
 			</div>
 			
 			<div id="main">
