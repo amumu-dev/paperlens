@@ -70,7 +70,7 @@ $related_authors = array();
 				<div class="related_author">
 				<?php
 				arsort($related_authors);
-				array_slice($related_authors, 0, 8);
+				$related_authors = array_slice($related_authors, 0, 16);
 				foreach($related_authors as $author=>$weight)
 				{
 					if($weight < 2) continue;
@@ -80,6 +80,6 @@ $related_authors = array();
 				</div>
 			</div>
 		</div>
-		<div id="foot"></div>
+		<div id="foot">&copy; PaperLens 2011</div>
 	</body>
 </html>
