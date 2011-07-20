@@ -80,6 +80,6 @@ $related_authors = array();
 				</div>
 			</div>
 		</div>
-	<br/>
+		<div id="foot"></div>
 	</body>
 </html>
