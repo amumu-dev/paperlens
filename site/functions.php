@@ -2,15 +2,17 @@
 
 function strTruncate($buf, $maxLength)
 {
-	$tks = split(" ", $buf);
+	$tks = explode(" ", $buf);
 	$ret = "";
-	$all = FALSE;
+	$all = TRUE;
 	foreach($tks as $word)
 	{
 		if(strlen($ret) + strlen($word) >= $maxLength)
+		{
+			$all = FALSE;
 			break;
+		}
 		$ret .= $word . " ";
-		$all = TRUE;
 	}
 	if(!$all) $ret .= "...";
 	return $ret;
