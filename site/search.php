@@ -2,7 +2,7 @@
 require_once("functions.php");
 $query = $_GET["query"];
 $dom = new DOMDocument();
-if(!$dom->load('http://127.0.0.1/api/search/search.php?n=10&query=' . str_replace(' ','+',$query)))
+if(!$dom->load('http://127.0.0.1/api/search/search.php?n=50&query=' . str_replace(' ','+',$query)))
 {
 	echo 'load xml failed';
 	return;
@@ -35,7 +35,7 @@ $related_authors = array();
 					{
 						echo "<div class=\"paper\">";
 						$title = $paper->getElementsByTagName('title');
-						echo "<span class=\"title\">" . strTruncate($title->item(0)->nodeValue, 64) . "</span><br />";
+						echo "<span class=\"title\">" . strTruncate($title->item(0)->nodeValue, 96) . "</span><br />";
 						$authors = $paper->getElementsByTagName('author');
 						$k = 0;
 						echo "<span class=\"author\">by&nbsp;";
