@@ -25,6 +25,15 @@ body
 {
 	margin-top:20px;
 	text-align:left;
+	width:77%;
+	float:left;
+}
+
+#side
+{
+	width:22%;
+	float:left;
+	margin-left:1%;
 }
 
 #header #logo

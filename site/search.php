@@ -2,7 +2,7 @@
 require_once("functions.php");
 $query = $_GET["query"];
 $dom = new DOMDocument();
-if(!$dom->load('http://127.0.0.1/api/search/search.php?n=20&query=' . str_replace(' ','+',$query)))
+if(!$dom->load('http://127.0.0.1/api/search/search.php?n=10&query=' . str_replace(' ','+',$query)))
 {
 	echo 'load xml failed';
 	return;
@@ -55,19 +55,20 @@ $related_authors = array();
 						echo "</div>";
 					}
 					?>
-					<h2>Authors About : <?php echo "\"" . $query . "\"" ?></h2>
-					<div class="related_author">
-					<?php
-					arsort($related_authors);
-					array_slice($related_authors, 0, 8);
-					foreach($related_authors as $author=>$weight)
-					{
-						if($weight < 2) continue;
-						echo "<span class=\"author\"><a href=/site/author.php>" . $author . "</a></span>";
-					}
-					?>
-					</div>
-					</span>
+				</div>
+			</div>
+			<div id="side">
+				<h2>Related Authors</h2>
+				<div class="related_author">
+				<?php
+				arsort($related_authors);
+				array_slice($related_authors, 0, 8);
+				foreach($related_authors as $author=>$weight)
+				{
+					if($weight < 2) continue;
+					echo "<span class=\"author\"><a href=/site/author.php>" . $author . "</a></span>";
+				}
+				?>
 				</div>
 			</div>
 		</div>
