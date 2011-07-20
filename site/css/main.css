@@ -72,20 +72,25 @@ body
 	width:95%;
 	margin-left:2%;
 }
+.paper
+{
+	margin-bottom:10px;
+}
 .paper .title
 {
 	width:100%;
 	float:left;
 	margin-left:1px;
+	font-weight:bold;
 }
 #main .author
 {
 	float:left;
 	padding-right:5px;
+	color:#888;
 }
 #main .author a
 {
-	font-weight:bold;
 	font-size:11px;
 }
 #side .author
