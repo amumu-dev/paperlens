@@ -66,7 +66,7 @@ $related_authors = array();
 				foreach($related_authors as $author=>$weight)
 				{
 					if($weight < 2) continue;
-					echo "<span class=\"author\"><a href=/site/author.php>" . $author . "</a></span>";
+					echo "<span class=\"author\"><a href=/site/author.php>" . $author . "</a></span><br>";
 				}
 				?>
 				</div>
