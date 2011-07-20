@@ -78,16 +78,17 @@ body
 	float:left;
 	margin-left:1px;
 }
-.author
+#main .author
 {
-	font-size:11px;
-	color:#888;
 	float:left;
 	padding-right:5px;
+	font-family:bold;
 }
 #side .author
 {
+	float:left;
 	width:100%;
+	font-size:13px;
 }
 a
 {
