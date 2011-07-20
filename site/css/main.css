@@ -44,6 +44,7 @@ body
 	height:30px;
 	font-size:32px;
 	float:left;
+	font-weight:bold;
 }
 
 #header .search_box

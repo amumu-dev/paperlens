@@ -31,9 +31,12 @@ $related_authors = array();
 					<h2>Papers Discussing : <?php echo "\"" . $query . "\"" ?></h2>
 					<?php
 					$papers = $dom->getElementsByTagName('paper');
+					$i = 0;
 					foreach($papers as $paper)
 					{
-						echo "<div class=\"paper\">";
+						++$i;
+						if($i <= 10) echo "<div class=\"paper\">";
+						else echo "<div class=\"paper\" style=\"display:none;\">";
 						$title = $paper->getElementsByTagName('title');
 						echo "<span class=\"title\"><a href=/site/paper.php>" . strTruncate($title->item(0)->nodeValue, 80) . "</a></span><br />";
 						$booktitle = $paper->getElementsByTagName('booktitle');
