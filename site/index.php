@@ -11,14 +11,12 @@
 				<div id="logo">PaperLens</div>
 			</div>
 			
-			<div id="main">
-				<div id="login">
-					<form action="index.php" method="get">
-						<span>Email</span><input type="text" name="email" class="textinput"/>
-						<span>Password</span><input type="text" name="password" class="textinput"/>
-						<input type="submit" value="SignUp / Login" class="button" />
-					</form>
-				</div>
+			<div id="login">
+				<form action="index.php" method="get">
+					<span>Email</span><input type="text" name="email" class="textinput"/>
+					<span>Password</span><input type="text" name="password" class="textinput"/>
+					<input type="submit" value="SignUp / Login" class="button" />
+				</form>
 			</div>
 		</div>
 	</body>
