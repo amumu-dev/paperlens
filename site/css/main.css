@@ -82,6 +82,9 @@ body
 {
 	float:left;
 	padding-right:5px;
+}
+#main .author a
+{
 	font-family:bold;
 	font-size:11px;
 }
@@ -89,7 +92,6 @@ body
 {
 	float:left;
 	width:100%;
-	font-size:13px;
 }
 a
 {
