@@ -32,20 +32,22 @@ body
 
 #login
 {
-	width:100%;
+	width:300px;
 	float:left;
 }
 
 #login span
 {
-	float:left;
+	float:right;
 	width:100%;
 }
 
 #login .textinput
 {
-	width:200px;
-	float:left;
+	width:240px;
+	height:32px;
+	float:right;
+	margin:5px 0 0 5px;
 }
 
 #side
