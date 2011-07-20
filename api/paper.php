@@ -17,7 +17,7 @@ function getAuthorName($author_id)
 		$name = $row[0];
 	}
 	mysql_free_result($result);
-	return str_replace('&', '', $name);
+	return htmlspecialchars($name);
 }
 
 function getPaperInfo($paper_id)
@@ -55,8 +55,8 @@ $paper_info = getPaperInfo($id);
 
 echo "<paper>";
 echo "<id>" . $id . "</id>";
-echo "<title>" . $paper_info['title'] . "</title>";
-echo "<booktitle>" . $paper_info['booktitle'] . "</booktitle>";
+echo "<title>" . htmlspecialchars($paper_info['title']) . "</title>";
+echo "<booktitle>" . htmlspecialchars($paper_info['booktitle']) . "</booktitle>";
 foreach($paper_info['author'] as $author)
 {
 	echo "<author>" . $author. "</author>";
