@@ -22,6 +22,11 @@ $related_authors = array();
 	<body>
 		<div id="content">
 			<div id="header">
+				<div id="toolbar">
+					<span>Hi <?php echo $email; ?></span>&nbsp;&nbsp;
+					<span><a href="/site/">Home Page</a></span>&nbsp;&nbsp;
+					<span><a href="/site/logout.php">Log out</a></span>
+				</div>
 				<div id="logo">PaperLens</div>
 				<form action="search.php">
 					<input class="search_box" type="text" name="query" value=<?php echo "\"" . $query . "\"" ?>/>
