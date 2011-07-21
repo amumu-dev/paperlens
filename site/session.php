@@ -8,5 +8,4 @@ if (isset($_SESSION["admin"]) && $_SESSION["admin"] === true)
 		$uid = $_GET["uid"];
 }
 if($uid < 0) $login = FALSE;
-if(!$login) Header("Location: index.php");
 ?>

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('session.php');
+if(!$login) Header("Location: index.php");
 require_once("functions.php");
 $query = $_GET["query"];
 $dom = new DOMDocument();
