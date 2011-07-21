@@ -1,5 +1,13 @@
 <?php
 session_start();
+$login = FALSE;
+$uid = -1;
+if (isset($_SESSION["admin"]) && $_SESSION["admin"] === true)
+{
+	$login = TRUE;
+	if(isset($_GET["uid"]))
+		$uid = $_GET["uid"];
+}
 ?>
 <html>
 	<head>
@@ -13,7 +21,9 @@ session_start();
 			<div id="header">
 				<div id="logo">PaperLens</div>
 			</div>
-			
+			<?php
+				if($login==FALSE || $uid == -1){
+			?>
 			<div class="login">
 				<form action="signup.php" method="post" style="width:100%;float:left;">
 					<div style="float:left;width:100%;"><span>Email&nbsp;</span><input type="text" name="email" class="textinput"/></div>
@@ -30,6 +40,9 @@ session_start();
 					<input type="submit" value="Login" class="button" />
 				</form>
 			</div>
+			<?php
+				}
+			?>
 		</div>
 	</body>
 </html>
