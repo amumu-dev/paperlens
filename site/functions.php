@@ -3,8 +3,10 @@
 function renderPapers($papers_dom)
 {
 	$related_authors = array();
+	$j = 0;
 	foreach($papers_dom as $paper)
 	{
+		++$j;
 		echo "<div class=\"paper\">";
 		$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
 		$title = $paper->getElementsByTagName('title');
@@ -29,8 +31,8 @@ function renderPapers($papers_dom)
 			}
 		}
 		echo "</span><br />";
-		echo "<span class=feedback><font color=#647B0F>&#9679;&nbsp;</font><a onclick=\"recommend('" . $_SESSION['uid'] 
-			. "','" . $paper_id. "', '1', '1')\">Recommend</a>&nbsp;"
+		echo "<span class=feedback><font color=#647B0F>&#9679;&nbsp;</font><a id=\"recommend" .$j. "\" onclick=\"recommend('" . $_SESSION['uid'] 
+			. "','" . $paper_id. "', '1', '1', 'recommend" . $j . "')\">Recommend</a>&nbsp;"
 			. "<font color=#FFCC00>&#9679;&nbsp;</font><a>Like</a>&nbsp;"
 			. "<font color=#BE1A21>&#9679;&nbsp;</font><a>Dislike</a>&nbsp;</span>";
 		echo "</div>";
