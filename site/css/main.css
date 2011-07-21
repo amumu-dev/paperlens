@@ -14,7 +14,11 @@ body
 	margin:0 auto;
 	margin-bottom:20px;
 }
-
+#toolbar
+{
+	width:100%;
+	float:left;
+}
 #header
 {
 	width:100%;

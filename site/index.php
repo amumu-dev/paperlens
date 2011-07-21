@@ -29,9 +29,17 @@ if($login)
 	<body>
 		<div id="content">
 			<div id="header">
+				<?php
+				if($login){
+				?>
+				<div id="toolbar">
+					<span>Hi <?php echo $email; ?></span>&nbsp;&nbsp;
+					<span><a href="/site/logout.php">Log out</a></span>
+				</div>
+				<?php } ?>
 				<div id="logo">PaperLens</div>
 				<form action="search.php">
-					<input class="search_box" type="text" name="query" value=<?php echo "\"" . $query . "\"" ?>/>
+					<input class="search_box" type="text" name="query" value=""/>
 					<input class="search_button" type="submit" value="Search!" />
 				</form>
 			</div>
