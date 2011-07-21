@@ -5,8 +5,8 @@ $email = $_POST["email"];
 $keywords = $_POST["keywords"];
 mysql_query("replace into user (email,passwd,keywords) values ('" . $email . "', '".$password."', '" . $keywords . "');");
 
-echo "SELECT id FROM user WHERE email='".$email."' and password = '" . $password . "'";
-$result = mysql_query("SELECT id FROM user WHERE email='".$email."' and password = '" . $password . "'");
+echo "SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'";
+$result = mysql_query("SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'");
 if ($result) 
 {
 	$row = mysql_fetch_row($result);
