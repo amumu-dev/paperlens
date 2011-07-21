@@ -1,4 +1,5 @@
 <?php
+require_once('/api/db.php');
 $password = md5($_POST["password"]);
 $email = $_POST["email"];
 $keywords = $_POST["keywords"];
