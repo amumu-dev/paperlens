@@ -18,7 +18,7 @@ connection.commit()
 
 paper_hash = dict()
 try:
-    cursor.execute("select id,title from paper limit 100")
+    cursor.execute("select id,title from paper")
     n = 0
     while 1:
         row = cursor.fetchone()
@@ -31,8 +31,12 @@ try:
         if n % 10000 == 0:
             print str(n)
 
+    n = 0
     for (paper_id, hash_value) in paper_hash.items():
         cursor.execute("update paper set hashvalue=%s where id=%s",(hash_value,paper_id))
+        n = n + 1
+        if n % 10000 == 0:
+            print str(n)
     connection.commit()
     cursor.close()
     connection.close()
