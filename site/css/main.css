@@ -21,6 +21,10 @@ body
 	margin-top:5px;
 	margin-bottom:10px;
 }
+#toolbar a
+{
+	cursor:pointer;
+}
 #header
 {
 	width:100%;
