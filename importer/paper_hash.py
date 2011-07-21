@@ -26,7 +26,7 @@ try:
         paper_id = int(row[0])
         title = row[1]
         print paper_id
-##        hash_value = intHash(title.lower())
+        hash_value = intHash(title.lower())
 ##        cursor.execute("update paper set hashvalue=%s where id=%s",(hash_value,paper_id))
 ##        n = n + 1
 ##        if n % 10000 == 0:
