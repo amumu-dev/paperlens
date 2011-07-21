@@ -12,6 +12,7 @@ if($uid < 0) $login = FALSE;
 if($login)
 {
 	require_once('../api/db.php');
+	require_once("functions.php");
 	$result = mysql_query("SELECT keywords FROM user WHERE id=".$uid);
 	if (!$result) die("error when get keywords of user");
 	$row = mysql_fetch_row($result);
