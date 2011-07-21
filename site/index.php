@@ -1,14 +1,6 @@
 <?php
 session_start();
-$login = FALSE;
-$uid = -1;
-if (isset($_SESSION["admin"]) && $_SESSION["admin"] === true)
-{
-	$login = TRUE;
-	if(isset($_GET["uid"]))
-		$uid = $_GET["uid"];
-}
-if($uid < 0) $login = FALSE;
+require_once('session.php');
 if($login)
 {
 	require_once('../api/db.php');
@@ -38,6 +30,10 @@ if($login)
 		<div id="content">
 			<div id="header">
 				<div id="logo">PaperLens</div>
+				<form action="search.php">
+					<input class="search_box" type="text" name="query" value=<?php echo "\"" . $query . "\"" ?>/>
+					<input class="search_button" type="submit" value="Search!" />
+				</form>
 			</div>
 			<?php
 			if($login==FALSE){
@@ -100,7 +96,7 @@ if($login)
 			?>
 			</div>
 			<div id="side">
-				<h2>Author Recommendations</h2>
+				<h2>Related Authors</h2>
 				<div class="related_author">
 				<?php
 				arsort($related_authors);
