@@ -2,7 +2,7 @@
 require_once('db.php');
 $password = md5($_POST["password"]);
 $email = $_POST["email"];
-$result = mysql_query("SELECT id FROM user WHERE email=\'".$email."\' and passwd = \'" . $password . "\'");
+$result = mysql_query("SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'");
 if ($result) 
 {
 	$row = mysql_fetch_row($result);
