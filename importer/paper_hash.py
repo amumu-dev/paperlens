@@ -6,7 +6,7 @@ sys.path.append("../")
 import hashlib
 from paper import Paper
 
-connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
+connection = MySQLdb.connect(host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
 cursor = connection.cursor()
 
 def intHash(buf):
@@ -16,10 +16,12 @@ def intHash(buf):
     return ret % 200000000
 
 try:
-    cursor.execute("select id,title from paper")
+    cursor.execute("select id,title from paper limit 100")
     n = 0
     while 1:
         row = cursor.fetchone()
+        if row == None:
+            break
         paper_id = int(row[0])
         title = row[1]
         hash_value = intHash(title.lower())
