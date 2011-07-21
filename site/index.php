@@ -60,6 +60,9 @@ if($login)
 			}
 			else
 			{
+			?>
+			<div class="main">
+			<?php
 				$papers = $dom->getElementsByTagName('paper');
 				foreach($papers as $paper)
 				{
@@ -76,14 +79,6 @@ if($login)
 					while($author = $authors->item($k++) )
 					{
 						echo "<a href=/site/author.php>" . $author->nodeValue . "</a>&nbsp;";
-						if(!array_key_exists($author->nodeValue, $related_authors))
-						{
-							$related_authors[$author->nodeValue] = 1;
-						}
-						else
-						{
-							$related_authors[$author->nodeValue]++;
-						}
 					}
 					echo "</span><br />";
 					echo "<span class=feedback><font color=#647B0F>&#9679;&nbsp;</font><a>Recommend</a>&nbsp;"
@@ -93,6 +88,7 @@ if($login)
 				}
 			}
 			?>
+			</div>
 		</div>
 	</body>
 </html>
