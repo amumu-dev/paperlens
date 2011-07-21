@@ -21,10 +21,9 @@ body
 	margin-top:5px;
 	margin-bottom:10px;
 }
-#toolbar a
+.feedback a
 {
 	cursor:pointer;
-	display:block;
 }
 #header
 {
