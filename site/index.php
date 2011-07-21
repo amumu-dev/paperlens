@@ -13,16 +13,18 @@ if($login)
 {
 	require_once('../api/db.php');
 	require_once("functions.php");
-	$result = mysql_query("SELECT keywords FROM user WHERE id=".$uid);
+	$result = mysql_query("SELECT keywords,email FROM user WHERE id=".$uid);
 	if (!$result) die("error when get keywords of user");
 	$row = mysql_fetch_row($result);
 	$keywords = $row[0];
+	$email = $row[1];
 	$dom = new DOMDocument();
 	if(!$dom->load('http://127.0.0.1/api/search/search.php?n=10&query=' . str_replace(' ','+',$keywords)))
 	{
 		echo 'load xml failed';
 		return;
 	}
+	$related_authors = array();
 }
 ?>
 <html>
@@ -62,7 +64,7 @@ if($login)
 			{
 			?>
 			<div id="main">
-			<h2>Paper Recommendations :</h2>
+			<h2>Paper Recommendations : </h2>
 			<?php
 				$papers = $dom->getElementsByTagName('paper');
 				foreach($papers as $paper)
@@ -80,6 +82,14 @@ if($login)
 					while($author = $authors->item($k++) )
 					{
 						echo "<a href=/site/author.php>" . $author->nodeValue . "</a>&nbsp;";
+						if(!array_key_exists($author->nodeValue, $related_authors))
+						{
+							$related_authors[$author->nodeValue] = 1;
+						}
+						else
+						{
+							$related_authors[$author->nodeValue]++;
+						}
 					}
 					echo "</span><br />";
 					echo "<span class=feedback><font color=#647B0F>&#9679;&nbsp;</font><a>Recommend</a>&nbsp;"
@@ -87,9 +97,22 @@ if($login)
 						. "<font color=#BE1A21>&#9679;&nbsp;</font><a>Dislike</a>&nbsp;</span>";
 					echo "</div>";
 				}
-			}
 			?>
 			</div>
+			<div id="side">
+				<h2>Author Recommendations</h2>
+				<div class="related_author">
+				<?php
+				arsort($related_authors);
+				$related_authors = array_slice($related_authors, 0, 16);
+				foreach($related_authors as $author=>$weight)
+				{
+					echo "<span class=\"author\"><a href=/site/author.php>" . $author . "</a></span><br>";
+				}
+				?>
+				</div>
+			</div>
+			<?php } ?>
 		</div>
 	</body>
 </html>
