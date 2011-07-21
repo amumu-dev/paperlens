@@ -3,7 +3,7 @@
 function renderPapers($papers_dom)
 {
 	$related_authors = array();
-	foreach($papers as $paper)
+	foreach($papers_dom as $paper)
 	{
 		echo "<div class=\"paper\">";
 		$title = $paper->getElementsByTagName('title');
