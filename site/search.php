@@ -25,6 +25,7 @@ $related_authors = array();
 				<div id="logo">PaperLens</div>
 				<form action="search.php">
 					<input class="search_box" type="text" name="query" value=<?php echo "\"" . $query . "\"" ?>/>
+					<input type="hidden" name="uid" value="<?php echo $uid; ?>"/>
 					<input class="search_button" type="submit" value="Search!" />
 				</form>
 			</div>

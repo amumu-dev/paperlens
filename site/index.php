@@ -40,6 +40,7 @@ if($login)
 				<div id="logo">PaperLens</div>
 				<form action="search.php">
 					<input class="search_box" type="text" name="query" value=""/>
+					<input type="hidden" name="uid" value="<?php echo $uid; ?>"/>
 					<input class="search_button" type="submit" value="Search!" />
 				</form>
 			</div>
