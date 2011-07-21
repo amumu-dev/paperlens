@@ -6,6 +6,7 @@ function renderPapers($papers_dom)
 	foreach($papers_dom as $paper)
 	{
 		echo "<div class=\"paper\">";
+		$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
 		$title = $paper->getElementsByTagName('title');
 		echo "<span class=\"title\"><a href=/site/paper.php>" . strTruncate($title->item(0)->nodeValue, 85) . "</a></span><br />";
 		$booktitle = $paper->getElementsByTagName('booktitle');
@@ -28,7 +29,8 @@ function renderPapers($papers_dom)
 			}
 		}
 		echo "</span><br />";
-		echo "<span class=feedback><font color=#647B0F>&#9679;&nbsp;</font><a onclick=\"recommend();\">Recommend</a>&nbsp;"
+		echo "<span class=feedback><font color=#647B0F>&#9679;&nbsp;</font><a onclick=\"recommend(" . $_SESSION['uid'] 
+			. "," . $paper_id. ", 1, 1);\">Recommend</a>&nbsp;"
 			. "<font color=#FFCC00>&#9679;&nbsp;</font><a>Like</a>&nbsp;"
 			. "<font color=#BE1A21>&#9679;&nbsp;</font><a>Dislike</a>&nbsp;</span>";
 		echo "</div>";

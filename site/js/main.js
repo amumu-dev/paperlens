@@ -1,5 +1,5 @@
-function recommend()
+function recommend(uid, paper, behavior, w)
 {
 	node_body = document.getElementsByTagName("body")[0];
-	node_body.innerHTML += '<img src=/site/behavior.php?uid=1&paper=1&behavior=1&weight=1 />';
+	node_body.innerHTML += '<script type=\'text/javascript\' src=/site/behavior.php?uid=' + uid + '&paper=' + paper + '&behavior=' + behavior + '&w=' + w + ' />';
 }
