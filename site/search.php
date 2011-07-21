@@ -24,7 +24,7 @@ $related_authors = array();
 			<div id="header">
 				<div id="toolbar">
 					<span>Hi <?php echo $_SESSION["email"]; ?></span>&nbsp;&nbsp;
-					<span><a href="/site/">Home Page</a></span>&nbsp;&nbsp;
+					<span><a href="/site/index.php">Home Page</a></span>&nbsp;&nbsp;
 					<span><a href="/site/logout.php">Log out</a></span>
 				</div>
 				<div id="logo">PaperLens</div>
