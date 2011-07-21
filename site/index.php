@@ -61,8 +61,8 @@ if($login)
 			else
 			{
 			?>
-			<div class="main">
-			<h2>Paper Recommendations : <?php echo "\"" . $query . "\"" ?></h2>
+			<div id="main">
+			<h2>Paper Recommendations :</h2>
 			<?php
 				$papers = $dom->getElementsByTagName('paper');
 				foreach($papers as $paper)
