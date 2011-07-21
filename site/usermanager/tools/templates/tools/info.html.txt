@@ -1,0 +1,15 @@
+{% extends "base.html"%}
+
+{% block title %}PaperLens-Info{% endblock %}
+
+{% block bodyblock %}
+
+<div id="content-main">
+
+the info:{{thedesp}}
+
+the url to redirect:<a href="{{theurl}}">{{theurl}}</a>
+
+</div>
+
+{% endblock %}
