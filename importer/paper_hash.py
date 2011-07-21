@@ -8,6 +8,7 @@ from paper import Paper
 
 connection = MySQLdb.connect(host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
 cursor = connection.cursor()
+connection.commit()
 
 def intHash(buf):
     ret = 0
