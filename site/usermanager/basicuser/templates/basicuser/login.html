@@ -1,0 +1,27 @@
+{% extends "base.html"%}
+
+{% block title %}PaperLens-login{% endblock %}
+
+{% block bodyblock %}
+
+<div id="content-main">
+<form action="/basicuser/login" method="post" >{% csrf_token %}
+  <div class="form-row">
+    <label for="id_username">Username:</label> <input type="text" name="username" id="id_username">
+  </div>
+
+  <div class="form-row">
+    <label for="id_password">Password:</label> <input type="password" name="password" id="id_password">
+    <input type="hidden" name="this_is_the_login_form" value="1">
+  </div>
+
+  <div class="submit-row">
+    <label>&nbsp;</label><input type="submit" value="Log in">
+	<a href="/basicuser/reg">Register</a>
+  </div>
+
+</form>
+
+</div>
+
+{% endblock %}

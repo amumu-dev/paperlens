@@ -1,0 +1,46 @@
+﻿{% extends "base.html"%}
+
+{% block title %}PaperLens-connect status{% endblock %}
+
+{% block bodyblock %}
+
+<div id="content-main">
+
+<!--basic info-->
+<div>
+<p>basic information</p>
+hello，{{user.username}}!
+</div>
+
+<!--douban connect info-->
+<div>
+<p>douban connect status</p>
+
+{% ifequal doubancon '1'%}
+{{doubaninfo}}
+{% else %}
+<a href='/doubancon/connect'>
+<img src="http://img3.douban.com/pics/doubanicon-24.png" />
+</a>
+{% endifequal %}
+
+</div>
+
+
+<!--sina connect info-->
+<div>
+<p>sina connect status</p>
+
+{% ifequal sinacon '1'%}
+{{sinainfo}}
+{% else %}
+<a href='/weibo/connect'>
+<img src="http://www.sinaimg.cn/blog/developer/wiki/240.png" />
+</a>
+{% endifequal %}
+
+</div>
+
+</div>
+
+{% endblock %}

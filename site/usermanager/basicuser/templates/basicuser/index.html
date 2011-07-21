@@ -1,0 +1,19 @@
+{% extends "base.html"%}
+
+{% block title %}PaperLens-BasicUser Index{% endblock %}
+
+{% block bodyblock %}
+
+
+{% if user.is_authenticated %}
+	hello,{{user.username}}.
+<a href="/basicuser/logout">logout</a>
+{% else %}
+	<a href="/basicuser/login">loginurl</a>
+{% endif %}
+
+<div>
+<a href="/basicuser/connectstatus">connectstatus</a>
+</div>
+
+{% endblock %}
