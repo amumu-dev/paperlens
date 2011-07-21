@@ -20,8 +20,6 @@ try:
     n = 0
     while 1:
         row = cursor.fetchone()
-        if row == None:
-            break
         paper_id = int(row[0])
         title = row[1]
         hash_value = intHash(title.lower())
