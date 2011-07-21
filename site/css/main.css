@@ -24,6 +24,7 @@ body
 #toolbar a
 {
 	cursor:pointer;
+	display:block;
 }
 #header
 {
