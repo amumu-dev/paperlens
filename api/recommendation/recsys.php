@@ -23,6 +23,7 @@ function combineArray(&$A, $B, $w)
 		{
 			$A[$key] = 0;
 		}
+		print_r($A[$key]);
 		$A[$key] += $value * $w;
 	}
 }
