@@ -6,7 +6,7 @@ function recommendationCore($features, $table_name, $topN)
 	foreach($features as $item=>$preference)
 	{
 		$related_items = GetRelatedItems($item, $table_name, $topN);
-		$max_sim = (array_values($related_items))[0];
+		$max_sim = max(array_values($related_items));
 		foreach($related_items as $related_item=>$similarity)
 		{
 			if(!array_key_exists($related_item, $ret))
