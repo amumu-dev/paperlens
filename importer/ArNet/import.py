@@ -19,7 +19,7 @@ try:
             title = line[2:len(line)-1].strip('.').lower()
         if line.find("#citation") == 0:
             citations = int(line[9:])
-        print title, citations
+            print title, citations
         n = n + 1
         if n > 100:
             break
