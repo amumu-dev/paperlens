@@ -24,10 +24,10 @@ try:
             row = cursor.fetchone()
             if(int(row[0]) == 1):
                 cursor.execute("update paper set citations=%s where hashvalue=%s",(citations, hashvalue))
-        n = n + 1
+            n = n + 1
         
-        if n > 100:
-            break
+            if n % 10000 == 0:
+                print n, title, citations
     connection.commit()
     cursor.close()
     connection.close()
