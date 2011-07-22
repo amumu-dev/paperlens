@@ -17,13 +17,16 @@ require_once("./filter/filtering.php");
 
 function combineArray(&$A, $B, $w)
 {
+	print_r($A);
+	echo "<br>";
+	print_r($A);
+	echo "<br>--------------------<br>";
 	foreach($B as $key => $value)
 	{
 		if(!array_key_exists($key, $A))
 		{
 			$A[$key] = 0;
 		}
-		print_r($A[$key]);
 		$A[$key] += $value * $w;
 	}
 }
