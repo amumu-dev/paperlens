@@ -16,6 +16,12 @@ if(strlen($keywords) == 0)
 	return;
 }
 
+if(strlen($_POST["password"]) < 6)
+{
+	echo "<h2>Password must exceed 6 characters</h2>";
+	return;
+}
+
 mysql_query("replace into user (email,passwd,keywords) values ('" . $email . "', '".$password."', '" . $keywords . "');");
 
 echo "SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'";
