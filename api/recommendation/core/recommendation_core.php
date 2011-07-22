@@ -24,8 +24,8 @@ function recommendationCore($features, $table_name, $topN)
 		}
 	}
 	$ret = array();
-	array_push($ret, $ret_weight);
-	array_push($ret, $ret_reason);
+	$ret['weight'] = $ret_weight;
+	$ret['reason'] = $ret_reason;
 	return $ret;
 }
 
