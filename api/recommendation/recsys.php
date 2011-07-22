@@ -47,4 +47,10 @@ function makingRecommendation($uid, $relatedTables)
 $uid = $_GET['uid'];
 $relatedTables = array("default");
 makingRecommendation($uid, $relatedTables);
+
+arsort($recommendations);
+foreach($recommendations as $paper_id => $weight)
+{
+	echo file_get_contents('http://127.0.0.1/api/paper.php?id=' . $paper_id) ;
+}
 ?>
