@@ -16,7 +16,7 @@ try:
     n = 0
     for line in data:
         if line.find("#*") == 0:
-            title = line[2:len(line)-1]
+            title = line[2:len(line)-1].strip('.').lower()
         if line.find("#citation") == 0:
             citations = int(line[9:])
         print title, citations

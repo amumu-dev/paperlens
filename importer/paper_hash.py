@@ -13,7 +13,7 @@ connection.commit()
 
 try:
     paper_hash = dict()
-    cursor.execute("select id,hashvalue from paper")
+    cursor.execute("select id,title from paper")
     n = 0
     while 1:
         row = cursor.fetchone()
