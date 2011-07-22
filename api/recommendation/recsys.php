@@ -30,6 +30,7 @@ function combineArray(&$A, $B, $w)
 function combineRecommendations(&$A, $B, $w)
 {
 	combineArray($A[0], $B[0], $w);
+	echo count($A[1]) . " " . count($B[1]) . "<br>";
 	foreach($B[1] as $key=>$value)
 	{
 		if(!array_key_exists($key, $A[1]))
@@ -46,6 +47,8 @@ function combineRecommendations(&$A, $B, $w)
 function makingRecommendation($uid, $relatedTables)
 {
 	$recommendations = array();
+	array_push($recommendations, array());
+	array_push($recommendations, array());
 	$behaviors = GetBehavior($uid);
 	$features = $behaviors;
 	foreach($relatedTables as $table_name => $table_weight)
