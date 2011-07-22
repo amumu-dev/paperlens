@@ -27,6 +27,22 @@ function combineArray(&$A, $B, $w)
 	}
 }
 
+function combineRecommendations(&$A, $B, $w)
+{
+	combineArray($A[0], $B[0], $w);
+	foreach($B[1] as $key=>$value)
+	{
+		if(!array_key_exists($key, $A[1]))
+		{
+			$A[1] = $value;
+		}
+		else
+		{
+			combineArray($A[1][$key], $B[1][$key]);
+		}
+	}
+}
+
 function makingRecommendation($uid, $relatedTables)
 {
 	$recommendations = array();
@@ -46,10 +62,10 @@ $uid = $_GET['uid'];
 $relatedTables = array("default" => 1);
 $recommendations = makingRecommendation($uid, $relatedTables);
 header('Content-Type: text/xml');
-arsort($recommendations);
+arsort($recommendations[0]);
 $n = 0;
 echo "<result>";
-foreach($recommendations as $paper_id => $weight)
+foreach($recommendations[0] as $paper_id => $weight)
 {
 	if(++$n > 10) break;
 	echo file_get_contents('http://127.0.0.1/api/paper.php?id=' . $paper_id) ;
