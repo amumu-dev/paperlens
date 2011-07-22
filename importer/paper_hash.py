@@ -11,9 +11,9 @@ connection = MySQLdb.connect(host = "127.0.0.1", user = "paperlens", passwd = "p
 cursor = connection.cursor()
 connection.commit()
 
-paper_hash = dict()
 try:
-    cursor.execute("select id,title from paper")
+    paper_hash = dict()
+    cursor.execute("select id,hashvalue from paper")
     n = 0
     while 1:
         row = cursor.fetchone()
