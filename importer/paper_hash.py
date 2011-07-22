@@ -1,16 +1,11 @@
 #ArNet
-
 import MySQLdb
 import sys
 sys.path.append("../")
+sys.path.append("./")
 import hashlib
 from paper import Paper
-
-def intHash(buf):
-    ret = 0
-    for i in range(len(buf)):
-        ret = ret * 31 + ord(buf[i])
-    return ret % 200000000
+import basic
 
 connection = MySQLdb.connect(host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
 cursor = connection.cursor()
