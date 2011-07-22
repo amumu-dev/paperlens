@@ -5,7 +5,8 @@ require_once("../db.php");
 require_once("./behavior/behavior.php");
 
 //get related items of a given item
-require_once("./relate/related_items.php");
+//require_once("./relate/related_items.php");
+require_once("./relate/default_related_items.php");
 
 //generate raw recommendations from a set of source items
 require_once("./core/recommendation_core.php");
@@ -36,6 +37,7 @@ function makingRecommendation($uid, $relatedTables)
 	{
 		combineArray($recommendations, recommendationCore($features, $table_name, 10), $table_weight);
 	}
+	combineArray($recommendations, recommendationCore($features, $table_name, 10), $table_weight);
 	
 	selectExplanation($recommendations);
 	filtering($recommendations);
@@ -43,6 +45,6 @@ function makingRecommendation($uid, $relatedTables)
 	
 }
 
-$relatedTables = array("papersim_cite" => 1);
+$relatedTables = array("default");
 makingRecommendation(0, $relatedTables);
 ?>

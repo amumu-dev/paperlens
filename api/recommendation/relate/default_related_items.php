@@ -1,7 +1,7 @@
 <?php
 require_once("../../db.php");
 
-function GetRelatedItems($item, $topN)
+function GetRelatedItems($item, $table_name, $topN)
 {
 	$ret = array();
 	$title_result = mysql_query('select title from paper where id='.$item);
