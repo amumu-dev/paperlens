@@ -19,7 +19,7 @@ function combineArray($A, $B, $w)
 {
 	foreach($B as $key => $value)
 	{
-		if(!array_key_exists($A, $key))
+		if(!array_key_exists($key, $A))
 		{
 			$A[$key] = 0;
 		}
