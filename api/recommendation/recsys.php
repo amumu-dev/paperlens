@@ -56,7 +56,7 @@ function makingRecommendation($uid, $relatedTables)
 	{
 		$one_recommendations = recommendationCore($features, $table_name, 10);
 		echo count($one_recommendations) . "<br>";
-		combineArray($recommendations,$one_recommendations , $table_weight);
+		combineRecommendations($recommendations,$one_recommendations , $table_weight);
 	}
 	combineArray($recommendations, recommendationCore($features, $table_name, 10), $table_weight);
 	selectExplanation($recommendations);
