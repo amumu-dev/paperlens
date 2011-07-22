@@ -39,7 +39,7 @@ function combineRecommendations(&$A, $B, $w)
 		else
 		{
 			print_r($B[1][$key]);
-			combineArray($A[1][$key], $B[1][$key]);
+			combineArray($A[1][$key], $B[1][$key], $w);
 		}
 	}
 }
