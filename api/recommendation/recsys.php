@@ -15,7 +15,7 @@ require_once("./explanation/explanation.php");
 require_once("./rank/ranking.php");
 require_once("./filter/filtering.php");
 
-function combineArray($A, $B, $w)
+function combineArray(&$A, $B, $w)
 {
 	echo count($A) . "," .  count($B) . "<br>";
 	foreach($B as $key => $value)
