@@ -17,10 +17,6 @@ require_once("./filter/filtering.php");
 
 function combineArray(&$A, $B, $w)
 {
-	print_r($A);
-	echo "<br>";
-	print_r($A);
-	echo "<br>--------------------<br>";
 	foreach($B as $key => $value)
 	{
 		if(!array_key_exists($key, $A))
@@ -35,7 +31,6 @@ function combineRecommendations(&$A, $B, $w)
 {
 	
 	combineArray($A[0], $B[0], $w);
-	/*
 	foreach($B[1] as $key=>$value)
 	{
 		if(!array_key_exists($key, $A[1]))
@@ -48,7 +43,6 @@ function combineRecommendations(&$A, $B, $w)
 			combineArray($A[1][$key], $B[1][$key], $w);
 		}
 	}
-	*/
 }
 
 function makingRecommendation($uid, $relatedTables)
