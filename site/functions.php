@@ -33,7 +33,8 @@ function renderPapers($papers_dom)
 		echo "</span><br />";
 		echo "<span class=feedback><font color=#647B0F>&#9679;&nbsp;</font><a id=\"recommend" .$j. "\" onclick=\"recommend('" . $_SESSION['uid'] 
 			. "','" . $paper_id. "', '1', '1', 'recommend" . $j . "')\">Recommend</a>&nbsp;"
-			. "<font color=#FFCC00>&#9679;&nbsp;</font><a>Like</a>&nbsp;"
+			. "<font color=#FFCC00>&#9679;&nbsp;</font><a href=\"http://www.google.com/search?hl=en&q="
+			. str_replace('', '+', $title->item(0)->nodeValue) . "\" target=_blank>Search in Google</a>&nbsp;</span>";
 			. "<font color=#BE1A21>&#9679;&nbsp;</font><a>Dislike</a>&nbsp;</span>";
 		echo "</div>";
 	}
