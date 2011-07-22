@@ -5,7 +5,7 @@ sys.path.append("../")
 sys.path.append("./")
 import hashlib
 from paper import Paper
-import basic
+import paperlens_import
 
 connection = MySQLdb.connect(host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
 cursor = connection.cursor()
@@ -21,7 +21,7 @@ try:
             break
         paper_id = int(row[0])
         title = row[1]
-        paper_hash[paper_id] = intHash(title.lower())
+        paper_hash[paper_id] = paperlens_import.intHash(title.lower())
         n = n + 1
         if n % 10000 == 0:
             print str(n)
