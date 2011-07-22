@@ -29,6 +29,7 @@ function combineArray(&$A, $B, $w)
 
 function combineRecommendations(&$A, $B, $w)
 {
+	echo count($A[0]) . " " . count($B[0]) . "<br>";
 	combineArray($A[0], $B[0], $w);
 	echo count($A[1]) . " " . count($B[1]) . "<br>";
 	foreach($B[1] as $key=>$value)
