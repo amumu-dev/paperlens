@@ -38,20 +38,20 @@ function makingRecommendation($uid, $relatedTables)
 		combineArray($recommendations, recommendationCore($features, $table_name, 10), $table_weight);
 	}
 	combineArray($recommendations, recommendationCore($features, $table_name, 10), $table_weight);
-	echo count($recommendations) . "<br>";
 	selectExplanation($recommendations);
 	filtering($recommendations);
 	ranking($recommendations);
-	echo count($recommendations) . "<br>";
 	
 }
 $uid = $_GET['uid'];
 $relatedTables = array("default" => 1);
-makingRecommendation($uid, $relatedTables);
+$recommendations = makingRecommendation($uid, $relatedTables);
 
 arsort($recommendations);
+$n = 0;
 foreach($recommendations as $paper_id => $weight)
 {
+	if(++$n > 10) break;
 	echo file_get_contents('http://127.0.0.1/api/paper.php?id=' . $paper_id) ;
 }
 ?>
