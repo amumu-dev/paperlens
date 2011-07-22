@@ -41,7 +41,7 @@ function makingRecommendation($uid, $relatedTables)
 	selectExplanation($recommendations);
 	filtering($recommendations);
 	ranking($recommendations);
-	
+	return $recommendations;
 }
 $uid = $_GET['uid'];
 $relatedTables = array("default" => 1);
