@@ -72,7 +72,19 @@ echo "<result>";
 foreach($recommendations[0] as $paper_id => $weight)
 {
 	if(++$n > 10) break;
+	arsort($recommendations[1][$paper_id]);
+	echo "<recommendation>";
+	echo "<item>";
 	echo file_get_contents('http://127.0.0.1/api/paper.php?id=' . $paper_id) ;
+	echo "</item>";
+	echo "<reason>";
+	foreach($recommendations[1][$paper_id] as $reason_id =>$reason_weight)
+	{
+		echo file_get_contents('http://127.0.0.1/api/paper.php?id=' . $reason_id) ;
+		break;
+	}
+	echo "</reason>";
+	echo "</recommendation>";
 }
 echo "</result>";
 ?>
