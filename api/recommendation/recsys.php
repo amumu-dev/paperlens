@@ -32,7 +32,7 @@ function makingRecommendation($uid, $relatedTables)
 	$recommendations = array();
 	$behaviors = GetBehavior($uid);
 	$features = $behaviors;
-	
+	echo count($features) . " ";
 	foreach($relatedTables as $table_name => $table_weight)
 	{
 		combineArray($recommendations, recommendationCore($features, $table_name, 10), $table_weight);
