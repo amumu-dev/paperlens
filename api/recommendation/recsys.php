@@ -38,6 +38,7 @@ function combineRecommendations(&$A, $B, $w)
 		}
 		else
 		{
+			print_r($B[1][$key]);
 			combineArray($A[1][$key], $B[1][$key]);
 		}
 	}
@@ -53,7 +54,6 @@ function makingRecommendation($uid, $relatedTables)
 	foreach($relatedTables as $table_name => $table_weight)
 	{
 		$one_recommendations = recommendationCore($features, $table_name, 10);
-		echo count($one_recommendations) . "<br>";
 		combineRecommendations($recommendations,$one_recommendations , $table_weight);
 	}
 	combineArray($recommendations, recommendationCore($features, $table_name, 10), $table_weight);
