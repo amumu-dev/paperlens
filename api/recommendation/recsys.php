@@ -33,7 +33,11 @@ function combineArray(&$A, $B, $w)
 
 function combineRecommendations(&$A, $B, $w)
 {
-	combineArray($A['weight'], $B['weight'], $w);
+	foreach($B[0] as $key=>$value)
+	{
+		if(!array_key_exists($key, $A[0])) $A[0][$key] = 0;
+		$A[0][$key] += $value * $w;
+	}
 	/*
 	foreach($B[1] as $key=>$value)
 	{
