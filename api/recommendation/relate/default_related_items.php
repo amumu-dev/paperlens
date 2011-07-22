@@ -22,6 +22,7 @@ function GetRelatedItems($item, $table_name, $topN)
 		$ret[$id] = $weight;
 	}
 	arsort($ret);
+	foreach
 	return array_slice($ret, 0, $topN, TRUE);
 }
 
