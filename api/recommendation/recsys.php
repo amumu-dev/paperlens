@@ -17,7 +17,6 @@ require_once("./filter/filtering.php");
 
 function combineArray(&$A, $B, $w)
 {
-	echo count($A) . "," .  count($B) . "<br>";
 	foreach($B as $key => $value)
 	{
 		if(!array_key_exists($key, $A))
@@ -46,12 +45,14 @@ function makingRecommendation($uid, $relatedTables)
 $uid = $_GET['uid'];
 $relatedTables = array("default" => 1);
 $recommendations = makingRecommendation($uid, $relatedTables);
-
+header('Content-Type: text/xml');
 arsort($recommendations);
 $n = 0;
+echo "<result>";
 foreach($recommendations as $paper_id => $weight)
 {
 	if(++$n > 10) break;
 	echo file_get_contents('http://127.0.0.1/api/paper.php?id=' . $paper_id) ;
 }
+echo "</result>";
 ?>
