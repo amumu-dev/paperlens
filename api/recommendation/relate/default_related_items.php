@@ -10,7 +10,7 @@ function GetRelatedItems($item, $table_name, $topN)
 		$title = $row[0];
 	}
 	
-	$result = mysql_query('select id,weight from sphinx  where query=\'@title \"' . str_replace(' ', '+', $title) . '\";mode=any;sort=relevance;limit=' . (1 + $topN). ';index=idx1\';');
+	$result = mysql_query('select id,weight from sphinx  where query=\'@title \"' . str_replace(' ', '+', $title) . '\";mode=extended;sort=relevance;limit=' . (1 + $topN). ';index=idx1\';');
 	if (!$result) {
 	    die('Query failed: ' . mysql_error());
 	}
