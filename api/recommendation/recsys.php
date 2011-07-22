@@ -17,6 +17,7 @@ require_once("./filter/filtering.php");
 
 function combineArray($A, $B, $w)
 {
+	echo count($A) . "," .  count($B) . "<br>";
 	foreach($B as $key => $value)
 	{
 		if(!array_key_exists($key, $A))
@@ -32,20 +33,20 @@ function makingRecommendation($uid, $relatedTables)
 	$recommendations = array();
 	$behaviors = GetBehavior($uid);
 	$features = $behaviors;
-	echo count($features) . " ";
 	foreach($relatedTables as $table_name => $table_weight)
 	{
 		combineArray($recommendations, recommendationCore($features, $table_name, 10), $table_weight);
 	}
 	combineArray($recommendations, recommendationCore($features, $table_name, 10), $table_weight);
-	
+	echo count($recommendations) . "<br>";
 	selectExplanation($recommendations);
 	filtering($recommendations);
 	ranking($recommendations);
+	echo count($recommendations) . "<br>";
 	
 }
 $uid = $_GET['uid'];
-$relatedTables = array("default");
+$relatedTables = array("default" => 1);
 makingRecommendation($uid, $relatedTables);
 
 arsort($recommendations);
