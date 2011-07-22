@@ -19,8 +19,13 @@ try:
             title = line[2:len(line)-1].strip('.').lower()
         if line.find("#citation") == 0:
             citations = int(line[9:])
-            print title, citations
+            hashvalue = paperlens_import.intHash(title.lower())
+            cursor.execute("select count(*) from paper where hashvalue=%s",(hashvalue))
+            row = cursor.fetchone()
+            if(int(row[0]) == 1):
+                cursor.execute("update paper set citations=%s where hashvalue=%s",(citations, hashvalue))
         n = n + 1
+        
         if n > 100:
             break
     connection.commit()
