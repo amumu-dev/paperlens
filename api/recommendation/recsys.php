@@ -44,7 +44,7 @@ function makingRecommendation($uid, $relatedTables)
 	ranking($recommendations);
 	
 }
-
+$uid = $_GET['uid'];
 $relatedTables = array("default");
-makingRecommendation(0, $relatedTables);
+makingRecommendation($uid, $relatedTables);
 ?>
