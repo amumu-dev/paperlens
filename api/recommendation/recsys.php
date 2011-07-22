@@ -54,7 +54,9 @@ function makingRecommendation($uid, $relatedTables)
 	$features = $behaviors;
 	foreach($relatedTables as $table_name => $table_weight)
 	{
-		combineArray($recommendations, recommendationCore($features, $table_name, 10), $table_weight);
+		$one_recommendations = recommendationCore($features, $table_name, 10);
+		echo count($one_recommendations) . "<br>";
+		combineArray($recommendations,$one_recommendations , $table_weight);
 	}
 	combineArray($recommendations, recommendationCore($features, $table_name, 10), $table_weight);
 	selectExplanation($recommendations);
