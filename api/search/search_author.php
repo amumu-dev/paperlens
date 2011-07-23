@@ -7,7 +7,7 @@ $query = $_GET['query'];
 $topN = $_GET['n'];
 
 //$result = mysql_query("select * from sphinx  where query='@title \"" . $query . "\" | @name \"" .$query . "\";mode=any;sort=relevance;limit=".$topN. ";index=idx1';");
-$result = mysql_query("select * from sphinx  where query='@name \"" . $query . "\";mode=all;sort=extended:year desc, citations desc;limit=".$topN. ";index=idx1';");
+$result = mysql_query("select * from sphinx  where query='@name \"" . $query . "\";mode=extended;sort=extended:year desc, citations desc;limit=".$topN. ";index=idx1';");
 if (!$result) {
     die('Query failed: ' . mysql_error());
 }
