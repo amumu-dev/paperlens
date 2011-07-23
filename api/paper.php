@@ -47,7 +47,7 @@ function getPaperInfo($paper_id)
 
 	while ($row = mysql_fetch_row($result))
 	{
-		array_push($ret['author'], getAuthorName($row[0]));
+		$ret['author'][$row[0]] = getAuthorName($row[0]);
 	}
 	mysql_free_result($result);
 	return $ret;
@@ -62,9 +62,9 @@ if(strlen($paper_info['booktitle']) > 0)
 	echo "<booktitle>" . htmlspecialchars($paper_info['booktitle']) . "</booktitle>";
 else echo "<booktitle>" . htmlspecialchars($paper_info['journal']) . "</booktitle>";
 echo "<year>" . htmlspecialchars($paper_info['year']) . "</year>";
-foreach($paper_info['author'] as $author)
+foreach($paper_info['author'] as $author_id => $author_name)
 {
-	echo "<author>" . $author. "</author>";
+	echo "<author><id>" . $author_id. "</id><name>".$author_name."</name></author>";
 }
 echo "</paper>";
 
