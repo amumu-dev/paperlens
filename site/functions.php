@@ -22,7 +22,7 @@ function renderPapers($papers_dom)
 		{
 			$author_id = $author->getElementsByTagName('id')->item(0)->nodeValue;
 			$author_name = $author->getElementsByTagName('name')->item(0)->nodeValue;
-			echo "<a href=/site/author.php?author=".$author_id.">" . $author_name . "</a>&nbsp;";
+			echo "<a href=/site/author.php?author=".str_replace(' ','+', $author_name).">" . $author_name . "</a>&nbsp;";
 			if(!array_key_exists($author_name, $related_authors))
 			{
 				$related_authors[$author_name] = 1;
