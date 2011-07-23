@@ -4,6 +4,7 @@ require_once('session.php');
 if(!$login) Header("Location: index.php");
 require_once("functions.php");
 $query = $_GET["query"];
+$uid = $_SESSION["uid"];
 $dom = new DOMDocument();
 if(!$dom->load('http://127.0.0.1/api/search/search.php?n=10&query=' . str_replace(' ','+',$query)))
 {
@@ -21,6 +22,7 @@ $related_authors = array();
 	</head>
 	
 	<body>
+		<?php echo "<img src=\"behavior.php?uid=".$uid. "&query=".$query."\" width=0 height=0 />" ?>
 		<div id="content">
 			<div id="header">
 				<div id="toolbar">
