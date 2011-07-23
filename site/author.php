@@ -3,9 +3,9 @@ session_start();
 require_once('session.php');
 if(!$login) Header("Location: index.php");
 require_once("functions.php");
-$author_id = $_GET["author"];
+$author = $_GET["author"];
 $dom = new DOMDocument();
-if(!$dom->load('http://127.0.0.1/api/author.php?n=100&author=' . str_replace(' ','+',$author_id)))
+if(!$dom->load('http://127.0.0.1/api/search/search_author.php?n=10&query=' . str_replace(' ','+',$author)))
 {
 	echo 'load xml failed';
 	return;
@@ -14,7 +14,7 @@ $related_authors = array();
 ?>
 <html>
 	<head>
-		<title>PaperLens : Open Source Academic Recommender System</title>
+		<title><?php echo $author; ?> Author Publications - PaperLens : Open Source Academic Recommender System</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="./css/main.css" />
 		<script src="./js/main.js" type="text/javascript"></script>
@@ -38,7 +38,7 @@ $related_authors = array();
 			
 			<div id="main">
 				<div id="searchret">
-					<h2>Papers Discussing : <?php echo "\"" . $query . "\"" ?></h2>
+					<h2>Publications</h2>
 					<?php
 					$papers = $dom->getElementsByTagName('paper');
 					$related_authors = renderPapers($papers);
