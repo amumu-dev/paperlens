@@ -50,6 +50,7 @@ function makingRecommendation($uid, $relatedTables)
 	$recommendations = array();
 	array_push($recommendations, array());
 	array_push($recommendations, array());
+	
 	$behaviors = GetBehavior($uid);
 	$features = $behaviors;
 	foreach($relatedTables as $table_name => $table_weight)

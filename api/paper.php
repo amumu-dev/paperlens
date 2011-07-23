@@ -24,7 +24,7 @@ function getPaperInfo($paper_id)
 {
 	$ret = array();
 	//get title and book title
-	$result = mysql_query('select title, booktitle,year from paper where id='.$paper_id);
+	$result = mysql_query('select title, booktitle,year,journal from paper where id='.$paper_id);
 	if (!$result) {
 	    die('Query failed: ' . mysql_error());
 	}
@@ -34,6 +34,7 @@ function getPaperInfo($paper_id)
 		$ret['title'] = $row[0];
 		$ret['booktitle'] = $row[1];
 		$ret['year'] = $row[2];
+		$ret['journal'] = $row[3];
 	}
 	mysql_free_result($result);
 	
@@ -57,7 +58,7 @@ $paper_info = getPaperInfo($id);
 echo "<paper>";
 echo "<id>" . $id . "</id>";
 echo "<title>" . htmlspecialchars($paper_info['title']) . "</title>";
-echo "<booktitle>" . htmlspecialchars($paper_info['booktitle']) . "</booktitle>";
+echo "<booktitle>" . htmlspecialchars($paper_info['booktitle']) . "&nbsp;" . htmlspecialchars($paper_info['journal']) . "</booktitle>";
 echo "<year>" . htmlspecialchars($paper_info['year']) . "</year>";
 foreach($paper_info['author'] as $author)
 {
