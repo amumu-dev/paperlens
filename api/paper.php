@@ -58,7 +58,9 @@ $paper_info = getPaperInfo($id);
 echo "<paper>";
 echo "<id>" . $id . "</id>";
 echo "<title>" . htmlspecialchars($paper_info['title']) . "</title>";
-echo "<booktitle>" . htmlspecialchars($paper_info['booktitle'] . "&nbsp;" . $paper_info['journal']) . "</booktitle>";
+if(strlen($paper_info['booktitle']) > 0)
+	echo "<booktitle>" . htmlspecialchars($paper_info['booktitle']) . "</booktitle>";
+else echo "<booktitle>" . htmlspecialchars($paper_info['journal']) . "</booktitle>";
 echo "<year>" . htmlspecialchars($paper_info['year']) . "</year>";
 foreach($paper_info['author'] as $author)
 {
