@@ -13,7 +13,7 @@ if(isset($_GET['paper']) && isset($_GET['behavior']))
 if(isset($_GET['query']))
 {
 	$search_query = $_GET['query'];
-	$query = "replace into user_search_log (user_id, query, created_at) values (".$uid.", ".$search_query.", '". date("Y-m-d H:i:s"). "')";
+	$query = "replace into user_search_log (user_id, query, created_at) values (".$uid.", '".$search_query."', '". date("Y-m-d H:i:s"). "')";
 	echo $query;
 	mysql_query($query);
 }
