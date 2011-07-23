@@ -20,14 +20,16 @@ function renderPapers($papers_dom)
 		echo "<span class=\"author\">by&nbsp;";
 		while($author = $authors->item($k++) )
 		{
-			echo "<a href=/site/author.php>" . $author->nodeValue . "</a>&nbsp;";
-			if(!array_key_exists($author->nodeValue, $related_authors))
+			$author_id = $author->getElementsByTagName('id')->item(0)->nodeValue;
+			$author_name = $author->getElementsByTagName('name')->item(0)->nodeValue;
+			echo "<a href=/site/author.php?author=".$author_id.">" . $author_name . "</a>&nbsp;";
+			if(!array_key_exists($author_name, $related_authors))
 			{
-				$related_authors[$author->nodeValue] = 1;
+				$related_authors[$author_name] = 1;
 			}
 			else
 			{
-				$related_authors[$author->nodeValue]++;
+				$related_authors[$author_name]++;
 			}
 		}
 		echo "</span><br />";
