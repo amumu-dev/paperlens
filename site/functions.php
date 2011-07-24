@@ -4,7 +4,7 @@ function renderFirstPapers($papers_dom)
 {
 	foreach($papers_dom as $paper)
 	{
-		echo "<div class=\"paper\">";
+		echo "<div class=\"paper0\">";
 		$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
 		$title = $paper->getElementsByTagName('title');
 		echo "<span class=\"title\"><a href=/site/paper.php?id=".$paper_id.">" . $title->item(0)->nodeValue . "</a></span><br />";
@@ -20,19 +20,10 @@ function renderFirstPapers($papers_dom)
 			$author_id = $author->getElementsByTagName('id')->item(0)->nodeValue;
 			$author_name = $author->getElementsByTagName('name')->item(0)->nodeValue;
 			echo "<a href=/site/author.php?author=".str_replace(' ','+', $author_name).">" . $author_name . "</a>&nbsp;";
-			if(!array_key_exists($author_name, $related_authors))
-			{
-				$related_authors[$author_name] = 1;
-			}
-			else
-			{
-				$related_authors[$author_name]++;
-			}
 		}
 		echo "</span><br />";
 		echo "</div>";
 	}
-	return $related_authors;
 }
 
 function renderPapers($papers_dom)

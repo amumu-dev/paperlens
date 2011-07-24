@@ -6,7 +6,7 @@ require_once("functions.php");
 $paper = $_GET["id"];
 
 $paper_dom = new DOMDocument();
-if(!$dom->load('http://50.18.105.189/api/paper.php?id=' . $paper))
+if(!$paper_dom>load('http://50.18.105.189/api/paper.php?id=' . $paper))
 {
 	echo 'load xml failed';
 	return;
@@ -42,6 +42,9 @@ $related_authors = array();
 					<input type="hidden" name="uid" value="<?php echo $uid; ?>"/>
 					<input class="search_button" type="submit" value="Search!" />
 				</form>
+				<?php
+				renderFirstPapers($paper_dom);
+				?>
 			</div>
 			
 			<div id="main">
