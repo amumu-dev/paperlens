@@ -30,7 +30,7 @@ try:
             print n
     n = 0
     for (author, rank) in author_rank:
-        cursor.execute("insert into author_rank (author_id, weight) values (%s, %s)", (author_id, rank))
+        cursor.execute("replace into author_rank (author_id, weight) values (%s, %s)", (author_id, rank))
         n = n + 1
         if n % 10000 == 0:
             print n
