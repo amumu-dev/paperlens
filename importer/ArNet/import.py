@@ -24,7 +24,7 @@ try:
                 citations = 0
         if line.find("#!") == 0:
             abstract = line[2:]
-        if len(line.strip) == 0:
+        if len(line.strip()) == 0:
             if len(title) > 0:
                 hashvalue = paperlens_import.intHash(title.lower())
                 cursor.execute("select count(*) from paper where hashvalue=%s",(hashvalue))
