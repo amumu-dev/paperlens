@@ -2,7 +2,7 @@
 
 function renderFirstPaper($paper)
 {
-		echo "<div class=\"paper0\">";
+		echo "<div id=\"paper0\">";
 		$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
 		$title = $paper->getElementsByTagName('title');
 		echo "<h2 class=\"title\">" . $title->item(0)->nodeValue . "</h2><br />";

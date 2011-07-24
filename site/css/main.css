@@ -32,7 +32,11 @@ body
 	text-align:left;
 	float:left;
 }
-
+#paper0
+{
+	width:100%;
+	float:left;
+}
 #main
 {
 	margin-top:10px;
