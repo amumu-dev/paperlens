@@ -1,9 +1,7 @@
 <?php
 
-function renderFirstPaper($papers_dom)
+function renderFirstPaper($paper)
 {
-	foreach($papers_dom as $paper)
-	{
 		echo "<div class=\"paper0\">";
 		$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
 		$title = $paper->getElementsByTagName('title');
@@ -23,8 +21,6 @@ function renderFirstPaper($papers_dom)
 		}
 		echo "</span><br />";
 		echo "</div>";
-		break;
-	}
 }
 
 function renderPapers($papers_dom)

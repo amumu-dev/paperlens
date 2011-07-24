@@ -43,7 +43,6 @@ $related_authors = array();
 					<input class="search_button" type="submit" value="Search!" />
 				</form>
 				<?php
-				echo "test";
 				renderFirstPaper($paper_dom);
 				?>
 			</div>
