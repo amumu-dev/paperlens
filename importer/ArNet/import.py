@@ -30,7 +30,8 @@ try:
                 cursor.execute("select count(*) from paper where hashvalue=%s",(hashvalue))
                 row = cursor.fetchone()
                 if(int(row[0]) == 1):
-                    cursor.execute("update paper set citations=%s abstract=%s where hashvalue=%s",(citations, abstract, hashvalue))
+                    cursor.execute("update paper set citations=%s where hashvalue=%s",(citations, hashvalue))
+                    cursor.execute("update paper set abstract=%s where hashvalue=%s",(abstract, hashvalue))
             title = ''
             citations = 0
             abstract = ''
