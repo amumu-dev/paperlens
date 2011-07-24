@@ -23,7 +23,7 @@ try:
         year = int(row[3])
         if author not in author_rank:
             author_rank[author] = 0.0
-        author_rank[author] += citations / ((1 + rank) * (1 + now_year - year))
+        author_rank[author] += citations / (float(1 + rank) * float(1 + now_year - year))
         n = n + 1
         if n % 10000 == 0:
             print n
