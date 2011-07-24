@@ -12,6 +12,7 @@ try:
     author_rank = dict()
     now = datetime.datetime.now()
     now_year = now.year
+    print now_year
     cursor.execute("select paper.citations,author.id,paper_author.rank,paper.year from paper,paper_author,author where paper.id=paper_author.paper_id and paper_author.author_id=author.id")
     while 1:
         row = cursor.fetchone()
@@ -23,7 +24,7 @@ try:
         year = int(row[3])
         if author not in author_rank:
             author_rank[author] = 0.0
-        author_rank[author] += citations / (float(1 + rank) * float(1 + now_year - year))
+        author_rank[author] += citations / (float(1 + rank) * float(1 + max(0,now_year - year)))
         n = n + 1
         if n % 10000 == 0:
             print n
