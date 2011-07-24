@@ -3,7 +3,7 @@ session_start();
 require_once('session.php');
 if(!$login) Header("Location: index.php");
 require_once("functions.php");
-$paper = $_GET["paper"];
+$paper = $_GET["id"];
 $dom = new DOMDocument();
 if(!$dom->load('http://50.18.105.189/api/recommendation/relate/default_related_items_xml.php?id=' . $paper))
 {
