@@ -20,6 +20,8 @@ try:
             title = line[2:len(line)-1].strip('.').lower()
         if line.find("#citation") == 0:
             citations = int(line[9:])
+            if citations < 0:
+                citations = 0
         if line.find("#!") == 0:
             abstract = line[2:]
         if len(line.strip) == 0:
@@ -28,7 +30,7 @@ try:
                 cursor.execute("select count(*) from paper where hashvalue=%s",(hashvalue))
                 row = cursor.fetchone()
                 if(int(row[0]) == 1):
-                    cursor.execute("update paper set citations=%s where hashvalue=%s",(citations, hashvalue))
+                    cursor.execute("update paper set citations=%s abstract=%s where hashvalue=%s",(citations, abstract, hashvalue))
             title = ''
             citations = 0
             abstract = ''
