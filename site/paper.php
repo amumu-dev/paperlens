@@ -4,6 +4,14 @@ require_once('session.php');
 if(!$login) Header("Location: index.php");
 require_once("functions.php");
 $paper = $_GET["id"];
+
+$paper_dom = new DOMDocument();
+if(!$dom->load('http://50.18.105.189/api/paper.php?id=' . $paper))
+{
+	echo 'load xml failed';
+	return;
+}
+
 $dom = new DOMDocument();
 if(!$dom->load('http://50.18.105.189/api/recommendation/relate/default_related_items_xml.php?id=' . $paper))
 {
@@ -24,6 +32,7 @@ $related_authors = array();
 		<div id="content">
 			<div id="header">
 				<div id="toolbar">
+					<span>PaperLens</span>&nbsp;&nbsp;
 					<span>Hi <?php echo $_SESSION["email"]; ?></span>&nbsp;&nbsp;
 					<span><a href="/site/index.php">Home Page</a></span>&nbsp;&nbsp;
 					<span><a href="/site/logout.php">Log out</a></span>

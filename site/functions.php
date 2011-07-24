@@ -1,5 +1,40 @@
 <?php
 
+function renderFirstPapers($papers_dom)
+{
+	foreach($papers_dom as $paper)
+	{
+		echo "<div class=\"paper\">";
+		$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
+		$title = $paper->getElementsByTagName('title');
+		echo "<span class=\"title\"><a href=/site/paper.php?id=".$paper_id.">" . $title->item(0)->nodeValue . "</a></span><br />";
+		$booktitle = $paper->getElementsByTagName('booktitle');
+		$year = $paper->getElementsByTagName('year');
+		if(strlen($booktitle->item(0)->nodeValue) > 0)
+			echo "<span class=\"info\"><a href=/site/paper.php?id=".$paper_id.">" . $booktitle->item(0)->nodeValue . "</a>&nbsp;" .$year->item(0)->nodeValue. "</span><br />";
+		$authors = $paper->getElementsByTagName('author');
+		$k = 0;
+		echo "<span class=\"author\">by&nbsp;";
+		while($author = $authors->item($k++) )
+		{
+			$author_id = $author->getElementsByTagName('id')->item(0)->nodeValue;
+			$author_name = $author->getElementsByTagName('name')->item(0)->nodeValue;
+			echo "<a href=/site/author.php?author=".str_replace(' ','+', $author_name).">" . $author_name . "</a>&nbsp;";
+			if(!array_key_exists($author_name, $related_authors))
+			{
+				$related_authors[$author_name] = 1;
+			}
+			else
+			{
+				$related_authors[$author_name]++;
+			}
+		}
+		echo "</span><br />";
+		echo "</div>";
+	}
+	return $related_authors;
+}
+
 function renderPapers($papers_dom)
 {
 	$related_authors = array();
