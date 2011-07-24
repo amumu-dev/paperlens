@@ -29,7 +29,7 @@ try:
         if n % 10000 == 0:
             print n
     n = 0
-    for (author_id, rank) in author_rank:
+    for (author_id, rank) in author_rank.items():
         cursor.execute("replace into author_rank (author_id, weight) values (%s, %s)", (author_id, rank))
         n = n + 1
         if n % 10000 == 0:
