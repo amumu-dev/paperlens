@@ -1,6 +1,6 @@
 <?php
 
-function renderFirstPapers($papers_dom)
+function renderFirstPaper($papers_dom)
 {
 	foreach($papers_dom as $paper)
 	{
@@ -23,6 +23,7 @@ function renderFirstPapers($papers_dom)
 		}
 		echo "</span><br />";
 		echo "</div>";
+		break;
 	}
 }
 
