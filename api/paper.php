@@ -41,7 +41,7 @@ function getPaperInfo($paper_id)
 	
 	//get author
 	$ret['author'] = array();
-	$result = mysql_query('select author_id from paper_author where paper_id='.$paper_id);
+	$result = mysql_query('select author_id from paper_author where paper_id='.$paper_id.' order by rank');
 	if (!$result) {
 	    die('Query failed: ' . mysql_error());
 	}
