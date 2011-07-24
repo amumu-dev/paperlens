@@ -78,6 +78,16 @@ function renderPapers($papers_dom)
 	return $related_authors;
 }
 
+function renderRelatedAuthors($related_authors)
+{
+	arsort($related_authors);
+	$related_authors = array_slice($related_authors, 0, 16);
+	foreach($related_authors as $author=>$weight)
+	{
+		echo "<span class=\"author\"><a href=/site/author.php?author=".str_replace(' ','+',$author).">" . $author . "</a></span><br>";
+	}
+}
+
 function strTruncate($buf, $maxLength)
 {
 	$tks = explode(" ", $buf);

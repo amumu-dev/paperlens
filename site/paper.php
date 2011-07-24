@@ -32,7 +32,6 @@ $related_authors = array();
 		<div id="content">
 			<div id="header">
 				<div id="toolbar">
-					<span>PaperLens</span>&nbsp;&nbsp;
 					<span>Hi <?php echo $_SESSION["email"]; ?></span>&nbsp;&nbsp;
 					<span><a href="/site/index.php">Home Page</a></span>&nbsp;&nbsp;
 					<span><a href="/site/logout.php">Log out</a></span>
@@ -58,12 +57,7 @@ $related_authors = array();
 				<h2>Related Authors</h2>
 				<div class="related_author">
 				<?php
-				arsort($related_authors);
-				$related_authors = array_slice($related_authors, 0, 16);
-				foreach($related_authors as $author=>$weight)
-				{
-					echo "<span class=\"author\"><a href=/site/author.php?author=".str_replace(' ','+',$author).">" . $author . "</a></span><br>";
-				}
+				renderRelatedAuthors($related_authors);
 				?>
 				</div>
 			</div>
