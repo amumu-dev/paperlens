@@ -1,9 +1,6 @@
 #ArNet
 import MySQLdb
 import sys
-sys.path.append("../")
-from paper import Paper
-import paperlens_import
 import datetime
 
 connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
