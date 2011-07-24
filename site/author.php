@@ -38,7 +38,7 @@ $related_authors = array();
 			
 			<div id="main">
 				<div id="searchret">
-					<h2>Publications</h2>
+					<h2>Publications of <?php echo $author; ?></h2>
 					<?php
 					$papers = $dom->getElementsByTagName('paper');
 					$related_authors = renderPapers($papers);

@@ -3,7 +3,7 @@ require_once("../../db.php");
 require_once("default_related_items.php");
 
 $id = $_GET['id'];
-$related_items = GetRelatedItems($id, 10);
+$related_items = GetRelatedItems($id, "default", 10);
 header('Content-Type: text/xml');
 echo '<relate>';
 foreach($related_items as $id => $weight)
