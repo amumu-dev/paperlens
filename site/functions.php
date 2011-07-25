@@ -73,7 +73,7 @@ function renderRelatedAuthors($related_authors)
 	foreach($related_authors as $author=>$weight)
 	{
 		$id_name = explode("|", $author, 2);
-		echo "<span class=\"author\"><a href=/site/author.php?author=".$id_name[0]."&name=".str_replace(' ','+',$id_name[1]).">" . $author . "</a></span><br>";
+		echo "<span class=\"author\"><a href=/site/author.php?author=".$id_name[0]."&name=".str_replace(' ','+',$id_name[1]).">" . $id_name[1] . "</a></span><br>";
 	}
 }
 
