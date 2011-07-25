@@ -51,12 +51,7 @@ $related_authors = array();
 				<h2>Related Authors</h2>
 				<div class="related_author">
 				<?php
-				arsort($related_authors);
-				$related_authors = array_slice($related_authors, 0, 16);
-				foreach($related_authors as $author=>$weight)
-				{
-					echo "<span class=\"author\"><a href=/site/author.php>" . $author . "</a></span><br>";
-				}
+				renderRelatedAuthors($related_authors);
 				?>
 				</div>
 			</div>
