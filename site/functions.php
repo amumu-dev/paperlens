@@ -46,7 +46,7 @@ function renderPapers($papers_dom)
 			$author_id = $author->getElementsByTagName('id')->item(0)->nodeValue;
 			$author_name = $author->getElementsByTagName('name')->item(0)->nodeValue;
 			echo "<a href=/site/author.php?author=".$author_id."&name=".str_replace(' ','+',$author_name).">" . $author_name . "</a>&nbsp;";
-			if(!array_key_exists($author_name, $related_authors))
+			if(!array_key_exists($author_id . "|" . $author_name, $related_authors))
 			{
 				$related_authors[$author_id . "|" . $author_name] = 1;
 			}
@@ -73,7 +73,7 @@ function renderRelatedAuthors($related_authors)
 	foreach($related_authors as $author=>$weight)
 	{
 		$id_name = explode("|", $author, 2);
-		echo "<span class=\"author\"><a href=/site/author.php?author=".$id_name[0]."&name=".str_replace(' ','+',$id_name[1]).">" . $id_name[1] ."&nbsp;" . $weight . "</a></span><br>";
+		echo "<span class=\"author\"><a href=/site/author.php?author=".$id_name[0]."&name=".str_replace(' ','+',$id_name[1]).">" . $id_name[1] ."</a></span><br>";
 	}
 }
 
