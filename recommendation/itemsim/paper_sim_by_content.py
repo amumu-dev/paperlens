@@ -11,7 +11,8 @@ def generatePaperEntities():
     connection2 = MySQLdb.connect(host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
     cursor2 = connection1.cursor()
     cursor2.execute("truncate table tmp_paper_entities;")
-    cursor1.execute("select paper.id, paper_author.author_id, paper.year, paper.title, paper.booktitle from paper_author left join paper on paper_author.paper_id = paper.id")
+    #cursor1.execute("select paper.id, paper_author.author_id, paper.year, paper.title, paper.booktitle from paper_author left join paper on paper_author.paper_id = paper.id")
+    cursor1.execute("select id, title, booktitle,journal from paper")
     entity_dict = dict()
     numrows = int(cursor1.rowcount)
     for k in range(numrows):
@@ -19,19 +20,24 @@ def generatePaperEntities():
             print k
         row = cursor1.fetchone()
         paper_id = row[0]
-        author_id = row[1]
-        year = row[2]
-        entities = row[3].lower().split()
-        entities.append("a:" + str(author_id))
-        booktitle = row[4]
-        entities.append(booktitle)
-        for entity in entities:
+        entities = dict()
+        words = row[1].lower().split()
+        booktitle = row[2]
+        journal = row[3]
+        entities["b:" + booktitle] = 1
+        entities["j:" + journal] = 1
+        for word in words:
+            if word not in entities:
+                entities[word] = 1
+            else
+                entities[word] = entities[word] + 1
+        for (entity,weight) in entities.items():
             entity_id = len(entity_dict)
             if entity in entity_dict:
                 entity_id = entity_dict[entity]
             else:
                 entity_dict[entity] = entity_id
-            cursor2.execute("replace into tmp_paper_entities (paper_id, entity_id) values (%s, %s)", (paper_id,entity_id))
+            cursor2.execute("replace into tmp_paper_entities (paper_id, entity_id, weight) values (%s, %s, %s)", (paper_id,entity_id,weight))
     cursor1.close()
     connection1.close()
     cursor2.close()
