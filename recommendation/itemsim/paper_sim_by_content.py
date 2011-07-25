@@ -29,7 +29,7 @@ def generatePaperEntities():
             entity_id = len(entity_dict)
             if entity in entity_dict:
                 entity_id = entity_dict[entity]
-            else
+            else:
                 entity_dict[entity] = entity_id
             cursor2.execute("replace into tmp_paper_entities (paper_id, entity_id) values (%s, %s)", (paper_id,entity_id))
     cursor1.close()
