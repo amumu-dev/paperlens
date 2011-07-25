@@ -15,7 +15,7 @@ $related_authors = array();
 ?>
 <html>
 	<head>
-		<title><?php echo $author; ?> Author Publications - PaperLens : Open Source Academic Recommender System</title>
+		<title><?php echo $author_name; ?> Author Publications - PaperLens : Open Source Academic Recommender System</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="./css/main.css" />
 		<script src="./js/main.js" type="text/javascript"></script>

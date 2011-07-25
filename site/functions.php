@@ -48,11 +48,11 @@ function renderPapers($papers_dom)
 			echo "<a href=/site/author.php?author=".$author_id."&name=".str_replace(' ','+',$author_name).">" . $author_name . "</a>&nbsp;";
 			if(!array_key_exists($author_name, $related_authors))
 			{
-				$related_authors[$author_name] = 1;
+				$related_authors[$author_id . "|" . $author_name] = 1;
 			}
 			else
 			{
-				$related_authors[$author_name]++;
+				$related_authors[$author_id . "|" . $author_name]++;
 			}
 		}
 		echo "</span><br />";
@@ -72,7 +72,8 @@ function renderRelatedAuthors($related_authors)
 	$related_authors = array_slice($related_authors, 0, 16);
 	foreach($related_authors as $author=>$weight)
 	{
-		echo "<span class=\"author\"><a href=/site/author.php?author=".str_replace(' ','+',$author).">" . $author . "</a></span><br>";
+		$id_name = explode("|", $author, 2);
+		echo "<span class=\"author\"><a href=/site/author.php?author=".$id_name[0]."&name=".str_replace(' ','+',$id_name[1]).">" . $author . "</a></span><br>";
 	}
 }
 
