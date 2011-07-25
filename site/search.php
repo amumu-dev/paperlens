@@ -6,7 +6,7 @@ require_once("functions.php");
 $query = $_GET["query"];
 $uid = $_SESSION["uid"];
 $dom = new DOMDocument();
-if(!$dom->load('http://127.0.0.1/api/search/search.php?n=10&query=' . str_replace(' ','+',$query)))
+if(!$dom->load('http://127.0.0.1/api/search/search.php?n=20&query=' . str_replace(' ','+',$query)))
 {
 	echo 'load xml failed';
 	return;

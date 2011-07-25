@@ -30,6 +30,7 @@ function renderPapers($papers_dom)
 	foreach($papers_dom as $paper)
 	{
 		++$j;
+		if($j == 11) echo "<div id=paper_more style=\"display:none;\">";
 		echo "<div class=\"paper\">";
 		$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
 		$title = $paper->getElementsByTagName('title');
@@ -62,6 +63,7 @@ function renderPapers($papers_dom)
 			. "','" . $paper_id. "', '2', '1', 'google" . $j . "')\" href=\"http://www.google.com/search?hl=en&q="
 			. str_replace('', '+', $title->item(0)->nodeValue) . "\" target=_blank>Google It</a>&nbsp;</span>";
 		echo "</div>";
+		if($j > 11) echo "</div>";
 	}
 	return $related_authors;
 }
@@ -69,7 +71,7 @@ function renderPapers($papers_dom)
 function renderRelatedAuthors($related_authors)
 {
 	arsort($related_authors);
-	//$related_authors = array_slice($related_authors, 0, 16);
+	$related_authors = array_slice($related_authors, 0, 16);
 	foreach($related_authors as $author=>$weight)
 	{
 		$id_name = explode("|", $author, 2);
