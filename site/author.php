@@ -5,7 +5,7 @@ if(!$login) Header("Location: index.php");
 require_once("functions.php");
 $author = $_GET["author"];
 $dom = new DOMDocument();
-if(!$dom->load('http://127.0.0.1/api/search/search_author.php?n=10&query=' . str_replace(' ','+',$author)))
+if(!$dom->load('http://127.0.0.1/api/author.php?n=10&author=' . $author))
 {
 	echo 'load xml failed';
 	return;
