@@ -69,7 +69,7 @@ function renderPapers($papers_dom)
 function renderRelatedAuthors($related_authors)
 {
 	arsort($related_authors);
-	$related_authors = array_slice($related_authors, 0, 16);
+	//$related_authors = array_slice($related_authors, 0, 16);
 	foreach($related_authors as $author=>$weight)
 	{
 		$id_name = explode("|", $author, 2);
