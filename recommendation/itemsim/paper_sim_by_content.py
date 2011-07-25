@@ -29,7 +29,7 @@ def generatePaperEntities():
         for word in words:
             if word not in entities:
                 entities[word] = 1
-            else
+            else:
                 entities[word] = entities[word] + 1
         for (entity,weight) in entities.items():
             entity_id = len(entity_dict)
