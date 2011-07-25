@@ -63,8 +63,8 @@ function renderPapers($papers_dom)
 			. "','" . $paper_id. "', '2', '1', 'google" . $j . "')\" href=\"http://www.google.com/search?hl=en&q="
 			. str_replace('', '+', $title->item(0)->nodeValue) . "\" target=_blank>Google It</a>&nbsp;</span>";
 		echo "</div>";
-		if($j > 11) echo "</div>";
 	}
+	if($j > 11) echo "</div>";
 	return $related_authors;
 }
 
