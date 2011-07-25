@@ -17,7 +17,7 @@ def generatePaperEntities():
     for k in range(numrows):
         if k % 10000 == 0:
             print k
-        row = cursor.fetchone()
+        row = cursor1.fetchone()
         paper_id = row[0]
         author_id = row[1]
         year = row[2]
