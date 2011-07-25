@@ -15,5 +15,5 @@ function google_search(uid, paper, behavior, w, node_id)
 
 function showMore()
 {
-	document.getElementById("show_more").style = "display:none;";
+	document.getElementById("show_more").style.display = "none;";
 }
