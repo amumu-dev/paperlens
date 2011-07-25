@@ -32,7 +32,7 @@ function renderPapers($papers_dom)
 		++$j;
 		if($j == 11)
 		{
-			echo "<span id=show_more style=\"width:100%;float:left;text-align:center;\"><a style=\"cursor:pointer;\" onclick=\"showMore();\">More</a></span>";
+			echo "<span id=show_more style=\"width:100%;float:left;text-align:center;display=block;\"><a style=\"cursor:pointer;\" onclick=\"showMore();\">More</a></span>";
 			echo "<div id=paper_more style=\"display:none;\">";
 		}
 		echo "<div class=\"paper\">";
