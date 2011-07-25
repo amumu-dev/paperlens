@@ -17,4 +17,6 @@ function showMore()
 {
 	node_show_more = document.getElementById("show_more");
 	node_show_more.innerHTML = '';
+	node_paper_more = document.getElementById("paper_more");
+	node_paper_more.style.display = 'block';
 }
