@@ -4,6 +4,7 @@ require_once('session.php');
 if(!$login) Header("Location: index.php");
 require_once("functions.php");
 $author = $_GET["author"];
+$author_name = $_GET["name"];
 $dom = new DOMDocument();
 if(!$dom->load('http://127.0.0.1/api/author.php?n=10&author=' . $author))
 {
@@ -38,7 +39,7 @@ $related_authors = array();
 			
 			<div id="main">
 				<div id="searchret">
-					<h2>Publications of <?php echo $author; ?></h2>
+					<h2>Publications of <font color=#647B0F><?php echo $author_name; ?></font></h2>
 					<?php
 					$papers = $dom->getElementsByTagName('paper');
 					$related_authors = renderPapers($papers);
