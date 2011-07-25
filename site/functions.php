@@ -30,7 +30,11 @@ function renderPapers($papers_dom)
 	foreach($papers_dom as $paper)
 	{
 		++$j;
-		if($j == 11) echo "<div id=paper_more style=\"display:none;\">";
+		if($j == 11)
+		{
+			echo "<span id=show_more style=\"width:100%;float:left;text-align:center;\"><a style=\"cursor:pointer;\" onclick=\"showMore();\">More</a></span>";
+			echo "<div id=paper_more style=\"display:none;\">";
+		}
 		echo "<div class=\"paper\">";
 		$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
 		$title = $paper->getElementsByTagName('title');
