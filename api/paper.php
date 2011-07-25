@@ -24,13 +24,14 @@ function getPaperInfo($paper_id)
 {
 	$ret = array();
 	//get title and book title
-	$result = mysql_query('select title, booktitle,year,journal,abstract from paper where id='.$paper_id);
+	$result = mysql_query('select title, booktitle,year,journal,abstract,type from paper where id='.$paper_id);
 	if (!$result) {
 	    die('Query failed: ' . mysql_error());
 	}
 
 	while ($row = mysql_fetch_row($result))
 	{
+		if($row[5] == "www") return array();
 		$ret['title'] = $row[0];
 		$ret['booktitle'] = $row[1];
 		$ret['year'] = $row[2];
@@ -55,19 +56,20 @@ function getPaperInfo($paper_id)
 }
 
 $paper_info = getPaperInfo($id);
-
-echo "<paper>";
-echo "<id>" . $id . "</id>";
-echo "<title>" . htmlspecialchars($paper_info['title']) . "</title>";
-if(strlen($paper_info['booktitle']) > 0)
-	echo "<booktitle>" . htmlspecialchars($paper_info['booktitle']) . "</booktitle>";
-else echo "<booktitle>" . htmlspecialchars($paper_info['journal']) . "</booktitle>";
-echo "<year>" . htmlspecialchars($paper_info['year']) . "</year>";
-echo "<abstract>" . htmlspecialchars($paper_info['abstract']) . "</abstract>";
-foreach($paper_info['author'] as $author_id => $author_name)
+if(count($paper_info) > 0)
 {
-	echo "<author><id>" . $author_id. "</id><name>".$author_name."</name></author>";
+	echo "<paper>";
+	echo "<id>" . $id . "</id>";
+	echo "<title>" . htmlspecialchars($paper_info['title']) . "</title>";
+	if(strlen($paper_info['booktitle']) > 0)
+		echo "<booktitle>" . htmlspecialchars($paper_info['booktitle']) . "</booktitle>";
+	else echo "<booktitle>" . htmlspecialchars($paper_info['journal']) . "</booktitle>";
+	echo "<year>" . htmlspecialchars($paper_info['year']) . "</year>";
+	echo "<abstract>" . htmlspecialchars($paper_info['abstract']) . "</abstract>";
+	foreach($paper_info['author'] as $author_id => $author_name)
+	{
+		echo "<author><id>" . $author_id. "</id><name>".$author_name."</name></author>";
+	}
+	echo "</paper>";
 }
-echo "</paper>";
-
 ?>
