@@ -35,7 +35,7 @@ function renderPapers($papers_dom)
 			echo "<span id=show_more style=\"width:100%;float:left;text-align:center;display=block;\"><a style=\"cursor:pointer;\" onclick=\"showMore();\">More</a></span>";
 			echo "<div id=paper_more style=\"display:none;\">";
 		}
-		echo "<div class=\"paper\" onmouseover=\"this.style.backgroundColor='yellow';\" onmouseout=\"this.style.backgroundColor='#FFF';\">";
+		echo "<div class=\"paper\" onmouseover=\"this.style.backgroundColor='#DEE7F6';\" onmouseout=\"this.style.backgroundColor='#FFF';\">";
 		$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
 		$title = $paper->getElementsByTagName('title');
 		echo "<span class=\"title\"><a href=/site/paper.php?id=".$paper_id.">" . strTruncate($title->item(0)->nodeValue, 85) . "</a></span><br />";
