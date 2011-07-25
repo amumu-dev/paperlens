@@ -121,6 +121,13 @@ body
 	background-color:#CCC;
 }
 
+#paper_more 
+{
+	width:100%;
+	float:left;
+	text-align:left;
+	display:none;
+}
 .paper,.related_author
 {
 	float:left;
