@@ -16,6 +16,5 @@ function google_search(uid, paper, behavior, w, node_id)
 function showMore()
 {
 	node_show_more = document.getElementById("show_more");
-	alert(node_show_more.style.display);
-	node_show_more.style.display = "none;";
+	node_show_more.innerHTML = '';
 }
