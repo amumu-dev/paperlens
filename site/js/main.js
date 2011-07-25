@@ -23,6 +23,7 @@ function showMore()
 
 function colorMouseOver()
 {
+	alert('hello');
 	this.style.backgroundColor = '#00f';
 }
 
