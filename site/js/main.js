@@ -20,3 +20,13 @@ function showMore()
 	node_paper_more = document.getElementById("paper_more");
 	node_paper_more.style.display = 'block';
 }
+
+function colorMouseOver()
+{
+	this.style.backgroundColor = '#00f';
+}
+
+function colorMouseOut()
+{
+	this.style.backgroundColor = '#fff';
+}
