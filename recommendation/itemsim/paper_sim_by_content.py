@@ -12,7 +12,7 @@ def generatePaperEntities():
     cursor2 = connection1.cursor()
     cursor2.execute("truncate table tmp_paper_entities;")
     #cursor1.execute("select paper.id, paper_author.author_id, paper.year, paper.title, paper.booktitle from paper_author left join paper on paper_author.paper_id = paper.id")
-    cursor1.execute("select id, title, booktitle,journal from paper")
+    cursor1.execute("select id, title, booktitle,journal from paper where citations>2")
     entity_dict = dict()
     numrows = int(cursor1.rowcount)
     for k in range(numrows):
