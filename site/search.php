@@ -19,6 +19,10 @@ $related_authors = array();
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="./css/main.css" />
 		<script src="./js/main.js" type="text/javascript"></script>
+		<?
+			include('./inc/sug_js.php');
+			include('./inc/sug_css.php');
+		?>
 	</head>
 	
 	<body>
@@ -31,11 +35,9 @@ $related_authors = array();
 					<span><a href="/site/logout.php">Log out</a></span>
 				</div>
 				<div id="logo">PaperLens</div>
-				<form action="search.php">
-					<input class="search_box" type="text" name="query" value=<?php echo "\"" . $query . "\"" ?>/>
-					<input type="hidden" name="uid" value="<?php echo $uid; ?>"/>
-					<input class="search_button" type="submit" value="Search!" />
-				</form>
+				<?
+				include('./inc/search_bar.php');
+				?>
 			</div>
 			
 			<div id="main">
