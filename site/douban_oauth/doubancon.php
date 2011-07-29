@@ -3,7 +3,7 @@
 //error_reporting(E_ALL);
 
 
-require_once('DoubanOauth.php');
+require_once('DoubanOAuth.php');
 //print "hola";
 
 $myclient = new DoubanOAuthClient($my_consumer_key,$my_consumer_secret);
