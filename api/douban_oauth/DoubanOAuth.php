@@ -38,7 +38,7 @@ class DoubanOAuthClient{
     {
         $theurl = $oauth_request->to_url();
         $content = file_get_contents($theurl);
-        $pairs = split('&',$content);
+        $pairs = explode('&',$content);
         $tmparr = array();
         foreach($pairs as $p){
             $vs = split('=',$p);
