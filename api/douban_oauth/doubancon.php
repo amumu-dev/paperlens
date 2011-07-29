@@ -13,7 +13,7 @@ foreach($rt_arr as $k=>$v){
 }
 //print $rt_arr['oauth_token'];
 
-$a_url = $myclient->get_authorization_url($rt_arr['oauth_token'],$rt_arr['oauth_token_secret'],"http://127.0.0.1/api/douban_oauth/doubansave.php");
+$a_url = $myclient->get_authorization_url($rt_arr['oauth_token'],$rt_arr['oauth_token_secret'],"http://50.18.105.189/api/douban_oauth/doubansave.php");
 
 Header("Location: $a_url");
 
