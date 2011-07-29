@@ -1,6 +1,6 @@
 <?php
 
-require_once('./DoubanOauth.php');
+require_once('DoubanOAuth.php');
 require_once('../db.php');
 echo "key and sec";
 
