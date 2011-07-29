@@ -41,7 +41,7 @@ class DoubanOAuthClient{
         $pairs = explode('&',$content);
         $tmparr = array();
         foreach($pairs as $p){
-            $vs = split('=',$p);
+            $vs = explode('=',$p);
             $tmparr[$vs[0]] = $vs[1];
         }
         return $tmparr;
