@@ -52,7 +52,7 @@ if($login)
 			if($login==FALSE){
 			?>
 			<div class="login">
-				<a href="/site/douban_oauth/doubancon.php">Connect with Douban</a>
+				<a href="/api/douban_oauth/doubancon.php">Connect with Douban</a>
 				<form action="signup.php" method="post" style="width:100%;float:left;">
 					<div style="float:left;width:100%;"><span>Email&nbsp;</span><input type="text" name="email" class="textinput"/></div>
 					<div style="float:left;width:100%;"><span>Password&nbsp;</span><input type="password" name="password" class="textinput"/></div>
