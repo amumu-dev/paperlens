@@ -12,7 +12,7 @@ def Extract(buf):
     p2 = buf.find('<', p1)
     key = buf[0:p1]
     value = buf[p1:p2]
-    return [key,value]
+    return value
 
 connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
 cursor = connection.cursor()
@@ -35,6 +35,9 @@ try:
                     cursor.execute("update paper set citeseer_key=%s where hashvalue=%s",(citeseer_id, hashvalue))
             title = ''
             source = ''
+            citeseer_id = ''
+            if n % 10000 == 0:
+                print n, title
         if line.find("<dc:title>") >= 0:
             title = Extract(line)
         if line.find("<dc:source>") >= 0:
@@ -43,8 +46,7 @@ try:
             citeseer_id_tks = Extract(line).split(":")
             citeseer_id = citeseer_id_tks[2]
         
-        if n % 10000 == 0:
-            print n, title
+        
     connection.commit()
     cursor.close()
     connection.close()
