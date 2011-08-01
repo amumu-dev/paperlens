@@ -38,6 +38,7 @@ try:
             citeseer_id = ''
             if n % 10000 == 0:
                 print n, title
+            n = n + 1
         if line.find("<dc:title>") >= 0:
             title = Extract(line)
         if line.find("<dc:source>") >= 0:
