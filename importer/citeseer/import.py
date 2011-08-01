@@ -33,12 +33,13 @@ try:
                 if(int(row[0]) == 1):
                     cursor.execute("update paper set source_url=%s where hashvalue=%s",(source, hashvalue))
                     cursor.execute("update paper set citeseer_key=%s where hashvalue=%s",(citeseer_id, hashvalue))
+            
+            if n % 10000 == 0:
+                print n, title, citeseer_id, source
+            n = n + 1
             title = ''
             source = ''
             citeseer_id = ''
-            if n % 10000 == 0:
-                print n, title
-            n = n + 1
         if line.find("<dc:title>") >= 0:
             title = Extract(line)
         if line.find("<dc:source>") >= 0:
