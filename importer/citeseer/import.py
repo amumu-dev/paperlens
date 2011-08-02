@@ -25,8 +25,7 @@ try:
     n = 0
     for line in data:
         (key, value) = Extract(line)
-        print key
-        if key == "<record>":
+        if line.find("<record>") >= 0:
             if len(title) > 0:
                 hashvalue = paperlens_import.intHash(title.lower())
                 cursor.execute("select count(*) from paper where hashvalue=%s",(hashvalue))
