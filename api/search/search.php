@@ -7,7 +7,7 @@ $query = $_GET['query'];
 $topN = $_GET['n'];
 
 //$result = mysql_query("select * from sphinx  where query='@title \"" . $query . "\" | @name \"" .$query . "\";mode=any;sort=relevance;limit=".$topN. ";index=idx1';");
-$result = mysql_query("select * from sphinx  where query='@title \"" . $query . "\";mode=extended;sort=expr:@weight*sqrt(1 + citations/10) /(2012 - year);limit=".$topN. ";index=idx1';");
+$result = mysql_query("select * from sphinx  where query='@title \"" . $query . "\";mode=extended;sort=expr:@weight*sqrt(1 + citations/100) /(2012 - year);limit=".$topN. ";index=idx1';");
 if (!$result) {
     die('Query failed: ' . mysql_error());
 }
@@ -23,7 +23,7 @@ while ($row = mysql_fetch_row($result))
 
 if($i < $topN)
 {
-	$result = mysql_query("select * from sphinx  where query='@title \"" . $query . "\";mode=any;sort=expr:@weight*sqrt(1 + citations/10) /(2012 - year);limit=".($topN-$i). ";index=idx1';");
+	$result = mysql_query("select * from sphinx  where query='@title \"" . $query . "\";mode=any;sort=expr:@weight*sqrt(1 + citations/100) /(2012 - year);limit=".($topN-$i). ";index=idx1';");
 	if (!$result) {
 	    die('Query failed: ' . mysql_error());
 	}
