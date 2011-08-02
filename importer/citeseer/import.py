@@ -19,10 +19,8 @@ cursor = connection.cursor()
 connection.commit()
 data = open("../../../data/citeseer.txt")
 
-cursor.execute("update paper set citeseer_key=%s",(""));
-
-log_file = open("log.txt", "w")
 try:
+    log_file = open("log.txt", "w")
     title = ''
     citeseer_id = ''
     n = 0
@@ -52,5 +50,6 @@ try:
     connection.commit()
     cursor.close()
     connection.close()
+    log_file.close()
 except MySQLdb.Error, e:
     print e.args[0], e.args[1]
