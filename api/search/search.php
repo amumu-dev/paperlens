@@ -23,7 +23,7 @@ while ($row = mysql_fetch_row($result))
 
 if($i < $topN)
 {
-	$result = mysql_query("select * from sphinx  where query='@(title,name,abstract) \"" . $query . "\";mode=any;sort=extended:citations desc;limit=".($topN-$i). ";index=idx1';");
+	$result = mysql_query("select * from sphinx  where query='@title \"" . $query . "\";mode=any;sort=extended:citations desc;limit=".($topN-$i). ";index=idx1';");
 	if (!$result) {
 	    die('Query failed: ' . mysql_error());
 	}
