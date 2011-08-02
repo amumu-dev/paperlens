@@ -22,7 +22,7 @@ data = open("../../../data/citeseer.txt")
 try:
     title = ''
     citeseer_id = ''
-    citations = []
+    citations = set()
     n = 0
     for line in data:
         (key, value) = Extract(line)
@@ -36,7 +36,7 @@ try:
                     cursor.execute("insert into paper_citeseer (paper_id, citeseer_key) values (%s, %s)",(paper_id, citeseer_id))
             k = 0
             for dst_key in citations:
-                cursor.execute("insert into cite_citeseer(src_key, dst_key, weight) values (%s, %s, %s)", (citeseer_id, dst_key, k))
+                cursor.execute("replace into cite_citeseer(src_key, dst_key, weight) values (%s, %s, %s)", (citeseer_id, dst_key, k))
                 k = k + 1
 
             if n % 10000 == 0:
@@ -51,7 +51,7 @@ try:
             citeseer_id_tks = value.split(":")
             citeseer_id = citeseer_id_tks[2]
         if key == "<dc:relation>":
-            citations.append(value)
+            citations.add(value)
         
     connection.commit()
     cursor.close()
