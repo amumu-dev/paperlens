@@ -26,8 +26,8 @@ if($login)
 		<link rel="stylesheet" type="text/css" href="./css/main.css" />
 		<script src="./js/main.js" type="text/javascript"></script>
 		<?
-			include('./inc/sug_js.php');
-			include('./inc/sug_css.php');
+			include('./search/sug_js.php');
+			include('./search/sug_css.php');
 		?>
 	</head>
 	
@@ -45,7 +45,7 @@ if($login)
 				<?php } ?>
 				<div id="logo">PaperLens</div>
 				<?
-				include('./inc/search_bar.php');
+				include('./search/search_bar.php');
 				?>
 			</div>
 			<?php
