@@ -20,7 +20,6 @@ connection.commit()
 data = open("../../../data/citeseer.txt")
 
 try:
-    log_file = open("log.txt", "w")
     title = ''
     citeseer_id = ''
     n = 0
@@ -38,7 +37,7 @@ try:
                         print n, title, citeseer_id
                     n = n + 1
                 else:
-                    log_file.write("%s %s \n", (int(row[0]), title))
+                    print int(row[0]), title
             title = ''
             citeseer_id = ''
         if key == "<dc:title>":
@@ -50,6 +49,5 @@ try:
     connection.commit()
     cursor.close()
     connection.close()
-    log_file.close()
 except MySQLdb.Error, e:
     print e.args[0], e.args[1]
