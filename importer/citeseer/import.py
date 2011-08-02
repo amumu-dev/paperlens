@@ -25,6 +25,7 @@ try:
     n = 0
     for line in data:
         (key, value) = Extract(line)
+        print key
         if key == "<record>":
             if len(title) > 0:
                 hashvalue = paperlens_import.intHash(title.lower())
