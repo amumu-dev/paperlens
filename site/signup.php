@@ -32,6 +32,7 @@ if ($result)
 	$uid = $row[0];
 	session_start();
 	$_SESSION["admin"] = true;
+	$_SESSION["uid"] = $uid;
 	Header("Location: index.php?uid=" . $uid);
 }
 ?>

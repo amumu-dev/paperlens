@@ -10,22 +10,25 @@ def Extract(buf):
     value = ''
     p1 = p1 + 1
     p2 = buf.find('<', p1)
-    key = buf[0:p1]
-    value = buf[p1:p2]
-    return value
+    key = buf[0:p1].strip()
+    value = buf[p1:p2].strip()
+    return (key, value)
 
 connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
 cursor = connection.cursor()
 connection.commit()
 data = open("../../../data/citeseer.txt")
 
+cursor.execute("update paper set citeseer_key=%s",(""));
+
+log_file = open("log.txt", "w")
 try:
     title = ''
-    source = ''
     citeseer_id = ''
     n = 0
     for line in data:
-        if line.find("<record>") >= 0:
+        (key, value) = Extract(line)
+        if key == "<record>":
             if len(title) > 0:
                 hashvalue = paperlens_import.intHash(title.lower())
                 cursor.execute("select count(*) from paper where hashvalue=%s",(hashvalue))
@@ -36,17 +39,15 @@ try:
                     if n % 10000 == 0:
                         print n, title, citeseer_id
                     n = n + 1
+                else:
+                    log_file.write("%s %s \n", int(row[0]), title)
             title = ''
-            source = ''
             citeseer_id = ''
-        if line.find("<dc:title>") >= 0:
-            title = Extract(line)
-        if line.find("<dc:source>") >= 0:
-            source = Extract(line)
-        if line.find("<identifier>") >= 0:
-            citeseer_id_tks = Extract(line).split(":")
+        if key == "<dc:title>":
+            title = value
+        if key == "<identifier>":
+            citeseer_id_tks = value.split(":")
             citeseer_id = citeseer_id_tks[2]
-        
         
     connection.commit()
     cursor.close()
