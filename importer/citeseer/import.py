@@ -34,10 +34,8 @@ try:
                 if int(row[0]) == 1:
                     paper_id = int(row[1])
                     cursor.execute("replace into paper_citeseer (paper_id, citeseer_key) values (%s, %s)",(paper_id, citeseer_id))
-            k = 0
             for dst_key in citations:
-                cursor.execute("replace into cite_citeseer(src_key, dst_key, weight) values (%s, %s, %s)", (citeseer_id, dst_key, k))
-                k = k + 1
+                cursor.execute("replace into cite_citeseer(src_key, dst_key, weight) values (%s, %s)", (citeseer_id, dst_key))
 
             if n % 10000 == 0:
                 print n, title, citeseer_id
