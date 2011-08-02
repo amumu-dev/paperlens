@@ -26,7 +26,7 @@ try:
     for line in data:
         (key, value) = Extract(line)
         if line.find("<record>") >= 0:
-            if len(title) > 0:
+            if len(title) > 20:
                 hashvalue = paperlens_import.intHash(title.lower())
                 cursor.execute("select count(*) from paper where hashvalue=%s",(hashvalue))
                 row = cursor.fetchone()
@@ -36,8 +36,6 @@ try:
                     if n % 10000 == 0:
                         print n, title, citeseer_id
                     n = n + 1
-                else:
-                    print int(row[0]), title
             title = ''
             citeseer_id = ''
         if key == "<dc:title>":
