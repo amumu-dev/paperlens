@@ -38,7 +38,7 @@ try:
                         print n, title, citeseer_id
                     n = n + 1
                 else:
-                    log_file.write("%s %s \n", int(row[0]), title)
+                    log_file.write("%s %s \n", (int(row[0]), title))
             title = ''
             citeseer_id = ''
         if key == "<dc:title>":
