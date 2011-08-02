@@ -34,13 +34,14 @@ try:
                 if int(row[0]) == 1:
                     paper_id = int(row[1])
                     cursor.execute("insert into paper_citeseer (paper_id, citeseer_key) values (%s, %s)",(paper_id, citeseer_id))
-                    if n % 10000 == 0:
-                        print n, title, citeseer_id
-                    n = n + 1
             k = 0
             for dst_key in citations:
                 cursor.execute("insert into cite_citeseer(src_key, dst_key, weight) values (%s, %s, %s)", (citeseer_id, dst_key, k))
                 k = k + 1
+
+            if n % 10000 == 0:
+                print n, title, citeseer_id
+                n = n + 1
 
             title = ''
             citeseer_id = ''
