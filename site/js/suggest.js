@@ -124,11 +124,11 @@
 									}
 								}
 								catch(e){
-									alert('Sorry, an error has occured!');
+									//alert('Sorry, an error has occured!');
 								}
 							},
 							error: function(xhr, status, ex){
-								alert('Sorry, an error has occured!');
+								//alert('Sorry, an error has occured!');
 							}
 						});
 					}
