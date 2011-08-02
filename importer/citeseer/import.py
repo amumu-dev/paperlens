@@ -37,6 +37,8 @@ try:
                     if n % 10000 == 0:
                         print n, title, citeseer_id
                     n = n + 1
+                elif int(row[0]) == 0:
+                    cursor.execute("insert into paper (title, citeseer_key) values (%s, %s)", (title, citeseer_id))
             title = ''
             citeseer_id = ''
         if key == "<dc:title>":
