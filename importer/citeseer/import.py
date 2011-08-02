@@ -20,6 +20,7 @@ connection.commit()
 data = open("../../../data/citeseer.txt")
 
 try:
+    cursor.execute("update paper set citeseer_key=%s",(''))
     title = ''
     citeseer_id = ''
     n = 0
