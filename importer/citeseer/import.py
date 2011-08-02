@@ -45,6 +45,7 @@ try:
 
             title = ''
             citeseer_id = ''
+            citations = set()
         if key == "<dc:title>":
             title = value
         if key == "<identifier>":
