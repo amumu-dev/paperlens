@@ -20,23 +20,27 @@ connection.commit()
 data = open("../../../data/citeseer.txt")
 
 try:
-    cursor.execute("update paper set citeseer_key=%s",(''))
     title = ''
     citeseer_id = ''
+    citations = []
     n = 0
     for line in data:
         (key, value) = Extract(line)
         if line.find("<record>") >= 0:
             if len(title) > 20:
                 hashvalue = paperlens_import.intHash(title.lower())
-                cursor.execute("select count(*) from paper where hashvalue=%s",(hashvalue))
+                cursor.execute("select count(*),id from paper where hashvalue=%s",(hashvalue))
                 row = cursor.fetchone()
                 if int(row[0]) == 1:
-                    #cursor.execute("update paper set source_url=%s where hashvalue=%s",(source, hashvalue))
-                    cursor.execute("update paper set citeseer_key=%s where hashvalue=%s",(citeseer_id, hashvalue))
+                    paper_id = int(row[1])
+                    cursor.execute("insert into paper_citeseer (paper_id, citeseer_key) values (%s, %s)",(paper_id, citeseer_id))
                     if n % 10000 == 0:
                         print n, title, citeseer_id
                     n = n + 1
+            k = 0
+            for dst_key in citations:
+                cursor.execute("insert into cite_citeseer(src_key, dst_key, weight) values (%s, %s, %s)", (citeseer_id, dst_key, k))
+                k = k + 1
 
             title = ''
             citeseer_id = ''
@@ -45,6 +49,8 @@ try:
         if key == "<identifier>":
             citeseer_id_tks = value.split(":")
             citeseer_id = citeseer_id_tks[2]
+        if key == "<dc:relation>":
+            citations.append(value)
         
     connection.commit()
     cursor.close()
