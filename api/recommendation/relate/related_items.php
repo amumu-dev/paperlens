@@ -19,9 +19,11 @@ function GetRelatedItems($item, $table_name, $topN)
 function GetRelatedItemsFromMultiTables($item, $tables, $topN)
 {
 	$ret = array();
+	echo $item . " ";
 	foreach($tables as $table_name=>$table_weight)
 	{
 		echo $table_name . " &nbsp; " . $table_weight;
+		echo "select dst_id,weight from " . $table_name . " where src_id=" . $item . " order by weight desc limit " . $topN;
 		$result = mysql_query("select dst_id,weight from " . $table_name . " where src_id=" . $item . " order by weight desc limit " . $topN);
 		if (!$result)
 		{
