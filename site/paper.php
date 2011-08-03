@@ -13,7 +13,8 @@ if(!$paper_dom->load('http://50.18.105.189/api/paper.php?id=' . $paper))
 }
 
 $dom = new DOMDocument();
-if(!$dom->load('http://50.18.105.189/api/recommendation/relate/default_related_items_xml.php?id=' . $paper))
+//if(!$dom->load('http://50.18.105.189/api/recommendation/relate/default_related_items_xml.php?id=' . $paper))
+if(!$dom->load('http://50.18.105.189/api/recommendation/relate/related_items_xml.php?tables=papersim_author-1&id=' . $paper))
 {
 	echo 'load xml failed';
 	return;
