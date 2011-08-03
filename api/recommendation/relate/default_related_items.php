@@ -1,5 +1,5 @@
 <?php
-function GetRelatedItems($item, $table_name, $topN)
+function GetDefaultRelatedItems($item, $table_name, $topN)
 {
 	$ret = array();
 	$title_result = mysql_query('select title from paper where id='.$item);
