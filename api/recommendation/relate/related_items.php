@@ -1,6 +1,7 @@
 <?php
 function GetRelatedItems($item, $table_name, $topN)
 {
+	if($table_name == "default") return GetDefaultRelatedItems($item, "default", $topN);
 	$ret = array();
 	$result = mysql_query("select dst_id,weight from " . $table_name . " where src_id=" . $item . " order by weight desc limit " . $topN);
 	if (!$result)

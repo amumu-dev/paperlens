@@ -1,7 +1,7 @@
 <?php
 require_once("recsys.php");
 $uid = $_GET['uid'];
-$relatedTables = array("papersim_author" => 1);
+$relatedTables = array("papersim_author" => 1, "default" => 0.001);
 $recommendations = makingRecommendation($uid, $relatedTables);
 header('Content-Type: text/xml');
 arsort($recommendations[0]);
