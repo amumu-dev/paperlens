@@ -1,5 +1,4 @@
 <?php
-require_once("../../db.php");
 function GetRelatedItems($item, $table_name, $topN)
 {
 	$ret = array();
