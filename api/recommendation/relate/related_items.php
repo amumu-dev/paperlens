@@ -56,7 +56,7 @@ function GetRelatedItemsFromMultiTables($item, $tables, $topN)
 	}
 	if(count($ret) < $topN)
 	{
-		$related_items = GetDefaultRelatedItems($item, "" $topN);
+		$related_items = GetDefaultRelatedItems($item, "", $topN);
 		foreach($related_items as $dst_id => $weight)
 		{
 			if(!array_key_exists($dst_id, $ret)) $ret[$dst_id] = 0;
