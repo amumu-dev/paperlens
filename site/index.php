@@ -11,7 +11,8 @@ if($login)
 	$keywords = $row[0];
 	$email = $row[1];
 	$dom = new DOMDocument();
-	if(!$dom->load('http://127.0.0.1/api/search/search.php?n=10&query=' . str_replace(' ','+',$keywords)))
+	//if(!$dom->load('http://127.0.0.1/api/search/search.php?n=10&query=' . str_replace(' ','+',$keywords)))
+	if(!$dom->load("http://127.0.0.1/api/recommendation/recsys_no_reason_xml.php?uid=" . $uid)
 	{
 		echo 'load xml failed';
 		return;

@@ -8,7 +8,6 @@ header('Content-Type: text/xml');
 echo '<relate>';
 foreach($related_items as $id => $weight)
 {
-	//echo $id . ',' . $weight . '    ';
 	echo file_get_contents('http://127.0.0.1/api/paper.php?id=' . $id) ;
 }
 echo '</relate>';
