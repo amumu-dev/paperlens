@@ -59,5 +59,4 @@ def paperSim():
     cursor.close()
     connection.close()
 
-generatePaperEntities()
 paperSim()
