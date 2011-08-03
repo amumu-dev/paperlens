@@ -6,7 +6,7 @@ require_once("./behavior/behavior.php");
 
 //get related items of a given item
 //require_once("./relate/related_items.php");
-require_once("./relate/default_related_items.php");
+require_once("./relate/related_items.php");
 
 //generate raw recommendations from a set of source items
 require_once("./core/recommendation_core.php");
@@ -64,7 +64,7 @@ function makingRecommendation($uid, $relatedTables)
 	return $recommendations;
 }
 $uid = $_GET['uid'];
-$relatedTables = array("default" => 1);
+$relatedTables = array("papersim_author" => 1);
 $recommendations = makingRecommendation($uid, $relatedTables);
 header('Content-Type: text/xml');
 arsort($recommendations[0]);
