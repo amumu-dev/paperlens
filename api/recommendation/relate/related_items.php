@@ -35,7 +35,6 @@ function GetRelatedItemsFromMultiTables($item, $tables, $topN)
 		}
 	}
 	arsort($ret);
-	array_splice($ret, 0, $topN, true);
 	return $ret;
 }
 

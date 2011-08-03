@@ -15,9 +15,11 @@ foreach($tks as $buf)
 $related_items = GetRelatedItemsFromMultiTables($id, $tables, 10);
 header('Content-Type: text/xml');
 echo '<relate>';
+$k = 0;
 foreach($related_items as $id => $weight)
 {
-	//echo $id . ',' . $weight . '    ';
+	if($k >= 10) break;
+	++$k;
 	echo file_get_contents('http://127.0.0.1/api/paper.php?id=' . $id) ;
 }
 echo '</relate>';
