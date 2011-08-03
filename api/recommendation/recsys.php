@@ -63,6 +63,7 @@ function makingRecommendation($uid, $relatedTables)
 	ranking($recommendations);
 	return $recommendations;
 }
+/*
 $uid = $_GET['uid'];
 $relatedTables = array("papersim_author" => 1);
 $recommendations = makingRecommendation($uid, $relatedTables);
@@ -88,4 +89,5 @@ foreach($recommendations[0] as $paper_id => $weight)
 	echo "</recommendation>";
 }
 echo "</result>";
+*/
 ?>
