@@ -37,8 +37,8 @@ function GetRelatedItemsFromMultiTables($item, $tables, $topN)
 			$ret[$dst_id] += $weight * $table_weight;
 		}
 	}
-	arsort($ret);
-	array_splice($ret, $topN);
+	//arsort($ret);
+	//array_splice($ret, $topN);
 	return $ret;
 }
 
