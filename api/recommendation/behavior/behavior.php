@@ -3,7 +3,7 @@ require_once("../db.php");
 function GetBehavior($uid)
 {
 	$ret = array();
-	$result = mysql_query('select paper_id,weight from user_paper_behavior where user_id='.$uid);
+	$result = mysql_query("select paper_id,weight from user_paper_behavior where user_id=$uid order by created_at desc limit 20");
 	if (!$result) {
 	    return $ret;
 	}
@@ -15,7 +15,8 @@ function GetBehavior($uid)
 		if(!array_key_exists($paper_id, $ret)) $ret[$paper_id] = $weight;
 		else $ret[$paper_id] += $weight;
 	}
-	return $ret;
+	arsort($ret);
+	return array_slice($ret, 0, 10, TRUE);
 }
 
 ?>
