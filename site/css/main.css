@@ -44,6 +44,12 @@ body
 	width:73%;
 	float:left;
 }
+#main p, #main form
+{
+	width:100%;
+	float:left;
+}
+
 .login, #intro
 {
 	width:48%;

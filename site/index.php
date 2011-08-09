@@ -95,9 +95,9 @@ if($login)
 				{
 				?>
 				<div id="main">
-				<p>As a new user, we need more information to make recommendations for you.
-				Could you please input some tags which can bestly describe your interest:</p>
-				<form action="coldstart.php" method="post">
+				<p>As a new user, we need more information to make recommendations for you.</p>
+				<p>Could you please input some tags which can bestly describe your interest:</p>
+				<form style="width:100%;float:left;" action="coldstart.php" method="post">
 				<input style="width:80%;float:left;height:26px;line-height:26px;" type="text" name="keywords" value=""/>
 				<input style="width:15%;float:left;height:26px;line-height:26px;" type="submit" value="Submit"/>
 				</form>
