@@ -3,10 +3,20 @@ require_once('db.php');
 $password = md5($_POST["password"]);
 $email = $_POST["email"];
 
-echo "SELECT id FROM user WHERE email='".$email."'";
-$result0 = mysql_query("SELECT id FROM user WHERE email='".$email."'");
-if($result0 && mysql_num_rows($result0) > 0)
+function IsEmailExist($mail)
 {
+	$result = mysql_query("select count(*) from user where email='$mail'");
+	if($result)
+	{
+		$row = mysql_fetch_row($result);
+		if($row[0] == 1) return TRUE;
+	}
+	return FALSE;
+}
+
+if(IsEmailExist($email))
+{
+	echo "exist email";
 	$result = mysql_query("SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'");
 	if ($result) 
 	{
