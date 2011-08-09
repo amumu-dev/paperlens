@@ -18,7 +18,7 @@ if(IsEmailExist($email))
 {
 	echo "exist email";
 	$result = mysql_query("SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'");
-	if ($result) 
+	if ($result)
 	{
 		$row = mysql_fetch_row($result);
 		$uid = $row[0];
@@ -26,7 +26,7 @@ if(IsEmailExist($email))
 		$_SESSION["admin"] = true;
 		$_SESSION["uid"] = $uid;
 		$_SESSION["email"] = $email;
-		//Header("Location: index.php");
+		Header("Location: index.php");
 	} else {
 		echo "User name and password error";
 	}
