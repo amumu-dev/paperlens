@@ -18,7 +18,7 @@ if(IsEmailExist($email))
 {
 	echo "exist email";
 	$result = mysql_query("SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'");
-	if ($result)
+	if ($result && mysql_num_rows($result) > 0)
 	{
 		$row = mysql_fetch_row($result);
 		$uid = $row[0];
@@ -49,7 +49,7 @@ else
 	mysql_query("insert into user (email,passwd) values ('" . $email . "', '".$password."');");
 
 	$result = mysql_query("SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'");
-	if ($result) 
+	if ($result && mysql_num_rows($result) > 0) 
 	{
 		$row = mysql_fetch_row($result);
 		$uid = $row[0];
