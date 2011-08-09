@@ -22,11 +22,12 @@ if(IsEmailExist($email))
 	{
 		$row = mysql_fetch_row($result);
 		$uid = $row[0];
+		echo $uid;
 		session_start();
 		$_SESSION["admin"] = true;
 		$_SESSION["uid"] = $uid;
 		$_SESSION["email"] = $email;
-		Header("Location: index.php");
+		//Header("Location: index.php");
 	} else {
 		echo "User name and password error";
 	}
@@ -56,7 +57,7 @@ else
 		$_SESSION["admin"] = true;
 		$_SESSION["uid"] = $uid;
 		$_SESSION["email"] = $email;
-		Header("Location: index.php?uid=" . $uid);
+		//Header("Location: index.php?uid=" . $uid);
 	}
 }
 ?>
