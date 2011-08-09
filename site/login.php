@@ -13,6 +13,7 @@ if ($result)
 	$_SESSION["email"] = $email;
 	Header("Location: index.php");
 } else {
+	$result = mysql_query("SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'");
 	echo "User name and password error";
 }
 ?>
