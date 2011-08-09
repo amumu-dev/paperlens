@@ -44,7 +44,7 @@ body
 	width:73%;
 	float:left;
 }
-#main form
+#main form, #main span
 {
 	width:100%;
 	float:left;
