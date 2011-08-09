@@ -3,8 +3,9 @@ require_once('db.php');
 $password = md5($_POST["password"]);
 $email = $_POST["email"];
 
+echo "SELECT id FROM user WHERE email='".$email."'";
 $result0 = mysql_query("SELECT id FROM user WHERE email='".$email."'");
-if($result0)
+if($result0 && mysql_num_rows($result0) > 0)
 {
 	$result = mysql_query("SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'");
 	if ($result) 
@@ -17,7 +18,6 @@ if($result0)
 		$_SESSION["email"] = $email;
 		//Header("Location: index.php");
 	} else {
-		$result = mysql_query("SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'");
 		echo "User name and password error";
 	}
 }
