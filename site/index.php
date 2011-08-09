@@ -53,7 +53,7 @@ if($login)
 			if($login==FALSE){
 			?>
 			<div id="intro">
-				<span>PaperLens is an academic paper recommender system which can : </span>
+				<h3>PaperLens is an academic paper recommender system which can : </h3>
 				<ul>
 					<li>Recommend academic papers to you by analyzing your preference</li>
 					<li>Recommend related papers of given paper</li>
