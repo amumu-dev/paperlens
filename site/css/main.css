@@ -44,8 +44,7 @@ body
 	width:73%;
 	float:left;
 }
-
-.login
+.login, #intro
 {
 	width:48%;
 	float:left;
