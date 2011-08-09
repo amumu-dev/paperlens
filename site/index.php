@@ -5,13 +5,7 @@ if($login)
 {
 	require_once('../api/db.php');
 	require_once("functions.php");
-	$result = mysql_query("SELECT keywords,email FROM user WHERE id=".$uid);
-	if (!$result) die("error when get keywords of user");
-	$row = mysql_fetch_row($result);
-	$keywords = $row[0];
-	$email = $row[1];
 	$dom = new DOMDocument();
-	//if(!$dom->load('http://127.0.0.1/api/search/search.php?n=10&query=' . str_replace(' ','+',$keywords)))
 	if(!$dom->load("http://127.0.0.1/api/recommendation/recsys_no_reason_xml.php?uid=" . $uid))
 	{
 		echo 'load xml failed';
@@ -72,23 +66,41 @@ if($login)
 			}
 			else
 			{
-			?>
-			<div id="main">
-			<h2>Paper Recommendations : </h2>
-			<?php
 				$papers = $dom->getElementsByTagName('paper');
-				$related_authors = renderPapers($papers);
+				if($papers->length > 0)
+				{
 			?>
-			</div>
-			<div id="side">
-				<h2>Related Authors</h2>
-				<div class="related_author">
+				<div id="main">
+				<h2>Paper Recommendations : </h2>
 				<?php
-				renderRelatedAuthors($related_authors);
+					
+					$related_authors = renderPapers($papers);
 				?>
 				</div>
-			</div>
-			<?php } ?>
+				<div id="side">
+					<h2>Related Authors</h2>
+					<div class="related_author">
+					<?php
+					renderRelatedAuthors($related_authors);
+					?>
+					</div>
+				</div>
+			<?php }
+				else
+				{
+				?>
+				<div id="main">
+				As a new user, we need more information to make recommendations for you.
+				Could you please input some tags which can bestly describe your interest:
+				<form action="coldstart.php" method="post">
+				<input type="text" name="keywords" value=""/>
+				<input type="submit" value="Submit"/>
+				</form>
+				</div>
+				<?php
+				}
+			}
+			?>
 		</div>
 	</body>
 </html>
