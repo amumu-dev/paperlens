@@ -33,6 +33,7 @@ if(IsEmailExist($email))
 }
 else
 {
+	echo "do not exist email";
 	if(strpos($email, "@") === false)
 	{
 		echo "<h2>Email address is invalid!</h2>";
@@ -43,7 +44,7 @@ else
 		echo "<h2>Password must exceed 6 characters</h2>";
 		return;
 	}
-	/*
+	echo "insert into user (email,passwd) values ('" . $email . "', '".$password."');";
 	mysql_query("insert into user (email,passwd) values ('" . $email . "', '".$password."');");
 
 	$result = mysql_query("SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'");
@@ -57,6 +58,5 @@ else
 		$_SESSION["email"] = $email;
 		Header("Location: index.php?uid=" . $uid);
 	}
-	*/
 }
 ?>
