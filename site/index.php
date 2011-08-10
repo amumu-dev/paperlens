@@ -17,6 +17,12 @@ if($login)
 		return;
 	}
 	$related_authors = array();
+	$papers = $dom->getElementsByTagName('paper');
+	if($papers->length == 0 && strlen($keywords) > 0)
+	{
+		$dom->load('http://127.0.0.1/api/search/search.php?n=10&query=' . str_replace(' ','+',$keywords));
+		$papers = $dom->getElementsByTagName('paper');
+	}
 }
 ?>
 <html>
@@ -71,7 +77,7 @@ if($login)
 			}
 			else
 			{
-				$papers = $dom->getElementsByTagName('paper');
+				
 				if($papers->length > 0)
 				{
 			?>
