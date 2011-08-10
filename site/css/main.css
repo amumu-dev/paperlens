@@ -48,7 +48,7 @@ body
 {
 	width:100%;
 	float:left;
-	line-height:24px;
+	line-height:20px;
 	padding:0px;
 }
 
@@ -160,11 +160,6 @@ body
 	color:#1F81CD;
 }
 .paper .info
-{
-	color:#777;
-	font-size:12px;
-}
-.paper .info a
 {
 	color:#777;
 	font-size:12px;

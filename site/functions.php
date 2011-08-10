@@ -42,7 +42,7 @@ function renderPapers($papers_dom)
 		$booktitle = $paper->getElementsByTagName('booktitle');
 		$year = $paper->getElementsByTagName('year');
 		if(strlen($booktitle->item(0)->nodeValue) > 0)
-			echo "<span class=\"info\"><a href=/site/paper.php?id=".$paper_id.">" . $booktitle->item(0)->nodeValue . "</a>&nbsp;" .$year->item(0)->nodeValue. "</span><br />";
+			echo "<span class=\"info\">" . $booktitle->item(0)->nodeValue . "&nbsp;" .$year->item(0)->nodeValue. "</span><br />";
 		$authors = $paper->getElementsByTagName('author');
 		$k = 0;
 		echo "<span class=\"author\">by&nbsp;";
