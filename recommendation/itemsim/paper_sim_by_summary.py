@@ -5,7 +5,26 @@ from paper import Paper
 import math
 from operator import itemgetter
 
+def getWordFreq()
+    cursor1.execute("select id, title, abstract from paper where length(abstract)>50")
+    ret = dict()
+    numrows = int(cursor1.rowcount)
+    for k in range(numrows):
+        if k % 10000 == 0:
+            print k
+        row = cursor1.fetchone()
+        paper_id = row[0]
+        entities = dict()
+        words = (row[1] + " " + row[2].lower()).split()
+        for word in words:
+            if word not in ret:
+                ret[word] = 1
+            else:
+                ret[word] = ret[word] + 1
+    return ret
+
 def generatePaperEntities():
+    word_freq = getWordFreq()
     connection1 = MySQLdb.connect(host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
     cursor1 = connection1.cursor()
     connection2 = MySQLdb.connect(host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
@@ -23,7 +42,9 @@ def generatePaperEntities():
         entities = dict()
         words = (row[1] + " " + row[2].lower()).split()
         for word in words:
-            if len(word) < 4:
+            if word not in word_freq:
+                continue
+            if word_freq[word] > 200:
                 continue
             if word not in entities:
                 entities[word] = 1
