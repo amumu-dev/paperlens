@@ -6,6 +6,8 @@ import math
 from operator import itemgetter
 
 def getWordFreq():
+    connection1 = MySQLdb.connect(host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
+    cursor1 = connection1.cursor()
     cursor1.execute("select id, title, abstract from paper where length(abstract)>50")
     ret = dict()
     numrows = int(cursor1.rowcount)
@@ -21,6 +23,8 @@ def getWordFreq():
                 ret[word] = 1
             else:
                 ret[word] = ret[word] + 1
+    cursor1.close()
+    connection1.close()
     return ret
 
 def generatePaperEntities():
