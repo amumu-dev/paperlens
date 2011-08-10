@@ -5,7 +5,7 @@ from paper import Paper
 import math
 from operator import itemgetter
 
-def getWordFreq()
+def getWordFreq():
     cursor1.execute("select id, title, abstract from paper where length(abstract)>50")
     ret = dict()
     numrows = int(cursor1.rowcount)
