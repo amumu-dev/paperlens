@@ -10,7 +10,7 @@ def paperSim():
     cursor = connection.cursor()
 
     simTable = dict()
-    cursor.execute("select paper_author.paper_id, paper_author.author_id from paper_author, paper where paper.id = paper_author.paper_id and paper.citations>5 order by author_id;")
+    cursor.execute("select paper_author.paper_id, paper_author.author_id from paper_author, paper where paper.id = paper_author.paper_id and paper.citations>1 order by author_id;")
 
     numrows = int(cursor.rowcount)
     print numrows
