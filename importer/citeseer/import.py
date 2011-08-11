@@ -38,7 +38,7 @@ try:
                     paper_id = int(row[1])
                     if citeseer_id not in citeseer_id_map:
                         citeseer_id_map[citeseer_id] = paper_id
-                    cursor.execute("replace into paper_citeseer (paper_id, citeseer_key) values (%s, %s)",(paper_id, citeseer_id))
+                    #cursor.execute("replace into paper_citeseer (paper_id, citeseer_key) values (%s, %s)",(paper_id, citeseer_id))
 
                     if n % 10000 == 0:
                         print n, title, citeseer_id
