@@ -102,7 +102,7 @@ def paperSim():
         papers.append(paper_id)
     print len(simTable)
 
-    cursor.execute("truncate table papersim_author;")
+    cursor.execute("truncate table papersim_summary;")
     n = 0
     for i, rels in simTable.items():
         n = n + 1
@@ -110,7 +110,7 @@ def paperSim():
             print n
         k = 0
         for j, weight in sorted(rels.items(), key=itemgetter(1), reverse=True):
-            cursor.execute("replace into papersim_author(src_id,dst_id,weight) values (%s,%s,%s);",(i, j, weight))
+            cursor.execute("replace into papersim_summary(src_id,dst_id,weight) values (%s,%s,%s);",(i, j, weight))
             k = k + 1
             if k > 10:
                 break
