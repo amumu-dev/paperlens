@@ -72,7 +72,7 @@ def paperSim():
     cursor = connection.cursor()
     cursor.execute("truncate table papersim_summary;")
     
-    for mod in range(5):
+    for mod in range(20):
         simTable = dict()
         cursor.execute("select paper_id,entity_id from tmp_paper_entities order by entity_id;")
 
@@ -82,7 +82,7 @@ def paperSim():
         prev_entity = -1
         papers = []
         for k in range(numrows):
-            if k % 10000 == 0:
+            if k % 100000 == 0:
                 print k
             row = cursor.fetchone()
             entity_id = row[1]
@@ -90,7 +90,7 @@ def paperSim():
             if prev_entity != entity_id:
                 if len(papers) < 200:
                     for i in papers:
-                        if i % 5 != mod:
+                        if i % 20 != mod:
                             continue
                         if i not in simTable:
                             simTable[i] = dict()
