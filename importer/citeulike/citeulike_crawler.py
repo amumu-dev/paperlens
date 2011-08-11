@@ -24,6 +24,12 @@ def GetUsers(buf):
         p1 = p2 + 1
     return ret
 
+def GetQuery(word):
+    ret = string.replace(word, " ", "+")
+    ret = string.replace(ret, "-", "+")
+    ret = string.replace(ret, "_", "+")
+    return ret
+
 def GetCategories(buf):
     ret = dict()
     p1 = 0
@@ -35,7 +41,7 @@ def GetCategories(buf):
         p2 = buf.find("</prism:category>", p1 + 1)
         if p2 < 0 or p2 > p1 + 50:
             break
-        word = buf[p1:p2]
+        word = GetQuery(buf[p1:p2])
         if word not in ret:
             ret[word] = 1
         else:
@@ -44,7 +50,8 @@ def GetCategories(buf):
     return ret
 
 
-all_categories = ["collaborative filtering"]
+
+all_categories = ["search+engine"]
 processed_categories = set()
 c = crawler.Crawler("")
 while len(all_categories) > 0:
@@ -53,8 +60,8 @@ while len(all_categories) > 0:
         continue
     processed_categories.add(word)
     print word
-    xml = c.download("http://www.citeulike.org/rss/search/all?q=" + string.replace(word, " ", "+"))
-    fp = open('./words/' + string.replace(word, " ", "+") + '.xml', 'w')
+    xml = c.download("http://www.citeulike.org/rss/search/all?q=" + word)
+    fp = open('./words/' + word + '.xml', 'w')
     fp.write(xml)
     fp.close()
     users = GetUsers(xml)
@@ -69,4 +76,4 @@ while len(all_categories) > 0:
             continue
         all_categories.append(word)
         k = k + 1
-    time.sleep(random.uniform(15,30))
+    time.sleep(random.uniform(5,10))

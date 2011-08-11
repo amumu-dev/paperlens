@@ -70,7 +70,7 @@ try:
                 cursor.execute("replace into cite_citeseer(src_id, dst_id, weight) values (%s, %s, %s)", (citeseer_id, dst_key, 1))
 
                 if n % 10000 == 0:
-                    print n, title, citeseer_id
+                    print n, paper_id, dst_id
                 n = n + 1
 
             citeseer_id = ''
