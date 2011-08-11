@@ -42,7 +42,7 @@ try:
 
                     if n % 10000 == 0:
                         print n, title, citeseer_id
-                        n = n + 1
+                    n = n + 1
 
             title = ''
             citeseer_id = ''
