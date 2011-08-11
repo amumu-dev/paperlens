@@ -70,50 +70,54 @@ def generatePaperEntities():
 def paperSim():
     connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
     cursor = connection.cursor()
-
-    simTable = dict()
-    cursor.execute("select paper_id,entity_id from tmp_paper_entities order by entity_id;")
-
-    numrows = int(cursor.rowcount)
-    print numrows
-
-    prev_entity = -1
-    papers = []
-    for k in range(numrows):
-        if k % 10000 == 0:
-            print k
-        row = cursor.fetchone()
-        entity_id = row[1]
-        paper_id = row[0]
-        if prev_entity != entity_id:
-            if len(papers) < 200:
-                for i in papers:
-                    if i not in simTable:
-                        simTable[i] = dict()
-                    for j in papers:
-                        if i == j:
-                            continue
-                        if j not in simTable[i]:
-                            simTable[i][j] = 0
-                        weight = 1 / math.log(2 + len(papers))
-                        simTable[i][j] = simTable[i][j] + weight
-            prev_entity = entity_id
-            papers = []
-        papers.append(paper_id)
-    print len(simTable)
-
     cursor.execute("truncate table papersim_summary;")
-    n = 0
-    for i, rels in simTable.items():
-        n = n + 1
-        if n % 10000 == 0:
-            print n
-        k = 0
-        for j, weight in sorted(rels.items(), key=itemgetter(1), reverse=True):
-            cursor.execute("replace into papersim_summary(src_id,dst_id,weight) values (%s,%s,%s);",(i, j, weight))
-            k = k + 1
-            if k > 10:
-                break
+    
+    for mod in range(5):
+        simTable = dict()
+        cursor.execute("select paper_id,entity_id from tmp_paper_entities order by entity_id;")
+
+        numrows = int(cursor.rowcount)
+        print numrows
+
+        prev_entity = -1
+        papers = []
+        for k in range(numrows):
+            if k % 10000 == 0:
+                print k
+            row = cursor.fetchone()
+            entity_id = row[1]
+            paper_id = row[0]
+            if prev_entity != entity_id:
+                if len(papers) < 200:
+                    for i in papers:
+                        if i % 5 != mod:
+                            continue
+                        if i not in simTable:
+                            simTable[i] = dict()
+                        for j in papers:
+                            if i == j:
+                                continue
+                            if j not in simTable[i]:
+                                simTable[i][j] = 0
+                            weight = 1 / math.log(2 + len(papers))
+                            simTable[i][j] = simTable[i][j] + weight
+                prev_entity = entity_id
+                papers = []
+            papers.append(paper_id)
+        print len(simTable)
+
+        
+        n = 0
+        for i, rels in simTable.items():
+            n = n + 1
+            if n % 10000 == 0:
+                print n
+            k = 0
+            for j, weight in sorted(rels.items(), key=itemgetter(1), reverse=True):
+                cursor.execute("replace into papersim_summary(src_id,dst_id,weight) values (%s,%s,%s);",(i, j, weight))
+                k = k + 1
+                if k > 10:
+                    break
 
     connection.commit()
     cursor.close()
