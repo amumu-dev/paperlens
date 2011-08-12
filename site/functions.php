@@ -44,7 +44,7 @@ function renderRelatedFeedback($src_paper_id)
 		. "</span>";
 }
 
-function renderPapers($papers_dom, $src_paper_id)
+function renderPapers($papers_dom, $src_paper_id = -1)
 {
 	$related_authors = array();
 	$j = 0;
