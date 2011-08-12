@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.9.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>Rediska</name>
+ <channel>pear.geometria-lab.net</channel>
+ <summary>Rediska (radish in Russian) - PHP client for Redis.</summary>
+ <description>Redis is an advanced fast key-value database written in C. It can be used like memcached, in front of a traditional 
+database, or on its own thanks to the fact that the in-memory datasets are not volatile but instead persisted on disk. 
+One of the cool features is that you can store not only strings, but lists and sets with atomic operations to push/pop 
+elements.
+
+More information and documentation on homepage: http://rediska.geometria-lab.net</description>
+ <lead>
+  <name>Ivan Shumkov</name>
+  <user>shumkov</user>
+  <email>ivan@shumkov.ru</email>
+  <active>yes</active>
+ </lead>
+ <lead>
+  <name>Maxim Ivanov</name>
+  <user>ivanov</user>
+  <email>maximiv@gmail.com</email>
+  <active>yes</active>
+ </lead>
+ <developer>
+  <name>Ryan Grenz</name>
+  <user>ryangrenz</user>
+  <email>info@ryangrenz.com</email>
+  <active>yes</active>
+ </developer>
+ <developer>
+  <name>Till Klampaeckel</name>
+  <user>till</user>
+  <email>till@php.net</email>
+  <active>yes</active>
+ </developer>
+ <date>2011-04-02</date>
+ <time>15:22:22</time>
+ <version>
+  <release>0.5.5</release>
+  <api>0.5.5</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
+ <notes>
+This is an beta release, see README.markdown for examples.
+ </notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <dir name="benchmarks">
+    <file baseinstalldir="/" name="keydistributors.php" role="doc" />
+   </dir> <!-- /benchmarks -->
+   <dir name="examples">
+    <dir name="retwitter">
+     <dir name="application">
+      <dir name="configs">
+       <file baseinstalldir="/" name="application.ini" role="doc" />
+      </dir> <!-- /examples/retwitter/application/configs -->
+      <dir name="controllers">
+       <file baseinstalldir="/" name="ErrorController.php" role="doc" />
+       <file baseinstalldir="/" name="IndexController.php" role="doc" />
+       <file baseinstalldir="/" name="PostController.php" role="doc" />
+       <file baseinstalldir="/" name="UserController.php" role="doc" />
+      </dir> <!-- /examples/retwitter/application/controllers -->
+      <dir name="forms">
+       <file baseinstalldir="/" name="Post.php" role="doc" />
+       <file baseinstalldir="/" name="User.php" role="doc" />
+       <file baseinstalldir="/" name="UserLogin.php" role="doc" />
+      </dir> <!-- /examples/retwitter/application/forms -->
+      <dir name="models">
+       <file baseinstalldir="/" name="Feed.php" role="doc" />
+       <file baseinstalldir="/" name="Followers.php" role="doc" />
+       <file baseinstalldir="/" name="Following.php" role="doc" />
+       <file baseinstalldir="/" name="Post.php" role="doc" />
+       <file baseinstalldir="/" name="User.php" role="doc" />
+       <file baseinstalldir="/" name="UserPosts.php" role="doc" />
+       <file baseinstalldir="/" name="Users.php" role="doc" />
+      </dir> <!-- /examples/retwitter/application/models -->
+      <dir name="views">
+       <dir name="layouts">
+        <file baseinstalldir="/" name="default.phtml" role="doc" />
+       </dir> <!-- /examples/retwitter/application/views/layouts -->
+       <dir name="scripts">
+        <dir name="error">
+         <file baseinstalldir="/" name="error.phtml" role="doc" />
+        </dir> <!-- /examples/retwitter/application/views/scripts/error -->
+        <dir name="post">
+         <file baseinstalldir="/" name="index.phtml" role="doc" />
+         <file baseinstalldir="/" name="my.phtml" role="doc" />
+         <file baseinstalldir="/" name="new.phtml" role="doc" />
+         <file baseinstalldir="/" name="_list.phtml" role="doc" />
+        </dir> <!-- /examples/retwitter/application/views/scripts/post -->
+        <dir name="user">
+         <file baseinstalldir="/" name="followers.phtml" role="doc" />
+         <file baseinstalldir="/" name="index.phtml" role="doc" />
+         <file baseinstalldir="/" name="login.phtml" role="doc" />
+         <file baseinstalldir="/" name="signup.phtml" role="doc" />
+         <file baseinstalldir="/" name="_list.phtml" role="doc" />
+        </dir> <!-- /examples/retwitter/application/views/scripts/user -->
+       </dir> <!-- /examples/retwitter/application/views/scripts -->
+      </dir> <!-- /examples/retwitter/application/views -->
+      <file baseinstalldir="/" name="Bootstrap.php" role="doc" />
+     </dir> <!-- /examples/retwitter/application -->
+     <dir name="docs">
+      <file baseinstalldir="/" name="README.txt" role="doc" />
+     </dir> <!-- /examples/retwitter/docs -->
+     <dir name="public">
+      <file baseinstalldir="/" name="index.php" role="doc" />
+     </dir> <!-- /examples/retwitter/public -->
+     <dir name="tests">
+      <dir name="application">
+       <file baseinstalldir="/" name="bootstrap.php" role="doc" />
+      </dir> <!-- /examples/retwitter/tests/application -->
+      <dir name="library">
+       <file baseinstalldir="/" name="bootstrap.php" role="doc" />
+      </dir> <!-- /examples/retwitter/tests/library -->
+      <file baseinstalldir="/" name="phpunit.xml" role="doc" />
+     </dir> <!-- /examples/retwitter/tests -->
+     <file baseinstalldir="/" name="README.txt" role="doc" />
+    </dir> <!-- /examples/retwitter -->
+   </dir> <!-- /examples -->
+   <dir name="library">
+    <dir name="Rediska">
+     <dir name="Command">
+      <dir name="GetSortedSet">
+       <file baseinstalldir="/" name="WithScoresIterator.php" role="php" />
+      </dir> <!-- /library/Rediska/Command/GetSortedSet -->
+      <dir name="Response">
+       <file baseinstalldir="/" name="ListNameAndValue.php" role="php" />
+       <file baseinstalldir="/" name="ValueAndScore.php" role="php" />
+      </dir> <!-- /library/Rediska/Command/Response -->
+      <file baseinstalldir="/" name="Abstract.php" role="php" />
+      <file baseinstalldir="/" name="AddToSet.php" role="php" />
+      <file baseinstalldir="/" name="AddToSortedSet.php" role="php" />
+      <file baseinstalldir="/" name="Append.php" role="php" />
+      <file baseinstalldir="/" name="AppendToList.php" role="php" />
+      <file baseinstalldir="/" name="CompareSets.php" role="php" />
+      <file baseinstalldir="/" name="CompareSortedSets.php" role="php" />
+      <file baseinstalldir="/" name="Decrement.php" role="php" />
+      <file baseinstalldir="/" name="Delete.php" role="php" />
+      <file baseinstalldir="/" name="DeleteFromHash.php" role="php" />
+      <file baseinstalldir="/" name="DeleteFromList.php" role="php" />
+      <file baseinstalldir="/" name="DeleteFromSet.php" role="php" />
+      <file baseinstalldir="/" name="DeleteFromSortedSet.php" role="php" />
+      <file baseinstalldir="/" name="DeleteFromSortedSetByRank.php" role="php" />
+      <file baseinstalldir="/" name="DeleteFromSortedSetByScore.php" role="php" />
+      <file baseinstalldir="/" name="DiffSets.php" role="php" />
+      <file baseinstalldir="/" name="Exception.php" role="php" />
+      <file baseinstalldir="/" name="Exists.php" role="php" />
+      <file baseinstalldir="/" name="ExistsInHash.php" role="php" />
+      <file baseinstalldir="/" name="ExistsInSet.php" role="php" />
+      <file baseinstalldir="/" name="Expire.php" role="php" />
+      <file baseinstalldir="/" name="FlushDb.php" role="php" />
+      <file baseinstalldir="/" name="Get.php" role="php" />
+      <file baseinstalldir="/" name="GetBit.php" role="php" />
+      <file baseinstalldir="/" name="GetFromHash.php" role="php" />
+      <file baseinstalldir="/" name="GetFromList.php" role="php" />
+      <file baseinstalldir="/" name="GetFromSortedSetByScore.php" role="php" />
+      <file baseinstalldir="/" name="GetHash.php" role="php" />
+      <file baseinstalldir="/" name="GetHashFields.php" role="php" />
+      <file baseinstalldir="/" name="GetHashLength.php" role="php" />
+      <file baseinstalldir="/" name="GetHashValues.php" role="php" />
+      <file baseinstalldir="/" name="GetKeysByPattern.php" role="php" />
+      <file baseinstalldir="/" name="GetKeysCount.php" role="php" />
+      <file baseinstalldir="/" name="GetLastSaveTime.php" role="php" />
+      <file baseinstalldir="/" name="GetLength.php" role="php" />
+      <file baseinstalldir="/" name="GetLifetime.php" role="php" />
+      <file baseinstalldir="/" name="GetList.php" role="php" />
+      <file baseinstalldir="/" name="GetListLength.php" role="php" />
+      <file baseinstalldir="/" name="GetRandomFromSet.php" role="php" />
+      <file baseinstalldir="/" name="GetRandomKey.php" role="php" />
+      <file baseinstalldir="/" name="GetRange.php" role="php" />
+      <file baseinstalldir="/" name="GetRankFromSortedSet.php" role="php" />
+      <file baseinstalldir="/" name="GetScoreFromSortedSet.php" role="php" />
+      <file baseinstalldir="/" name="GetSet.php" role="php" />
+      <file baseinstalldir="/" name="GetSetLength.php" role="php" />
+      <file baseinstalldir="/" name="GetSortedSet.php" role="php" />
+      <file baseinstalldir="/" name="GetSortedSetLength.php" role="php" />
+      <file baseinstalldir="/" name="GetSortedSetLengthByScore.php" role="php" />
+      <file baseinstalldir="/" name="GetType.php" role="php" />
+      <file baseinstalldir="/" name="Increment.php" role="php" />
+      <file baseinstalldir="/" name="IncrementInHash.php" role="php" />
+      <file baseinstalldir="/" name="IncrementScoreInSortedSet.php" role="php" />
+      <file baseinstalldir="/" name="Info.php" role="php" />
+      <file baseinstalldir="/" name="InsertToList.php" role="php" />
+      <file baseinstalldir="/" name="InsertToListAbstract.php" role="php" />
+      <file baseinstalldir="/" name="InsertToListAfter.php" role="php" />
+      <file baseinstalldir="/" name="InsertToListBefore.php" role="php" />
+      <file baseinstalldir="/" name="Interface.php" role="php" />
+      <file baseinstalldir="/" name="IntersectSets.php" role="php" />
+      <file baseinstalldir="/" name="IntersectSortedSets.php" role="php" />
+      <file baseinstalldir="/" name="MoveToDb.php" role="php" />
+      <file baseinstalldir="/" name="MoveToSet.php" role="php" />
+      <file baseinstalldir="/" name="PopFromList.php" role="php" />
+      <file baseinstalldir="/" name="PopFromListBlocking.php" role="php" />
+      <file baseinstalldir="/" name="PrependToList.php" role="php" />
+      <file baseinstalldir="/" name="Publish.php" role="php" />
+      <file baseinstalldir="/" name="Quit.php" role="php" />
+      <file baseinstalldir="/" name="Rename.php" role="php" />
+      <file baseinstalldir="/" name="RewriteAppendOnlyFile.php" role="php" />
+      <file baseinstalldir="/" name="Save.php" role="php" />
+      <file baseinstalldir="/" name="SelectDb.php" role="php" />
+      <file baseinstalldir="/" name="Set.php" role="php" />
+      <file baseinstalldir="/" name="SetAndExpire.php" role="php" />
+      <file baseinstalldir="/" name="SetAndGet.php" role="php" />
+      <file baseinstalldir="/" name="SetBit.php" role="php" />
+      <file baseinstalldir="/" name="SetRange.php" role="php" />
+      <file baseinstalldir="/" name="SetToHash.php" role="php" />
+      <file baseinstalldir="/" name="SetToList.php" role="php" />
+      <file baseinstalldir="/" name="ShiftFromList.php" role="php" />
+      <file baseinstalldir="/" name="ShiftFromListBlocking.php" role="php" />
+      <file baseinstalldir="/" name="Shutdown.php" role="php" />
+      <file baseinstalldir="/" name="SlaveOf.php" role="php" />
+      <file baseinstalldir="/" name="Sort.php" role="php" />
+      <file baseinstalldir="/" name="TruncateList.php" role="php" />
+      <file baseinstalldir="/" name="UnionSets.php" role="php" />
+      <file baseinstalldir="/" name="UnionSortedSets.php" role="php" />
+     </dir> <!-- /library/Rediska/Command -->
+     <dir name="Connection">
+      <dir name="Exec">
+       <file baseinstalldir="/" name="Exception.php" role="php" />
+       <file baseinstalldir="/" name="MultiBulkIterator.php" role="php" />
+      </dir> <!-- /library/Rediska/Connection/Exec -->
+      <file baseinstalldir="/" name="Exception.php" role="php" />
+      <file baseinstalldir="/" name="Exec.php" role="php" />
+      <file baseinstalldir="/" name="Specified.php" role="php" />
+      <file baseinstalldir="/" name="TimeoutException.php" role="php" />
+     </dir> <!-- /library/Rediska/Connection -->
+     <dir name="Key">
+      <file baseinstalldir="/" name="Abstract.php" role="php" />
+      <file baseinstalldir="/" name="Exception.php" role="php" />
+      <file baseinstalldir="/" name="Hash.php" role="php" />
+      <file baseinstalldir="/" name="List.php" role="php" />
+      <file baseinstalldir="/" name="Set.php" role="php" />
+      <file baseinstalldir="/" name="SortedSet.php" role="php" />
+     </dir> <!-- /library/Rediska/Key -->
+     <dir name="KeyDistributor">
+      <file baseinstalldir="/" name="ConsistentHashing.php" role="php" />
+      <file baseinstalldir="/" name="Crc32.php" role="php" />
+      <file baseinstalldir="/" name="Exception.php" role="php" />
+      <file baseinstalldir="/" name="Interface.php" role="php" />
+     </dir> <!-- /library/Rediska/KeyDistributor -->
+     <dir name="Monitor">
+      <file baseinstalldir="/" name="Connections.php" role="php" />
+      <file baseinstalldir="/" name="Exception.php" role="php" />
+     </dir> <!-- /library/Rediska/Monitor -->
+     <dir name="Options">
+      <file baseinstalldir="/" name="RediskaInstance.php" role="php" />
+     </dir> <!-- /library/Rediska/Options -->
+     <dir name="Profiler">
+      <file baseinstalldir="/" name="Exception.php" role="php" />
+      <file baseinstalldir="/" name="Interface.php" role="php" />
+      <file baseinstalldir="/" name="Null.php" role="php" />
+      <file baseinstalldir="/" name="Profile.php" role="php" />
+      <file baseinstalldir="/" name="Stream.php" role="php" />
+     </dir> <!-- /library/Rediska/Profiler -->
+     <dir name="PubSub">
+      <dir name="Response">
+       <file baseinstalldir="/" name="Abstract.php" role="php" />
+       <file baseinstalldir="/" name="Exception.php" role="php" />
+       <file baseinstalldir="/" name="Message.php" role="php" />
+       <file baseinstalldir="/" name="Subscribe.php" role="php" />
+       <file baseinstalldir="/" name="Unsubscribe.php" role="php" />
+      </dir> <!-- /library/Rediska/PubSub/Response -->
+      <file baseinstalldir="/" name="Channel.php" role="php" />
+      <file baseinstalldir="/" name="Connections.php" role="php" />
+      <file baseinstalldir="/" name="Exception.php" role="php" />
+     </dir> <!-- /library/Rediska/PubSub -->
+     <dir name="Serializer">
+      <dir name="Adapter">
+       <file baseinstalldir="/" name="Exception.php" role="php" />
+       <file baseinstalldir="/" name="Interface.php" role="php" />
+       <file baseinstalldir="/" name="Json.php" role="php" />
+       <file baseinstalldir="/" name="PhpSerialize.php" role="php" />
+       <file baseinstalldir="/" name="ToString.php" role="php" />
+      </dir> <!-- /library/Rediska/Serializer/Adapter -->
+      <file baseinstalldir="/" name="Exception.php" role="php" />
+     </dir> <!-- /library/Rediska/Serializer -->
+     <dir name="Transaction">
+      <file baseinstalldir="/" name="AbortedException.php" role="php" />
+      <file baseinstalldir="/" name="Exception.php" role="php" />
+     </dir> <!-- /library/Rediska/Transaction -->
+     <dir name="Zend">
+      <dir name="Application">
+       <dir name="Resource">
+        <file baseinstalldir="/" name="Rediska.php" role="php" />
+       </dir> <!-- /library/Rediska/Zend/Application/Resource -->
+      </dir> <!-- /library/Rediska/Zend/Application -->
+      <dir name="Auth">
+       <dir name="Adapter">
+        <file baseinstalldir="/" name="Redis.php" role="php" />
+       </dir> <!-- /library/Rediska/Zend/Auth/Adapter -->
+      </dir> <!-- /library/Rediska/Zend/Auth -->
+      <dir name="Cache">
+       <dir name="Backend">
+        <file baseinstalldir="/" name="Redis.php" role="php" />
+       </dir> <!-- /library/Rediska/Zend/Cache/Backend -->
+      </dir> <!-- /library/Rediska/Zend/Cache -->
+      <dir name="Log">
+       <dir name="Writer">
+        <file baseinstalldir="/" name="Redis.php" role="php" />
+       </dir> <!-- /library/Rediska/Zend/Log/Writer -->
+      </dir> <!-- /library/Rediska/Zend/Log -->
+      <dir name="Profiler">
+       <file baseinstalldir="/" name="Firebug.php" role="php" />
+      </dir> <!-- /library/Rediska/Zend/Profiler -->
+      <dir name="Queue">
+       <dir name="Adapter">
+        <file baseinstalldir="/" name="Redis.php" role="php" />
+       </dir> <!-- /library/Rediska/Zend/Queue/Adapter -->
+      </dir> <!-- /library/Rediska/Zend/Queue -->
+      <dir name="Session">
+       <dir name="SaveHandler">
+        <file baseinstalldir="/" name="Redis.php" role="php" />
+       </dir> <!-- /library/Rediska/Zend/Session/SaveHandler -->
+       <file baseinstalldir="/" name="Set.php" role="php" />
+      </dir> <!-- /library/Rediska/Zend/Session -->
+     </dir> <!-- /library/Rediska/Zend -->
+     <file baseinstalldir="/" name="Autoloader.php" role="php" />
+     <file baseinstalldir="/" name="Commands.php" role="php" />
+     <file baseinstalldir="/" name="Config.php" role="php" />
+     <file baseinstalldir="/" name="Connection.php" role="php" />
+     <file baseinstalldir="/" name="Exception.php" role="php" />
+     <file baseinstalldir="/" name="Key.php" role="php" />
+     <file baseinstalldir="/" name="Manager.php" role="php" />
+     <file baseinstalldir="/" name="Monitor.php" role="php" />
+     <file baseinstalldir="/" name="Options.php" role="php" />
+     <file baseinstalldir="/" name="Pipeline.php" role="php" />
+     <file baseinstalldir="/" name="Profiler.php" role="php" />
+     <file baseinstalldir="/" name="Serializer.php" role="php" />
+     <file baseinstalldir="/" name="Transaction.php" role="php" />
+    </dir> <!-- /library/Rediska -->
+    <file baseinstalldir="/" name="Rediska.php" role="php" />
+   </dir> <!-- /library -->
+   <dir name="scripts">
+    <file baseinstalldir="/" name="add_command_methods.php" role="php" />
+   </dir> <!-- /scripts -->
+   <dir name="tests">
+    <dir name="library">
+     <dir name="Rediska">
+      <dir name="Command">
+       <file baseinstalldir="/" name="AddToSetTest.php" role="test" />
+       <file baseinstalldir="/" name="AddToSortedSetTest.php" role="test" />
+       <file baseinstalldir="/" name="AppendTest.php" role="test" />
+       <file baseinstalldir="/" name="AppendToListTest.php" role="test" />
+       <file baseinstalldir="/" name="DecrementTest.php" role="test" />
+       <file baseinstalldir="/" name="DeleteFromHashTest.php" role="test" />
+       <file baseinstalldir="/" name="DeleteFromListTest.php" role="test" />
+       <file baseinstalldir="/" name="DeleteFromSetTest.php" role="test" />
+       <file baseinstalldir="/" name="DeleteFromSortedSetByRankTest.php" role="test" />
+       <file baseinstalldir="/" name="DeleteFromSortedSetByScoreTest.php" role="test" />
+       <file baseinstalldir="/" name="DeleteFromSortedSetTest.php" role="test" />
+       <file baseinstalldir="/" name="DeleteTest.php" role="test" />
+       <file baseinstalldir="/" name="DiffSetsTest.php" role="test" />
+       <file baseinstalldir="/" name="ExistsInHashTest.php" role="test" />
+       <file baseinstalldir="/" name="ExistsInSetTest.php" role="test" />
+       <file baseinstalldir="/" name="ExistsTest.php" role="test" />
+       <file baseinstalldir="/" name="ExpireTest.php" role="test" />
+       <file baseinstalldir="/" name="FlushDbTest.php" role="test" />
+       <file baseinstalldir="/" name="GetBitTest.php" role="test" />
+       <file baseinstalldir="/" name="GetFromHashTest.php" role="test" />
+       <file baseinstalldir="/" name="GetFromListTest.php" role="test" />
+       <file baseinstalldir="/" name="GetFromSortedSetByScoreTest.php" role="test" />
+       <file baseinstalldir="/" name="GetHashFieldsTest.php" role="test" />
+       <file baseinstalldir="/" name="GetHashLengthTest.php" role="test" />
+       <file baseinstalldir="/" name="GetHashTest.php" role="test" />
+       <file baseinstalldir="/" name="GetHashValuesTest.php" role="test" />
+       <file baseinstalldir="/" name="GetKeysByPatternTest.php" role="test" />
+       <file baseinstalldir="/" name="GetKeysCountTest.php" role="test" />
+       <file baseinstalldir="/" name="GetLastSaveTimeTest.php" role="test" />
+       <file baseinstalldir="/" name="GetLength.php" role="test" />
+       <file baseinstalldir="/" name="GetLifetimeTest.php" role="test" />
+       <file baseinstalldir="/" name="GetListLengthTest.php" role="test" />
+       <file baseinstalldir="/" name="GetListTest.php" role="test" />
+       <file baseinstalldir="/" name="GetRandomFromSetTest.php" role="test" />
+       <file baseinstalldir="/" name="GetRandomKeyTest.php" role="test" />
+       <file baseinstalldir="/" name="GetRangeTest.php" role="test" />
+       <file baseinstalldir="/" name="GetRankFromSortedSetTest.php" role="test" />
+       <file baseinstalldir="/" name="GetScoreFromSortedSetTest.php" role="test" />
+       <file baseinstalldir="/" name="GetSetLengthTest.php" role="test" />
+       <file baseinstalldir="/" name="GetSetTest.php" role="test" />
+       <file baseinstalldir="/" name="GetSortedSetLengthByScoreTest.php" role="test" />
+       <file baseinstalldir="/" name="GetSortedSetLengthTest.php" role="test" />
+       <file baseinstalldir="/" name="GetSortedSetTest.php" role="test" />
+       <file baseinstalldir="/" name="GetTest.php" role="test" />
+       <file baseinstalldir="/" name="GetTypeTest.php" role="test" />
+       <file baseinstalldir="/" name="IncrementInHashTest.php" role="test" />
+       <file baseinstalldir="/" name="IncrementScoreInSortedSetTest.php" role="test" />
+       <file baseinstalldir="/" name="IncrementTest.php" role="test" />
+       <file baseinstalldir="/" name="InfoTest.php" role="test" />
+       <file baseinstalldir="/" name="InsertToListAfterTest.php" role="test" />
+       <file baseinstalldir="/" name="InsertToListBeforeTest.php" role="test" />
+       <file baseinstalldir="/" name="InsertToListTest.php" role="test" />
+       <file baseinstalldir="/" name="IntersectSetsTest.php" role="test" />
+       <file baseinstalldir="/" name="IntersectSortedSetsTest.php" role="test" />
+       <file baseinstalldir="/" name="MoveToDbTest.php" role="test" />
+       <file baseinstalldir="/" name="MoveToSetTest.php" role="test" />
+       <file baseinstalldir="/" name="PopFromListBlockingTest.php" role="test" />
+       <file baseinstalldir="/" name="PopFromListTest.php" role="test" />
+       <file baseinstalldir="/" name="PrependToListTest.php" role="test" />
+       <file baseinstalldir="/" name="QuitTest.php" role="test" />
+       <file baseinstalldir="/" name="RenameTest.php" role="test" />
+       <file baseinstalldir="/" name="RewriteAppendOnlyFileTest.php" role="test" />
+       <file baseinstalldir="/" name="SaveTest.php" role="test" />
+       <file baseinstalldir="/" name="SelectDbTest.php" role="test" />
+       <file baseinstalldir="/" name="SetAndExpireTest.php" role="test" />
+       <file baseinstalldir="/" name="SetAndGetTest.php" role="test" />
+       <file baseinstalldir="/" name="SetBit.php" role="test" />
+       <file baseinstalldir="/" name="SetRangeTest.php" role="test" />
+       <file baseinstalldir="/" name="SetTest.php" role="test" />
+       <file baseinstalldir="/" name="SetToHashTest.php" role="test" />
+       <file baseinstalldir="/" name="SetToListTest.php" role="test" />
+       <file baseinstalldir="/" name="ShiftFromListBlockingTest.php" role="test" />
+       <file baseinstalldir="/" name="ShiftFromListTest.php" role="test" />
+       <file baseinstalldir="/" name="ShutdownTest.php" role="test" />
+       <file baseinstalldir="/" name="SlaveOfTest.php" role="test" />
+       <file baseinstalldir="/" name="SortTest.php" role="test" />
+       <file baseinstalldir="/" name="TruncateListTest.php" role="test" />
+       <file baseinstalldir="/" name="UnionSetsTest.php" role="test" />
+       <file baseinstalldir="/" name="UnionSortedSetsTest.php" role="test" />
+      </dir> <!-- /tests/library/Rediska/Command -->
+      <dir name="Connection">
+       <file baseinstalldir="/" name="ExecTest.php" role="test" />
+      </dir> <!-- /tests/library/Rediska/Connection -->
+      <dir name="Key">
+       <file baseinstalldir="/" name="AbstractTest.php" role="test" />
+       <file baseinstalldir="/" name="HashTest.php" role="test" />
+       <file baseinstalldir="/" name="ListTest.php" role="test" />
+       <file baseinstalldir="/" name="SetTest.php" role="test" />
+       <file baseinstalldir="/" name="SortedSetTest.php" role="test" />
+      </dir> <!-- /tests/library/Rediska/Key -->
+      <dir name="KeyDistributor">
+       <file baseinstalldir="/" name="ConsistentHashingTest.php" role="test" />
+       <file baseinstalldir="/" name="Crc32Test.php" role="test" />
+      </dir> <!-- /tests/library/Rediska/KeyDistributor -->
+      <dir name="Options">
+       <file baseinstalldir="/" name="RediskaInstanceTest.php" role="test" />
+      </dir> <!-- /tests/library/Rediska/Options -->
+      <dir name="Serializer">
+       <dir name="Adapter">
+        <file baseinstalldir="/" name="JsonTest.php" role="test" />
+        <file baseinstalldir="/" name="PhpSerializeTest.php" role="test" />
+        <file baseinstalldir="/" name="ToStringTest.php" role="test" />
+       </dir> <!-- /tests/library/Rediska/Serializer/Adapter -->
+      </dir> <!-- /tests/library/Rediska/Serializer -->
+      <dir name="Zend">
+       <dir name="Application">
+        <file baseinstalldir="/" name="application.ini" role="test" />
+        <file baseinstalldir="/" name="application2.ini" role="test" />
+        <file baseinstalldir="/" name="application3.ini" role="test" />
+        <file baseinstalldir="/" name="application4.ini" role="test" />
+        <file baseinstalldir="/" name="ResourceTest.php" role="test" />
+       </dir> <!-- /tests/library/Rediska/Zend/Application -->
+       <dir name="Cache">
+        <file baseinstalldir="/" name="application.ini" role="test" />
+        <file baseinstalldir="/" name="application2.ini" role="test" />
+        <file baseinstalldir="/" name="application3.ini" role="test" />
+        <file baseinstalldir="/" name="application4.ini" role="test" />
+        <file baseinstalldir="/" name="CacheTest.php" role="test" />
+        <file baseinstalldir="/" name="ResourceTest.php" role="test" />
+       </dir> <!-- /tests/library/Rediska/Zend/Cache -->
+       <dir name="Log">
+        <file baseinstalldir="/" name="application.ini" role="test" />
+        <file baseinstalldir="/" name="application2.ini" role="test" />
+        <file baseinstalldir="/" name="application3.ini" role="test" />
+        <file baseinstalldir="/" name="application4.ini" role="test" />
+        <file baseinstalldir="/" name="ResourceTest.php" role="test" />
+        <file baseinstalldir="/" name="WriterTest.php" role="test" />
+       </dir> <!-- /tests/library/Rediska/Zend/Log -->
+       <dir name="Session">
+        <file baseinstalldir="/" name="application.ini" role="test" />
+        <file baseinstalldir="/" name="application2.ini" role="test" />
+        <file baseinstalldir="/" name="application3.ini" role="test" />
+        <file baseinstalldir="/" name="application4.ini" role="test" />
+        <file baseinstalldir="/" name="ResourceTest.php" role="test" />
+        <file baseinstalldir="/" name="SessionTest.php" role="test" />
+       </dir> <!-- /tests/library/Rediska/Zend/Session -->
+       <file baseinstalldir="/" name="AuthTest.php" role="test" />
+       <file baseinstalldir="/" name="QueueTest.php" role="test" />
+      </dir> <!-- /tests/library/Rediska/Zend -->
+      <file baseinstalldir="/" name="ConfigTest.php" role="test" />
+      <file baseinstalldir="/" name="ConnectionTest.php" role="test" />
+      <file baseinstalldir="/" name="KeyTest.php" role="test" />
+      <file baseinstalldir="/" name="OptionsTest.php" role="test" />
+      <file baseinstalldir="/" name="PipelineTest.php" role="test" />
+      <file baseinstalldir="/" name="SerializerTest.php" role="test" />
+      <file baseinstalldir="/" name="TestCase.php" role="test" />
+      <file baseinstalldir="/" name="TransactionTest.php" role="test" />
+     </dir> <!-- /tests/library/Rediska -->
+     <file baseinstalldir="/" name="RediskaTest.php" role="test" />
+    </dir> <!-- /tests/library -->
+    <file baseinstalldir="/" name="bootstrap.php" role="test" />
+    <file baseinstalldir="/" name="config.ini-dist" role="test" />
+    <file baseinstalldir="/" name="phpunit.xml" role="test" />
+    <file baseinstalldir="/" name="README.txt" role="test" />
+   </dir> <!-- /tests -->
+   <file baseinstalldir="/" name="CHANGELOG.txt" role="doc" />
+   <file baseinstalldir="/" name="LICENSE.txt" role="data" />
+   <file baseinstalldir="/" name="README.markdown" role="doc" />
+   <file baseinstalldir="/" name="VERSION.txt" role="doc" />
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.1</min>
+   </php>
+   <pearinstaller>
+    <min>1.7.0</min>
+   </pearinstaller>
+  </required>
+  <optional>
+   <package>
+    <name>zf</name>
+    <channel>pear.zfcampus.org</channel>
+    <min>1.10.2</min>
+    <recommended>1</recommended>
+   </package>
+  </optional>
+ </dependencies>
+ <phprelease>
+  <filelist>
+   <install as="Rediska/Autoloader.php" name="library/Rediska/Autoloader.php" />
+   <install as="Rediska/Command/Abstract.php" name="library/Rediska/Command/Abstract.php" />
+   <install as="Rediska/Command/AddToSet.php" name="library/Rediska/Command/AddToSet.php" />
+   <install as="Rediska/Command/AddToSortedSet.php" name="library/Rediska/Command/AddToSortedSet.php" />
+   <install as="Rediska/Command/Append.php" name="library/Rediska/Command/Append.php" />
+   <install as="Rediska/Command/AppendToList.php" name="library/Rediska/Command/AppendToList.php" />
+   <install as="Rediska/Command/CompareSets.php" name="library/Rediska/Command/CompareSets.php" />
+   <install as="Rediska/Command/CompareSortedSets.php" name="library/Rediska/Command/CompareSortedSets.php" />
+   <install as="Rediska/Command/Decrement.php" name="library/Rediska/Command/Decrement.php" />
+   <install as="Rediska/Command/Delete.php" name="library/Rediska/Command/Delete.php" />
+   <install as="Rediska/Command/DeleteFromHash.php" name="library/Rediska/Command/DeleteFromHash.php" />
+   <install as="Rediska/Command/DeleteFromList.php" name="library/Rediska/Command/DeleteFromList.php" />
+   <install as="Rediska/Command/DeleteFromSet.php" name="library/Rediska/Command/DeleteFromSet.php" />
+   <install as="Rediska/Command/DeleteFromSortedSet.php" name="library/Rediska/Command/DeleteFromSortedSet.php" />
+   <install as="Rediska/Command/DeleteFromSortedSetByRank.php" name="library/Rediska/Command/DeleteFromSortedSetByRank.php" />
+   <install as="Rediska/Command/DeleteFromSortedSetByScore.php" name="library/Rediska/Command/DeleteFromSortedSetByScore.php" />
+   <install as="Rediska/Command/DiffSets.php" name="library/Rediska/Command/DiffSets.php" />
+   <install as="Rediska/Command/Exception.php" name="library/Rediska/Command/Exception.php" />
+   <install as="Rediska/Command/Exists.php" name="library/Rediska/Command/Exists.php" />
+   <install as="Rediska/Command/ExistsInHash.php" name="library/Rediska/Command/ExistsInHash.php" />
+   <install as="Rediska/Command/ExistsInSet.php" name="library/Rediska/Command/ExistsInSet.php" />
+   <install as="Rediska/Command/Expire.php" name="library/Rediska/Command/Expire.php" />
+   <install as="Rediska/Command/FlushDb.php" name="library/Rediska/Command/FlushDb.php" />
+   <install as="Rediska/Command/Get.php" name="library/Rediska/Command/Get.php" />
+   <install as="Rediska/Command/GetBit.php" name="library/Rediska/Command/GetBit.php" />
+   <install as="Rediska/Command/GetFromHash.php" name="library/Rediska/Command/GetFromHash.php" />
+   <install as="Rediska/Command/GetFromList.php" name="library/Rediska/Command/GetFromList.php" />
+   <install as="Rediska/Command/GetFromSortedSetByScore.php" name="library/Rediska/Command/GetFromSortedSetByScore.php" />
+   <install as="Rediska/Command/GetHash.php" name="library/Rediska/Command/GetHash.php" />
+   <install as="Rediska/Command/GetHashFields.php" name="library/Rediska/Command/GetHashFields.php" />
+   <install as="Rediska/Command/GetHashLength.php" name="library/Rediska/Command/GetHashLength.php" />
+   <install as="Rediska/Command/GetHashValues.php" name="library/Rediska/Command/GetHashValues.php" />
+   <install as="Rediska/Command/GetKeysByPattern.php" name="library/Rediska/Command/GetKeysByPattern.php" />
+   <install as="Rediska/Command/GetKeysCount.php" name="library/Rediska/Command/GetKeysCount.php" />
+   <install as="Rediska/Command/GetLastSaveTime.php" name="library/Rediska/Command/GetLastSaveTime.php" />
+   <install as="Rediska/Command/GetLength.php" name="library/Rediska/Command/GetLength.php" />
+   <install as="Rediska/Command/GetLifetime.php" name="library/Rediska/Command/GetLifetime.php" />
+   <install as="Rediska/Command/GetList.php" name="library/Rediska/Command/GetList.php" />
+   <install as="Rediska/Command/GetListLength.php" name="library/Rediska/Command/GetListLength.php" />
+   <install as="Rediska/Command/GetRandomFromSet.php" name="library/Rediska/Command/GetRandomFromSet.php" />
+   <install as="Rediska/Command/GetRandomKey.php" name="library/Rediska/Command/GetRandomKey.php" />
+   <install as="Rediska/Command/GetRange.php" name="library/Rediska/Command/GetRange.php" />
+   <install as="Rediska/Command/GetRankFromSortedSet.php" name="library/Rediska/Command/GetRankFromSortedSet.php" />
+   <install as="Rediska/Command/GetScoreFromSortedSet.php" name="library/Rediska/Command/GetScoreFromSortedSet.php" />
+   <install as="Rediska/Command/GetSet.php" name="library/Rediska/Command/GetSet.php" />
+   <install as="Rediska/Command/GetSetLength.php" name="library/Rediska/Command/GetSetLength.php" />
+   <install as="Rediska/Command/GetSortedSet/WithScoresIterator.php" name="library/Rediska/Command/GetSortedSet/WithScoresIterator.php" />
+   <install as="Rediska/Command/GetSortedSet.php" name="library/Rediska/Command/GetSortedSet.php" />
+   <install as="Rediska/Command/GetSortedSetLength.php" name="library/Rediska/Command/GetSortedSetLength.php" />
+   <install as="Rediska/Command/GetSortedSetLengthByScore.php" name="library/Rediska/Command/GetSortedSetLengthByScore.php" />
+   <install as="Rediska/Command/GetType.php" name="library/Rediska/Command/GetType.php" />
+   <install as="Rediska/Command/Increment.php" name="library/Rediska/Command/Increment.php" />
+   <install as="Rediska/Command/IncrementInHash.php" name="library/Rediska/Command/IncrementInHash.php" />
+   <install as="Rediska/Command/IncrementScoreInSortedSet.php" name="library/Rediska/Command/IncrementScoreInSortedSet.php" />
+   <install as="Rediska/Command/Info.php" name="library/Rediska/Command/Info.php" />
+   <install as="Rediska/Command/InsertToList.php" name="library/Rediska/Command/InsertToList.php" />
+   <install as="Rediska/Command/InsertToListAbstract.php" name="library/Rediska/Command/InsertToListAbstract.php" />
+   <install as="Rediska/Command/InsertToListAfter.php" name="library/Rediska/Command/InsertToListAfter.php" />
+   <install as="Rediska/Command/InsertToListBefore.php" name="library/Rediska/Command/InsertToListBefore.php" />
+   <install as="Rediska/Command/Interface.php" name="library/Rediska/Command/Interface.php" />
+   <install as="Rediska/Command/IntersectSets.php" name="library/Rediska/Command/IntersectSets.php" />
+   <install as="Rediska/Command/IntersectSortedSets.php" name="library/Rediska/Command/IntersectSortedSets.php" />
+   <install as="Rediska/Command/MoveToDb.php" name="library/Rediska/Command/MoveToDb.php" />
+   <install as="Rediska/Command/MoveToSet.php" name="library/Rediska/Command/MoveToSet.php" />
+   <install as="Rediska/Command/PopFromList.php" name="library/Rediska/Command/PopFromList.php" />
+   <install as="Rediska/Command/PopFromListBlocking.php" name="library/Rediska/Command/PopFromListBlocking.php" />
+   <install as="Rediska/Command/PrependToList.php" name="library/Rediska/Command/PrependToList.php" />
+   <install as="Rediska/Command/Publish.php" name="library/Rediska/Command/Publish.php" />
+   <install as="Rediska/Command/Quit.php" name="library/Rediska/Command/Quit.php" />
+   <install as="Rediska/Command/Rename.php" name="library/Rediska/Command/Rename.php" />
+   <install as="Rediska/Command/Response/ListNameAndValue.php" name="library/Rediska/Command/Response/ListNameAndValue.php" />
+   <install as="Rediska/Command/Response/ValueAndScore.php" name="library/Rediska/Command/Response/ValueAndScore.php" />
+   <install as="Rediska/Command/RewriteAppendOnlyFile.php" name="library/Rediska/Command/RewriteAppendOnlyFile.php" />
+   <install as="Rediska/Command/Save.php" name="library/Rediska/Command/Save.php" />
+   <install as="Rediska/Command/SelectDb.php" name="library/Rediska/Command/SelectDb.php" />
+   <install as="Rediska/Command/Set.php" name="library/Rediska/Command/Set.php" />
+   <install as="Rediska/Command/SetAndExpire.php" name="library/Rediska/Command/SetAndExpire.php" />
+   <install as="Rediska/Command/SetAndGet.php" name="library/Rediska/Command/SetAndGet.php" />
+   <install as="Rediska/Command/SetBit.php" name="library/Rediska/Command/SetBit.php" />
+   <install as="Rediska/Command/SetRange.php" name="library/Rediska/Command/SetRange.php" />
+   <install as="Rediska/Command/SetToHash.php" name="library/Rediska/Command/SetToHash.php" />
+   <install as="Rediska/Command/SetToList.php" name="library/Rediska/Command/SetToList.php" />
+   <install as="Rediska/Command/ShiftFromList.php" name="library/Rediska/Command/ShiftFromList.php" />
+   <install as="Rediska/Command/ShiftFromListBlocking.php" name="library/Rediska/Command/ShiftFromListBlocking.php" />
+   <install as="Rediska/Command/Shutdown.php" name="library/Rediska/Command/Shutdown.php" />
+   <install as="Rediska/Command/SlaveOf.php" name="library/Rediska/Command/SlaveOf.php" />
+   <install as="Rediska/Command/Sort.php" name="library/Rediska/Command/Sort.php" />
+   <install as="Rediska/Command/TruncateList.php" name="library/Rediska/Command/TruncateList.php" />
+   <install as="Rediska/Command/UnionSets.php" name="library/Rediska/Command/UnionSets.php" />
+   <install as="Rediska/Command/UnionSortedSets.php" name="library/Rediska/Command/UnionSortedSets.php" />
+   <install as="Rediska/Commands.php" name="library/Rediska/Commands.php" />
+   <install as="Rediska/Config.php" name="library/Rediska/Config.php" />
+   <install as="Rediska/Connection/Exception.php" name="library/Rediska/Connection/Exception.php" />
+   <install as="Rediska/Connection/Exec/Exception.php" name="library/Rediska/Connection/Exec/Exception.php" />
+   <install as="Rediska/Connection/Exec/MultiBulkIterator.php" name="library/Rediska/Connection/Exec/MultiBulkIterator.php" />
+   <install as="Rediska/Connection/Exec.php" name="library/Rediska/Connection/Exec.php" />
+   <install as="Rediska/Connection/Specified.php" name="library/Rediska/Connection/Specified.php" />
+   <install as="Rediska/Connection/TimeoutException.php" name="library/Rediska/Connection/TimeoutException.php" />
+   <install as="Rediska/Connection.php" name="library/Rediska/Connection.php" />
+   <install as="Rediska/Exception.php" name="library/Rediska/Exception.php" />
+   <install as="Rediska/Key/Abstract.php" name="library/Rediska/Key/Abstract.php" />
+   <install as="Rediska/Key/Exception.php" name="library/Rediska/Key/Exception.php" />
+   <install as="Rediska/Key/Hash.php" name="library/Rediska/Key/Hash.php" />
+   <install as="Rediska/Key/List.php" name="library/Rediska/Key/List.php" />
+   <install as="Rediska/Key/Set.php" name="library/Rediska/Key/Set.php" />
+   <install as="Rediska/Key/SortedSet.php" name="library/Rediska/Key/SortedSet.php" />
+   <install as="Rediska/Key.php" name="library/Rediska/Key.php" />
+   <install as="Rediska/KeyDistributor/ConsistentHashing.php" name="library/Rediska/KeyDistributor/ConsistentHashing.php" />
+   <install as="Rediska/KeyDistributor/Crc32.php" name="library/Rediska/KeyDistributor/Crc32.php" />
+   <install as="Rediska/KeyDistributor/Exception.php" name="library/Rediska/KeyDistributor/Exception.php" />
+   <install as="Rediska/KeyDistributor/Interface.php" name="library/Rediska/KeyDistributor/Interface.php" />
+   <install as="Rediska/Manager.php" name="library/Rediska/Manager.php" />
+   <install as="Rediska/Monitor/Connections.php" name="library/Rediska/Monitor/Connections.php" />
+   <install as="Rediska/Monitor/Exception.php" name="library/Rediska/Monitor/Exception.php" />
+   <install as="Rediska/Monitor.php" name="library/Rediska/Monitor.php" />
+   <install as="Rediska/Options/RediskaInstance.php" name="library/Rediska/Options/RediskaInstance.php" />
+   <install as="Rediska/Options.php" name="library/Rediska/Options.php" />
+   <install as="Rediska/Pipeline.php" name="library/Rediska/Pipeline.php" />
+   <install as="Rediska/Profiler/Exception.php" name="library/Rediska/Profiler/Exception.php" />
+   <install as="Rediska/Profiler/Interface.php" name="library/Rediska/Profiler/Interface.php" />
+   <install as="Rediska/Profiler/Null.php" name="library/Rediska/Profiler/Null.php" />
+   <install as="Rediska/Profiler/Profile.php" name="library/Rediska/Profiler/Profile.php" />
+   <install as="Rediska/Profiler/Stream.php" name="library/Rediska/Profiler/Stream.php" />
+   <install as="Rediska/Profiler.php" name="library/Rediska/Profiler.php" />
+   <install as="Rediska/PubSub/Channel.php" name="library/Rediska/PubSub/Channel.php" />
+   <install as="Rediska/PubSub/Connections.php" name="library/Rediska/PubSub/Connections.php" />
+   <install as="Rediska/PubSub/Exception.php" name="library/Rediska/PubSub/Exception.php" />
+   <install as="Rediska/PubSub/Response/Abstract.php" name="library/Rediska/PubSub/Response/Abstract.php" />
+   <install as="Rediska/PubSub/Response/Exception.php" name="library/Rediska/PubSub/Response/Exception.php" />
+   <install as="Rediska/PubSub/Response/Message.php" name="library/Rediska/PubSub/Response/Message.php" />
+   <install as="Rediska/PubSub/Response/Subscribe.php" name="library/Rediska/PubSub/Response/Subscribe.php" />
+   <install as="Rediska/PubSub/Response/Unsubscribe.php" name="library/Rediska/PubSub/Response/Unsubscribe.php" />
+   <install as="Rediska/Serializer/Adapter/Exception.php" name="library/Rediska/Serializer/Adapter/Exception.php" />
+   <install as="Rediska/Serializer/Adapter/Interface.php" name="library/Rediska/Serializer/Adapter/Interface.php" />
+   <install as="Rediska/Serializer/Adapter/Json.php" name="library/Rediska/Serializer/Adapter/Json.php" />
+   <install as="Rediska/Serializer/Adapter/PhpSerialize.php" name="library/Rediska/Serializer/Adapter/PhpSerialize.php" />
+   <install as="Rediska/Serializer/Adapter/ToString.php" name="library/Rediska/Serializer/Adapter/ToString.php" />
+   <install as="Rediska/Serializer/Exception.php" name="library/Rediska/Serializer/Exception.php" />
+   <install as="Rediska/Serializer.php" name="library/Rediska/Serializer.php" />
+   <install as="Rediska/Transaction/AbortedException.php" name="library/Rediska/Transaction/AbortedException.php" />
+   <install as="Rediska/Transaction/Exception.php" name="library/Rediska/Transaction/Exception.php" />
+   <install as="Rediska/Transaction.php" name="library/Rediska/Transaction.php" />
+   <install as="Rediska/Zend/Application/Resource/Rediska.php" name="library/Rediska/Zend/Application/Resource/Rediska.php" />
+   <install as="Rediska/Zend/Auth/Adapter/Redis.php" name="library/Rediska/Zend/Auth/Adapter/Redis.php" />
+   <install as="Rediska/Zend/Cache/Backend/Redis.php" name="library/Rediska/Zend/Cache/Backend/Redis.php" />
+   <install as="Rediska/Zend/Log/Writer/Redis.php" name="library/Rediska/Zend/Log/Writer/Redis.php" />
+   <install as="Rediska/Zend/Profiler/Firebug.php" name="library/Rediska/Zend/Profiler/Firebug.php" />
+   <install as="Rediska/Zend/Queue/Adapter/Redis.php" name="library/Rediska/Zend/Queue/Adapter/Redis.php" />
+   <install as="Rediska/Zend/Session/SaveHandler/Redis.php" name="library/Rediska/Zend/Session/SaveHandler/Redis.php" />
+   <install as="Rediska/Zend/Session/Set.php" name="library/Rediska/Zend/Session/Set.php" />
+   <install as="Rediska.php" name="library/Rediska.php" />
+  </filelist>
+ </phprelease>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.5.5</release>
+    <api>0.5.5</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2011-04-02</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
+   <notes>
+This is an beta release, see README.markdown for examples.
+   </notes>
+  </release>
+ </changelog>
+</package>
