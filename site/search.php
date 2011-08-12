@@ -59,5 +59,6 @@ $related_authors = array();
 			</div>
 		</div>
 		<div id="foot">&copy; PaperLens 2011</div>
+		<div id="feedbackcode"></div>
 	</body>
 </html>

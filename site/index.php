@@ -115,5 +115,6 @@ if($login)
 			}
 			?>
 		</div>
+		<div id="feedbackcode"></div>
 	</body>
 </html>
