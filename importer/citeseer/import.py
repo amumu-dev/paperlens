@@ -67,7 +67,7 @@ try:
                 if dst_key not in citeseer_id_map:
                     continue
                 dst_id = citeseer_id_map[dst_key]
-                cursor.execute("replace into cite_citeseer(src_id, dst_id, weight) values (%s, %s, %s)", (citeseer_id, dst_id, 1))
+                cursor.execute("replace into cite_citeseer(src_id, dst_id, weight) values (%s, %s, %s)", (paper_id, dst_id, 1))
 
                 if n % 10000 == 0:
                     print n, paper_id, dst_id
