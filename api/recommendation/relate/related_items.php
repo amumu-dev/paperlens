@@ -55,15 +55,6 @@ function GetRelatedItemsFromMultiTables($item, $tables, $topN)
 			$ret[$dst_id] += $weight * $table_weight;
 		}
 	}
-	if(count($ret) < $topN)
-	{
-		$related_items = GetDefaultRelatedItems($item, "", $topN);
-		foreach($related_items as $dst_id => $weight)
-		{
-			if(!array_key_exists($dst_id, $ret)) $ret[$dst_id] = 0;
-			$ret[$dst_id] += $weight / 10000;
-		}
-	}
 	arsort($ret);
 	return array_slice($ret, 0, $topN, TRUE);
 }
