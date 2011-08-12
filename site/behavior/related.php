@@ -1,5 +1,5 @@
 <?php
-require_once('../api/db.php');
+require_once('../../api/db.php');
 $uid = $_GET['uid'];
 $src_id = $_GET['src'];
 $dst_id = $_GET['dst'];

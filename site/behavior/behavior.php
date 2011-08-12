@@ -1,5 +1,5 @@
 <?php
-require_once('../api/db.php');
+require_once('../../api/db.php');
 $uid = $_GET['uid'];
 if(isset($_GET['paper']) && isset($_GET['behavior']))
 {
