@@ -32,7 +32,7 @@ function renderPaperFeedback($j, $title, $paper_id)
 		. str_replace('', '+', $title->item(0)->nodeValue) . "\" target=_blank>Google It</a>&nbsp;</span>";
 }
 
-function renderRelatedFeedback($j, $paper_id, $src_paper_id)
+function renderRelatedFeedback($j, $title, $paper_id, $src_paper_id)
 {
 	echo "<span class=feedback><font color=#647B0F>&#9679;&nbsp;</font><a id=\"recommend" .$j. "\" onclick=\"recommend('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '1', '1', 'recommend" . $j . "')\">Recommend</a>&nbsp;"
@@ -83,7 +83,7 @@ function renderPapers($papers_dom, $src_paper_id = -1)
 		}
 		echo "</span><br />";
 		if($src_paper_id < 0) renderPaperFeedback($j, $title, $paper_id);
-		else renderRelatedFeedback($j, $paper_id, $src_paper_id);
+		else renderRelatedFeedback($j, $title, $paper_id, $src_paper_id);
 		echo "</div>";
 	}
 	if($j > 11) echo "</div>";
