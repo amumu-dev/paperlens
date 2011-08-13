@@ -39,10 +39,10 @@ function GetDefaultRelatedItems($item, $table_name, $topN)
 		if(in_array($id, $ret)) continue;
 		$weight = $row[1];
 		$ret[$id] = $weight;
+		break;
 	}
 	arsort($ret);
-	//return array_slice($ret, 0, $topN, TRUE);
-	return $ret;
+	return array_slice($ret, 0, $topN, TRUE);
 }
 
 function GetRelatedItemsFromMultiTables($item, $tables, $topN)
