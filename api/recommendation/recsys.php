@@ -51,7 +51,7 @@ function makingRecommendation($uid, $relatedTables)
 	array_push($recommendations, array());
 	array_push($recommendations, array());
 	
-	$behaviors = GetBehavior($uid);
+	/*$behaviors = GetBehavior($uid);
 	$features = $behaviors;
 	foreach($relatedTables as $table_name => $table_weight)
 	{
@@ -60,7 +60,7 @@ function makingRecommendation($uid, $relatedTables)
 	}
 	selectExplanation($recommendations);
 	filtering($recommendations);
-	ranking($recommendations);
+	ranking($recommendations);*/
 	return $recommendations;
 }
 /*
