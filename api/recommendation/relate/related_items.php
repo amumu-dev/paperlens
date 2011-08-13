@@ -32,7 +32,6 @@ function GetDefaultRelatedItems($item, $table_name, $topN)
 	if (!$result) {
 	    return $ret;
 	}
-	/*
 	while ($row = mysql_fetch_row($result))
 	{
 		$id = $row[0];
@@ -42,8 +41,6 @@ function GetDefaultRelatedItems($item, $table_name, $topN)
 	}
 	arsort($ret);
 	return array_slice($ret, 0, $topN, TRUE);
-	*/
-	return $ret;
 }
 
 function GetRelatedItemsFromMultiTables($item, $tables, $topN)
