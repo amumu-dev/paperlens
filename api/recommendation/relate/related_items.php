@@ -27,11 +27,12 @@ function GetDefaultRelatedItems($item, $table_name, $topN)
 	{
 		$title = $row[0];
 	}
-	/*
+	
 	$result = mysql_query("select id,weight from sphinx  where query='@title \"" . str_replace(' ', '+', $title) . "\";mode=any;sort=expr:@weight*log2(3 + citations/1000) /(2030 - year);limit=".$topN. ";index=idx1';");
 	if (!$result) {
-	    die('Query failed: ' . mysql_error());
+	    return $ret;
 	}
+	/*
 	while ($row = mysql_fetch_row($result))
 	{
 		$id = $row[0];
