@@ -34,6 +34,7 @@ $related_authors = array();
 	</head>
 	
 	<body>
+		<?php echo "<img src=\"/site/behavior/behavior.php?uid=$uid&paper=$paper&behavior=3&w=1\"  width=0 height=0 />" ?>
 		<div id="content">
 			<div id="header">
 				<div id="toolbar">

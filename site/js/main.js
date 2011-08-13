@@ -7,13 +7,6 @@ function recommend(uid, paper, behavior, w, node_id)
 	node.innerHTML = 'thanks!';
 }
 
-function browser(uid, paper, behavior, w, node_id)
-{
-	node_body = document.getElementById("feedbackcode");
-	alert('browser');
-	node_body.innerHTML = '<img width=0 height=0 src=/site/behavior/behavior.php?uid=' + uid + '&paper=' + paper + '&behavior=' + behavior + '&w=' + w + ' />';
-}
-
 function google_search(uid, paper, behavior, w, node_id)
 {
 	node_body = document.getElementById("feedbackcode");

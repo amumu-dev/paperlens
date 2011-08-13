@@ -26,7 +26,7 @@ $related_authors = array();
 	</head>
 	
 	<body>
-		<?php echo "<img src=\"behavior.php?uid=".$uid. "&query=".$query."\" width=0 height=0 />" ?>
+		<?php echo "<img src=\"/site/behavior/behavior.php?uid=".$uid. "&query=".$query."\" width=0 height=0 />" ?>
 		<div id="content">
 			<div id="header">
 				<div id="toolbar">
