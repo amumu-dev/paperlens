@@ -37,7 +37,7 @@ function GetDefaultRelatedItems($item, $table_name, $topN)
 		$id = $row[0];
 		if($id == $item) continue;
 		$weight = $row[1];
-		$ret[$id] = $weight;
+		//$ret[$id] = $weight;
 	}
 	arsort($ret);
 	return array_slice($ret, 0, $topN, TRUE);
