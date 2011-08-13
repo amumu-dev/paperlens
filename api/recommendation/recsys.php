@@ -53,12 +53,12 @@ function makingRecommendation($uid, $relatedTables)
 	
 	$behaviors = GetBehavior($uid);
 	$features = $behaviors;
-	/*foreach($relatedTables as $table_name => $table_weight)
+	foreach($relatedTables as $table_name => $table_weight)
 	{
 		$one_recommendations = recommendationCore($features, $table_name, 10);
 		combineRecommendations($recommendations,$one_recommendations , $table_weight);
 	}
-	selectExplanation($recommendations);
+	/*selectExplanation($recommendations);
 	filtering($recommendations);
 	ranking($recommendations);*/
 	return $recommendations;
