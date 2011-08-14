@@ -46,7 +46,7 @@ function renderRelatedFeedback($j, $title, $paper_id, $src_paper_id)
 
 function renderRecommendUsers($paper)
 {
-	$recusers = $paper->getElementsByTagName('rec')->item(0);
+	$recusers = $paper->getElementsByTagName('user');
 	foreach($recusers as $user)
 	{
 		echo "<a href=/site/user.php>" . $user->nodeValue . "</a>";
