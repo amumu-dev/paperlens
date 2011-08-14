@@ -7,7 +7,10 @@ body
 	line-height:20px;
 	color:#003E6E;
 }
-
+a:hover
+{
+	color:#003E6E;
+}
 #content
 {
 	width:900px;
