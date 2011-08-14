@@ -17,6 +17,23 @@ function GetRelatedItems($item, $table_name, $topN)
 	return $ret;
 }
 
+function GetRelatedItemsBySearch($item, $topN)
+{
+	$ret = array();
+	$result = mysql_query("select id,weight from sphinx  where query='@title \"" . str_replace(' ', '+', $item) . "\";mode=any;sort=expr:@weight*log2(3 + citations/1000) /(2030 - year);limit=".$topN. ";index=idx1';");
+	if (!$result) {
+	    return $ret;
+	}
+	while ($row = mysql_fetch_row($result))
+	{
+		$id = $row[0];
+		if($id == $item) continue;
+		$weight = $row[1];
+		$ret[$id] = $weight;
+	}
+	return $ret;
+}
+
 function GetDefaultRelatedItems($item, $table_name, $topN)
 {
 	$ret = array();

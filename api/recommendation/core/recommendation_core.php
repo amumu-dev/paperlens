@@ -1,12 +1,14 @@
 <?php
 
-function recommendationCore($features, $table_name, $topN)
+function recommendationCore($features, $table_name, $topN, $feature_type = 'paper')
 {
 	$ret_weight = array();
 	$ret_reason = array();
 	foreach($features as $item=>$preference)
 	{
-		$related_items = GetRelatedItems($item, $table_name, $topN);
+		$related_items = array();
+		if($feature_type=='paper') $related_items = GetRelatedItems($item, $table_name, $topN);
+		else if($feature_type=='query') $related_items = GetRelatedItemsBySearch($item, $topN);
 		if(count($related_items) == 0) continue;
 		$max_sim = max(array_values($related_items));
 		foreach($related_items as $related_item=>$similarity)
