@@ -24,13 +24,15 @@ function GetRelatedItemsBySearch($item, $topN)
 	if (!$result) {
 	    return $ret;
 	}
+	/*
 	while ($row = mysql_fetch_row($result))
 	{
 		$id = $row[0];
 		if($id == $item) continue;
 		$weight = $row[1];
-		//$ret[$id] = $weight;
+		$ret[$id] = $weight;
 	}
+	*/
 	return $ret;
 }
 
