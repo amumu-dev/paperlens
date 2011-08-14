@@ -47,10 +47,18 @@ function renderRelatedFeedback($j, $title, $paper_id, $src_paper_id)
 function renderRecommendUsers($paper)
 {
 	$recusers = $paper->getElementsByTagName('user');
+	$n = count($recusers);
+	if($n == 0) return;
+	echo "<span class=\"recusers\">recommend by ";
+	$k = 0;
 	foreach($recusers as $user)
 	{
-		echo "<a href=/site/user.php>" . $user->nodeValue . "</a>";
+		echo "<a href=/site/user.php>" . $user->nodeValue . "</a>&nbsp;";
+		++$k;
+		if($k >= 5) break;
 	}
+	if($n > 5) echo "and other " . $n - 5 . " users";
+	echo "</span>";
 }
 
 function renderPapers($papers_dom, $src_paper_id = -1)
