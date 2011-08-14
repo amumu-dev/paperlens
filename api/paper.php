@@ -55,7 +55,23 @@ function getPaperInfo($paper_id)
 	return $ret;
 }
 
+function getRecommendedUsers($paper_id)
+{
+	$ret = array();
+	$result = mysql_query("select a.user_id, b.email from user_paper_behavior a, user b where a.user_id=b.id and a.behavior=1 and a.paper_id=$paper_id order by a.created_at desc limit 100;");
+	if(!$result) return $ret;
+	
+	while($row = mysql_fetch_row($result))
+	{
+		$tks = explode('@', $row[1]);
+		$user_name = $tks[0];
+		$ret[$row[0]] = $user_name;
+	}
+	return $ret;
+}
+
 $paper_info = getPaperInfo($id);
+$rec_users = getRecommendedUsers($id);
 if(count($paper_info) > 0)
 {
 	echo "<paper>";
@@ -70,6 +86,12 @@ if(count($paper_info) > 0)
 	{
 		echo "<author><id>" . $author_id. "</id><name>".$author_name."</name></author>";
 	}
+	echo "<rec>";
+	foreach($rec_users as $user_id => $user_name)
+	{
+		echo "<user id=$user_id>$user_name</user>";
+	}
+	echo "</rec>";
 	echo "</paper>";
 }
 ?>
