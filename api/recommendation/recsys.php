@@ -39,7 +39,6 @@ function combineRecommendations(&$A, $B, $w)
 		}
 		else
 		{
-			print_r($B[1][$key]);
 			combineArray($A[1][$key], $B[1][$key], $w);
 		}
 	}
@@ -60,7 +59,7 @@ function makingRecommendation($uid, $relatedTables)
 	}
 	
 	$querys = GetSearchQuery($uid);
-	//$query_based_recommendations = recommendationCore($features, $table_name, 10, 'query');
+	$query_based_recommendations = recommendationCore($features, $table_name, 10, 'query');
 	//combineRecommendations($recommendations,$one_recommendations , $table_weight);
 	/*selectExplanation($recommendations);
 	filtering($recommendations);
