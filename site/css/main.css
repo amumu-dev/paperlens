@@ -164,12 +164,13 @@ body
 	color:#444444;
 	font-size:12px;
 	font-style: italic;
+	line-height:18px;
 }
 .paper .recusers
 {
 	color:#444444;
 	font-size:12px;
-	font-style:italic;
+	line-height:18px;
 }
 .paper .recusers a
 {
