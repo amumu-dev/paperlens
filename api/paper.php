@@ -89,7 +89,7 @@ if(count($paper_info) > 0)
 	echo "<rec>";
 	foreach($rec_users as $user_id => $user_name)
 	{
-		echo "<user id=$user_id>$user_name</user>";
+		echo "<user id=\"$user_id\">$user_name</user>";
 	}
 	echo "</rec>";
 	echo "</paper>";
