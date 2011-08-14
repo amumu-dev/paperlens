@@ -162,6 +162,10 @@ a:hover
 	font-size:14px;
 	color:#1F81DD;
 }
+.paper .title a:hover
+{
+	color:#003E6E;
+}
 .paper .info
 {
 	color:#444444;
