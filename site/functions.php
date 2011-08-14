@@ -47,9 +47,8 @@ function renderRelatedFeedback($j, $title, $paper_id, $src_paper_id)
 function renderRecommendUsers($paper)
 {
 	$recusers = $paper->getElementsByTagName('user');
-	$n = count($recusers);
+	$n = $recusers->length;
 	if($n == 0) return;
-	echo $n;
 	echo "<span class=\"recusers\">recommend by ";
 	$k = 0;
 	foreach($recusers as $user)
