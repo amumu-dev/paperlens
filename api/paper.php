@@ -74,24 +74,24 @@ $paper_info = getPaperInfo($id);
 $rec_users = getRecommendedUsers($id);
 if(count($paper_info) > 0)
 {
-	echo "<paper>";
-	echo "<id>" . $id . "</id>";
-	echo "<title>" . htmlspecialchars($paper_info['title']) . "</title>";
+	echo "<paper>\n";
+	echo "<id>" . $id . "</id>\n";
+	echo "<title>" . htmlspecialchars($paper_info['title']) . "</title>\n";
 	if(strlen($paper_info['booktitle']) > 0)
-		echo "<booktitle>" . htmlspecialchars($paper_info['booktitle']) . "</booktitle>";
-	else echo "<booktitle>" . htmlspecialchars($paper_info['journal']) . "</booktitle>";
-	echo "<year>" . htmlspecialchars($paper_info['year']) . "</year>";
+		echo "<booktitle>" . htmlspecialchars($paper_info['booktitle']) . "</booktitle>\n";
+	else echo "<booktitle>" . htmlspecialchars($paper_info['journal']) . "</booktitle>\n";
+	echo "<year>" . htmlspecialchars($paper_info['year']) . "</year>\n";
 	//echo "<abstract>" . htmlspecialchars($paper_info['abstract']) . "</abstract>";
 	foreach($paper_info['author'] as $author_id => $author_name)
 	{
-		echo "<author><id>" . $author_id. "</id><name>".$author_name."</name></author>";
+		echo "<author><id>" . $author_id. "</id><name>".$author_name."</name></author>\n";
 	}
-	echo "<rec>";
+	echo "<rec>\n";
 	foreach($rec_users as $user_id => $user_name)
 	{
-		echo "<user id=\"$user_id\">$user_name</user>";
+		echo "<user id=\"$user_id\">$user_name</user>\n";
 	}
-	echo "</rec>";
-	echo "</paper>";
+	echo "</rec>\n";
+	echo "</paper>\n";
 }
 ?>
