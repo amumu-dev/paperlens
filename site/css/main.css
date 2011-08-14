@@ -161,10 +161,20 @@ body
 }
 .paper .info
 {
-	color:#777;
+	color:#444444;
 	font-size:12px;
+	font-style: italic;
 }
-
+.paper .recusers
+{
+	color:#444444;
+	font-size:12px;
+	font-style:italic;
+}
+.paper .recusers a
+{
+	font-weight:bold;
+}
 .feedback
 {
 	width:100%;
@@ -175,7 +185,7 @@ body
 {
 	float:left;
 	padding-right:5px;
-	color:#777;
+	color:#444444;
 }
 #main .author a
 {
