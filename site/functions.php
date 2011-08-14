@@ -53,7 +53,9 @@ function renderRecommendUsers($paper)
 	$k = 0;
 	foreach($recusers as $user)
 	{
-		echo "<a href=/site/user.php>" . $user->nodeValue . "</a>&nbsp;";
+		$user_id = $user->getAttribute('id');
+		$user_name = urlencode($user->nodeValue);
+		echo "<a href=/site/user.php?uid=$user_id&name=$user_name>" . $user->nodeValue . "</a>&nbsp;";
 		++$k;
 		if($k >= 5) break;
 	}
