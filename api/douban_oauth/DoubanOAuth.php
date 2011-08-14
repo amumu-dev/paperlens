@@ -8,9 +8,6 @@ $accesstoken_url = "http://www.douban.com/service/auth/access_token";
 $confirm_callback = $hostname."/doubancon/saveauth";
 $sign_method = new OAuthSignatureMethod_HMAC_SHA1();
 
-$my_consumer_key = "0be63badad20e46a23b2b3090762ad3e";
-$my_consumer_secret = "c078d2b357a0cff8";
-
 
 
 class DoubanOAuthClient{
