@@ -51,12 +51,12 @@ function checkEmailFormat(email_addr){
 function checkEmailResult(data){
     //$("#id_email_hidden").attr("hidden","false");
     if(data.status == "good"){
-        $emailok = false;
-        $("#id_email_hidden").html("email invalid");
+        $emailok = true;
+        $("#id_email_hidden").html("");
     }
     else if(data.status == "bad"){
-        $emailok = true;
-        $("#id_email_hidden").html("email ok");
+        $emailok = false;
+        $("#id_email_hidden").html("email invalid");
     }
     else{
         alert("status not right:"+data.status);
@@ -78,7 +78,7 @@ $(initevent);
 <body>
 
 <div id="content-main">
-<form action="/site/login.php" method="post"> 
+<form action="/site/user/login.php" method="post"> 
     <table>
         <tr>
             <td><label for="id_email">Email:</label> </td>
@@ -97,8 +97,8 @@ $(initevent);
     <table>
         <tr>
             <td>使用其他方式登陆：</td>
-            <td><a href="/site/doubancon.php">连接豆瓣</a></td>
-            <td><a href="/site/weibocon.php">连接新浪</a></td>
+            <td><a href="/site/user/doubancon.php">连接豆瓣</a></td>
+            <td><a href="/site/user/weibocon.php">连接新浪</a></td>
         </tr>
     </table>
 </form>
@@ -107,7 +107,7 @@ $(initevent);
 <?php
 }
 else{
-require_once('db.php');
+require_once('../../api/db.php');
 $password = md5($_POST["password"]);
 $email = $_POST["email"];
 
@@ -135,36 +135,9 @@ if(IsEmailExist($email))
 		$_SESSION["admin"] = true;
 		$_SESSION["uid"] = $uid;
 		$_SESSION["email"] = $email;
-		Header("Location: index.php");
+		Header("Location: /site/index.php");
 	} else {
 		echo "User name and password error";
-	}
-}
-else
-{
-	if(strpos($email, "@") === false)
-	{
-		echo "<h2>Email address is invalid!</h2>";
-		return;
-	}
-	if(strlen($_POST["password"]) < 6)
-	{
-		echo "<h2>Password must exceed 6 characters</h2>";
-		return;
-	}
-	echo "insert into user (email,passwd) values ('" . $email . "', '".$password."');";
-	mysql_query("insert into user (email,passwd) values ('" . $email . "', '".$password."');");
-
-	$result = mysql_query("SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'");
-	if ($result && mysql_num_rows($result) > 0) 
-	{
-		$row = mysql_fetch_row($result);
-		$uid = $row[0];
-		session_start();
-		$_SESSION["admin"] = true;
-		$_SESSION["uid"] = $uid;
-		$_SESSION["email"] = $email;
-		Header("Location: index.php");
 	}
 }
 }

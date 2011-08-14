@@ -1,8 +1,7 @@
 <?php
 
-
-if($_SERVER['REQUEST_METHOD'] == "GET"){
-    //show the login page
+if($_SERVER['REQUEST_METHOD'] == "GET")//show the signup page
+{
 ?>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -14,16 +13,44 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
 <script type="text/javascript">
     <!--
     //handle the blur of checking username and email
+    $usernameok = false;
     $emailok = false;
 
     function checkreg(){
         //check empty and the format things
+        if($usernameok == false){
+            alert("username invalid");
+            return false;
+        }
         if($emailok == false){
             alert("email invalid");
             return false;
         }
         return true;
     }
+
+//check the valid of the name and email while inputing?
+function checkUserName(){
+    $.getJSON("/site/user/checkusernameused.php?username="+$("#id_username").attr("value"),checkUserNameResult);
+}
+
+function checkUserNameResult(data){
+    //$("#id_user_hidden").attr("hidden","false");
+    if(data.status == "good"){
+        //$("#id_user_hidden").innerHTML = "username ok";
+        $("#id_user_hidden").html("username used");
+        $usernameok = false;
+    }
+    else if(data.status == "bad"){
+        $("#id_user_hidden").html("username ok");
+        $usernameok = true;
+    }
+    else{
+        alert("status not right:"+data.status);
+        $usernameok = false;
+    }
+}
+
 
 function checkEmail(){
     $curemail = $("#id_email").attr('value');
@@ -66,7 +93,13 @@ function checkEmailResult(data){
 
 
 function initevent(){
+    //$("#id_username").onkeydown(checkUserName);
+    //$("#id_email").onkeydown(checkEmail);
+    //$("#id_username").keydown(checkUserName);
+    //$("#id_email").keydown(checkEmail);
+    $("#id_username").keyup(checkUserName);
     $("#id_email").keyup(checkEmail);
+    checkUserName();
     checkEmail();
 }
 
@@ -78,8 +111,13 @@ $(initevent);
 <body>
 
 <div id="content-main">
-<form action="/site/login.php" method="post"> 
+<form action="/site/user/signup.php" method="post"> 
     <table>
+        <tr>
+            <td><label for="id_username">Username:</label> </td>
+            <td><input type="text" name="username" id="id_username"></td>
+            <td><label id="id_user_hidden"></label></td>
+        </tr>
         <tr>
             <td><label for="id_email">Email:</label> </td>
             <td><input type="text" name="email" id="id_email"></td>
@@ -91,14 +129,14 @@ $(initevent);
             <td><input type="password" name="password" id="id_password"></td>
         </tr>
         <tr>
-            <td><input type="submit" value="Login" onclick="return checkreg()"></td>
+            <td><input type="submit" value="Register" onclick="return checkreg()"></td>
         </tr>
     </table>
     <table>
         <tr>
             <td>使用其他方式登陆：</td>
-            <td><a href="/site/doubancon.php">连接豆瓣</a></td>
-            <td><a href="/site/weibocon.php">连接新浪</a></td>
+            <td><a href="/site/user/doubancon.php">连接豆瓣</a></td>
+            <td><a href="/site/user/weibocon.php">连接新浪</a></td>
         </tr>
     </table>
 </form>
@@ -106,66 +144,48 @@ $(initevent);
 
 <?php
 }
-else{
-require_once('db.php');
-$password = md5($_POST["password"]);
-$email = $_POST["email"];
-
-function IsEmailExist($mail)
+else//post reqeust
 {
-	$result = mysql_query("select count(*) from user where email='$mail'");
-	if($result)
-	{
-		$row = mysql_fetch_row($result);
-		if($row[0] == 1) return TRUE;
-	}
-	return FALSE;
+    require_once('../../api/db.php');
+    $username = ($_POST['username']);
+    $password = md5($_POST["password"]);
+    $email = $_POST["email"];
+//$keywords = $_POST["keywords"];
+//print $keywords;
+//return;
+
+if(strpos($email, "@") === false)
+{
+	echo "<h2>Email address is invalid!</h2>";
+	return;
 }
 
-if(IsEmailExist($email))
+/*
+if(strlen($keywords) == 0)
 {
-	echo "exist email";
-	$result = mysql_query("SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'");
-	if ($result && mysql_num_rows($result) > 0)
-	{
-		$row = mysql_fetch_row($result);
-		$uid = $row[0];
-		echo $uid;
-		session_start();
-		$_SESSION["admin"] = true;
-		$_SESSION["uid"] = $uid;
-		$_SESSION["email"] = $email;
-		Header("Location: index.php");
-	} else {
-		echo "User name and password error";
-	}
+	echo "<h2>You must input research areas, seprated by comma</h2>";
+	return;
 }
-else
-{
-	if(strpos($email, "@") === false)
-	{
-		echo "<h2>Email address is invalid!</h2>";
-		return;
-	}
-	if(strlen($_POST["password"]) < 6)
-	{
-		echo "<h2>Password must exceed 6 characters</h2>";
-		return;
-	}
-	echo "insert into user (email,passwd) values ('" . $email . "', '".$password."');";
-	mysql_query("insert into user (email,passwd) values ('" . $email . "', '".$password."');");
+ */
 
-	$result = mysql_query("SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'");
-	if ($result && mysql_num_rows($result) > 0) 
-	{
-		$row = mysql_fetch_row($result);
-		$uid = $row[0];
-		session_start();
-		$_SESSION["admin"] = true;
-		$_SESSION["uid"] = $uid;
-		$_SESSION["email"] = $email;
-		Header("Location: index.php");
-	}
+if(strlen($_POST["password"]) < 6)
+{
+	echo "<h2>Password must exceed 6 characters</h2>";
+	return;
+}
+
+mysql_query("replace into user (username,email,passwd,keywords) values ('" . $username . "' , '" . $email . "', '".$password."', '" . $keywords . "');");
+
+echo "SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'";
+$result = mysql_query("SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'");
+if ($result) 
+{
+	$row = mysql_fetch_row($result);
+	$uid = $row[0];
+	session_start();
+	$_SESSION["admin"] = true;
+	$_SESSION["uid"] = $uid;
+	Header("Location: /site/index.php?uid=" . $uid);
 }
 }
 ?>
