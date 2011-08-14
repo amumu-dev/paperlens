@@ -44,6 +44,15 @@ function renderRelatedFeedback($j, $title, $paper_id, $src_paper_id)
 		. "</span>";
 }
 
+function renderRecommendUsers($paper)
+{
+	$recusers = $paper->getElementsByTagName('rec')->item(0);
+	foreach($recusers as $user)
+	{
+		echo "<a href=/site/user.php>" . $user->nodeValue . "</a>";
+	}
+}
+
 function renderPapers($papers_dom, $src_paper_id = -1)
 {
 	$related_authors = array();
@@ -82,6 +91,7 @@ function renderPapers($papers_dom, $src_paper_id = -1)
 			}
 		}
 		echo "</span><br />";
+		renderRecommendUsers($paper);
 		if($src_paper_id < 0) renderPaperFeedback($j, $title, $paper_id);
 		else renderRelatedFeedback($j, $title, $paper_id, $src_paper_id);
 		echo "</div>";
