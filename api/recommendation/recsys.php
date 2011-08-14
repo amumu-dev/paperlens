@@ -60,8 +60,8 @@ function makingRecommendation($uid, $relatedTables)
 	}
 	
 	$querys = GetSearchQuery($uid);
-	$query_based_recommendations = recommendationCore($features, $table_name, 10, 'query');
-	combineRecommendations($recommendations,$one_recommendations , $table_weight);
+	//$query_based_recommendations = recommendationCore($features, $table_name, 10, 'query');
+	//combineRecommendations($recommendations,$one_recommendations , $table_weight);
 	/*selectExplanation($recommendations);
 	filtering($recommendations);
 	ranking($recommendations);*/
