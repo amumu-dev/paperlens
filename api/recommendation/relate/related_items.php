@@ -29,7 +29,7 @@ function GetRelatedItemsBySearch($item, $topN)
 		$id = $row[0];
 		if($id == $item) continue;
 		$weight = $row[1];
-		$ret[$id] = $weight;
+		//$ret[$id] = $weight;
 	}
 	return $ret;
 }
