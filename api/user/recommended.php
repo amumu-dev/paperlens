@@ -12,6 +12,6 @@ if (!$result) {
 while ($row = mysql_fetch_row($result))
 {
 	$paper_id = $row[0];
-	echo file_get_contents('http://127.0.0.1/api/paper.php?id=' . $id) ;
+	echo file_get_contents('http://127.0.0.1/api/paper.php?id=' . $paper_id) ;
 }
 ?>
