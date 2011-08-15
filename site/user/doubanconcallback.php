@@ -21,7 +21,7 @@ function getNamebyId($did){
 	$dom = new DOMDocument();
 	echo "http://api.douban.com/people/$did";
 	if(!$dom->load("http://api.douban.com/people/$did")) echo "load xml error";
-	$xpath =  DOMXPath($dom);
+	$xpath = new DOMXPath($dom);
 	$xpath->registerNamespace('db', "http://www.douban.com/xmlns/");
 	$nodeList = $xpath->query("//db:uid");
 	echo $nodeList->item(0)->nodeValue;
