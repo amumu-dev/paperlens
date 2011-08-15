@@ -20,9 +20,10 @@ require_once("userfunc.php");
 function getNamebyId($did){
     $DOUBAN_PEOPLE_URL = "http://api.douban.com/people/".$did."?alt=json";
     $contents = file_get_contents($DOUBAN_PEOPLE_URL);
-    //print $contents;
+    print $contents;
     $jsonobj = json_decode($contents);
-    return $jsonobj['db:uid'];
+    //return $jsonobj['db:uid'];
+    return $jsonobj->{'db:uid'};
 }
 
 $tk =  $_GET["tkey"];
