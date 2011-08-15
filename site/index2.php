@@ -75,12 +75,12 @@ if($login)
 				<div>
 					<a href="./user/doubancon.php">Login by Douban</a>&nbsp;
 					<a href="./user/weibocon.php">Login by Weibo</a>&nbsp;
-					<a href="#" onclick="opensignup();" style="color:#FFCC00;">SignUp</a>
+					<a href="#" onclick="opensignup();" style="color:#647B0F;">SignUp</a>
 				</div>
 			</div>
 			<div id="signup" style="display:none;">
 				<h3>Please Signup : </h3>
-				<form action="./user/login.php" method="post" style="width:100%;float:left;">
+				<form action="./user/signup.php" method="post" style="width:100%;float:left;">
 					<div style="float:left;width:100%;"><span>Email&nbsp;</span><input type="text" name="email" class="textinput"/></div>
 					<div style="float:left;width:100%;"><span>Password&nbsp;</span><input type="password" name="password" class="textinput"/></div>
 					<input type="submit" value="Signup" class="button" />
