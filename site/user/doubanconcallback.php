@@ -23,7 +23,7 @@ function getNamebyId($did){
     print $contents;
     $jsonobj = json_decode($contents);
     //return $jsonobj['db:uid'];
-    return $jsonobj->{'db:uid'};
+    return $jsonobj->{'db:uid'}->{'\$t'};
 }
 
 $tk =  $_GET["tkey"];
