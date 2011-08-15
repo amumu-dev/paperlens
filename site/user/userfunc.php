@@ -56,10 +56,10 @@ function checkSinaIdExist($sid)
     }
 }
 
-function checkDoubanIdExist($did){
+function checkDoubanIdExist($douban_id){
     global $db_php_path;
     require_once($db_php_path);
-    $result = mysql_query("select * from user where doubanid=".$sid);
+    $result = mysql_query("select * from user where doubanid=".$douban_id);
     $num = mysql_num_rows($result);
     if($num == 1){
         return true;

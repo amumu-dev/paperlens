@@ -5,13 +5,7 @@ $password = md5($_POST["password"]);
 $email = $_POST["email"];
 $keywords = $_POST["keywords"];
 
-if(strlen($_POST["password"]) < 6)
-{
-	echo "<h2>Password must exceed 6 characters</h2>";
-	return;
-}
-
-mysql_query("replace into user (username,email,passwd,keywords) values ('" . $username . "' , '" . $email . "', '".$password."', '" . $keywords . "');");
+mysql_query("insert into user (username,email,passwd,keywords) values ('" . $username . "' , '" . $email . "', '".$password."', '" . $keywords . "');");
 
 echo "SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'";
 $result = mysql_query("SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'");
