@@ -19,7 +19,8 @@ require_once("userfunc.php");
 
 function getNamebyId($did){
 	$dom = new DOMDocument();
-	$dom->load("http://api.douban.com/people/$did");
+	echo "http://api.douban.com/people/$did";
+	if(!$dom->load("http://api.douban.com/people/$did")) echo "load xml error";
 	return $dom->getElementsByTagName("db:uid")->item(0)->nodeValue;
 }
 
