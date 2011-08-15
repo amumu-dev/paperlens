@@ -70,12 +70,12 @@ if($login)
 				<form action="./user/login.php" method="post" style="width:100%;float:left;">
 					<div style="float:left;width:100%;"><span>Email&nbsp;</span><input type="text" name="email" class="textinput"/></div>
 					<div style="float:left;width:100%;"><span>Password&nbsp;</span><input type="password" name="password" class="textinput"/></div>
-					<input type="submit" value="Login/Signup" class="button" />&nbsp;
-					<a onclick="opensignup();">SignUp</a>
+					<input type="submit" value="Login" class="button" />&nbsp;
 				</form>
 				<div>
-					<a href="./user/doubancon.php">Connect to Douban</a>&nbsp;&nbsp;
-					<a href="./user/weibocon.php">Connect to Sina</a>
+					<a href="./user/doubancon.php">Login by Douban</a>&nbsp;
+					<a href="./user/weibocon.php">Login by Weibo</a>&nbsp;
+					<a href="#" onclick="opensignup();" style="color:#FFCC00;">SignUp</a>
 				</div>
 			</div>
 			<div id="signup" style="display:none;">
@@ -83,8 +83,7 @@ if($login)
 				<form action="./user/login.php" method="post" style="width:100%;float:left;">
 					<div style="float:left;width:100%;"><span>Email&nbsp;</span><input type="text" name="email" class="textinput"/></div>
 					<div style="float:left;width:100%;"><span>Password&nbsp;</span><input type="password" name="password" class="textinput"/></div>
-					<input type="submit" value="Login/Signup" class="button" />&nbsp;
-					<a onclick="opensignup();">SignUp</a>
+					<input type="submit" value="Signup" class="button" />
 				</form>
 				<div>
 					<a href="./user/doubancon.php">Connect to Douban</a>&nbsp;&nbsp;
