@@ -72,7 +72,10 @@ if($login)
 					<div style="float:left;width:100%;"><span>Password&nbsp;</span><input type="password" name="password" class="textinput"/></div>
 					<input type="submit" value="Login/Signup" class="button" />
 				</form>
-				<span><a href="./user/doubancon.php">Connect to Douban</a>&nbsp;&nbsp;<a href="./user/weibocon.php">Connect to Sina</a></span>
+				<div>
+					<a href="./user/doubancon.php">Connect to Douban</a>&nbsp;&nbsp;
+					<a href="./user/weibocon.php">Connect to Sina</a>
+				</div>
 			</div>
 			<?php
 			}
