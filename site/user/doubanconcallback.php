@@ -18,6 +18,12 @@ require_once($root_path.'api/douban_oauth/DoubanOAuth.php');
 require_once("userfunc.php");
 
 function getNamebyId($did){
+	$dom = new DOMDocument();
+	$dom->load("http://api.douban.com/people/$did");
+	return $dom->getElementsByTagName("db:uid")->item(0)->nodeValue;
+}
+
+function getNamebyIdJson($did){
     $DOUBAN_PEOPLE_URL = "http://api.douban.com/people/".$did."?alt=json";
     $contents = file_get_contents($DOUBAN_PEOPLE_URL);
     print $contents;
