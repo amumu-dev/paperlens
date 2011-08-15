@@ -81,8 +81,10 @@ if($login)
 			<div id="signup" style="display:none;">
 				<h3>Please Signup : </h3>
 				<form action="./user/signup.php" method="post" style="width:100%;float:left;">
+					<div style="float:left;width:100%;"><span>User Name&nbsp;</span><input type="text" name="username" class="textinput"/></div>
 					<div style="float:left;width:100%;"><span>Email&nbsp;</span><input type="text" name="email" class="textinput"/></div>
 					<div style="float:left;width:100%;"><span>Password&nbsp;</span><input type="password" name="password" class="textinput"/></div>
+					<div style="float:left;width:100%;"><span>Interest Keywords&nbsp;</span><input type="text" name="keywords" class="textinput"/></div>
 					<input type="submit" value="Signup" class="button" />
 				</form>
 				<div>
