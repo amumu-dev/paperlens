@@ -22,6 +22,15 @@ function related(uid, dst_id, src_id, w, node_id)
 	node.innerHTML = 'thanks!';
 }
 
+function opensignup()
+{
+	node = document.getElementById("login");
+	node.style.display = "none";
+	
+	node2 = document.getElementById("signup");
+	node.style.display = "block";
+}
+
 function showMore()
 {
 	node_show_more = document.getElementById("show_more");

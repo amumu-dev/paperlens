@@ -55,7 +55,7 @@ a:hover
 	padding:0px;
 }
 
-.login, #intro
+#ogin, #intro, #signup
 {
 	width:48%;
 	float:left;
@@ -63,7 +63,7 @@ a:hover
 	text-align:left;
 }
 
-.login span
+#login span, #signup span
 {
 	float:left;
 	font-size:15px;
@@ -74,7 +74,7 @@ a:hover
 	text-align:right;
 }
 
-.login .textinput
+#login .textinput, #signup .textinput
 {
 	width:240px;
 	height:32px;
@@ -83,7 +83,7 @@ a:hover
 	margin-top:5px;
 }
 
-.login .button
+#login .button, #signup .button
 {
 	border:#333 solid 1px;
 	width:100px;

@@ -65,7 +65,7 @@ if($login)
 				</ul>
 			</div>
 			</div>
-			<div class="login">
+			<div id="login">
 				<h3>Please login/signup : </h3>
 				<form action="login.php" method="post" style="width:100%;float:left;">
 					<div style="float:left;width:100%;"><span>Email&nbsp;</span><input type="text" name="email" class="textinput"/></div>
