@@ -21,6 +21,8 @@ function getNamebyId($did){
 	$dom = new DOMDocument();
 	echo "http://api.douban.com/people/$did";
 	if(!$dom->load("http://api.douban.com/people/$did")) echo "load xml error";
+	echo $dom->getElementsByTagName("title")->item(0)->nodeValue;
+	echo $dom->getElementsByTagName("db:uid")->item(0)->nodeValue;
 	return $dom->getElementsByTagName("db:uid")->item(0)->nodeValue;
 }
 
