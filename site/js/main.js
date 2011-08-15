@@ -28,7 +28,7 @@ function opensignup()
 	node.style.display = "none";
 	
 	node2 = document.getElementById("signup");
-	node.style.display = "block";
+	node2.style.display = "block";
 }
 
 function showMore()
