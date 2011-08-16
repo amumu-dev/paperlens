@@ -28,8 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
 <!--the html to link-->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="Author" contect="wangxing">
-    <meta http-equiv="Content-Language" contect="zh-CN">
+    <meta name="Author" content="wangxing">
     <script type="text/javascript" src=""></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js" type="text/javascript"></script>
 
@@ -82,7 +81,7 @@ $(initevent);
 
 <body>
 <form action="/site/user/conexistuser.php" method="post">
-    <input type="hidden" name="uid" value="<?php print $_GET['uid']; ?>"/> 
+    <input type="hidden" name="uid" value="<?php echo $_GET['uid']; ?>"/> 
     <div>
         <label>email:</label>
         <input type="text" id="email" name="email" value="<?php print $email;?>">
