@@ -68,7 +68,7 @@ if(!$res || $res['total']==0){
 else{
 	//highlight options
 	$opts = array(
-	'before_match' => '<span id="high">',
+	'before_match' => '<span class="high">',
 	'after_match'  => '</span>',
     'around' => 80,
 	//'limit' => 256, default 256
