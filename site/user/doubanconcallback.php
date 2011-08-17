@@ -54,7 +54,7 @@ $login_redirect_url = "http://".$_SERVER['HTTP_HOST'].'/site/index.php';
 
 if(checkDoubanIdExist($douban_user_id))
 {
-    $uid = geUidbyDuid($douban_user_id);
+    $uid = getUidbyDuid($douban_user_id);
     $con_new_user_url = $con_new_user_url."?uid=".$uid;
     if(checkDoubanUserLinked($douban_user_id)){
         updateDoubanAC($uid,$douban_token,$douban_token_secret);
@@ -66,11 +66,9 @@ if(checkDoubanIdExist($douban_user_id))
     }
 }
 else{
-    $uid = initDoubanUser($douban_user_id,$douban_name,$douban_token,$douban_token_secret);
-    //print $douban_user_id.":".$douban_name.":".$douban_token.":".$douban_token_secret;
-    //return;
+    //$uid = initDoubanUser($douban_user_id,$douban_name,$douban_token,$douban_token_secret);
 
-    $con_new_user_url = $con_new_user_url."/?uid=".$uid;
+    $con_new_user_url = $con_new_user_url . "?type=douban&douban_uid=$douban_user_id&douban_name=$douban_name&douban_token=$douban_token&douban_token_secret=$douban_token_secret";
     Header("Location: $con_new_user_url");
 }
 
