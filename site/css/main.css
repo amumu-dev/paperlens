@@ -242,7 +242,9 @@ font-weight:bold;
 font-size:16px;
 text-decoration: underline;
 }
-#searchret .high
+#searchret span
+{}
+.high
 {
 	color:orange;
 }
