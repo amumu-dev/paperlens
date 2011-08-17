@@ -118,6 +118,7 @@ else{
 		echo "<paper>";
 		echo "<id>" . $data[$k]['id'] . "</id>";
 		echo "<title>" . htmlspecialchars($title[$k]) . "</title>";
+		echo "<hightitle>" . htmlspecialchars($title[$k]). "</hightitle>";
 		if(strlen( $data[$k]['booktitle'] ) > 0)
 			echo "<booktitle>" . htmlspecialchars($data[$k]['booktitle']) . "</booktitle>";
 		else echo "<booktitle>" . htmlspecialchars($data[$k]['journal']) . "</booktitle>";
