@@ -34,13 +34,14 @@ if(!isset($_GET['query'])){
         die('');
 }
 if(isset($_GET['offset'])){
-    $offset=$_GET['offset'];
+    $offset=intval($_GET['offset']);
 	if(!is_int($offset)){
 		$offset=$_DEFAULT_OFFSET;
 	}
 }
+echo $offset;
 if(isset($_GET['limit'])){
-    $limit=$_GET['limit'];
+    $limit=intval($_GET['limit']);
 	if(!is_int($limit)){
 		$limit=$_DEFAULT_LIMIT;
 	}
