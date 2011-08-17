@@ -26,7 +26,7 @@ function getAuthorName($author_id)
 
 header('Content-Type: text/xml');
 $_DEFAULT_OFFSET=0;
-$_DEFAULT_LIMIT=10;
+$_DEFAULT_LIMIT=15;
 
 $offset=$_DEFAULT_OFFSET;
 $limit=$_DEFAULT_LIMIT;
@@ -35,13 +35,13 @@ if(!isset($_GET['query'])){
 }
 if(isset($_GET['offset'])){
     $offset=$_GET['offset'];
-	if(!!is_int($offset)){
+	if(!is_int($offset)){
 		$offset=$_DEFAULT_OFFSET;
 	}
 }
 if(isset($_GET['limit'])){
     $limit=$_GET['limit'];
-	if(!!is_int($limit)){
+	if(!is_int($limit)){
 		$limit=$_DEFAULT_LIMIT;
 	}
 }
