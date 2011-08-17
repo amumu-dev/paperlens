@@ -39,7 +39,7 @@ if(isset($_GET['offset'])){
 		$offset=$_DEFAULT_OFFSET;
 	}
 }
-echo $offset;
+
 if(isset($_GET['limit'])){
     $limit=intval($_GET['limit']);
 	if(!is_int($limit)){
