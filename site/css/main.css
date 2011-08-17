@@ -224,6 +224,28 @@ h2
 	margin-top:10px;
 	padding:0px;
 }
+
+.page
+{
+float:left;
+font-size:18px;
+}
+#main .page a
+{
+font-weight:bold;
+font-size:16px;
+text-decoration: none;
+}
+#main .page a:hover
+{
+font-weight:bold;
+font-size:16px;
+text-decoration: underline;
+}
+.high
+{
+	color:orange;
+}
 #foot
 {
 	clear:both;
