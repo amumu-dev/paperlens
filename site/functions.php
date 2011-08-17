@@ -70,15 +70,11 @@ function renderPapers($papers_dom, $src_paper_id = -1)
 	foreach($papers_dom as $paper)
 	{
 		++$j;
-		if($j == 11)
-		{
-			echo "<span id=show_more style=\"width:100%;float:left;text-align:center;display=block;\"><a style=\"cursor:pointer;\" onclick=\"showMore();\">More</a></span>";
-			echo "<div id=paper_more style=\"display:none;\">";
-		}
 		echo "<div class=\"paper\" onmouseover=\"this.style.backgroundColor='#FFF8E7';\" onmouseout=\"this.style.backgroundColor='#FFF';\">";
 		$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
 		$title = $paper->getElementsByTagName('title');
-		echo "<span class=\"title\"><a href=/site/paper.php?id=".$paper_id.">" . strTruncate($title->item(0)->nodeValue, 85) . "</a></span><br />";
+		$hightitle = $paper->getElementsByTagName('hightitle');
+		echo "<span class=\"title\"><a href=/site/paper.php?id=".$paper_id.">" . strTruncate($hightitle->item(0)->nodeValue, 256) . "</a></span><br />";
 		$booktitle = $paper->getElementsByTagName('booktitle');
 		$year = $paper->getElementsByTagName('year');
 		if(strlen($booktitle->item(0)->nodeValue) > 0)
@@ -108,6 +104,35 @@ function renderPapers($papers_dom, $src_paper_id = -1)
 	}
 	if($j > 11) echo "</div>";
 	return $related_authors;
+}
+
+function renderSearchPage($curPage,$pageCount,$query,$uid){
+	$url='/site/search.php?query='.$query.'&uid='.$uid.'&page=';
+	if(!is_int($curPage)){
+		$curPage=1;
+	}
+	$start=($curPage-4)>0?($curPage-4):1;
+	echo "<div class=\"page\" style=\"float:left\">";
+	if($curPage>1){
+		echo "<span>&nbsp;<a href='".$url.($curPage-1)."'>Previous</a>&nbsp;</span>";
+	}
+	for($i=$start; $i < $start+10; $i++){
+		//last page
+		if($i>$pageCount){
+			break;
+		}
+		//current page
+		if($i == $curPage){
+			echo "<span>&nbsp;".$i."&nbsp;</span>";
+			continue;
+		}
+		echo "<span>&nbsp;<a href='".$url.$i."'>".$i."</a>&nbsp;</span>";
+	}
+	$nextPage=($curPage+1)>$pageCount?$pageCount:($curPage+1);
+    if(($curPage+1)<=$pageCount){
+        echo "<span>&nbsp;<a href='".$url.$nextPage."'>Next</a>&nbsp;</span>";
+    }
+	echo "</div>";
 }
 
 function renderRelatedAuthors($related_authors)
