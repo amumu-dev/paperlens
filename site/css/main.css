@@ -47,7 +47,7 @@ a:hover
 	width:73%;
 	float:left;
 }
-#main form, #main span
+#main form
 {
 	width:100%;
 	float:left;
@@ -245,11 +245,6 @@ text-decoration: underline;
 .high
 {
 	color:orange;
-	float:right;
-}
-.high span
-{
-width: 50px;
 }
 #foot
 {
