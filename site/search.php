@@ -5,8 +5,12 @@ if(!$login) Header("Location: index.php");
 require_once("functions.php");
 $query = $_GET["query"];
 $uid = $_SESSION["uid"];
+$page = isset($_GET['page']) && intval($_GET['page'])>0 ? intval($_GET['page']) : 1;
+$limit = 15;
+$offset = ($page - 1) * $limit;
+
 $dom = new DOMDocument();
-if(!$dom->load('http://127.0.0.1/api/search/search.php?n=20&query=' . str_replace(' ','+',$query)))
+if(!$dom->load('http://127.0.0.1/api/search/search_2.php?query=' . str_replace(' ','+',$query. '&offset=' . $offset. '&limit=' .$limit))
 {
 	echo 'load xml failed';
 	return;
@@ -48,6 +52,15 @@ $related_authors = array();
 					$related_authors = renderPapers($papers);
 					?>
 				</div>
+				<?php
+                    $global=$dom->getElementsByTagName('global');
+                    $hits=0;
+                    foreach($global as $g){
+                        $hits=$g->getElementsByTagName('hits')->item(0)->nodeValue;
+                    }
+					$pageCount=ceil($hits/$limit);
+                    renderSearchPage($page,$pageCount,$query,$uid);
+                ?>
 			</div>
 			<div id="side">
 				<h2>Related Authors</h2>
