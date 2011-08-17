@@ -1,18 +1,4 @@
 <?php
-
-/*
- * wangxing,wangxing.pku@gmail.com
- * 用户同意授权后跳转到此页面
- * 1.使用授权后的request token的key和sec换取access token
- * 2.获取用户id和用户名
- * 3.检查在数据库中是否有此id
- * 3.1如果没有此id，创建一个项，存储douban的id,name,ackey,acsec
- *    跳转到连接一个新的用户的界面
- * 3.2如果有此id
- * 3.2.1如果此id已经连接一个账号，直接登陆
- * 3.2.2如果此id没有连接本网站的账号，跳转到连接一个新用户的页面（connewuser.php）
- *
- * */
 require_once("userconfig.php");
 require_once($root_path.'api/douban_oauth/DoubanOAuth.php');
 require_once("userfunc.php");
