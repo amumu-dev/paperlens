@@ -102,7 +102,6 @@ function renderPapers($papers_dom, $src_paper_id = -1)
 		else renderRelatedFeedback($j, $title, $paper_id, $src_paper_id);
 		echo "</div>";
 	}
-	if($j > 11) echo "</div>";
 	return $related_authors;
 }
 
