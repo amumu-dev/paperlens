@@ -13,7 +13,7 @@ function getSphinxServer($offset=0, $limit=15){
 	//default mode; SPH_MATCH_ALL; 
 	//see also@http://sphinxsearch.com/wiki/doku.php?id=sphinx_manual_chinese#?È«ÎÄËÑË÷ÉèÖÃ
 	$scl->SetMatchMode(SPH_MATCH_ALL); 
-	$scl->SetLimits($pffset,$limit);
+	$scl->SetLimits($offset,$limit);
 	return $scl;
 }
 ?>
