@@ -172,12 +172,16 @@ a:hover
 	font-size:12px;
 	font-style: italic;
 	line-height:18px;
+	float:left;
+	width:100%;
 }
 .paper .recusers
 {
 	color:#444444;
 	font-size:12px;
 	line-height:18px;
+	float:left;
+	width:100%;
 }
 .paper .recusers a
 {
