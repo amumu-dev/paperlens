@@ -51,7 +51,7 @@ def GetCategories(buf):
 
 
 
-all_categories = ["temporal+recommendation"]
+all_categories = ["graph"]
 processed_categories = set()
 c = crawler.Crawler("")
 while len(all_categories) > 0:
