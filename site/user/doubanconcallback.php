@@ -38,18 +38,11 @@ $douban_name = getNamebyId($douban_user_id);
 $con_new_user_url = "http://".$_SERVER['HTTP_HOST']."/site/user/conexistuser.php";
 $login_redirect_url = "http://".$_SERVER['HTTP_HOST'].'/site/index.php';
 
-if(checkDoubanIdExist($douban_user_id))
+if(checkDoubanIdExist($douban_user_id) && checkDoubanUserLinked($douban_user_id))
 {
-    $uid = getUidbyDuid($douban_user_id);
-    $con_new_user_url = $con_new_user_url."?uid=".$uid;
-    if(checkDoubanUserLinked($douban_user_id)){
-        updateDoubanAC($uid,$douban_token,$douban_token_secret);
+	//updateDoubanAC($uid,$douban_token,$douban_token_secret);
         loginUser($uid);
         Header("Location: /site/index.php");
-    }
-    else{
-        Header("Location: $con_new_user_url");
-    }
 }
 else{
     //$uid = initDoubanUser($douban_user_id,$douban_name,$douban_token,$douban_token_secret);

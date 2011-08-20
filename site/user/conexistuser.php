@@ -32,7 +32,7 @@ if($connect_type == "douban")
 
 	<body>
 		<h3>If you already have an account, please input your email and password to connect with douban:</h3>
-		<form action="signup.php" method="post">
+		<form action="connect.php" method="post">
 			<div>
 				<label>email:</label>
 				<input type="text" id="email" name="email" value="">
@@ -54,8 +54,8 @@ if($connect_type == "douban")
 		<h3>If you are new user, please input your email and password to create a new user:</h3>
 		<form action="signup.php" method="post">
 			<div>
-				<label>email:</label>
-				<input type="text" id="email" name="email" value="">
+				<label>username:</label><input type="text" name="username" value="">
+				<label>email:</label><input type="text" name="email" value="">
 				<?php if($connect_type == "douban") { ?>
 				<input type="hidden" name="connect_type" value="douban">
 				<input type="hidden" name="douban_uid" value="<?php echo $douban_uid; ?>">
@@ -66,7 +66,8 @@ if($connect_type == "douban")
 			</div>
 			<div>
 				<label>password:</label>
-				<input type="password" id="pwd" name="pwd">
+				<input type="password" name="pwd">
+				<label>keywords:</label><input type="text" name="keywords" value="">
 			</div>
 			<div><input type="submit" value="Connect"></div>
 		</form>

@@ -16,26 +16,7 @@ if(!isset($_POST['email']))
 }
 $email = $_POST["email"];
 
-
-if(!isset($_POST['username']))
-{
-	echo "You must enter user name";
-	return;
-}
-$username = ($_POST['username']);
-
-if(!isset($_POST['keywords']))
-{
-	echo "You must enter keywords";
-	return;
-}
-$keywords = $_POST["keywords"];
-
-if(!isset($_POST['connect_type']))
-{
-	mysql_query("insert into user (username,email,passwd,keywords) values ('" . $username . "' , '" . $email . "', '".$password."', '" . $keywords . "');");
-}
-else
+if(isset($_POST['connect_type']))
 {
 	$connect_type = $_POST['connect_type'];
 	if($connect_type == "douban")
