@@ -46,7 +46,7 @@ if($connect_type == "douban")
 			</div>
 			<div>
 				<label>password:</label>
-				<input type="password" id="pwd" name="pwd">
+				<input type="password" name="password">
 			</div>
 			<div><input type="submit" value="Connect"></div>
 		</form>
@@ -66,7 +66,7 @@ if($connect_type == "douban")
 			</div>
 			<div>
 				<label>password:</label>
-				<input type="password" name="pwd">
+				<input type="password" name="password">
 				<label>keywords:</label><input type="text" name="keywords" value="">
 			</div>
 			<div><input type="submit" value="Connect"></div>
