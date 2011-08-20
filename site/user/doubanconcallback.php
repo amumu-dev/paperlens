@@ -40,7 +40,7 @@ $douban_name = getNamebyId($douban_user_id);
 
 $user_id = $_SESSION['uid'];
 echo $user_id;
-mysql_query("update user set doubanid='$douban_uid', dname='$douban_name', dackey='$douban_token', dacsec='$douban_token_secret' "
+mysql_query("update user set doubanid='$douban_user_id', dname='$douban_name', dackey='$douban_token', dacsec='$douban_token_secret' "
 					. "where id=$user_id");
 
 ?>

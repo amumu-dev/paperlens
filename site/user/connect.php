@@ -25,24 +25,17 @@ if(isset($_POST['connect_type']))
 		$douban_name=$_POST['douban_name'];
 		$douban_token=$_POST['douban_token'];
 		$douban_token_secret=$_POST['douban_token_secret'];
-		if(!checkDoubanIdExist($douban_user_id))
-		{
-			mysql_query("insert into user (username,email,passwd,keywords,doubanid,dname,dackey, dacsec) values ('" 
-			. $username . "' , '" . $email . "', '".$password."', '" . $keywords . "', '".$douban_uid.", '".$douban_name.", '".$douban_token.", '".$douban_token_secret.");");
-		}
-		else
-		{
-			if(!checkDoubanUserLinked($douban_user_id))
-			{
+		
 				$user_id = getUidbyDuid($douban_user_id);
+				echo "update user set username='$username', email='$email', passwd='$password', keywords='$keywords',"
+					. "doubanid='$douban_uid', dname='$douban_name', dackey='$douban_token', dacsec='$douban_token_secret' "
+					. "where id=$user_id";
 				mysql_query("update user set username='$username', email='$email', passwd='$password', keywords='$keywords',"
 					. "doubanid='$douban_uid', dname='$douban_name', dackey='$douban_token', dacsec='$douban_token_secret' "
 					. "where id=$user_id");
-			}
-		}
 	}
 }
-
+/*
 echo "SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'";
 $result = mysql_query("SELECT id FROM user WHERE email='".$email."' and passwd = '" . $password . "'");
 if ($result) 
@@ -54,4 +47,5 @@ if ($result)
 	$_SESSION["uid"] = $uid;
 	Header("Location: /site/index.php?uid=" . $uid);
 }
+*/
 ?>

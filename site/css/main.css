@@ -102,6 +102,9 @@ a:hover
 	margin-top:10px;
 }
 
+#side ul {width:100%;float:left;}
+#side li {width:100%;float:left;}
+
 #header #logo
 {
 	height:30px;
