@@ -85,7 +85,7 @@ $xml = $paper_key->getValue();
 if(isset($xml))
 {
 	echo 'hello';
-	echo Rediska_Manager::get($id);
+	echo $xml;
 }
 else
 {
