@@ -7,7 +7,7 @@ $options = array(
     )
 );
 
-require_once '../../lib/Rediska/library/Rediska.php';
+require_once '../../api/lib/Rediska/library/Rediska.php';
 $rediska = new Rediska($options);
 
 $key = new Rediska_Key('keyName');
