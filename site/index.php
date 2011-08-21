@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('session.php');
+require_once('config.php');
 if($login)
 {
 	require_once('../api/db.php');
@@ -27,7 +28,7 @@ if($login)
 ?>
 <html>
 	<head>
-		<title>PaperLens : Open Source Academic Recommender System</title>
+		<title><?php echo $SITE_NAME; ?> : Open Source Academic Recommender System</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="./css/main.css" />
 		<script src="./js/main.js" type="text/javascript"></script>
@@ -49,7 +50,7 @@ if($login)
 					<span><a href="/site/logout.php">Log out</a></span>
 				</div>
 				<?php } ?>
-				<div id="logo">PaperLens</div>
+				<div id="logo"><?php echo $SITE_NAME; ?></div>
 				<?
 				include('./search/search_bar.php');
 				?>
@@ -58,7 +59,7 @@ if($login)
 			if($login==FALSE){
 			?>
 			<div id="intro">
-				<h3>PaperLens is an academic paper recommender system which can : </h3>
+				<h3><?php echo $SITE_NAME; ?> is an academic paper recommender system which can : </h3>
 				<ul>
 					<li>Recommend academic papers by analyzing your historical preference</li>
 					<li>Recommend related papers of given paper</li>

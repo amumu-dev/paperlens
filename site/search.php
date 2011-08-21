@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('session.php');
+require_once('config.php');
 if(!$login) Header("Location: index.php");
 require_once("functions.php");
 $query = $_GET["query"];
@@ -19,7 +20,7 @@ $related_authors = array();
 ?>
 <html>
 	<head>
-		<title>PaperLens : Open Source Academic Recommender System</title>
+		<title><?php echo $SITE_NAME; ?> : Open Source Academic Recommender System</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="./css/main.css" />
 		<script src="./js/main.js" type="text/javascript"></script>
@@ -38,7 +39,7 @@ $related_authors = array();
 					<span><a href="/site/index.php">Home Page</a></span>&nbsp;&nbsp;
 					<span><a href="/site/logout.php">Log out</a></span>
 				</div>
-				<div id="logo">PaperLens</div>
+				<div id="logo"><?php echo $SITE_NAME; ?></div>
 				<?
 				include('./search/search_bar.php');
 				?>
