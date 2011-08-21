@@ -79,8 +79,10 @@ $options = array(
 
 require_once './lib/Rediska/library/Rediska.php';
 $rediska = new Rediska($options);
+$paper_key = new Rediska_Key($id);
 
-if(Rediska_Manager::has($id))
+$xml = $paper_key->getValue();
+if(isset($xml))
 {
 	echo 'hello';
 	echo Rediska_Manager::get($id);
@@ -113,8 +115,8 @@ else
 		$xml .= "</paper>\n";
 	}
 	echo $xml;
-	$paper_key = new Rediska_Key($id);
+	
 	$paper_key->setValue($xml);
-	echo Rediska_Manager::get($id);
+	echo $paper_key->getValue();
 }
 ?>
