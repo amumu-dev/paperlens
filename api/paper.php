@@ -116,7 +116,6 @@ else
 	echo $xml;
 	
 	$paper_key->setValue($xml);
-	echo $paper_key->getValue();
 }
 ?>
 
