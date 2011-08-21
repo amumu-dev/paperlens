@@ -72,7 +72,7 @@ $related_authors = array();
 				</div>
 			</div>
 		</div>
-		<div id="foot">&copy; PaperLens 2011</div>
+		<div id="foot">&copy; <?php echo $SITE_NAME; ?> 2011</div>
 		<div id="feedbackcode"></div>
 	</body>
 </html>
