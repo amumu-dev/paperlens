@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('../session.php');
+require_once('../../api/db.php');
 if(!$login) header("location : /site/index.php");
 
 $result = mysql_query("SELECT keywords,email,passwd,username FROM user WHERE id=".$uid);
