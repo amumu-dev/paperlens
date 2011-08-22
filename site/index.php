@@ -113,7 +113,7 @@ if($login)
 				<input style="width:80%;float:left;height:26px;line-height:26px;" type="text" name="keywords" value=""/>
 				<input style="width:15%;float:left;height:26px;line-height:26px;" type="submit" value="Submit"/>
 				</form>
-				<span style="color:#1F81CD;">Or you can use search engine now to find papers you like.</span>
+				<span style="color:#1F81CD;width:100%;float:left;">Or you can use search engine now to find papers you like.</span>
 				</div>
 				<?php
 				}
