@@ -56,7 +56,7 @@ if($scl->IsConnectError()){
 $scl->setFieldWeights(array('title'=>2000));
 $scl->SetMatchMode(SPH_MATCH_EXTENDED2);
 #$scl->SetRankingMode(SPH_RANK_BM25);
-$scl->SetSortMode ( SPH_SORT_EXPR,"@weight*log2(3 + citations/1000) /(2030 - year)");
+$scl->SetSortMode ( SPH_SORT_EXPR,"@weight*log2(3 + search_rank/1000) /(2030 - year)");
 $index_name='idx1';
 $res = $scl->Query ($query, $index_name );
 
