@@ -38,14 +38,16 @@ if(isset($_POST['username']))
 				</div>
 				<div id="logo"><?php echo $SITE_NAME; ?></div>
 			</div>
-			<form action="edit.php" method="post" style="width:100%;float:left;">
-				<div style="float:left;width:100%;"><span>Nick Name&nbsp;</span><input type="text" name="username" class="textinput" value="<?php echo $username; ?>"/></div>
-				<div style="float:left;width:100%;"><span>Email&nbsp;</span><input type="text" name="email" class="textinput" value="<?php echo $email; ?>"/></div>
-				<div style="float:left;width:100%;"><span>Old Password&nbsp;</span><input type="password" name="password" class="textinput" value=""/></div>
-				<div style="float:left;width:100%;"><span>New Password&nbsp;</span><input type="password" name="passwd" class="textinput" value=""/></div>
-				<div style="float:left;width:100%;"><span>Interest Keywords&nbsp;</span><input type="text" name="keywords" class="textinput" value="<?php echo $keywords; ?>"/></div>
-				<input type="submit" value="Login/Signup" class="button" />
-			</form>
+			<div id="main">
+				<form action="edit.php" method="post" style="width:100%;float:left;">
+					<div style="float:left;width:100%;"><span>Nick Name&nbsp;</span><input type="text" name="username" class="textinput" value="<?php echo $username; ?>"/></div>
+					<div style="float:left;width:100%;"><span>Email&nbsp;</span><input type="text" name="email" class="textinput" value="<?php echo $email; ?>"/></div>
+					<div style="float:left;width:100%;"><span>Old Password&nbsp;</span><input type="password" name="password" class="textinput" value=""/></div>
+					<div style="float:left;width:100%;"><span>New Password&nbsp;</span><input type="password" name="passwd" class="textinput" value=""/></div>
+					<div style="float:left;width:100%;"><span>Interest Keywords&nbsp;</span><input type="text" name="keywords" class="textinput" value="<?php echo $keywords; ?>"/></div>
+					<input type="submit" value="Login/Signup" class="button" />
+				</form>
+			</div>
 		</div>
 	</body>
 </html>
