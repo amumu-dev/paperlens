@@ -1,10 +1,12 @@
-function recommend(uid, paper, behavior, w, node_id)
+function recommend(uid, paper, behavior, w, node_id, paper_title)
 {
 	node_body = document.getElementById("feedbackcode");
 	node_body.innerHTML = '<img width=0 height=0 src=/site/behavior/behavior.php?uid=' + uid + '&paper=' + paper + '&behavior=' + behavior + '&w=' + w + ' />';
 	
 	node = document.getElementById(node_id);
-	node.innerHTML = 'thanks!';
+	node.innerHTML = 'Share to ';
+	title = 'Recommend%20' + paper_title + '%20http://reculike.com/site/paper.php?id=' + paper + '%20in%20RecULike';
+	node.innerHTML += '<a href=\"http://v.t.sina.com.cn/share/share.php?title=' + title + '\" target=\"_blank\">Sina</a>';
 }
 
 function google_search(uid, paper, behavior, w, node_id)
