@@ -1,4 +1,6 @@
 <?php
+error_reporting(0);
+
 function GetRelatedItems($item, $table_name, $topN)
 {
 	if($table_name == "default") return GetDefaultRelatedItems($item, "default", $topN);
