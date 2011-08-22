@@ -55,6 +55,7 @@ a:hover
 	padding:0px;
 }
 
+
 #login, #intro, #signup
 {
 	width:48%;
@@ -77,6 +78,24 @@ a:hover
 #login .textinput, #signup .textinput
 {
 	width:240px;
+	height:32px;
+	float:left;
+	line-height:30px;
+	margin-top:5px;
+}
+
+#main form span
+{
+	width:100px;
+	height:32px;
+	float:left;
+	line-height:30px;
+	margin-top:5px;
+}
+
+#main form .textinput
+{
+	width:440px;
 	height:32px;
 	float:left;
 	line-height:30px;
