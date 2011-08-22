@@ -19,7 +19,8 @@ if(isset($_POST['username']))
 		echo "<h2>Please input right old password to edit the info</h2>";
 		return;
 	}
-	mysql_query("update user set keywords='" . $_POST['keywords'] . "', email='" . $_POST['email'] . "', passwd='" . $_POST['passwd'] . "', username='" . $_POST['username'] . "' where id=" . $_SESSION['uid']);
+	if(!isset($_POST['passwd_new'])) $passwd = $_POST['passwd_new'];
+	mysql_query("update user set keywords='" . $_POST['keywords'] . "', email='" . $_POST['email'] . "', passwd='" . $passwd . "', username='" . $_POST['username'] . "' where id=" . $_SESSION['uid']);
 }
 ?>
 <html>
@@ -42,8 +43,8 @@ if(isset($_POST['username']))
 				<form action="edit.php" method="post" style="width:100%;float:left;">
 					<div style="float:left;width:100%;"><span>Nick Name&nbsp;</span><input type="text" name="username" class="textinput" value="<?php echo $username; ?>"/></div>
 					<div style="float:left;width:100%;"><span>Email&nbsp;</span><input type="text" name="email" class="textinput" value="<?php echo $email; ?>"/></div>
-					<div style="float:left;width:100%;"><span>Old Password&nbsp;</span><input type="password" name="password" class="textinput" value=""/></div>
-					<div style="float:left;width:100%;"><span>New Password&nbsp;</span><input type="password" name="passwd" class="textinput" value=""/></div>
+					<div style="float:left;width:100%;"><span>Old Password&nbsp;</span><input type="password" name="passwd" class="textinput" value=""/></div>
+					<div style="float:left;width:100%;"><span>New Password&nbsp;</span><input type="password" name="passwd_new" class="textinput" value=""/></div>
 					<div style="float:left;width:100%;"><span>Interest Keywords&nbsp;</span><input type="text" name="keywords" class="textinput" value="<?php echo $keywords; ?>"/></div>
 					<input type="submit" value="Login/Signup" class="button" />
 				</form>
