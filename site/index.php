@@ -92,10 +92,9 @@ if($login)
 				?>
 				</div>
 				<div id="side">
-					<!--<h2>Admin</h2>
+					<h2>Admin</h2>
 						<span><a href="./user/edit.php">Edit My Info</a></span>
-						<span><a href="./user/doubancon.php">Connect to Douban</a></span>
-					</ul>-->
+					</ul>
 					<h2>Related Authors</h2>
 					<div class="related_author">
 					<?php
