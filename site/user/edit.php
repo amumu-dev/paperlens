@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('../session.php');
+require_once('../config.php');
 require_once('../../api/db.php');
 if(!$login) header("location : /site/index.php");
 
