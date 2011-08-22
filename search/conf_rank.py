@@ -9,6 +9,7 @@ try:
     booktitle_citations = dict()
     booktitle_count = dict()
     papers = dict()
+    paper_citations = dict()
     cursor.execute("select id,booktitle,citations from paper")
     k = 0
     while 1:
@@ -16,6 +17,7 @@ try:
         if row == None:
             break
         papers[int(row[0])] = row[1]
+        paper_citations[int(row[0])] = int(row[2])
         booktitle = row[1]
         citations = int(row[2])
         if booktitle not in booktitle_count:
@@ -31,6 +33,7 @@ try:
     for paper_id in papers.keys():
         booktitle = papers[paper_id]
         rank = float(booktitle_citations[booktitle]) / float(booktitle_count[booktitle] + 10)
+        rank = rank * 0.2 + float(paper_citations[paper_id]);
         cursor.execute("update paper set rank=%s where id=%s", (rank, paper_id))
         k = k + 1
         if k % 100000 == 0:
