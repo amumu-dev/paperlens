@@ -86,20 +86,20 @@ a:hover
 
 #main form span
 {
-	width:100px;
-	height:32px;
+	width:160px;
+	height:26px;
 	float:left;
-	line-height:30px;
-	margin-top:5px;
+	line-height:26px;
+	margin-top:3px;
 }
 
 #main form .textinput
 {
-	width:440px;
-	height:32px;
+	width:500px;
+	height:26px;
 	float:left;
-	line-height:30px;
-	margin-top:5px;
+	line-height:26px;
+	margin-top:3px;
 }
 
 #login .button, #signup .button
