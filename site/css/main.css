@@ -102,8 +102,7 @@ a:hover
 	margin-top:10px;
 }
 
-#side ul {width:100%;float:left;text-align:left;}
-#side li {width:100%;float:left;padding-left:5px;}
+#side span {width:100%;float:left;text-align:left;}
 
 #header #logo
 {
