@@ -59,5 +59,6 @@ $related_authors = array();
 			</div>
 		</div>
 		<div id="foot">&copy; <?php echo $SITE_NAME; ?> 2011</div>
+		<?php require_once('ga.php'); ?>
 	</body>
 </html>

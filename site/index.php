@@ -122,5 +122,6 @@ if($login)
 			?>
 		</div>
 		<div id="feedbackcode"></div>
+		<?php require_once('ga.php'); ?>
 	</body>
 </html>
