@@ -28,7 +28,7 @@ try:
         if k % 100000 == 0:
             print k
     k = 0
-    for (paper_id, booktitle) in data:
+    for (paper_id, booktitle) in papers:
         rank = float(booktitle_citations[booktitle]) / float(booktitle_count[booktitle] + 10)
         cursor.execute("update paper set rank=%s where id=%s", (rank, paper_id))
         k = k + 1
