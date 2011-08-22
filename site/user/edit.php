@@ -14,12 +14,12 @@ $username = $row[3];
 	
 if(isset($_POST['username']))
 {
-	if(md5($_POST['passwd']) != $passwd && strlen($_POST['passwd']) > 0)
+	if(md5($_POST['passwd']) != $passwd)
 	{
 		echo "<h2>Please input right old password to edit the info</h2>";
 		return;
 	}
-	if(isset($_POST['passwd_new'])) $passwd = $_POST['passwd_new'];
+	if(isset($_POST['passwd_new']) && strlen($_POST['passwd_new']) > 0) $passwd = $_POST['passwd_new'];
 	if(isset($_POST['username'])) $username = $_POST['username'];
 	if(isset($_POST['email'])) $email = $_POST['email'];
 	if(isset($_POST['keywords'])) $keywords = $_POST['keywords'];
