@@ -19,10 +19,10 @@ if(isset($_POST['username']))
 		echo "<h2>Please input right old password to edit the info</h2>";
 		return;
 	}
-	if(!isset($_POST['passwd_new'])) $passwd = $_POST['passwd_new'];
-	if(!isset($_POST['username'])) $username = $_POST['username'];
-	if(!isset($_POST['email'])) $email = $_POST['email'];
-	if(!isset($_POST['keywords'])) $keywords = $_POST['keywords'];
+	if(isset($_POST['passwd_new'])) $passwd = $_POST['passwd_new'];
+	if(isset($_POST['username'])) $username = $_POST['username'];
+	if(isset($_POST['email'])) $email = $_POST['email'];
+	if(isset($_POST['keywords'])) $keywords = $_POST['keywords'];
 	if(strlen($username) < 6)
 	{
 		echo "<h2>Nick name must have more than 6 characters</h2>";
