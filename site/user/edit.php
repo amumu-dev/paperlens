@@ -14,7 +14,7 @@ $username = $row[3];
 	
 if(isset($_POST['username']))
 {
-	if(md5($_POST['passwd']) != $passwd)
+	if(md5($_POST['passwd']) != $passwd && strlen($_POST['passwd']) > 0)
 	{
 		echo "<h2>Please input right old password to edit the info</h2>";
 		return;
