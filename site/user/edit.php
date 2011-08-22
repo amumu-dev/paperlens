@@ -20,7 +20,20 @@ if(isset($_POST['username']))
 		return;
 	}
 	if(!isset($_POST['passwd_new'])) $passwd = $_POST['passwd_new'];
-	mysql_query("update user set keywords='" . $_POST['keywords'] . "', email='" . $_POST['email'] . "', passwd='" . $passwd . "', username='" . $_POST['username'] . "' where id=" . $_SESSION['uid']);
+	if(!isset($_POST['username'])) $username = $_POST['username'];
+	if(!isset($_POST['email'])) $email = $_POST['email'];
+	if(!isset($_POST['keywords'])) $keywords = $_POST['keywords'];
+	if(strlen($username) < 6)
+	{
+		echo "<h2>Nick name must have more than 6 characters</h2>";
+		return;
+	}
+	if(strlen($passwd) < 6)
+	{
+		echo "<h2>Password must have more than 6 characters</h2>";
+		return;
+	}
+	mysql_query("update user set keywords='" . $keywords . "', email='" . $email . "', passwd='" . $passwd . "', username='" . $username . "' where id=" . $_SESSION['uid']);
 }
 ?>
 <html>
