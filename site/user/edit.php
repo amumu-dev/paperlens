@@ -59,7 +59,7 @@ if(isset($_POST['username']))
 					<div style="float:left;width:100%;"><span>Old Password&nbsp;</span><input type="password" name="passwd" class="textinput" value=""/></div>
 					<div style="float:left;width:100%;"><span>New Password&nbsp;</span><input type="password" name="passwd_new" class="textinput" value=""/></div>
 					<div style="float:left;width:100%;"><span>Interest Keywords&nbsp;</span><input type="text" name="keywords" class="textinput" value="<?php echo $keywords; ?>"/></div>
-					<input type="submit" value="Login/Signup" class="button" />
+					<input type="submit" value="Edit" class="button" />
 				</form>
 			</div>
 		</div>
