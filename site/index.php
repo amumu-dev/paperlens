@@ -21,6 +21,8 @@ if($login)
 	$papers = $dom->getElementsByTagName('paper');
 	if($papers->length == 0 && strlen($keywords) > 0)
 	{
+		$keywords = trim($keywords, " ,.;");
+		$keywords = str_replace(',', '|', $keywords);
 		$dom->load('http://127.0.0.1/api/search/search.php?n=10&query=' . str_replace(' ','+',$keywords));
 		$papers = $dom->getElementsByTagName('paper');
 	}
@@ -108,7 +110,7 @@ if($login)
 				<div id="main">
 				&nbsp;<br/>&nbsp;<br/>
 				<span>As a new user, we need more information to make recommendations for you.</span>
-				<span style="color:#647B0F;">Could you please input some tags which can bestly describe your interest:</span>
+				<span style="color:#647B0F;">Could you please input some tags <font color=red>(seprated by comma)</font> which can bestly describe your interest:</span>
 				<form style="width:100%;float:left;" action="coldstart.php" method="post">
 				<input style="width:80%;float:left;height:26px;line-height:26px;" type="text" name="keywords" value=""/>
 				<input style="width:15%;float:left;height:26px;line-height:26px;" type="submit" value="Submit"/>
