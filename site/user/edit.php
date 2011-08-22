@@ -25,7 +25,7 @@ if(isset($_POST['username']))
 	<head>
 		<title><?php echo $SITE_NAME; ?> : Open Source Academic Recommender System</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" type="text/css" href="./css/main.css" />
+		<link rel="stylesheet" type="text/css" href="../css/main.css" />
 	<head>
 	<body>
 		<div id="content">
