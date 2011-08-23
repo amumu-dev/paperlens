@@ -5,7 +5,7 @@ function renderFirstPaper($paper)
 	echo "<div id=\"paper0\">";
 	$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
 	$title = $paper->getElementsByTagName('title');
-	echo "<h2 class=\"title\">" . $title->item(0)->nodeValue . "</h2><br />";
+	echo "<div class=\"title\">" . $title->item(0)->nodeValue . "</div><br />";
 	$booktitle = $paper->getElementsByTagName('booktitle');
 	$year = $paper->getElementsByTagName('year');
 	if(strlen($booktitle->item(0)->nodeValue) > 0)
