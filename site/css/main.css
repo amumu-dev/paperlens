@@ -57,20 +57,16 @@ a:hover
 
 #intro
 {
-	width:40%;
-	height:500px;
+	width:45%;
 	float:left;
-	margin-top:30px;
 	text-align:left;
 }
 
 #login, #signup
 {
-	width:40%;
-	height:500px;
-	margin-left:1%;
+	width:45%;
+	margin-left:5px;
 	float:left;
-	margin-top:30px;
 	text-align:left;
 }
 
