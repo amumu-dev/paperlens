@@ -4,7 +4,6 @@ require_once('session.php');
 require_once('config.php');
 require_once("functions.php");
 $query = $_GET["query"];
-$uid = $_SESSION["uid"];
 $page = isset($_GET['page']) && intval($_GET['page'])>0 ? intval($_GET['page']) : 1;
 $limit = 15;
 $offset = ($page - 1) * $limit;
@@ -30,7 +29,12 @@ $related_authors = array();
 	</head>
 	
 	<body>
-		<?php echo "<img src=\"/site/behavior/behavior.php?uid=".$uid. "&query=".$query."\" width=0 height=0 />" ?>
+		<?php 
+			if(isset($_SESSION["uid"])) 
+				echo "<img src=\"/site/behavior/behavior.php?uid=".$_SESSION["uid"]). "&query=".$query."\" width=0 height=0 />";
+			else
+				echo "<img src=\"/site/behavior/behavior.php?uid=0&query=".$query."\" width=0 height=0 />";
+		?>
 		<div id="content">
 			<div id="header">
 				<?php if($login){ ?>

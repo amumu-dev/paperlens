@@ -34,7 +34,11 @@ $related_authors = array();
 	</head>
 	
 	<body>
-		<?php echo "<img src=\"/site/behavior/behavior.php?uid=$uid&paper=$paper&behavior=3&w=1\"  width=0 height=0 />" ?>
+		<?php 
+			if(isset($_SESSION["uid"]))
+				echo "<img src=\"/site/behavior/behavior.php?uid=" . $_SESSION["uid"] . "&paper=$paper&behavior=3&w=1\"  width=0 height=0 />";
+			else echo "<img src=\"/site/behavior/behavior.php?uid=0&paper=$paper&behavior=3&w=1\"  width=0 height=0 />";
+		?>
 		<div id="content">
 			<div id="header">
 				<?php if($login){ ?>
