@@ -37,7 +37,7 @@ a:hover
 }
 #paper0
 {
-	width:100%;
+	width:95%;
 	float:left;
 }
 #paper0 .title
@@ -47,7 +47,8 @@ a:hover
 	line-height:24px;
 	height:24px;
 	color:#647B0F;
-	font-size:13px;
+	font-size:14px;
+	font-weight:bold;
 }
 #paper0 a
 {
