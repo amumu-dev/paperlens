@@ -60,7 +60,7 @@ function makingRecommendation($uid, $relatedTables)
 	
 	$querys = GetSearchQuery($uid);
 	$query_based_recommendations = recommendationCore($features, $table_name, 10, 'query');
-	combineRecommendations($recommendations,$query_based_recommendations , 0.5);
+	combineRecommendations($recommendations,$query_based_recommendations , 0.1);
 	/*selectExplanation($recommendations);*/
 	filtering($behaviors, $recommendations);
 	ranking($recommendations);
