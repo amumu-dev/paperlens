@@ -16,7 +16,7 @@ function GetBehavior($uid)
 		else $ret[$paper_id] += $weight;
 	}
 	arsort($ret);
-	return array_slice($ret, 0, 10, TRUE);
+	return $ret;
 }
 
 
