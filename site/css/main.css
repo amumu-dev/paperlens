@@ -57,10 +57,9 @@ a:hover
 
 #intro
 {
-	width:45%;
+	width:40%;
 	float:left;
 	text-align:left;
-	border:#AAA 1 solid;
 }
 
 #login, #signup
@@ -69,7 +68,6 @@ a:hover
 	margin-left:5px;
 	float:left;
 	text-align:left;
-	border:#AAA 1 solid;
 }
 
 #login span, #signup span
