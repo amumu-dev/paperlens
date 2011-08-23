@@ -37,11 +37,13 @@ $related_authors = array();
 		<?php echo "<img src=\"/site/behavior/behavior.php?uid=$uid&paper=$paper&behavior=3&w=1\"  width=0 height=0 />" ?>
 		<div id="content">
 			<div id="header">
+				<?php if($login){ ?>
 				<div id="toolbar">
 					<span>Hi <?php echo $_SESSION["email"]; ?></span>&nbsp;&nbsp;
 					<span><a href="/site/index.php">Home Page</a></span>&nbsp;&nbsp;
 					<span><a href="/site/logout.php">Log out</a></span>
 				</div>
+				<?php } ?>
 				<div id="logo"><?php echo $SITE_NAME; ?></div>
 				<?
 				include('./search/search_bar.php');
@@ -50,7 +52,7 @@ $related_authors = array();
 			</div>
 			
 			<div id="main">
-				<?php  if(!$login) require_once('./tools/login_section.php?callback=/site/paper.php?id=$paper'); ?>
+				<?php  if(!$login) require_once('./tools/login_section.php'); ?>
 				<div id="searchret">
 					<h2>Related Articles</h2>
 					<?php
