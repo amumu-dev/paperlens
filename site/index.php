@@ -61,17 +61,16 @@ if($login)
 			if($login==FALSE){
 			?>
 			<div style="width:100%;float:left;clear:both;margin-top:30px;">
-			<div id="intro">
-				<h3><?php echo $SITE_NAME; ?> is an academic paper recommender system which can : </h3>
-				<ul>
-					<li>Recommend academic papers by analyzing your historical preference</li>
-					<li>Recommend related papers of given paper</li>
-				</ul>
-			</div>
-			</div>
-			<div id="login">
-				<?php require_once('./tools/login_section.php'); ?>
-			</div>
+				<div id="intro">
+					<h3><?php echo $SITE_NAME; ?> is an academic paper recommender system which can : </h3>
+					<ul>
+						<li>Recommend academic papers by analyzing your historical preference</li>
+						<li>Recommend related papers of given paper</li>
+					</ul>
+				</div>
+				<div id="login">
+					<?php require_once('./tools/login_section.php'); ?>
+				</div>
 			</div>
 			<?php
 			}
