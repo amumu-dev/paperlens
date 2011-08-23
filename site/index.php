@@ -60,7 +60,7 @@ if($login)
 			<?php
 			if($login==FALSE){
 			?>
-			<div style="width:100%;float:left;">
+			<div style="width:100%;float:left;clear:both;">
 			<div id="intro">
 				<h3><?php echo $SITE_NAME; ?> is an academic paper recommender system which can : </h3>
 				<ul>
