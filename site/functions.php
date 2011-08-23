@@ -20,6 +20,7 @@ function renderFirstPaper($paper)
 		echo "<a href=/site/author.php?author=".$author_id."&name=".str_replace(' ','+',$author_name).">" . $author_name . "</a>&nbsp;";
 	}
 	echo "</span><br />";
+	echo "<div class=\"abstract\">" . $paper->getElementsByTagName('abstract')->item(0)->nodeValue . "</div>";
 	echo "</div>";
 }
 
