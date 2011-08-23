@@ -7,8 +7,8 @@ function filtering($behaviors, &$recommendations, $debug = FALSE)
 		if($debug) echo $item . "\n";
 		if(in_array($item, $recommendations[0]))
 		{
-			unset($recommendations[0][$item]);
 			if($debug) echo $item . "\n";
+			unset($recommendations[0][$item]);
 		}
 		if($debug) echo "\n";
 	}
