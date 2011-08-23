@@ -1,17 +1,17 @@
-function recommend(uid, paper, behavior, w, node_id, paper_title)
+function recommend(uid, paper, behavior, w, node_id, paper_title, query)
 {
 	node_body = document.getElementById("feedbackcode");
-	node_body.innerHTML = '<img width=0 height=0 src=/site/behavior/behavior.php?uid=' + uid + '&paper=' + paper + '&behavior=' + behavior + '&w=' + w + ' />';
+	node_body.innerHTML = '<img width=0 height=0 src=/site/behavior/behavior.php?uid=' + uid + '&paper=' + paper + '&behavior=' + behavior + '&search_query=' + query + '&w=' + w + ' />';
 	
 	node = document.getElementById(node_id);
 	title = 'Recommend%20' + paper_title + '%20http://reculike.com/site/paper.php?id=' + paper + '%20in%20RecULike';
 	node.innerHTML = '<a href=\"http://v.t.sina.com.cn/share/share.php?title=' + title + '\" target=\"_blank\">Share to Sina</a>';
 }
 
-function google_search(uid, paper, behavior, w, node_id)
+function google_search(uid, paper, behavior, w, node_id, query)
 {
 	node_body = document.getElementById("feedbackcode");
-	node_body.innerHTML = '<img width=0 height=0 src=/site/behavior/behavior.php?uid=' + uid + '&paper=' + paper + '&behavior=' + behavior + '&w=' + w + ' />';
+	node_body.innerHTML = '<img width=0 height=0 src=/site/behavior/behavior.php?uid=' + uid + '&paper=' + paper + '&behavior=' + behavior + '&search_query=' + query + '&w=' + w + ' />';
 }
 
 function related(uid, dst_id, src_id, w, node_id)

@@ -6,7 +6,8 @@ if(isset($_GET['paper']) && isset($_GET['behavior']))
 	$behavior = $_GET['behavior'];
 	$paper_id = $_GET['paper'];
 	$weight = $_GET['w'];
-	$query = "replace into user_paper_behavior (user_id, paper_id, behavior, created_at, weight) values (".$uid.", ".$paper_id.", ".$behavior.", '". date("Y-m-d H:i:s"). "', ".$weight.")";
+	$search_query = $_GET['search_query'];
+	$query = "replace into user_paper_behavior (user_id, paper_id, behavior, query, created_at, weight) values (".$uid.", ".$paper_id.", ".$behavior.", '$search_query', '". date("Y-m-d H:i:s"). "', ".$weight.")";
 	mysql_query($query);
 }
 
