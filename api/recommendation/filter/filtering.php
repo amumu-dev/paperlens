@@ -1,6 +1,6 @@
 <?php
 
-function filtering($behaviors, $recommendations, $debug = FALSE)
+function filtering($behaviors, &$recommendations, $debug = FALSE)
 {
 	foreach($behaviors as $item=>$weight)
 	{
