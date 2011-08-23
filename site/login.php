@@ -27,7 +27,8 @@ if(IsEmailExist($email))
                 $_SESSION["admin"] = true;
                 $_SESSION["uid"] = $uid;
                 $_SESSION["email"] = $email;
-                Header("Location: index.php");
+                f(isset($_POST['callback'])) Header("Location: " . $_POST['callback']);
+                else Header("Location: index.php");
         } else {
                 echo "User name and password error";
         }
