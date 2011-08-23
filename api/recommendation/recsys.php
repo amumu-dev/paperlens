@@ -54,13 +54,15 @@ function makingRecommendation($uid, $relatedTables)
 	$features = array_slice($behaviors, 0, 20, TRUE);
 	foreach($relatedTables as $table_name => $table_weight)
 	{
-		$one_recommendations = recommendationCore($features, $table_name, 10);
+		$one_recommendations = recommendationCore($features, $table_name, 5);
 		combineRecommendations($recommendations,$one_recommendations , $table_weight);
 	}
-	
-	$querys = GetSearchQuery($uid);
-	$query_based_recommendations = recommendationCore($features, $table_name, 10, 'query');
-	combineRecommendations($recommendations,$query_based_recommendations , 0.1);
+	if(count($recommendations[0]) < 10)
+	{
+		$querys = GetSearchQuery($uid);
+		$query_based_recommendations = recommendationCore($features, $table_name, 5, 'query');
+		combineRecommendations($recommendations,$query_based_recommendations , 0.1);
+	}
 	/*selectExplanation($recommendations);*/
 	filtering($behaviors, $recommendations);
 	ranking($recommendations);
