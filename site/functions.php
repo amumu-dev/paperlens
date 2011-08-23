@@ -102,8 +102,11 @@ function renderPapers($papers_dom, $src_paper_id = -1)
 		}
 		echo "</span><br />";
 		renderRecommendUsers($paper);
-		if($src_paper_id < 0) renderPaperFeedback($j, $title, $paper_id);
-		else renderRelatedFeedback($j, $title, $paper_id, $src_paper_id);
+		if(isset($_SESSION['uid'] ))
+		{
+			if($src_paper_id < 0) renderPaperFeedback($j, $title, $paper_id);
+			else renderRelatedFeedback($j, $title, $paper_id, $src_paper_id);
+		}
 		echo "</div>";
 	}
 	if($j > 11) echo "</div>";
