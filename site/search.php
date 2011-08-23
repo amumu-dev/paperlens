@@ -31,7 +31,7 @@ $related_authors = array();
 	<body>
 		<?php 
 			if(isset($_SESSION["uid"])) 
-				echo "<img src=\"/site/behavior/behavior.php?uid=".$_SESSION["uid"]). "&query=".$query."\" width=0 height=0 />";
+				echo "<img src=\"/site/behavior/behavior.php?uid=".$_SESSION["uid"]. "&query=".$query."\" width=0 height=0 />";
 			else
 				echo "<img src=\"/site/behavior/behavior.php?uid=0&query=".$query."\" width=0 height=0 />";
 		?>
