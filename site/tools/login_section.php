@@ -3,4 +3,5 @@
 	<div style="float:left;width:100%;"><span>Email&nbsp;</span><input type="text" name="email" class="textinput"/></div>
 	<div style="float:left;width:100%;"><span>Password&nbsp;</span><input type="password" name="password" class="textinput"/></div>
 	<input type="submit" value="Login/Signup" class="button" />
+	<input type="hidden" name="callback" value="<?php echo "http://".$_SERVER ['HTTP_HOST'].$_SERVER['PHP_SELF']; ?>" />
 </form>

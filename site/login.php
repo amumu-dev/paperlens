@@ -56,7 +56,7 @@ else
                 $_SESSION["admin"] = true;
                 $_SESSION["uid"] = $uid;
                 $_SESSION["email"] = $email;
-		if(isset($_SERVER['HTTP_REFERER'])) Header("Location: " . $_SERVER['HTTP_REFERER']);
+		if(isset($_POST['callback'])) Header("Location: " . $_POST['callback']);
                 else Header("Location: index.php");
         }
 }
