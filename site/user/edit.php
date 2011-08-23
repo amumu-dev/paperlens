@@ -63,6 +63,6 @@ if(isset($_POST['username']))
 				</form>
 			</div>
 		</div>
-		<?php require_once('ga.php'); ?>
+		<?php require_once('../ga.php'); ?>
 	</body>
 </html>
