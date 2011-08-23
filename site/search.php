@@ -4,6 +4,7 @@ require_once('session.php');
 require_once('config.php');
 require_once("functions.php");
 $query = $_GET["query"];
+if($login) $_SESSION["query"] = $query;
 $page = isset($_GET['page']) && intval($_GET['page'])>0 ? intval($_GET['page']) : 1;
 $limit = 15;
 $offset = ($page - 1) * $limit;

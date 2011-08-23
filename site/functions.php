@@ -26,7 +26,7 @@ function renderFirstPaper($paper)
 function renderPaperFeedback($j, $title, $paper_id)
 {
 	$search_query = '';
-	if(isset($query)) $search_query = $query;
+	if(isset($_SESSION["query"])) $search_query = $_SESSION["query"] ;
 	echo "<span class=feedback><font color=#647B0F>&#9679;&nbsp;</font><a id=\"recommend" .$j. "\" onclick=\"recommend('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '1', '1', 'recommend" . $j . "', '" . urlencode($title->item(0)->nodeValue) . "', '$search_query')\">Recommend</a>&nbsp;"
 		. "<font color=#FFCC00>&#9679;&nbsp;</font><a id=\"google" .$j. "\" onclick=\"google_search('" . $_SESSION['uid'] 
