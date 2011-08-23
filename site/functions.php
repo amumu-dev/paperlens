@@ -148,16 +148,19 @@ function renderSearchPapers($papers_dom, $src_paper_id = -1)
 		}
 		echo "</span><br />";
 		renderRecommendUsers($paper);
-		if($src_paper_id < 0) renderPaperFeedback($j, $title, $paper_id);
-		else renderRelatedFeedback($j, $title, $paper_id, $src_paper_id);
+		if(isset($_SESSION['uid'] ))
+		{
+			if($src_paper_id < 0) renderPaperFeedback($j, $title, $paper_id);
+			else renderRelatedFeedback($j, $title, $paper_id, $src_paper_id);
+		}
 		echo "</div>";
 	}
 	return $related_authors;
 }
 
 
-function renderSearchPage($curPage,$pageCount,$query,$uid){
-	$url='/site/search.php?query='.$query.'&uid='.$uid.'&page=';
+function renderSearchPage($curPage,$pageCount,$query){
+	$url='/site/search.php?query='.$query.'&page=';
 	if(!is_int($curPage)){
 		$curPage=1;
 	}

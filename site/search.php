@@ -2,7 +2,6 @@
 session_start();
 require_once('session.php');
 require_once('config.php');
-if(!$login) Header("Location: index.php");
 require_once("functions.php");
 $query = $_GET["query"];
 $uid = $_SESSION["uid"];
@@ -34,11 +33,13 @@ $related_authors = array();
 		<?php echo "<img src=\"/site/behavior/behavior.php?uid=".$uid. "&query=".$query."\" width=0 height=0 />" ?>
 		<div id="content">
 			<div id="header">
+				<?php if($login){ ?>
 				<div id="toolbar">
 					<span>Hi <?php echo $_SESSION["email"]; ?></span>&nbsp;&nbsp;
 					<span><a href="/site/index.php">Home Page</a></span>&nbsp;&nbsp;
 					<span><a href="/site/logout.php">Log out</a></span>
 				</div>
+				<?php } else echo "&nbsp;<br>"; ?>
 				<div id="logo"><?php echo $SITE_NAME; ?></div>
 				<?
 				include('./search/search_bar.php');
@@ -46,6 +47,7 @@ $related_authors = array();
 			</div>
 			
 			<div id="main">
+				<?php  if(!$login) require_once('./tools/login_section.php'); ?>
 				<div id="searchret">
 					<h2>Papers Discussing : <?php echo "\"" . $query . "\"" ?></h2>
 					<?php
@@ -60,7 +62,7 @@ $related_authors = array();
                         $hits=$g->getElementsByTagName('hits')->item(0)->nodeValue;
                     }
 					$pageCount=ceil($hits/$limit);
-                    renderSearchPage($page,$pageCount,$query,$uid);
+                    renderSearchPage($page,$pageCount,$query);
                 ?>
 			</div>
 			<div id="side">
