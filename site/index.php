@@ -60,6 +60,7 @@ if($login)
 			<?php
 			if($login==FALSE){
 			?>
+			<div style="width:100%;float:left;">
 			<div id="intro">
 				<h3><?php echo $SITE_NAME; ?> is an academic paper recommender system which can : </h3>
 				<ul>
@@ -70,6 +71,7 @@ if($login)
 			</div>
 			<div id="login">
 				<?php require_once('./tools/login_section.php'); ?>
+			</div>
 			</div>
 			<?php
 			}
