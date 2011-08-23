@@ -49,7 +49,7 @@ if($login)
 				<div id="toolbar">
 					<span>Hi <?php echo $email; ?></span>&nbsp;&nbsp;
 					<span><a href="/site/index.php">Home Page</a></span>&nbsp;&nbsp;
-					<span><a href="/site/logout.php">Log out</a></span>
+					<span><a href="/site/logout.php">Log out</a></span><br>&nbsp;<br>
 				</div>
 				<?php } else echo "&nbsp;<br>"; ?>
 				<div id="logo"><?php echo $SITE_NAME; ?></div>
