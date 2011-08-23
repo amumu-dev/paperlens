@@ -56,7 +56,7 @@ $related_authors = array();
 					<h2>Papers Discussing : <?php echo "\"" . $query . "\"" ?></h2>
 					<?php
 					$papers = $dom->getElementsByTagName('paper');
-					$related_authors = renderSearchPapers($papers, $query);
+					$related_authors = renderSearchPapers($papers, urlencode($query));
 					?>
 				</div>
 				<?php
