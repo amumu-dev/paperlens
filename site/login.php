@@ -56,7 +56,8 @@ else
                 $_SESSION["admin"] = true;
                 $_SESSION["uid"] = $uid;
                 $_SESSION["email"] = $email;
-                Header("Location: index.php");
+		if(isset($_SERVER['HTTP_REFERER'])) Header("Location: " . $_SERVER['HTTP_REFERER']);
+                else Header("Location: index.php");
         }
 }
 ?>

@@ -2,7 +2,6 @@
 session_start();
 require_once('session.php');
 require_once('config.php');
-if(!$login) Header("Location: index.php");
 require_once("functions.php");
 $paper = $_GET["id"];
 
@@ -51,6 +50,7 @@ $related_authors = array();
 			</div>
 			
 			<div id="main">
+				<?php  if(!$login) require_once('./tools/login_section.php?callback=/site/paper.php?id=$paper'); ?>
 				<div id="searchret">
 					<h2>Related Articles</h2>
 					<?php
