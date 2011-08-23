@@ -39,20 +39,21 @@ a:hover
 {
 	width:95%;
 	float:left;
+	padding:3px;
+	background-color:#FFF8E7;
 }
 #paper0 .title
 {
 	width:100%;
 	float:left;
 	line-height:24px;
-	height:24px;
-	color:#647B0F;
+	color:#003E6E;
 	font-size:14px;
 	font-weight:bold;
 }
 #paper0 a
 {
-	color:#647B0F;
+	color:#1F81CD;
 }
 #paper0 .info
 {
