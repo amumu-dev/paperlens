@@ -3,7 +3,7 @@ require_once("../db.php");
 function GetBehavior($uid)
 {
 	$ret = array();
-	$result = mysql_query("select paper_id,weight from user_paper_behavior where user_id=$uid order by created_at desc limit 100");
+	$result = mysql_query("select paper_id,weight from user_paper_behavior where user_id=$uid order by created_at desc");
 	if (!$result) {
 	    return $ret;
 	}
