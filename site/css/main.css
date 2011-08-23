@@ -40,6 +40,17 @@ a:hover
 	width:100%;
 	float:left;
 }
+#paper0 .title
+{
+	width:100%;
+	float:left;
+	line-height:28px;
+	height:28px;
+}
+#paper0 .info
+{
+	color:#444444;
+}
 #main
 {
 	margin-top:10px;
