@@ -23,10 +23,8 @@ function renderFirstPaper($paper)
 	echo "</div>";
 }
 
-function renderPaperFeedback($j, $title, $paper_id)
+function renderPaperFeedback($j, $title, $paper_id, $search_query='')
 {
-	$search_query = '';
-	if(isset($_SESSION["query"])) $search_query = $_SESSION["query"] ;
 	echo "<span class=feedback><font color=#647B0F>&#9679;&nbsp;</font><a id=\"recommend" .$j. "\" onclick=\"recommend('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '1', '1', 'recommend" . $j . "', '" . urlencode($title->item(0)->nodeValue) . "', '$search_query')\">Recommend</a>&nbsp;"
 		. "<font color=#FFCC00>&#9679;&nbsp;</font><a id=\"google" .$j. "\" onclick=\"google_search('" . $_SESSION['uid'] 
@@ -115,7 +113,7 @@ function renderPapers($papers_dom, $src_paper_id = -1)
 	return $related_authors;
 }
 
-function renderSearchPapers($papers_dom, $src_paper_id = -1)
+function renderSearchPapers($papers_dom, $query)
 {
 	$related_authors = array();
 	$j = 0;
@@ -152,8 +150,7 @@ function renderSearchPapers($papers_dom, $src_paper_id = -1)
 		renderRecommendUsers($paper);
 		if(isset($_SESSION['uid'] ))
 		{
-			if($src_paper_id < 0) renderPaperFeedback($j, $title, $paper_id);
-			else renderRelatedFeedback($j, $title, $paper_id, $src_paper_id);
+			renderPaperFeedback($j, $title, $paper_id, $query);
 		}
 		echo "</div>";
 	}
