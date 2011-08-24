@@ -81,15 +81,18 @@ else{
 		$pids[] = $k;
 	}
 	$i1 = 0;
-	foreach($pids as $src_id)
+	if(strlen($query) > 24)
 	{
-		if(++$i1 > 10) break;
-		$i2 = 0;
-		foreach($pids as $dst_id)
+		foreach($pids as $src_id)
 		{
-			if(++$i2 > 10) break;
-			if($src_id == $dst_id) continue;
-			mysql_query("insert into papersim_search (src_id, dst_id, weight) values ($src_id, $dst_id, 1) on duplicate key update weight = weight + 1");
+			if(++$i1 > 10) break;
+			$i2 = 0;
+			foreach($pids as $dst_id)
+			{
+				if(++$i2 > 10) break;
+				if($src_id == $dst_id) continue;
+				mysql_query("insert into papersim_search (src_id, dst_id, weight) values ($src_id, $dst_id, 1) on duplicate key update weight = weight + 1");
+			}
 		}
 	}
 	$pid = implode(',',$pids);
