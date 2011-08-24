@@ -78,8 +78,15 @@ else{
 	
 	$pids = $data = $title = array();
 	foreach($res['matches'] as $k=>$v){
-        $pids[] = $k;
-    }
+		$pids[] = $k;
+	}
+	foreach($pids as $src_id)
+	{
+		foreach($pids as $dst_id)
+		{
+			mysql_query("insert into papersim_search (src_id, dst_id, weight) values ($src_id, $dst_id, 1) on duplicate key update weight = weight + 1");
+		}
+	}
 	$pid = implode(',',$pids);
 	$result = mysql_query("select id, title, booktitle,year,journal,abstract,type from paper where id in ($pid)");
 	while ($row = mysql_fetch_row($result))
