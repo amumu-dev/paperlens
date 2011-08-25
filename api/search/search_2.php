@@ -54,6 +54,7 @@ if(isset($_GET['limit'])){
 	}
 }
 $query = $_GET['query'];
+cleanQuery($query);
 
 $scl = getSphinxServer($offset, $limit);
 if($scl->IsConnectError()){
