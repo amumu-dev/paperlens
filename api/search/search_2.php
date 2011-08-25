@@ -24,6 +24,13 @@ function getAuthorName($author_id)
 	return htmlspecialchars($name);
 }
 
+function cleanQuery(&$query)
+{
+	$query = str_replace('-', ' ', $query);
+	$query = str_replace('\'', ' ', $query);
+	$query = str_replace(':', ' ', $query);
+}
+
 header('Content-Type: text/xml');
 $_DEFAULT_OFFSET=0;
 $_DEFAULT_LIMIT=15;
@@ -81,7 +88,7 @@ else{
 		$pids[] = $k;
 	}
 	$i1 = 0;
-	if(strlen($query) > 24)
+	if(strlen($query) > 10)
 	{
 		foreach($pids as $src_id)
 		{
