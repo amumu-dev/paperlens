@@ -79,7 +79,7 @@ try:
             item.dblp_key = dblp_key
         endTag = ExtractEndTag(line);
         if endTag in paper_types and len(item.authors) > 0:
-            if item.dblp_key in processed_papers:
+            if item.dblp_key not in processed_papers:
                 cursor.execute("insert into paper(id,title,year,booktitle,type,dblp_key,journal,school,publisher) values (%s,%s,%s,%s,%s,%s,%s,%s,%s);",
                                (max_paper_id, item.title, item.publish_year, item.booktitle, endTag, item.dblp_key,
                                 item.journal,item.school,item.publisher))
