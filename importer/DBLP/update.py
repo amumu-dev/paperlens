@@ -54,6 +54,7 @@ try:
         author_index[row[1]] = author_id
         if max_author_id < author_id:
             max_author_id = author_id
+    max_author_id0 = max_author_id
     max_author_id = max_author_id + 1
 
     print 'max author id :', max_author_id
@@ -113,7 +114,8 @@ try:
             elif key == "<publisher>":
                 item.publisher = value
     for (name,author_id) in author_index.items():
-        cursor.execute("insert into author(id, name) values (%s, %s);", (author_id, name))
+        if author_id > max_author_id0:
+            cursor.execute("insert into author(id, name) values (%s, %s);", (author_id, name))
     connection.commit()
     cursor.close()
     connection.close()
