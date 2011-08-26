@@ -54,7 +54,7 @@ function renderRelatedFeedback($j, $title, $paper_id, $src_paper_id)
 		. "</span>";
 }
 
-function renderRecommendUsers($paper)
+function renderRecommendUsers($paper, &$rel_users)
 {
 	$recusers = $paper->getElementsByTagName('user');
 	$n = $recusers->length;
@@ -67,15 +67,22 @@ function renderRecommendUsers($paper)
 		$user_name = urlencode($user->nodeValue);
 		echo "<a href=/site/user.php?uid=$user_id&name=$user_name>" . $user->nodeValue . "</a>&nbsp;";
 		++$k;
+		$key = $user_id . "|" . $user_name;
+		if(!array_key_exists($key, $rel_users))
+		{
+			$rel_users[$key] = 1;
+		}
+		else $rel_users[$key] += 1;
 		if($k >= 5) break;
 	}
 	if($n > 5) echo "and other " . $n - 5 . " users";
 	echo "</span>";
 }
 
-function renderPapers($papers_dom, $src_paper_id = -1)
+function renderPapers($papers_dom, &$related_authors, &$related_users, $src_paper_id = -1)
 {
 	$related_authors = array();
+	$related_users = array();
 	$j = 0;
 	foreach($papers_dom as $paper)
 	{
@@ -111,7 +118,7 @@ function renderPapers($papers_dom, $src_paper_id = -1)
 			}
 		}
 		echo "</span><br />";
-		renderRecommendUsers($paper);
+		renderRecommendUsers($paper, $related_users);
 		if(isset($_SESSION['uid'] ))
 		{
 			if($src_paper_id < 0) renderPaperFeedback($j, $title, $paper_id);
@@ -120,12 +127,12 @@ function renderPapers($papers_dom, $src_paper_id = -1)
 		echo "</div>";
 	}
 	if($j > 11) echo "</div>";
-	return $related_authors;
 }
 
-function renderSearchPapers($papers_dom, $query)
+function renderSearchPapers($papers_dom, $query, &$related_authors, &$related_users)
 {
 	$related_authors = array();
+	$related_users = array();
 	$j = 0;
 	foreach($papers_dom as $paper)
 	{
@@ -157,14 +164,13 @@ function renderSearchPapers($papers_dom, $query)
 			}
 		}
 		echo "</span><br />";
-		renderRecommendUsers($paper);
+		renderRecommendUsers($paper, $related_users);
 		if(isset($_SESSION['uid'] ))
 		{
 			renderPaperFeedback($j, $title, $paper_id, $query);
 		}
 		echo "</div>";
 	}
-	return $related_authors;
 }
 
 

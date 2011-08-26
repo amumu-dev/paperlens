@@ -13,6 +13,7 @@ if(!$dom->load("http://127.0.0.1/api/user/recommended.php?uid=$uid"))
 	return;
 }
 $related_authors = array();
+$related_users = array();
 ?>
 <html>
 	<head>
@@ -45,7 +46,7 @@ $related_authors = array();
 					<h2>Papers Recommended by : <?php echo "\"" . $name . "\"" ?></h2>
 					<?php
 					$papers = $dom->getElementsByTagName('paper');
-					$related_authors = renderPapers($papers);
+					renderPapers($papers, $related_authors, $related_users);
 					?>
 				</div>
 			</div>

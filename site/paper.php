@@ -20,6 +20,7 @@ if(!$dom->load('http://50.18.105.189/api/recommendation/relate/related_items_xml
 	return;
 }
 $related_authors = array();
+$related_users = array();
 ?>
 <html>
 	<head>
@@ -61,7 +62,7 @@ $related_authors = array();
 					<h2>Related Articles</h2>
 					<?php
 					$papers = $dom->getElementsByTagName('paper');
-					$related_authors = renderPapers($papers, $paper);
+					renderPapers($papers, $related_authors, $related_users, $paper);
 					?>
 				</div>
 			</div>

@@ -18,6 +18,7 @@ if($login)
 		return;
 	}
 	$related_authors = array();
+	$related_users = array();
 	$papers = $dom->getElementsByTagName('paper');
 	if($papers->length == 0 && strlen($keywords) > 0)
 	{
@@ -84,7 +85,7 @@ if($login)
 				<h2>Paper Recommendations : </h2>
 				<?php
 					
-					$related_authors = renderPapers($papers);
+					renderPapers($papers, $related_authors, $related_users);
 				?>
 				</div>
 				<div id="side">

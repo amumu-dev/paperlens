@@ -15,6 +15,7 @@ if(!$dom->load('http://127.0.0.1/api/search/search_2.php?query=' . str_replace('
 	return;
 }
 $related_authors = array();
+$related_users = array();
 ?>
 <html>
 	<head>
@@ -56,7 +57,7 @@ $related_authors = array();
 					<h2>Papers Discussing : <?php echo "\"" . $query . "\"" ?></h2>
 					<?php
 					$papers = $dom->getElementsByTagName('paper');
-					$related_authors = renderSearchPapers($papers, urlencode($query));
+					renderSearchPapers($papers, urlencode($query), $related_authors, $related_users);
 					?>
 				</div>
 				<?php
