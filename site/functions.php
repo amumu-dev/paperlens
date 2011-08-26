@@ -150,7 +150,7 @@ function renderSearchPapers($papers_dom, $query, &$related_authors, &$related_us
 		$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
 		$title = $paper->getElementsByTagName('title');
 		$hightitle = $paper->getElementsByTagName('hightitle');
-		echo "<span class=\"title\"><a href=/site/paper.php?id=".$paper_id.">" . strTruncate($hightitle->item(0)->nodeValue, 85) . "</a></span><br />";
+		echo "<span class=\"title\"><a href=/site/paper.php?id=".$paper_id.">" . strTruncate($hightitle->item(0)->nodeValue, 500) . "</a></span><br />";
 		$booktitle = $paper->getElementsByTagName('booktitle');
 		$year = $paper->getElementsByTagName('year');
 		if(strlen($booktitle->item(0)->nodeValue) > 0)
