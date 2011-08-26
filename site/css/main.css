@@ -228,6 +228,11 @@ a:hover
 	float:left;
 	width:100%;
 }
+.abstract
+{
+	color:#444444;
+	text-align:justify;
+}
 .paper .recusers
 {
 	color:#444444;

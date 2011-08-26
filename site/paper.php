@@ -6,7 +6,7 @@ require_once("functions.php");
 $paper = $_GET["id"];
 
 $paper_dom = new DOMDocument();
-if(!$paper_dom->load('http://50.18.105.189/api/paper.php?id=' . $paper))
+if(!$paper_dom->load('http://50.18.105.189/api/paper.php?abstract=1&id=' . $paper))
 {
 	echo 'load xml failed';
 	return;
