@@ -70,7 +70,7 @@ function getRecommendedUsers($paper_id)
 	}
 	return $ret;
 }
-
+/*
 $options = array(
     'namespace' => 'paper_',
     'servers'   => array(
@@ -83,7 +83,9 @@ $rediska = new Rediska($options);
 $paper_key = new Rediska_Key($id);
 
 $xml = $paper_key->getValue();
-if(isset($xml))
+*/
+$xml = "";
+if(false)//isset($xml))
 {
 	echo $xml;
 }
