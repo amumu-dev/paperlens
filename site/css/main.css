@@ -47,13 +47,13 @@ a:hover
 	width:100%;
 	float:left;
 	line-height:24px;
-	color:#003E6E;
+	color:#2B3E42;
 	font-size:14px;
 	font-weight:bold;
 }
 #paper0 a
 {
-	color:#1F81CD;
+	color:#2B3E42;
 }
 #paper0 .info
 {
@@ -212,7 +212,7 @@ a:hover
 {
 	text-decoration:none;
 	font-size:14px;
-	color:#1F81DD;
+	color:#2B3E42;
 }
 .paper .title a:hover
 {
@@ -269,7 +269,7 @@ a:hover
 }
 a
 {
-	color:#1F81CD;
+	color:#2B3E42;
 }
 #main a
 {
