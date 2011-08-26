@@ -26,23 +26,20 @@ function renderFirstPaper($paper)
 		echo "<h2>Abstract</h2>";
 		echo "<div class=\"abstract\">" . $paper->getElementsByTagName('abstract')->item(0)->nodeValue . "</div>";
 	}
-	echo "<div id=\"fb-root\"></div><script src=\"http://connect.facebook.net/en_US/all.js#xfbml=1\"></script>"
-		. "<fb:like href=\"http://www.reculike.com/site/paper.php?id=$paper_id\" send=\"false\" layout=\"button_count\" width=\"450\" action=\"like\" colorscheme=\"light\"></fb:like>";
-		
 	echo "</div>";
 }
 
 function renderPaperFeedback($j, $title, $paper_id, $download_link, $search_query='')
 {
 
-	echo "<span class=feedback><font color=#647B0F>&#9679;&nbsp;</font><a id=\"recommend" .$j. "\" onclick=\"recommend('" . $_SESSION['uid'] 
+	echo "<span class=feedback><font color=#77BED2>&#9679;&nbsp;</font><a id=\"recommend" .$j. "\" onclick=\"recommend('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '1', '1', 'recommend" . $j . "', '" . urlencode($title->item(0)->nodeValue) . "', '$search_query')\">Recommend</a>&nbsp;"
-		. "<font color=#FFCC00>&#9679;&nbsp;</font><a id=\"google" .$j. "\" onclick=\"google_search('" . $_SESSION['uid'] 
+		. "<font color=#77BED2>&#9679;&nbsp;</font><a id=\"google" .$j. "\" onclick=\"google_search('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '2', '1', 'google" . $j . "', '$search_query')\" href=\"http://www.google.com/search?hl=en&q="
 		. str_replace('', '+', $title->item(0)->nodeValue) . "\" target=_blank>Google It</a>&nbsp;";
 	if(strlen($download_link) > 5)
 	{
-		echo "<font color=#5229A3>&#9679;&nbsp;</font><a href=$download_link target=_blank>DownLoad</a>";
+		echo "<font color=#77BED2>&#9679;&nbsp;</font><a href=$download_link target=_blank>DownLoad</a>";
 	}
 	echo	"</span>";
 }
