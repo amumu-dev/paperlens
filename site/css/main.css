@@ -9,7 +9,7 @@ body
 }
 a:hover
 {
-	color:#003E6E;
+	color:#747E80;
 }
 #content
 {
@@ -40,7 +40,7 @@ a:hover
 	width:95%;
 	float:left;
 	padding:3px;
-	background-color:#FFF8E7;
+	background-color:#F7F3E8;
 }
 #paper0 .title
 {
@@ -306,7 +306,7 @@ text-decoration: underline;
 }
 .high
 {
-	color:#647B0F;
+	color:#F2583E;
 }
 #foot
 {

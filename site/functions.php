@@ -32,7 +32,7 @@ function renderFirstPaper($paper)
 function renderPaperFeedback($j, $title, $paper_id, $download_link, $search_query='')
 {
 
-	echo "<span class=feedback><font color=#77BED2>&#9679;&nbsp;</font><a id=\"recommend" .$j. "\" onclick=\"recommend('" . $_SESSION['uid'] 
+	echo "<span class=feedback><font color=#747E80>&#9679;&nbsp;</font><a id=\"recommend" .$j. "\" onclick=\"recommend('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '1', '1', 'recommend" . $j . "', '" . urlencode($title->item(0)->nodeValue) . "', '$search_query')\">Recommend</a>&nbsp;"
 		. "<font color=#77BED2>&#9679;&nbsp;</font><a id=\"google" .$j. "\" onclick=\"google_search('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '2', '1', 'google" . $j . "', '$search_query')\" href=\"http://www.google.com/search?hl=en&q="
@@ -46,16 +46,16 @@ function renderPaperFeedback($j, $title, $paper_id, $download_link, $search_quer
 
 function renderRelatedFeedback($j, $title, $paper_id, $src_paper_id, $download_link)
 {
-	echo "<span class=feedback><font color=#647B0F>&#9679;&nbsp;</font><a id=\"recommend" .$j. "\" onclick=\"recommend('" . $_SESSION['uid'] 
+	echo "<span class=feedback><font color=#747E80>&#9679;&nbsp;</font><a id=\"recommend" .$j. "\" onclick=\"recommend('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '1', '1', 'recommend" . $j . "')\">Recommend</a>&nbsp;"
-		. "<font color=#FFCC00>&#9679;&nbsp;</font><a id=\"google" .$j. "\" onclick=\"google_search('" . $_SESSION['uid'] 
+		. "<font color=#77BED2>&#9679;&nbsp;</font><a id=\"google" .$j. "\" onclick=\"google_search('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '2', '1', 'google" . $j . "')\" href=\"http://www.google.com/search?hl=en&q="
 		. str_replace('', '+', $title->item(0)->nodeValue) . "\" target=_blank>Google It</a>&nbsp;"
-		. "<font color=#FF0000>&#9679;&nbsp;</font><a id=\"related" .$j. "\" onclick=\"related('" . $_SESSION['uid'] 
+		. "<font color=#77BED2>&#9679;&nbsp;</font><a id=\"related" .$j. "\" onclick=\"related('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '" . $src_paper_id . "', '1', 'related" . $j . "')\" >Related</a>&nbsp;";
 	if(strlen($download_link) > 5)
 	{
-		echo "<font color=#5229A3>&#9679;&nbsp;</font><a href=$download_link target=_blank>DownLoad</a>";
+		echo "<font color=#77BED2>&#9679;&nbsp;</font><a href=$download_link target=_blank>DownLoad</a>";
 	}	
 	echo	"</span>";
 }
@@ -150,7 +150,7 @@ function renderSearchPapers($papers_dom, $query, &$related_authors, &$related_us
 		$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
 		$title = $paper->getElementsByTagName('title');
 		$hightitle = $paper->getElementsByTagName('hightitle');
-		echo "<span class=\"title\"><a href=/site/paper.php?id=".$paper_id.">" . strTruncate($hightitle->item(0)->nodeValue, 256) . "</a></span><br />";
+		echo "<span class=\"title\"><a href=/site/paper.php?id=".$paper_id.">" . strTruncate($hightitle->item(0)->nodeValue, 85) . "</a></span><br />";
 		$booktitle = $paper->getElementsByTagName('booktitle');
 		$year = $paper->getElementsByTagName('year');
 		if(strlen($booktitle->item(0)->nodeValue) > 0)
