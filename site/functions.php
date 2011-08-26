@@ -20,6 +20,7 @@ function renderFirstPaper($paper)
 		echo "<a href=/site/author.php?author=".$author_id."&name=".str_replace(' ','+',$author_name).">" . $author_name . "</a>&nbsp;";
 	}
 	echo "</span><br />";
+	echo "<div class=\"abstract\">" . $paper->getElementsByTagName('abstract')->item(0)->nodeValue . "</div>";
 	echo "<div id=\"fb-root\"></div><script src=\"http://connect.facebook.net/en_US/all.js#xfbml=1\"></script>"
 		. "<fb:like href=\"http://www.reculike.com/site/paper.php?id=$paper_id\" send=\"false\" layout=\"button_count\" width=\"450\" action=\"like\" colorscheme=\"light\"></fb:like>";
 		

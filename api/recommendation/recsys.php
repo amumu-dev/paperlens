@@ -54,7 +54,7 @@ function makingRecommendation($uid, $relatedTables)
 	$features = array_slice($behaviors, 0, 20, TRUE);
 	foreach($relatedTables as $table_name => $table_weight)
 	{
-		$one_recommendations = recommendationCore($features, $table_name, 5);
+		$one_recommendations = recommendationCore($features, $table_name, 7);
 		combineRecommendations($recommendations,$one_recommendations , $table_weight);
 	}
 	if(count($recommendations[0]) < 10)
