@@ -142,7 +142,7 @@ else{
 			echo "<user id=\"$user_id\">$user_name</user>\n";
 		}
 		echo "</rec>\n";
-		echo "<download>\n$download_link\n</download>";
+		echo "<download>$download_link</download>";
 		foreach($data[$k]['author'] as $author_id => $author_name)
 		{
 			echo "<author><id>" . $author_id. "</id><name>".$author_name."</name></author>";
