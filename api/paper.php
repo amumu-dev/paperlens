@@ -4,6 +4,7 @@ header('Content-Type: text/xml');
 
 require_once('db.php');
 $id = $_GET['id'];
+$has_abstract = $_GET['abstract'];
 
 function getAuthorName($author_id)
 {
@@ -82,7 +83,7 @@ $rediska = new Rediska($options);
 $paper_key = new Rediska_Key($id);
 
 $xml = $paper_key->getValue();
-if(false)//isset($xml))
+if(isset($xml))
 {
 	echo $xml;
 }
@@ -100,7 +101,7 @@ else
 			$xml .= "<booktitle>" . htmlspecialchars($paper_info['booktitle']) . "</booktitle>\n";
 		else $xml .= "<booktitle>" . htmlspecialchars($paper_info['journal']) . "</booktitle>\n";
 		$xml .= "<year>" . htmlspecialchars($paper_info['year']) . "</year>\n";
-		$xml .=  "<abstract>" . htmlspecialchars($paper_info['abstract']) . "</abstract>";
+		if($has_abstract == 1) $xml .=  "<abstract>" . htmlspecialchars($paper_info['abstract']) . "</abstract>";
 		foreach($paper_info['author'] as $author_id => $author_name)
 		{
 			$xml .= "<author><id>" . $author_id. "</id><name>".$author_name."</name></author>\n";
