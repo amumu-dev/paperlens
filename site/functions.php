@@ -42,7 +42,7 @@ function renderPaperFeedback($j, $title, $paper_id, $download_link, $search_quer
 		. str_replace('', '+', $title->item(0)->nodeValue) . "\" target=_blank>Google It</a>&nbsp;";
 	if(strlen($download_link) > 5)
 	{
-		echo "<font color=#649927>&#9679;&nbsp;</font><a href=$download_link target=_blank>DownLoad</a>";
+		echo "<font color=#5229A3>&#9679;&nbsp;</font><a href=$download_link target=_blank>DownLoad</a>";
 	}
 	echo	"</span>";
 }
@@ -58,7 +58,7 @@ function renderRelatedFeedback($j, $title, $paper_id, $src_paper_id, $download_l
 		. "','" . $paper_id. "', '" . $src_paper_id . "', '1', 'related" . $j . "')\" >Related</a>&nbsp;";
 	if(strlen($download_link) > 5)
 	{
-		echo "<font color=#649927>&#9679;&nbsp;</font><a href=$download_link target=_blank>DownLoad</a>";
+		echo "<font color=#5229A3>&#9679;&nbsp;</font><a href=$download_link target=_blank>DownLoad</a>";
 	}	
 	echo	"</span>";
 }
