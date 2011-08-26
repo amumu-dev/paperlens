@@ -31,6 +31,7 @@ else
 {
 	$paper_info = getPaperInfo($id);
 	$rec_users = getRecommendedUsers($id);
+	$download_link = getDownLoadLink($id);
 	$xml = '';
 	if(count($paper_info) > 0)
 	{
@@ -52,6 +53,7 @@ else
 			$xml .= "<user id=\"$user_id\">$user_name</user>\n";
 		}
 		$xml .= "</rec>\n";
+		$xml .= "<download>$download_link</download>";
 		$xml .= "</paper>\n";
 	}
 	echo $xml;

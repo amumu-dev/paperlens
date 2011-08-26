@@ -63,4 +63,18 @@ function getRecommendedUsers($paper_id)
 	}
 	return $ret;
 }
+
+function getDownLoadLink($paper_id)
+{
+	$ret = '';
+	$result = mysql_query("select citeseer_key from paper_citeseer where paper_id=$paper_id;");
+	if(!$result) return $ret;
+	
+	while($row = mysql_fetch_row($result))
+	{
+		$ret = "http://citeseerx.ist.psu.edu/viewdoc/download?doi=" . $row[0] . "&rep=rep1&type=pdf";
+		break;
+	}
+	return $ret;
+}
 ?>

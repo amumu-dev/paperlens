@@ -32,17 +32,22 @@ function renderFirstPaper($paper)
 	echo "</div>";
 }
 
-function renderPaperFeedback($j, $title, $paper_id, $search_query='')
+function renderPaperFeedback($j, $title, $paper_id, $download_link, $search_query='')
 {
+
 	echo "<span class=feedback><font color=#647B0F>&#9679;&nbsp;</font><a id=\"recommend" .$j. "\" onclick=\"recommend('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '1', '1', 'recommend" . $j . "', '" . urlencode($title->item(0)->nodeValue) . "', '$search_query')\">Recommend</a>&nbsp;"
 		. "<font color=#FFCC00>&#9679;&nbsp;</font><a id=\"google" .$j. "\" onclick=\"google_search('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '2', '1', 'google" . $j . "', '$search_query')\" href=\"http://www.google.com/search?hl=en&q="
-		. str_replace('', '+', $title->item(0)->nodeValue) . "\" target=_blank>Google It</a>&nbsp;"
-		."</span>";
+		. str_replace('', '+', $title->item(0)->nodeValue) . "\" target=_blank>Google It</a>&nbsp;";
+	if(strlen($download_link) > 5)
+	{
+		echo "<font color=#649927>&#9679;&nbsp;</font><a href=$download_link target=_blank>DownLoad</a>";
+	}
+	echo	"</span>";
 }
 
-function renderRelatedFeedback($j, $title, $paper_id, $src_paper_id)
+function renderRelatedFeedback($j, $title, $paper_id, $src_paper_id, $download_link)
 {
 	echo "<span class=feedback><font color=#647B0F>&#9679;&nbsp;</font><a id=\"recommend" .$j. "\" onclick=\"recommend('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '1', '1', 'recommend" . $j . "')\">Recommend</a>&nbsp;"
@@ -50,8 +55,12 @@ function renderRelatedFeedback($j, $title, $paper_id, $src_paper_id)
 		. "','" . $paper_id. "', '2', '1', 'google" . $j . "')\" href=\"http://www.google.com/search?hl=en&q="
 		. str_replace('', '+', $title->item(0)->nodeValue) . "\" target=_blank>Google It</a>&nbsp;"
 		. "<font color=#FF0000>&#9679;&nbsp;</font><a id=\"related" .$j. "\" onclick=\"related('" . $_SESSION['uid'] 
-		. "','" . $paper_id. "', '" . $src_paper_id . "', '1', 'related" . $j . "')\" >Related</a>&nbsp;"
-		. "</span>";
+		. "','" . $paper_id. "', '" . $src_paper_id . "', '1', 'related" . $j . "')\" >Related</a>&nbsp;";
+	if(strlen($download_link) > 5)
+	{
+		echo "<font color=#649927>&#9679;&nbsp;</font><a href=$download_link target=_blank>DownLoad</a>";
+	}	
+	echo	"</span>";
 }
 
 function renderRecommendUsers($paper, &$rel_users)
@@ -100,6 +109,7 @@ function renderPapers($papers_dom, &$related_authors, &$related_users, $src_pape
 		$year = $paper->getElementsByTagName('year');
 		if(strlen($booktitle->item(0)->nodeValue) > 0)
 			echo "<span class=\"info\">" . $booktitle->item(0)->nodeValue . "&nbsp;" .$year->item(0)->nodeValue. "</span><br />";
+		$download_link = $paper->getElementsByTagName('download')->item(0)->nodeValue;
 		$authors = $paper->getElementsByTagName('author');
 		$k = 0;
 		echo "<span class=\"author\">by&nbsp;";
@@ -121,8 +131,8 @@ function renderPapers($papers_dom, &$related_authors, &$related_users, $src_pape
 		renderRecommendUsers($paper, $related_users);
 		if(isset($_SESSION['uid'] ))
 		{
-			if($src_paper_id < 0) renderPaperFeedback($j, $title, $paper_id);
-			else renderRelatedFeedback($j, $title, $paper_id, $src_paper_id);
+			if($src_paper_id < 0) renderPaperFeedback($j, $title, $paper_id, $download_link);
+			else renderRelatedFeedback($j, $title, $paper_id, $src_paper_id, $download_link);
 		}
 		echo "</div>";
 	}
@@ -146,6 +156,7 @@ function renderSearchPapers($papers_dom, $query, &$related_authors, &$related_us
 		$year = $paper->getElementsByTagName('year');
 		if(strlen($booktitle->item(0)->nodeValue) > 0)
 			echo "<span class=\"info\">" . $booktitle->item(0)->nodeValue . "&nbsp;" .$year->item(0)->nodeValue. "</span><br />";
+		$download_link = $paper->getElementsByTagName('download')->item(0)->nodeValue;
 		$authors = $paper->getElementsByTagName('author');
 		$k = 0;
 		echo "<span class=\"author\">by&nbsp;";
@@ -167,7 +178,7 @@ function renderSearchPapers($papers_dom, $query, &$related_authors, &$related_us
 		renderRecommendUsers($paper, $related_users);
 		if(isset($_SESSION['uid'] ))
 		{
-			renderPaperFeedback($j, $title, $paper_id, $query);
+			renderPaperFeedback($j, $title, $paper_id, $download_link, $query);
 		}
 		echo "</div>";
 	}
