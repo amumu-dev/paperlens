@@ -13,6 +13,7 @@ if(!$dom->load('http://127.0.0.1/api/author.php?n=10&author=' . $author))
 	return;
 }
 $related_authors = array();
+$related_users = array();
 ?>
 <html>
 	<head>
@@ -45,7 +46,7 @@ $related_authors = array();
 					<h2>Publications of <font color=#647B0F><?php echo $author_name; ?></font></h2>
 					<?php
 					$papers = $dom->getElementsByTagName('paper');
-					$related_authors = renderPapers($papers);
+					renderPapers($papers, $related_authors, $related_users);
 					?>
 				</div>
 			</div>
