@@ -30,7 +30,7 @@ function renderPaperFeedback($j, $title, $paper_id, $search_query='')
 		. "<font color=#FFCC00>&#9679;&nbsp;</font><a id=\"google" .$j. "\" onclick=\"google_search('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '2', '1', 'google" . $j . "', '$search_query')\" href=\"http://www.google.com/search?hl=en&q="
 		. str_replace('', '+', $title->item(0)->nodeValue) . "\" target=_blank>Google It</a>&nbsp;"
-		. "<div id=\"fb-root\"></div><script src=\"http://connect.facebook.net/en_US/all.js#xfbml=1\"></script>"
+		. "<a id=\"fb-root\"></a><script src=\"http://connect.facebook.net/en_US/all.js#xfbml=1\"></script>"
 		. "<fb:like href=\"http://www.reculike.com/site/paper.php?id=$paper_id\" send=\"false\" layout=\"button_count\" width=\"450\" action=\"like\" colorscheme=\"light\"></fb:like>"
 		."</span>";
 }
