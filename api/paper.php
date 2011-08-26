@@ -101,7 +101,7 @@ else
 			$xml .= "<booktitle>" . htmlspecialchars($paper_info['booktitle']) . "</booktitle>\n";
 		else $xml .= "<booktitle>" . htmlspecialchars($paper_info['journal']) . "</booktitle>\n";
 		$xml .= "<year>" . htmlspecialchars($paper_info['year']) . "</year>\n";
-		if($has_abstract == 1) $xml .=  "<abstract>" . htmlspecialchars($paper_info['abstract']) . "</abstract>";
+		$xml .=  "<abstract>" . htmlspecialchars($paper_info['abstract']) . "</abstract>";
 		foreach($paper_info['author'] as $author_id => $author_name)
 		{
 			$xml .= "<author><id>" . $author_id. "</id><name>".$author_name."</name></author>\n";
