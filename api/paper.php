@@ -53,7 +53,7 @@ else
 			$xml .= "<user id=\"$user_id\">$user_name</user>\n";
 		}
 		$xml .= "</rec>\n";
-		$xml .= "<download>$download_link</download>";
+		$xml .= "<download>\n$download_link\n</download>";
 		$xml .= "</paper>\n";
 	}
 	echo $xml;

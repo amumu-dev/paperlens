@@ -72,7 +72,7 @@ function getDownLoadLink($paper_id)
 	
 	while($row = mysql_fetch_row($result))
 	{
-		$ret = "http://citeseerx.ist.psu.edu/viewdoc/download?doi=" . $row[0] . "&rep=rep1&type=pdf";
+		$ret = $row[0];
 		break;
 	}
 	return $ret;
