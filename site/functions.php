@@ -98,7 +98,7 @@ function renderPapers($papers_dom, &$related_authors, &$related_users, $src_pape
 			echo "<span id=show_more style=\"width:100%;float:left;text-align:center;display=block;\"><a style=\"cursor:pointer;\" onclick=\"showMore();\">More</a></span>";
 			echo "<div id=paper_more style=\"display:none;\">";
 		}
-		echo "<div class=\"paper\" onmouseover=\"this.style.backgroundColor='#FFF8E7';\" onmouseout=\"this.style.backgroundColor='#FFF';\">";
+		echo "<div class=\"paper\" onmouseover=\"this.style.backgroundColor='#F7F3E8';\" onmouseout=\"this.style.backgroundColor='#FFF';\">";
 		$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
 		$title = $paper->getElementsByTagName('title');
 		echo "<span class=\"title\"><a href=/site/paper.php?id=".$paper_id.">" . strTruncate($title->item(0)->nodeValue, 85) . "</a></span><br />";
@@ -146,7 +146,7 @@ function renderSearchPapers($papers_dom, $query, &$related_authors, &$related_us
 	foreach($papers_dom as $paper)
 	{
 		++$j;
-		echo "<div class=\"paper\" onmouseover=\"this.style.backgroundColor='#FFF8E7';\" onmouseout=\"this.style.backgroundColor='#FFF';\">";
+		echo "<div class=\"paper\" onmouseover=\"this.style.backgroundColor='#F7F3E8';\" onmouseout=\"this.style.backgroundColor='#FFF';\">";
 		$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
 		$title = $paper->getElementsByTagName('title');
 		$hightitle = $paper->getElementsByTagName('hightitle');
