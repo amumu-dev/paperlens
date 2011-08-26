@@ -126,6 +126,7 @@ else{
 	$title = $scl->BuildExcerpts($title,$index_name,$query,$opts);
 	foreach($data as $k=>$v){
 		$rec_users = getRecommendedUsers($data[$k]['id']);
+		$download_link = getDownLoadLink($data[$k]['id']);
 		echo "<paper>";
 		echo "<id>" . $data[$k]['id'] . "</id>";
 		echo "<title>" . htmlspecialchars($data[$k]['title']) . "</title>";
@@ -141,6 +142,7 @@ else{
 			echo "<user id=\"$user_id\">$user_name</user>\n";
 		}
 		echo "</rec>\n";
+		echo "<download>\n$download_link\n</download>";
 		foreach($data[$k]['author'] as $author_id => $author_name)
 		{
 			echo "<author><id>" . $author_id. "</id><name>".$author_name."</name></author>";
