@@ -214,7 +214,7 @@ function renderRelatedUsers($related_users)
 		foreach($related_users as $user=>$weight)
 		{
 			$id_name = explode("|", $user, 2);
-			echo "<span class=\"author\"><a href=/site/user.php?id=".$id_name[0]."&name=".str_replace(' ','+',$id_name[1]).">" . $id_name[1] ."</a></span><br>";
+			echo "<span class=\"author\"><a href=/site/user.php?uid=".$id_name[0]."&name=".str_replace(' ','+',$id_name[1]).">" . $id_name[1] ."</a></span><br>";
 		}
 		echo "</div>";
 	}
