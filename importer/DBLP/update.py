@@ -91,6 +91,7 @@ try:
                         max_author_id = max_author_id + 1
                     cursor.execute("replace into paper_author(paper_id, author_id, rank) values (%s, %s, %s);", (max_paper_id, author_index[author], author_rank))
                     author_rank = author_rank + 1
+
                 max_paper_id = max_paper_id + 1
                 if max_paper_id % 10000 == 0:
                     print max_paper_id
