@@ -82,7 +82,7 @@ $rediska = new Rediska($options);
 $paper_key = new Rediska_Key($id);
 
 $xml = $paper_key->getValue();
-if(isset($xml))
+if(false)//isset($xml))
 {
 	echo $xml;
 }
