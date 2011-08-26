@@ -51,6 +51,7 @@ $related_users = array();
 				</div>
 			</div>
 			<div id="side">
+				<?php renderRelatedUsers($related_users); ?>
 				<h2>Related Authors</h2>
 				<div class="related_author">
 				<?php
