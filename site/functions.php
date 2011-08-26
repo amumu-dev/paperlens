@@ -109,7 +109,9 @@ function renderPapers($papers_dom, &$related_authors, &$related_users, $src_pape
 		$year = $paper->getElementsByTagName('year');
 		if(strlen($booktitle->item(0)->nodeValue) > 0)
 			echo "<span class=\"info\">" . $booktitle->item(0)->nodeValue . "&nbsp;" .$year->item(0)->nodeValue. "</span><br />";
-		$download_link = "http://citeseerx.ist.psu.edu/viewdoc/download?doi=" . $paper->getElementsByTagName('download')->item(0)->nodeValue . "&rep=rep1&type=pdf";
+		$citeseer_key = $paper->getElementsByTagName('download')->item(0)->nodeValue;
+		$download_link = "";
+		if(strlen($citeseer_key) > 3) $download_link = "http://citeseerx.ist.psu.edu/viewdoc/download?doi=" . $citeseer_key . "&rep=rep1&type=pdf";
 		$authors = $paper->getElementsByTagName('author');
 		$k = 0;
 		echo "<span class=\"author\">by&nbsp;";
@@ -156,7 +158,8 @@ function renderSearchPapers($papers_dom, $query, &$related_authors, &$related_us
 		$year = $paper->getElementsByTagName('year');
 		if(strlen($booktitle->item(0)->nodeValue) > 0)
 			echo "<span class=\"info\">" . $booktitle->item(0)->nodeValue . "&nbsp;" .$year->item(0)->nodeValue. "</span><br />";
-		$download_link = "http://citeseerx.ist.psu.edu/viewdoc/download?doi=" . $paper->getElementsByTagName('download')->item(0)->nodeValue . "&rep=rep1&type=pdf";
+		$download_link = "";
+		if(strlen($citeseer_key) > 3) $download_link = "http://citeseerx.ist.psu.edu/viewdoc/download?doi=" . $citeseer_key . "&rep=rep1&type=pdf";
 		$authors = $paper->getElementsByTagName('author');
 		$k = 0;
 		echo "<span class=\"author\">by&nbsp;";
