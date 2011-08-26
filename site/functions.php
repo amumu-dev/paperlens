@@ -207,7 +207,7 @@ function renderRelatedUsers($related_users)
 {
 	if(count($related_users) > 0)
 	{
-		echo "<h2>Related Recommenders</h2>";
+		echo "<h2>Recommenders</h2>";
 		echo "<div class=\"related_author\">";
 		arsort($related_users);
 		$related_users = array_slice($related_users, 0, 16);
