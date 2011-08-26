@@ -90,8 +90,10 @@ if($login)
 				</div>
 				<div id="side">
 					<h2>Admin</h2>
+					<div class="related_author">
 						<span><a href="./user/edit.php">Edit My Info</a></span>
-					</ul>
+					</div>
+					<?php renderRelatedUsers($related_users); ?>
 					<h2>Related Authors</h2>
 					<div class="related_author">
 					<?php

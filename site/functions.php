@@ -203,6 +203,23 @@ function renderSearchPage($curPage,$pageCount,$query){
 	echo "</div>";
 }
 
+function renderRelatedUsers($related_users)
+{
+	if(count($related_users) > 0)
+	{
+		echo "<h2>Related Recommenders</h2>";
+		echo "<div class=\"related_author\">";
+		arsort($related_users);
+		$related_users = array_slice($related_users, 0, 16);
+		foreach($related_users as $user=>$weight)
+		{
+			$id_name = explode("|", $user, 2);
+			echo "<span class=\"author\"><a href=/site/user.php?id=".$id_name[0]."&name=".str_replace(' ','+',$id_name[1]).">" . $id_name[1] ."</a></span><br>";
+		}
+		echo "</div>";
+	}
+}
+
 function renderRelatedAuthors($related_authors)
 {
 	arsort($related_authors);
