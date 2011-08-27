@@ -13,6 +13,6 @@ while($row = mysql_fetch_row($result))
 	echo "<url><loc>http://www.reculike.com/site/paper.php?id=$paper_id</loc><lastmod>". date("Y-m-d") . "</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>";
 }
 echo "</urlset>";
-}
+
 ?>
 
