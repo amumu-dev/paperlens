@@ -101,7 +101,7 @@ function renderRecommendationPapers($papers_dom, &$related_authors, &$related_us
 		echo "<div class=\"paper\" onmouseover=\"this.style.backgroundColor='#F7F3E8';\" onmouseout=\"this.style.backgroundColor='#FFF';\">";
 		$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
 		$title = $paper->getElementsByTagName('title');
-		echo "<span class=\"title\"><a href=/site/paper.php?id=".$paper_id.">" . strTruncate($title->item(0)->nodeValue, 85) . "</a></span><br />";
+		echo "<span class=\"title\"><a href=/site/paper.php?id=".$paper_id.">" . strTruncate($title->item(0)->nodeValue, 600) . "</a></span><br />";
 		$booktitle = $paper->getElementsByTagName('booktitle');
 		$year = $paper->getElementsByTagName('year');
 		if(strlen($booktitle->item(0)->nodeValue) > 0)
