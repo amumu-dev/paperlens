@@ -7,7 +7,8 @@ require_once('paper_func.php');
 $id = $_GET['id'];
 $has_recuser = 1;
 if(isset($_GET['recuser']))  $has_recuser = $_GET['recuser'];
-
+$has_author = 1;
+if(isset($_GET['author']))  $has_author = $_GET['author'];
 /*
 $options = array(
     'namespace' => 'paper_',
@@ -43,9 +44,12 @@ else
 		else $xml .= "<booktitle>" . htmlspecialchars($paper_info['journal']) . "</booktitle>\n";
 		$xml .= "<year>" . htmlspecialchars($paper_info['year']) . "</year>\n";
 		$xml .=  "<abstract>" . htmlspecialchars($paper_info['abstract']) . "</abstract>";
-		foreach($paper_info['author'] as $author_id => $author_name)
+		if($has_author == 1)
 		{
-			$xml .= "<author><id>" . $author_id. "</id><name>".$author_name."</name></author>\n";
+			foreach($paper_info['author'] as $author_id => $author_name)
+			{
+				$xml .= "<author><id>" . $author_id. "</id><name>".$author_name."</name></author>\n";
+			}
 		}
 		if($has_recuser == 1) 
 		{
