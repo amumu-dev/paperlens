@@ -23,6 +23,7 @@ foreach($recommendations[0] as $paper_id => $weight)
 		break;
 	}
 	$xml .=  "</reason></paper>";
+	echo $xml;
 }
 echo "</result>";
 ?>
