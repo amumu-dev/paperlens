@@ -231,9 +231,14 @@ a:hover
 .paper .reason
 {
 	color:#444444;
-	font-size:12px;
+	font-size:11px;
 	width:100%;
 	float:left;
+}
+.paper .reason
+{
+	font-size:11px;
+	color:#77BED2;
 }
 .abstract
 {
