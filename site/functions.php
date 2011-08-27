@@ -116,8 +116,7 @@ function renderRecommendationPapers($papers_dom, &$related_authors, &$related_us
 		{
 			$author_id = $author->getElementsByTagName('id')->item(0)->nodeValue;
 			$author_name = $author->getElementsByTagName('name')->item(0)->nodeValue;
-			if($k < 5)
-				echo "<a href=/site/author.php?author=".$author_id."&name=".str_replace(' ','+',$author_name).">" . $author_name . "</a>&nbsp;";
+			echo "<a href=/site/author.php?author=".$author_id."&name=".str_replace(' ','+',$author_name).">" . $author_name . "</a>&nbsp;";
 			if(!array_key_exists($author_id . "|" . $author_name, $related_authors))
 			{
 				$related_authors[$author_id . "|" . $author_name] = 1;
@@ -127,7 +126,6 @@ function renderRecommendationPapers($papers_dom, &$related_authors, &$related_us
 				$related_authors[$author_id . "|" . $author_name]++;
 			}
 		}
-		if($k >= 0) echo "...";
 		echo "</span><br />";
 		renderRecommendUsers($paper, $related_users);
 		if(isset($_SESSION['uid'] ))
@@ -141,7 +139,7 @@ function renderRecommendationPapers($papers_dom, &$related_authors, &$related_us
 		{
 			$reason_id = $reason_dom->item(0)->getElementsByTagName('id')->item(0)->nodeValue;
 			$reason_title = $reason_dom->item(0)->getElementsByTagName('title')->item(0)->nodeValue;
-			echo "<span class=\"reason\">because you have interacted with <a href=\"/site/paper.php?id=$reason_id>$reason_title</a></span>";
+			echo "<span class=\"reason\">because you have interacted with <a href=\"/site/paper.php?id=$reason_id\">$reason_title</a></span>";
 		}
 		
 		echo "</div>";
