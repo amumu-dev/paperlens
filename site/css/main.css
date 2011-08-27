@@ -228,6 +228,13 @@ a:hover
 	float:left;
 	width:100%;
 }
+.paper .reason
+{
+	color:#444444;
+	font-size:12px;
+	width:100%;
+	float:left;
+}
 .abstract
 {
 	color:#444444;
