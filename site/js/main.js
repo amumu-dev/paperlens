@@ -7,8 +7,8 @@ function recommend(uid, paper, behavior, w, node_id, paper_title, query)
 	title = 'Recommend%20' + paper_title + '%20http://reculike.com/site/paper.php?id=' + paper + '%20in%20RecULike';
 	node.innerHTML = '<a href=\"http://v.t.sina.com.cn/share/share.php?title=' + title + '\" target=\"_blank\">Share to Sina</a>';
 	
-	text_node = document.getElementById('recommend_text_' + node_id);
-	text_node.style.display = "block";
+	//text_node = document.getElementById('recommend_text_' + node_id);
+	//text_node.style.display = "block";
 }
 
 function google_search(uid, paper, behavior, w, node_id, query)
