@@ -235,7 +235,7 @@ a:hover
 	width:100%;
 	float:left;
 }
-.paper .reason
+.paper .reason a
 {
 	font-size:11px;
 	color:#77BED2;
