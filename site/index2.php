@@ -12,7 +12,6 @@ if($login)
         $keywords = $row[0];
         $email = $row[1];
 	$dom = new DOMDocument();
-	echo "http://127.0.0.1/api/recommendation/recsys_reason_xml.php?uid=" .$_SESSION['uid'];
 	if(!$dom->load("http://127.0.0.1/api/recommendation/recsys_reason_xml.php?uid=" .$_SESSION['uid']))
 	{
 		echo 'load xml failed';
