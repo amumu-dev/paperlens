@@ -6,14 +6,6 @@ function recommend(uid, paper, behavior, w, node_id, paper_title, query)
 	node = document.getElementById(node_id);
 	title = 'Recommend%20' + paper_title + '%20http://reculike.com/site/paper.php?id=' + paper + '%20in%20RecULike';
 	
-	input_node = document.createElement("div");
-	input_node.style.display = "absolute";
-	input_node.style.width = 500;
-	input_node.style.height = 400;
-	input_node.style.marginLeft = (document.body.clientWidth - 500) / 2;
-	input_node.style.marginTop = (document.body.clientHeight - 400) / 2;
-	input_node.style.border = "#888 solid 1px";
-	input_node.innerHTML = "Hello World";
 	node.innerHTML = '<a href=\"http://v.t.sina.com.cn/share/share.php?title=' + title + '\" target=\"_blank\">Share to Sina</a>';
 }
 
