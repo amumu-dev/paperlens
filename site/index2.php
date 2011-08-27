@@ -34,7 +34,7 @@ if($login)
 		<title><?php echo $SITE_NAME; ?> : Open Source Academic Recommender System</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="./css/main.css" />
-		<script src="./js/main.js" type="text/javascript"></script>
+		<script src="./js/main2.js" type="text/javascript"></script>
 		<?
 			include('./search/sug_js.php');
 			include('./search/sug_css.php');
