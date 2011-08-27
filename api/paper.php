@@ -5,7 +5,6 @@ header('Content-Type: text/xml');
 require_once('db.php');
 require_once('paper_func.php');
 $id = $_GET['id'];
-$has_abstract = $_GET['abstract'];
 
 
 /*
