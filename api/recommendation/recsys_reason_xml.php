@@ -8,7 +8,7 @@ header('Content-Type: text/xml');
 
 arsort($recommendations[0]);
 $n = 0;
-echo "<result>";
+echo "<recommendation>";
 foreach($recommendations[0] as $paper_id => $weight)
 {
 	if(++$n > 10) break;
@@ -25,5 +25,5 @@ foreach($recommendations[0] as $paper_id => $weight)
 	$xml .=  "</reason></paper>";
 	echo $xml;
 }
-echo "</result>";
+echo "</recommendation>";
 ?>
