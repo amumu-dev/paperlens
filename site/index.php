@@ -6,13 +6,13 @@ if($login)
 {
 	require_once('../api/db.php');
 	require_once("functions.php");
-	$result = mysql_query("SELECT keywords,email FROM user WHERE id=".$uid);
+	$result = mysql_query("SELECT keywords,email FROM user WHERE id=".$_SESSION['uid']);
         if (!$result) die("error when get keywords of user");
         $row = mysql_fetch_row($result);
         $keywords = $row[0];
         $email = $row[1];
 	$dom = new DOMDocument();
-	if(!$dom->load("http://127.0.0.1/api/recommendation/recsys_no_reason_xml.php?uid=" . $uid))
+	if(!$dom->load("http://127.0.0.1/api/recommendation/recsys_reason_xml.php?uid=" .$_SESSION['uid']))
 	{
 		echo 'load xml failed';
 		return;
@@ -85,7 +85,7 @@ if($login)
 				<h2>Paper Recommendations : </h2>
 				<?php
 					
-					renderPapers($papers, $related_authors, $related_users);
+					renderRecommendationPapers($papers, $related_authors, $related_users);
 				?>
 				</div>
 				<div id="side">
