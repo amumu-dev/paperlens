@@ -135,7 +135,7 @@ function renderRecommendationPapers($papers_dom, &$related_authors, &$related_us
 		}
 		
 		$reason_dom = $paper->getElementsByTagName('reason');
-		if($reason_dom->length() > 0)
+		if($reason_dom->length > 0)
 		{
 			$reason_id = $reason_dom->getElementsByTagName('id')->item(0)->nodeValue;
 			$reason_title = $reason_dom->getElementsByTagName('title')->item(0)->nodeValue;
