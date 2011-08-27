@@ -19,7 +19,7 @@ if($login)
 	}
 	$related_authors = array();
 	$related_users = array();
-	$papers = $dom->getElementsByTagName('recommendation');
+	$papers = $dom->getElementsByTagName('paper');
 	if($papers->length == 0 && strlen($keywords) > 0)
 	{
 		$keywords = trim($keywords, " ,.;");
