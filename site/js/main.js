@@ -6,7 +6,7 @@ function recommend(uid, paper, behavior, w, node_id, paper_title, query)
 	node = document.getElementById(node_id);
 	title = 'Recommend%20' + paper_title + '%20http://reculike.com/site/paper.php?id=' + paper + '%20in%20RecULike';
 	
-	input_node = node_body.createElement("div");
+	input_node = document.createElement("div");
 	input_node.style.display = "absolute";
 	input_node.style.width = 500;
 	input_node.style.height = 400;
