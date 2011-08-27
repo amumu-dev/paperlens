@@ -34,7 +34,7 @@ function renderPaperFeedback($j, $title, $paper_id, $download_link, $search_quer
 
 	echo "<span class=feedback><font color=#747E80>&#9679;&nbsp;</font><a id=\"recommend" .$j. "\" onclick=\"recommend('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '1', '1', 'recommend" . $j . "', '" . urlencode($title->item(0)->nodeValue) . "', '$search_query')\">Recommend</a>&nbsp;"
-		. "<font color=#77BED2>&#9679;&nbsp;</font><a id=\"google" .$j. "\" onclick=\"google_search('" . $_SESSION['uid'] 
+	echo "<font color=#77BED2>&#9679;&nbsp;</font><a id=\"google" .$j. "\" onclick=\"google_search('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '2', '1', 'google" . $j . "', '$search_query')\" href=\"http://www.google.com/search?hl=en&q="
 		. str_replace('', '+', $title->item(0)->nodeValue) . "\" target=_blank>Google It</a>&nbsp;";
 	if(strlen($download_link) > 5)
@@ -42,6 +42,10 @@ function renderPaperFeedback($j, $title, $paper_id, $download_link, $search_quer
 		echo "<font color=#77BED2>&#9679;&nbsp;</font><a href=$download_link target=_blank>DownLoad</a>";
 	}
 	echo	"</span>";
+	echo "<div class=\"recommend_text\" id=\"recommend_text_$j\"><form method=\"post\" action=\"/site/behavior/recommend.php\">"
+		. "<textarea rows=\"5\" cols=\"80\" name=\"message\"></textarea>"
+		. "<input type=\"submit\" value=\"Submit\">"
+		. "</form></div>";
 }
 
 function renderRelatedFeedback($j, $title, $paper_id, $src_paper_id, $download_link)

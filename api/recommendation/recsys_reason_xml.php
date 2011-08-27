@@ -19,7 +19,7 @@ foreach($recommendations[0] as $paper_id => $weight)
 	$xml .= "<reason>";
 	foreach($recommendations[1][$paper_id] as $reason_id =>$reason_weight)
 	{
-		$reason_xml = file_get_contents('http://127.0.0.1/api/paper.php?id=' . $reason_id) ;
+		$reason_xml = file_get_contents('http://127.0.0.1/api/paper.php?recuser=0&id=' . $reason_id) ;
 		$reason_xml = str_replace("<paper>", "", $reason_xml);
 		$reason_xml = str_replace("</paper>", "", $reason_xml);
 		$xml .=  $reason_xml;

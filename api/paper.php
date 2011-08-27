@@ -5,7 +5,8 @@ header('Content-Type: text/xml');
 require_once('db.php');
 require_once('paper_func.php');
 $id = $_GET['id'];
-
+$has_recuser = 1;
+if(isset($_GET['recuser']))  $has_recuser = $_GET['recuser'];
 
 /*
 $options = array(
@@ -29,7 +30,7 @@ if(false)//isset($xml))
 else
 {
 	$paper_info = getPaperInfo($id);
-	$rec_users = getRecommendedUsers($id);
+	if($has_recuser == 1) $rec_users = getRecommendedUsers($id);
 	$download_link = getDownLoadLink($id);
 	$xml = '';
 	if(count($paper_info) > 0)
@@ -46,12 +47,15 @@ else
 		{
 			$xml .= "<author><id>" . $author_id. "</id><name>".$author_name."</name></author>\n";
 		}
-		$xml .= "<rec>\n";
-		foreach($rec_users as $user_id => $user_name)
+		if($has_recuser == 1) 
 		{
-			$xml .= "<user id=\"$user_id\">$user_name</user>\n";
+			$xml .= "<rec>\n";
+			foreach($rec_users as $user_id => $user_name)
+			{
+				$xml .= "<user id=\"$user_id\">$user_name</user>\n";
+			}
+			$xml .= "</rec>\n";
 		}
-		$xml .= "</rec>\n";
 		$xml .= "<download>$download_link</download>";
 		$xml .= "</paper>\n";
 	}
