@@ -85,6 +85,68 @@ function renderRecommendUsers($paper, &$rel_users)
 	echo "</span>";
 }
 
+function renderRecommendationPapers($papers_dom, &$related_authors, &$related_users, $src_paper_id = -1)
+{
+	$related_authors = array();
+	$related_users = array();
+	$j = 0;
+	foreach($papers_dom as $paper)
+	{
+		++$j;
+		if($j == 11)
+		{
+			echo "<span id=show_more style=\"width:100%;float:left;text-align:center;display=block;\"><a style=\"cursor:pointer;\" onclick=\"showMore();\">More</a></span>";
+			echo "<div id=paper_more style=\"display:none;\">";
+		}
+		echo "<div class=\"paper\" onmouseover=\"this.style.backgroundColor='#F7F3E8';\" onmouseout=\"this.style.backgroundColor='#FFF';\">";
+		$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
+		$title = $paper->getElementsByTagName('title');
+		echo "<span class=\"title\"><a href=/site/paper.php?id=".$paper_id.">" . strTruncate($title->item(0)->nodeValue, 85) . "</a></span><br />";
+		$booktitle = $paper->getElementsByTagName('booktitle');
+		$year = $paper->getElementsByTagName('year');
+		if(strlen($booktitle->item(0)->nodeValue) > 0)
+			echo "<span class=\"info\">" . $booktitle->item(0)->nodeValue . "&nbsp;" .$year->item(0)->nodeValue. "</span><br />";
+		$citeseer_key = $paper->getElementsByTagName('download')->item(0)->nodeValue;
+		$download_link = "";
+		if(strlen($citeseer_key) > 3) $download_link = "http://citeseerx.ist.psu.edu/viewdoc/download?doi=" . $citeseer_key . "&rep=rep1&type=pdf";
+		$authors = $paper->getElementsByTagName('author');
+		$k = 0;
+		echo "<span class=\"author\">by&nbsp;";
+		while($author = $authors->item($k++) )
+		{
+			$author_id = $author->getElementsByTagName('id')->item(0)->nodeValue;
+			$author_name = $author->getElementsByTagName('name')->item(0)->nodeValue;
+			echo "<a href=/site/author.php?author=".$author_id."&name=".str_replace(' ','+',$author_name).">" . $author_name . "</a>&nbsp;";
+			if(!array_key_exists($author_id . "|" . $author_name, $related_authors))
+			{
+				$related_authors[$author_id . "|" . $author_name] = 1;
+			}
+			else
+			{
+				$related_authors[$author_id . "|" . $author_name]++;
+			}
+		}
+		echo "</span><br />";
+		renderRecommendUsers($paper, $related_users);
+		if(isset($_SESSION['uid'] ))
+		{
+			if($src_paper_id < 0) renderPaperFeedback($j, $title, $paper_id, $download_link);
+			else renderRelatedFeedback($j, $title, $paper_id, $src_paper_id, $download_link);
+		}
+		
+		$reason_dom = $paper->getElementsByTagName('reason');
+		if($reason_dom->length() > 0)
+		{
+			$reason_id = $reason_dom->getElementsByTagName('id')->item(0)->nodeValue;
+			$reason_title = $reason_dom->getElementsByTagName('title')->item(0)->nodeValue;
+			echo "<span class=\"reason\">because you have interacted with <a href=\"/site/paper.php?id=$reason_id>$reason_title</a></span>";
+		}
+		
+		echo "</div>";
+	}
+	if($j > 11) echo "</div>";
+}
+
 function renderPapers($papers_dom, &$related_authors, &$related_users, $src_paper_id = -1)
 {
 	$related_authors = array();
