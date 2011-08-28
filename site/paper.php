@@ -70,6 +70,7 @@ $related_users = array();
 						<textarea name="message" style="width:95%;float:left;height=64px;"></textarea>
 						<input type="hidden" name="paper_id" value="<?php echo $paper; ?>" />
 						<input type="hidden" name="user_id" value="<?php echo $_SESSION['uid']; ?>" />
+						<input type="hidden" name="callback" value="<?php echo "http://".$_SERVER ['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" />
 						<input type="submit" value="recommend" />
 					</form>
 				</div>
