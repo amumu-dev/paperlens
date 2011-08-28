@@ -17,7 +17,7 @@ function renderFirstPaper($paper)
 	{
 		$author_id = $author->getElementsByTagName('id')->item(0)->nodeValue;
 		$author_name = $author->getElementsByTagName('name')->item(0)->nodeValue;
-		echo "<a href=/site/author.php?author=".$author_id."&name=".str_replace(' ','+',$author_name).">" . $author_name . "</a>&nbsp;";
+		echo "<a href=./author.php?author=".$author_id."&name=".str_replace(' ','+',$author_name).">" . $author_name . "</a>&nbsp;";
 	}
 	echo "</span><br />";
 	$abstract = $paper->getElementsByTagName('abstract')->item(0)->nodeValue;
@@ -83,7 +83,7 @@ function renderRecommendUsers($paper, &$rel_users)
 	{
 		$user_id = $user->getAttribute('id');
 		$user_name = urlencode($user->nodeValue);
-		echo "<a href=/site/user.php?uid=$user_id&name=$user_name>" . $user->nodeValue . "</a>&nbsp;";
+		echo "<a href=./user.php?uid=$user_id&name=$user_name>" . $user->nodeValue . "</a>&nbsp;";
 		++$k;
 		$key = $user_id . "|" . $user_name;
 		if(!array_key_exists($key, $rel_users))
@@ -113,7 +113,7 @@ function renderRecommendationPapers($papers_dom, &$related_authors, &$related_us
 		echo "<div class=\"paper\" onmouseover=\"this.style.backgroundColor='#F7F3E8';\" onmouseout=\"this.style.backgroundColor='#FFF';\">";
 		$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
 		$title = $paper->getElementsByTagName('title');
-		echo "<span class=\"title\"><a href=/site/paper.php?id=".$paper_id.">" . strTruncate($title->item(0)->nodeValue, 600) . "</a></span><br />";
+		echo "<span class=\"title\"><a href=./paper.php?id=".$paper_id.">" . strTruncate($title->item(0)->nodeValue, 600) . "</a></span><br />";
 		$booktitle = $paper->getElementsByTagName('booktitle');
 		$year = $paper->getElementsByTagName('year');
 		if(strlen($booktitle->item(0)->nodeValue) > 0)
@@ -128,7 +128,7 @@ function renderRecommendationPapers($papers_dom, &$related_authors, &$related_us
 		{
 			$author_id = $author->getElementsByTagName('id')->item(0)->nodeValue;
 			$author_name = $author->getElementsByTagName('name')->item(0)->nodeValue;
-			echo "<a href=/site/author.php?author=".$author_id."&name=".str_replace(' ','+',$author_name).">" . $author_name . "</a>&nbsp;";
+			echo "<a href=./author.php?author=".$author_id."&name=".str_replace(' ','+',$author_name).">" . $author_name . "</a>&nbsp;";
 			if(!array_key_exists($author_id . "|" . $author_name, $related_authors))
 			{
 				$related_authors[$author_id . "|" . $author_name] = 1;
@@ -151,7 +151,7 @@ function renderRecommendationPapers($papers_dom, &$related_authors, &$related_us
 		{
 			$reason_id = $reason_dom->item(0)->getElementsByTagName('id')->item(0)->nodeValue;
 			$reason_title = $reason_dom->item(0)->getElementsByTagName('title')->item(0)->nodeValue;
-			echo "<span class=\"reason\">because you have interacted with <a href=\"/site/paper.php?id=$reason_id\">$reason_title</a></span>";
+			echo "<span class=\"reason\">because you have interacted with <a href=\"./paper.php?id=$reason_id\">$reason_title</a></span>";
 		}
 		
 		echo "</div>";
@@ -175,7 +175,7 @@ function renderPapers($papers_dom, &$related_authors, &$related_users, $src_pape
 		echo "<div class=\"paper\" onmouseover=\"this.style.backgroundColor='#F7F3E8';\" onmouseout=\"this.style.backgroundColor='#FFF';\">";
 		$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
 		$title = $paper->getElementsByTagName('title');
-		echo "<span class=\"title\"><a href=/site/paper.php?id=".$paper_id.">" . strTruncate($title->item(0)->nodeValue, 85) . "</a></span><br />";
+		echo "<span class=\"title\"><a href=./paper.php?id=".$paper_id.">" . strTruncate($title->item(0)->nodeValue, 85) . "</a></span><br />";
 		$booktitle = $paper->getElementsByTagName('booktitle');
 		$year = $paper->getElementsByTagName('year');
 		if(strlen($booktitle->item(0)->nodeValue) > 0)
@@ -190,7 +190,7 @@ function renderPapers($papers_dom, &$related_authors, &$related_users, $src_pape
 		{
 			$author_id = $author->getElementsByTagName('id')->item(0)->nodeValue;
 			$author_name = $author->getElementsByTagName('name')->item(0)->nodeValue;
-			echo "<a href=/site/author.php?author=".$author_id."&name=".str_replace(' ','+',$author_name).">" . $author_name . "</a>&nbsp;";
+			echo "<a href=./author.php?author=".$author_id."&name=".str_replace(' ','+',$author_name).">" . $author_name . "</a>&nbsp;";
 			if(!array_key_exists($author_id . "|" . $author_name, $related_authors))
 			{
 				$related_authors[$author_id . "|" . $author_name] = 1;
@@ -224,7 +224,7 @@ function renderSearchPapers($papers_dom, $query, &$related_authors, &$related_us
 		$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
 		$title = $paper->getElementsByTagName('title');
 		$hightitle = $paper->getElementsByTagName('hightitle');
-		echo "<span class=\"title\"><a href=/site/paper.php?id=".$paper_id.">" . strTruncate($hightitle->item(0)->nodeValue, 500) . "</a></span><br />";
+		echo "<span class=\"title\"><a href=./paper.php?id=".$paper_id.">" . strTruncate($hightitle->item(0)->nodeValue, 500) . "</a></span><br />";
 		$booktitle = $paper->getElementsByTagName('booktitle');
 		$year = $paper->getElementsByTagName('year');
 		if(strlen($booktitle->item(0)->nodeValue) > 0)
@@ -239,7 +239,7 @@ function renderSearchPapers($papers_dom, $query, &$related_authors, &$related_us
 		{
 			$author_id = $author->getElementsByTagName('id')->item(0)->nodeValue;
 			$author_name = $author->getElementsByTagName('name')->item(0)->nodeValue;
-			echo "<a href=/site/author.php?author=".$author_id."&name=".str_replace(' ','+',$author_name).">" . $author_name . "</a>&nbsp;";
+			echo "<a href=./author.php?author=".$author_id."&name=".str_replace(' ','+',$author_name).">" . $author_name . "</a>&nbsp;";
 			if(!array_key_exists($author_id . "|" . $author_name, $related_authors))
 			{
 				$related_authors[$author_id . "|" . $author_name] = 1;
@@ -261,7 +261,7 @@ function renderSearchPapers($papers_dom, $query, &$related_authors, &$related_us
 
 
 function renderSearchPage($curPage,$pageCount,$query){
-	$url='/site/search.php?query='.$query.'&page=';
+	$url='./search.php?query='.$query.'&page=';
 	if(!is_int($curPage)){
 		$curPage=1;
 	}
@@ -300,7 +300,7 @@ function renderRelatedUsers($related_users)
 		foreach($related_users as $user=>$weight)
 		{
 			$id_name = explode("|", $user, 2);
-			echo "<span class=\"author\"><a href=/site/user.php?uid=".$id_name[0]."&name=".str_replace(' ','+',$id_name[1]).">" . $id_name[1] ."</a></span><br>";
+			echo "<span class=\"author\"><a href=./user.php?uid=".$id_name[0]."&name=".str_replace(' ','+',$id_name[1]).">" . $id_name[1] ."</a></span><br>";
 		}
 		echo "</div>";
 	}
@@ -313,7 +313,7 @@ function renderRelatedAuthors($related_authors)
 	foreach($related_authors as $author=>$weight)
 	{
 		$id_name = explode("|", $author, 2);
-		echo "<span class=\"author\"><a href=/site/author.php?author=".$id_name[0]."&name=".str_replace(' ','+',$id_name[1]).">" . $id_name[1] ."</a></span><br>";
+		echo "<span class=\"author\"><a href=./author.php?author=".$id_name[0]."&name=".str_replace(' ','+',$id_name[1]).">" . $id_name[1] ."</a></span><br>";
 	}
 }
 
