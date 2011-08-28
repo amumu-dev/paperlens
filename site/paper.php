@@ -54,10 +54,12 @@ $related_users = array();
 				include('./search/search_bar.php');
 				renderFirstPaper($paper_dom);
 				$has_recommend_dom = $paper_dom->getElementsByTagName("has_recommend");
+				$has_recommend = 0;
 				if($has_recommend_dom->length > 0)
 				{
 					if($has_recommend_dom->item(0)->nodeValue == 1)
 					{
+						$has_recommend = 1;
 				?>
 				<span class="feedback">
 					<font color=#F2583E>&#9679;&nbsp;</font>
@@ -73,7 +75,7 @@ $related_users = array();
 				</div>
 				<?php
 					}
-				}else{
+				}if($has_recommend == 0){
 				?>
 				<span class="feedback">
 					<font color=#F2583E>&#9679;&nbsp;</font>
