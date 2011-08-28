@@ -1,7 +1,7 @@
 function recommend(uid, paper, behavior, w, node_id, paper_title, query)
 {
 	node_body = document.getElementById("feedbackcode");
-	node_body.innerHTML = '<img width=0 height=0 src=/site/behavior/behavior.php?uid=' + uid + '&paper=' + paper + '&behavior=' + behavior + '&search_query=' + query + '&w=' + w + ' />';
+	node_body.innerHTML = '<img width=0 height=0 src=./behavior/behavior.php?uid=' + uid + '&paper=' + paper + '&behavior=' + behavior + '&search_query=' + query + '&w=' + w + ' />';
 	
 	node = document.getElementById('recommend' + node_id);
 	//title = 'Recommend%20' + paper_title + '%20http://reculike.com/site/paper.php?id=' + paper + '%20in%20RecULike';
@@ -15,7 +15,7 @@ function recommend(uid, paper, behavior, w, node_id, paper_title, query)
 function bookmark(uid, paper, node_id, query)
 {
 	node_body = document.getElementById("feedbackcode");
-	node_body.innerHTML = '<img width=0 height=0 src=/site/behavior/bookmark.php?uid=' + uid + '&paper=' + paper + '&search_query=' + query + ' />';
+	node_body.innerHTML = '<img width=0 height=0 src=./behavior/bookmark.php?uid=' + uid + '&paper=' + paper + '&search_query=' + query + ' />';
 	
 	node = document.getElementById(node_id);
 	node.innerHTML = 'You can read it later';
@@ -24,13 +24,13 @@ function bookmark(uid, paper, node_id, query)
 function google_search(uid, paper, behavior, w, node_id, query)
 {
 	node_body = document.getElementById("feedbackcode");
-	node_body.innerHTML = '<img width=0 height=0 src=/site/behavior/behavior.php?uid=' + uid + '&paper=' + paper + '&behavior=' + behavior + '&search_query=' + query + '&w=' + w + ' />';
+	node_body.innerHTML = '<img width=0 height=0 src=./behavior/behavior.php?uid=' + uid + '&paper=' + paper + '&behavior=' + behavior + '&search_query=' + query + '&w=' + w + ' />';
 }
 
 function related(uid, dst_id, src_id, w, node_id)
 {
 	node_body = document.getElementById("feedbackcode");
-	node_body.innerHTML = '<img width=0 height=0 src=/site/behavior/related.php?uid=' + uid + '&src=' + src_id + '&dst=' + dst_id + '&w=' + w + ' />';
+	node_body.innerHTML = '<img width=0 height=0 src=./behavior/related.php?uid=' + uid + '&src=' + src_id + '&dst=' + dst_id + '&w=' + w + ' />';
 	
 	node = document.getElementById(node_id);
 	node.innerHTML = 'thanks!';
