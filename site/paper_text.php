@@ -54,6 +54,18 @@ $related_users = array();
 				include('./search/search_bar.php');
 				renderFirstPaper($paper_dom);
 				?>
+				<span class="feedback">
+					<font color=#F2583E>&#9679;&nbsp;</font>
+					<a style="font-size:12px;" onclick="document.getElementById('recommend_box').style.display='block';">Recommend</a>
+				</span>
+				<div style="display:none;width:100%;float:left;" id="recommend_box">
+					<form method="post" action="./behavior/recommend.php" style="width:100%;float:left;">
+						<textarea name="message" style="width:95%;float:left;height=64px;"></textarea>
+						<input type="hidden" name="paper_id" value="<?php echo $paper; ?>" />
+						<input type="hidden" name="user_id" value="<?php echo $_SESSION['uid']; ?>" />
+						<input type="submit" value="recommend" />
+					</form>
+				</div>
 			</div>
 			
 			<div id="main">
