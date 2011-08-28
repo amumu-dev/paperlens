@@ -61,7 +61,22 @@ function getRecommendedUsers($paper_id)
 		$user_name = $tks[0];
 		$ret[$row[0]] = $user_name;
 	}
+	mysql_free_result($result);
 	return $ret;
+}
+
+function hasRecommended($user_id, $paper_id)
+{
+	$ret = array();
+	$result = mysql_query("select * from recommend where user_id=$user_id and paper_id=$paper_id;");
+	if(!$result) return 0;
+	
+	while($row = mysql_fetch_row($result))
+	{
+		return 1;
+	}
+	mysql_free_result($result);
+	return 0;
 }
 
 function getDownLoadLink($paper_id)
@@ -75,6 +90,7 @@ function getDownLoadLink($paper_id)
 		$ret = $row[0];
 		break;
 	}
+	mysql_free_result($result);
 	return $ret;
 }
 ?>

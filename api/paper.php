@@ -9,6 +9,8 @@ $has_recuser = 1;
 if(isset($_GET['recuser']))  $has_recuser = $_GET['recuser'];
 $has_author = 1;
 if(isset($_GET['author']))  $has_author = $_GET['author'];
+$user_id = 0;
+if(isset($_GET['user'])) $user_id = $_GET['user'];
 /*
 $options = array(
     'namespace' => 'paper_',
@@ -61,6 +63,10 @@ else
 			$xml .= "</rec>\n";
 		}
 		$xml .= "<download>$download_link</download>";
+		if($user_id > 0)
+		{
+			$xml .= "<has_recommend>" . hasRecommended($user_id, $id) . "</has_recommend>";
+		}
 		$xml .= "</paper>\n";
 	}
 	echo $xml;
