@@ -32,8 +32,8 @@ function renderFirstPaper($paper)
 function renderPaperFeedback($j, $title, $paper_id, $download_link, $search_query='')
 {
 
-	echo "<span class=feedback><font color=#747E80>&#9679;&nbsp;</font><a id=\"recommend" .$j. "\" onclick=\"recommend('" . $_SESSION['uid'] 
-		. "','" . $paper_id. "', '1', '1', '$j', '" . urlencode($title->item(0)->nodeValue) . "', '$search_query')\">Recommend</a>&nbsp;";
+	echo "<span class=feedback><font color=#747E80>&#9679;&nbsp;</font><a id=\"bookmark" .$j. "\" onclick=\"bookmark('" . $_SESSION['uid'] 
+		. "','" . $paper_id. "', 'bookmark$j', '$search_query')\">Bookmark</a>&nbsp;";
 	echo "<font color=#77BED2>&#9679;&nbsp;</font><a id=\"google" .$j. "\" onclick=\"google_search('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '2', '1', 'google" . $j . "', '$search_query')\" href=\"http://www.google.com/search?hl=en&q="
 		. str_replace('', '+', $title->item(0)->nodeValue) . "\" target=_blank>Google It</a>&nbsp;";
@@ -42,18 +42,12 @@ function renderPaperFeedback($j, $title, $paper_id, $download_link, $search_quer
 		echo "<font color=#77BED2>&#9679;&nbsp;</font><a href=$download_link target=_blank>DownLoad</a>";
 	}
 	echo	"</span>";
-	/*
-	echo "<div class=\"recommend_text\" id=\"recommend_text_$j\">"
-		. "<form method=\"post\" action=\"/site/behavior/recommend.php\">"
-		. "<textarea name=\"message\"></textarea>"
-		. "<input type=\"submit\" value=\"Submit\">"
-		. "</form></div>";*/
 }
 
 function renderRelatedFeedback($j, $title, $paper_id, $src_paper_id, $download_link)
 {
-	echo "<span class=feedback><font color=#747E80>&#9679;&nbsp;</font><a id=\"recommend" .$j. "\" onclick=\"recommend('" . $_SESSION['uid'] 
-		. "','" . $paper_id. "', '1', '1', '$j')\">Recommend</a>&nbsp;"
+	echo "<span class=feedback><font color=#747E80>&#9679;&nbsp;</font><a id=\"bookmark" .$j. "\" onclick=\"bookmark('" . $_SESSION['uid'] 
+		. "','" . $paper_id. "', 'bookmark$j', '')\">Bookmark</a>&nbsp;"
 		. "<font color=#77BED2>&#9679;&nbsp;</font><a id=\"google" .$j. "\" onclick=\"google_search('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '2', '1', 'google" . $j . "')\" href=\"http://www.google.com/search?hl=en&q="
 		. str_replace('', '+', $title->item(0)->nodeValue) . "\" target=_blank>Google It</a>&nbsp;"
@@ -64,12 +58,6 @@ function renderRelatedFeedback($j, $title, $paper_id, $src_paper_id, $download_l
 		echo "<font color=#77BED2>&#9679;&nbsp;</font><a href=$download_link target=_blank>DownLoad</a>";
 	}	
 	echo	"</span>";
-	/*
-	echo "<div class=\"recommend_text\" id=\"recommend_text_$j\">"
-		. "<form method=\"post\" action=\"/site/behavior/recommend.php\">"
-		. "<textarea name=\"message\"></textarea>"
-		. "<input type=\"submit\" value=\"Submit\">"
-		. "</form></div>";*/
 }
 
 function renderRecommendUsers($paper, &$rel_users)

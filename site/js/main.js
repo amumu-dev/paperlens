@@ -12,6 +12,15 @@ function recommend(uid, paper, behavior, w, node_id, paper_title, query)
 	//text_node.style.display = "block";
 }
 
+function bookmark(uid, paper, node_id, query)
+{
+	node_body = document.getElementById("feedbackcode");
+	node_body.innerHTML = '<img width=0 height=0 src=/site/behavior/bookmark.php?uid=' + uid + '&paper=' + paper + '&search_query=' + query + ' />';
+	
+	node = document.getElementById(node_id);
+	node.innerHTML = 'You can read it later';
+}
+
 function google_search(uid, paper, behavior, w, node_id, query)
 {
 	node_body = document.getElementById("feedbackcode");
