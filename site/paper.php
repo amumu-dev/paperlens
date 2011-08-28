@@ -54,10 +54,6 @@ $related_users = array();
 				include('./search/search_bar.php');
 				renderFirstPaper($paper_dom);
 				?>
-			</div>
-			
-			<div id="main">
-				<?php  if(!$login) require_once('./tools/login_section.php'); ?>
 				<span class="feedback">
 					<font color=#747E80>&#9679;&nbsp;</font><a onclick="document.getElementById('recommend_box').style.display='block';">Recommend</a>&nbsp;
 				</span>
@@ -69,6 +65,11 @@ $related_users = array();
 						<input type="submit" value="recommend" />
 					</form>
 				</div>
+			</div>
+			
+			<div id="main">
+				<?php  if(!$login) require_once('./tools/login_section.php'); ?>
+				
 				<div id="searchret">
 					<h2>Related Articles</h2>
 					<?php
