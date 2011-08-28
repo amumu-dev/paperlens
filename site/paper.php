@@ -55,10 +55,9 @@ $related_users = array();
 				renderFirstPaper($paper_dom);
 				$has_recommend_dom = $paper_dom->getElementsByTagName("has_recommend");
 				$has_recommend = 0;
-				echo $has_recommend_dom->item(0)->nodeValue;
 				if($has_recommend_dom->length > 0)
 				{
-					if($has_recommend_dom->item(0)->nodeValue == 1)
+					if($has_recommend_dom->item(0)->nodeValue == 0)
 					{
 						$has_recommend = 1;
 				?>
