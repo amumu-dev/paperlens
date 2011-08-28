@@ -53,6 +53,11 @@ $related_users = array();
 				<?
 				include('./search/search_bar.php');
 				renderFirstPaper($paper_dom);
+				$has_recommend_dom = $paper_dom->getElementsByTagName("has_recommend");
+				if($has_recommend_dom->length > 0)
+				{
+					if($has_recommend_dom->item(0)->nodeValue == 1)
+					{
 				?>
 				<span class="feedback">
 					<font color=#F2583E>&#9679;&nbsp;</font>
@@ -66,6 +71,15 @@ $related_users = array();
 						<input type="submit" value="recommend" />
 					</form>
 				</div>
+				<?php
+					}
+				}else{
+				?>
+				<span class="feedback">
+					<font color=#F2583E>&#9679;&nbsp;</font>
+					<a style="font-size:12px;">You have recommended the paper</a>
+				</span>
+				<?php } ?>
 			</div>
 			
 			<div id="main">
