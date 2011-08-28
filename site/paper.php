@@ -58,6 +58,17 @@ $related_users = array();
 			
 			<div id="main">
 				<?php  if(!$login) require_once('./tools/login_section.php'); ?>
+				<span class="feedback">
+					<font color=#747E80>&#9679;&nbsp;</font><a onclick="document.getElementById('recommend_box').style.display='block';">Recommend</a>&nbsp;
+				</span>
+				<div style="display:none;width:100%;float:left;" id="recommend_box">
+					<form method="post" action="./behavior/recommend.php" style="width:100%;float:left;">
+						<textarea name="comments" style="width:100%;float:left;height=64px;"></textarea>
+						<input type="hidden" name="paper_id" value="<?php echo $paper; ?>" />
+						<input type="hidden" name="user_id" value="<?php echo $_SESSION['uid']; ?>" />
+						<input type="submit" value="recommend" />
+					</form>
+				</div>
 				<div id="searchret">
 					<h2>Related Articles</h2>
 					<?php

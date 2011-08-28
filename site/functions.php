@@ -43,9 +43,9 @@ function renderPaperFeedback($j, $title, $paper_id, $download_link, $search_quer
 	}
 	echo	"</span>";
 	/*
-	echo "<div class=\"recommend_text\" id=\"recommend_text_$j\">Please input recommendation reasons : <br>"
+	echo "<div class=\"recommend_text\" id=\"recommend_text_$j\">"
 		. "<form method=\"post\" action=\"/site/behavior/recommend.php\">"
-		. "<textarea rows=\"5\" name=\"message\"></textarea>"
+		. "<textarea name=\"message\"></textarea>"
 		. "<input type=\"submit\" value=\"Submit\">"
 		. "</form></div>";*/
 }
@@ -65,9 +65,9 @@ function renderRelatedFeedback($j, $title, $paper_id, $src_paper_id, $download_l
 	}	
 	echo	"</span>";
 	/*
-	echo "<div class=\"recommend_text\" id=\"recommend_text_$j\">Please input recommendation reasons : <br>"
+	echo "<div class=\"recommend_text\" id=\"recommend_text_$j\">"
 		. "<form method=\"post\" action=\"/site/behavior/recommend.php\">"
-		. "<textarea rows=\"5\" name=\"message\"></textarea>"
+		. "<textarea name=\"message\"></textarea>"
 		. "<input type=\"submit\" value=\"Submit\">"
 		. "</form></div>";*/
 }
