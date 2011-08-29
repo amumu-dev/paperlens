@@ -200,6 +200,11 @@ function renderPapers($papers_dom, &$related_authors, &$related_users, $src_pape
 		renderRecommendUsers($paper, $related_users);
 		$is_bookmarked_dom = $paper->getElementsByTagName('has_bookmark');
 		$bookmark_str = 'Bookmark';
+		if($is_bookmarked_dom->length > 0)
+		{
+			if($is_bookmarked_dom->item(0)->nodeValue == 1)
+				$bookmark_str = 'You have bookmarked';
+		}
 		if(isset($_SESSION['uid'] ))
 		{
 			if($src_paper_id < 0) renderPaperFeedback($j, $title, $paper_id, $download_link, $bookmark_str);
@@ -251,6 +256,11 @@ function renderSearchPapers($papers_dom, $query, &$related_authors, &$related_us
 		renderRecommendUsers($paper, $related_users);
 		$is_bookmarked_dom = $paper->getElementsByTagName('has_bookmark');
 		$bookmark_str = 'Bookmark';
+		if($is_bookmarked_dom->length > 0)
+		{
+			if($is_bookmarked_dom->item(0)->nodeValue == 1)
+				$bookmark_str = 'You have bookmarked';
+		}
 		if(isset($_SESSION['uid'] ))
 		{
 			renderPaperFeedback($j, $title, $paper_id, $download_link, $bookmark_str, $query);
