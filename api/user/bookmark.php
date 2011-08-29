@@ -5,7 +5,7 @@ header('Content-Type: text/xml');
 require_once('../db.php');
 $uid = $_GET['uid'];
 
-$result = mysql_query("select paper_id from recommend where user_id=$uid order by created_at desc limit 20");
+$result = mysql_query("select paper_id from bookmark where user_id=$uid order by created_at desc limit 20");
 if (!$result) {
 	die('Query failed: ' . mysql_error());
 }

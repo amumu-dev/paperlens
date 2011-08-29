@@ -63,7 +63,7 @@ $related_users = array();
 				?>
 				<span class="feedback">
 					<font color=#F2583E>&#9679;&nbsp;</font>
-					<a style="font-size:12px;" onclick="document.getElementById('recommend_box').style.display='block';">Recommend</a>
+					<a style="font-size:12px;" onclick="document.getElementById('recommend_box').style.display='block';">Recommend</a>&nbsp;
 					<font color=#77BED2>&#9679;&nbsp;</font>
 					<a style="font-size:12px;" href="http://www.google.com/search?hl=en&q=<?php echo $paper_title; ?>" target=_blank>Google It</a>
 				</span>
@@ -82,7 +82,7 @@ $related_users = array();
 				?>
 				<span class="feedback">
 					<font color=#F2583E>&#9679;&nbsp;</font>
-					<a style="font-size:12px;">You have recommended the paper</a>
+					<a style="font-size:12px;">You have recommended the paper</a>&nbsp;
 					<font color=#77BED2>&#9679;&nbsp;</font>
 					<a style="font-size:12px;" href="http://www.google.com/search?hl=en&q=<?php echo $paper_title; ?>" target=_blank>Google It</a>
 				</span>

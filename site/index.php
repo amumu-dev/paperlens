@@ -6,26 +6,30 @@ if($login)
 {
 	require_once('../api/db.php');
 	require_once("functions.php");
-	$result = mysql_query("SELECT keywords,email FROM user WHERE id=".$_SESSION['uid']);
-        if (!$result) die("error when get keywords of user");
-        $row = mysql_fetch_row($result);
-        $keywords = $row[0];
+	
         $email = $row[1];
 	$dom = new DOMDocument();
-	if(!$dom->load("http://127.0.0.1/api/recommendation/recsys_reason_xml.php?uid=" .$_SESSION['uid']))
-	{
-		echo 'load xml failed';
-		return;
-	}
+	$home_type = $_GET['type'];
+	if($home_type == 'recommendation')
+		$dom->load("http://127.0.0.1/api/recommendation/recsys_reason_xml.php?uid=" .$_SESSION['uid']))
+	else
+		$dom->load("http://127.0.0.1/api/user/" . $home_type . ".php?uid=" .$_SESSION['uid']))
 	$related_authors = array();
 	$related_users = array();
 	$papers = $dom->getElementsByTagName('paper');
-	if($papers->length == 0 && strlen($keywords) > 0)
+	if($home_type == 'recommendation')
 	{
-		$keywords = trim($keywords, " ,.;");
-		$keywords = str_replace(',', '|', $keywords);
-		$dom->load('http://127.0.0.1/api/search/search.php?n=10&query=' . str_replace(' ','+',$keywords));
-		$papers = $dom->getElementsByTagName('paper');
+		if($papers->length == 0 && strlen($keywords) > 0)
+		{
+			$result = mysql_query("SELECT keywords,email FROM user WHERE id=".$_SESSION['uid']);
+			if (!$result) die("error when get keywords of user");
+			$row = mysql_fetch_row($result);
+			$keywords = $row[0];
+			$keywords = trim($keywords, " ,.;");
+			$keywords = str_replace(',', '|', $keywords);
+			$dom->load('http://127.0.0.1/api/search/search.php?n=10&query=' . str_replace(' ','+',$keywords));
+			$papers = $dom->getElementsByTagName('paper');
+		}
 	}
 }
 ?>
@@ -82,9 +86,13 @@ if($login)
 				{
 			?>
 				<div id="main">
-				<h2>Paper Recommendations : </h2>
+				<span id="home_type">
+					<a href="index.php?type=bookmarked">Your Bookmarks</a>
+					<a href="index.php?type=recommended">Recommended by You</a>
+					<a href="index.php?type=recommendation">Recommendation for You</a>
+				</span>
 				<?php
-					
+					if(
 					renderRecommendationPapers($papers, $related_authors, $related_users);
 				?>
 				</div>

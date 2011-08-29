@@ -24,6 +24,17 @@ a:hover
 	margin-top:5px;
 	margin-bottom:15px;
 }
+#main #home_type
+{
+	width:100%;
+}
+#main #home_type a
+{
+	width:120px;
+	height:30px;
+	line-height:30px;
+	text-decoration:none;
+}
 .feedback a
 {
 	cursor:pointer;
