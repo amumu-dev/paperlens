@@ -30,11 +30,11 @@ function renderFirstPaper($paper)
 	return $title->item(0)->nodeValue;
 }
 
-function renderPaperFeedback($j, $title, $paper_id, $download_link, $search_query='')
+function renderPaperFeedback($j, $title, $paper_id, $download_link, $bookmark_str, $search_query='')
 {
 
 	echo "<span class=feedback><font color=#747E80>&#9679;&nbsp;</font><a id=\"bookmark" .$j. "\" onclick=\"bookmark('" . $_SESSION['uid'] 
-		. "','" . $paper_id. "', 'bookmark$j', '$search_query')\">Bookmark</a>&nbsp;";
+		. "','" . $paper_id. "', 'bookmark$j', '$search_query')\">$bookmark_str</a>&nbsp;";
 	echo "<font color=#77BED2>&#9679;&nbsp;</font><a id=\"google" .$j. "\" onclick=\"google_search('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '2', '1', 'google" . $j . "', '$search_query')\" href=\"http://www.google.com/search?hl=en&q="
 		. str_replace('', '+', $title->item(0)->nodeValue) . "\" target=_blank>Google It</a>&nbsp;";
@@ -45,10 +45,10 @@ function renderPaperFeedback($j, $title, $paper_id, $download_link, $search_quer
 	echo	"</span>";
 }
 
-function renderRelatedFeedback($j, $title, $paper_id, $src_paper_id, $download_link)
+function renderRelatedFeedback($j, $title, $paper_id, $src_paper_id, $download_link, $bookmark_str)
 {
 	echo "<span class=feedback><font color=#747E80>&#9679;&nbsp;</font><a id=\"bookmark" .$j. "\" onclick=\"bookmark('" . $_SESSION['uid'] 
-		. "','" . $paper_id. "', 'bookmark$j', '')\">Bookmark</a>&nbsp;"
+		. "','" . $paper_id. "', 'bookmark$j', '')\">$bookmark_str</a>&nbsp;"
 		. "<font color=#77BED2>&#9679;&nbsp;</font><a id=\"google" .$j. "\" onclick=\"google_search('" . $_SESSION['uid'] 
 		. "','" . $paper_id. "', '2', '1', 'google" . $j . "')\" href=\"http://www.google.com/search?hl=en&q="
 		. str_replace('', '+', $title->item(0)->nodeValue) . "\" target=_blank>Google It</a>&nbsp;"
@@ -129,10 +129,17 @@ function renderRecommendationPapers($papers_dom, &$related_authors, &$related_us
 		}
 		echo "</span><br />";
 		renderRecommendUsers($paper, $related_users);
+		$is_bookmarked_dom = $paper->getElementsByTagName('has_bookmark');
+		$bookmark_str = 'Bookmark';
+		if($is_bookmarked_dom->length > 0)
+		{
+			if($is_bookmarked_dom->item(0)->nodeValue == 1)
+				$bookmark_str = 'You have bookmarked';
+		}
 		if(isset($_SESSION['uid'] ))
 		{
-			if($src_paper_id < 0) renderPaperFeedback($j, $title, $paper_id, $download_link);
-			else renderRelatedFeedback($j, $title, $paper_id, $src_paper_id, $download_link);
+			if($src_paper_id < 0) renderPaperFeedback($j, $title, $paper_id, $download_link, $bookmark_str);
+			else renderRelatedFeedback($j, $title, $paper_id, $src_paper_id, $download_link, $bookmark_str);
 		}
 		
 		$reason_dom = $paper->getElementsByTagName('reason');
@@ -191,10 +198,12 @@ function renderPapers($papers_dom, &$related_authors, &$related_users, $src_pape
 		}
 		echo "</span><br />";
 		renderRecommendUsers($paper, $related_users);
+		$is_bookmarked_dom = $paper->getElementsByTagName('has_bookmark');
+		$bookmark_str = 'Bookmark';
 		if(isset($_SESSION['uid'] ))
 		{
-			if($src_paper_id < 0) renderPaperFeedback($j, $title, $paper_id, $download_link);
-			else renderRelatedFeedback($j, $title, $paper_id, $src_paper_id, $download_link);
+			if($src_paper_id < 0) renderPaperFeedback($j, $title, $paper_id, $download_link, $bookmark_str);
+			else renderRelatedFeedback($j, $title, $paper_id, $src_paper_id, $download_link, $bookmark_str);
 		}
 		echo "</div>";
 	}
@@ -240,9 +249,11 @@ function renderSearchPapers($papers_dom, $query, &$related_authors, &$related_us
 		}
 		echo "</span><br />";
 		renderRecommendUsers($paper, $related_users);
+		$is_bookmarked_dom = $paper->getElementsByTagName('has_bookmark');
+		$bookmark_str = 'Bookmark';
 		if(isset($_SESSION['uid'] ))
 		{
-			renderPaperFeedback($j, $title, $paper_id, $download_link, $query);
+			renderPaperFeedback($j, $title, $paper_id, $download_link, $bookmark_str, $query);
 		}
 		echo "</div>";
 	}
