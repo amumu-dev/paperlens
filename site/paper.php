@@ -65,7 +65,7 @@ $related_users = array();
 					<font color=#F2583E>&#9679;&nbsp;</font>
 					<a style="font-size:12px;" onclick="document.getElementById('recommend_box').style.display='block';">Recommend</a>
 					<font color=#77BED2>&#9679;&nbsp;</font>
-					<a href="http://www.google.com/search?hl=en&q=<?php echo $paper_title; ?>" target=_blank>Google It</a>
+					<a style="font-size:12px;" href="http://www.google.com/search?hl=en&q=<?php echo $paper_title; ?>" target=_blank>Google It</a>
 				</span>
 				<div style="display:none;width:100%;float:left;" id="recommend_box">
 					<form method="post" action="./behavior/recommend.php" style="width:100%;float:left;">
@@ -84,7 +84,7 @@ $related_users = array();
 					<font color=#F2583E>&#9679;&nbsp;</font>
 					<a style="font-size:12px;">You have recommended the paper</a>
 					<font color=#77BED2>&#9679;&nbsp;</font>
-					<a href="http://www.google.com/search?hl=en&q=<?php echo $paper_title; ?>" target=_blank>Google It</a>
+					<a style="font-size:12px;" href="http://www.google.com/search?hl=en&q=<?php echo $paper_title; ?>" target=_blank>Google It</a>
 				</span>
 				<?php } ?>
 			</div>
