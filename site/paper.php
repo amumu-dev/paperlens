@@ -111,5 +111,6 @@ $related_users = array();
 		</div>
 		<div id="foot">&copy; <?php echo $SITE_NAME; ?> 2011</div>
 		<div id="feedbackcode"></div>
+		<?php require_once('ga.php'); ?>
 	</body>
 </html>
