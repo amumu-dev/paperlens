@@ -7,7 +7,7 @@ require_once("functions.php");
 $author = $_GET["author"];
 $author_name = $_GET["name"];
 $dom = new DOMDocument();
-if(!$dom->load('http://127.0.0.1/api/author.php?n=10&author=' . $author))
+if(!$dom->load("http://127.0.0.1/api/author.php?n=10&author=$author&user=" . $_SESSION['uid']))
 {
 	echo 'load xml failed';
 	return;
