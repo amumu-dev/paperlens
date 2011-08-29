@@ -79,6 +79,20 @@ function hasRecommended($user_id, $paper_id)
 	return 0;
 }
 
+function hasBookmarked($user_id, $paper_id)
+{
+	$ret = array();
+	$result = mysql_query("select * from bookmark where user_id=$user_id and paper_id=$paper_id;");
+	if(!$result) return 0;
+	
+	while($row = mysql_fetch_row($result))
+	{
+		return 1;
+	}
+	mysql_free_result($result);
+	return 0;
+}
+
 function getDownLoadLink($paper_id)
 {
 	$ret = '';

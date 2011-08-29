@@ -66,6 +66,7 @@ else
 		if($user_id > 0)
 		{
 			$xml .= "<has_recommend>" . hasRecommended($user_id, $id) . "</has_recommend>";
+			$xml .= "<has_bookmark>" . hasBookmarked($user_id, $id) . "</has_bookmark>";
 		}
 		$xml .= "</paper>\n";
 	}
