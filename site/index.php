@@ -9,7 +9,8 @@ if($login)
 	
         $email = $row[1];
 	$dom = new DOMDocument();
-	$home_type = $_GET['type'];
+	$home_type = 'recommendation';
+	if(isset($_GET['type'])) $home_type = $_GET['type'];
 	if($home_type == 'recommendation')
 		$dom->load("http://127.0.0.1/api/recommendation/recsys_reason_xml.php?uid=" .$_SESSION['uid']);
 	else
