@@ -87,9 +87,9 @@ if($login)
 			?>
 				<div id="main">
 				<span id="home_type">
-					<a href="index.php?type=bookmarked">Your Bookmarks</a>
-					<a href="index.php?type=recommended">Recommended by You</a>
-					<a href="index.php?type=recommendation">Recommendation for You</a>
+					<a href="index.php?type=bookmarked" style="display:block;margin-left:5px;border:#747E80 solid 1px; <?php if($home_type=='bookmarked') echo 'background:#E4EEF0'; ?>">Your Bookmarks</a>
+					<a href="index.php?type=recommended" style="display:block;margin-left:5px;border:#747E80 solid 1px;<?php if($home_type=='recommended') echo 'background:#E4EEF0'; ?>">Recommended by You</a>
+					<a href="index.php?type=recommendation" style="display:block;margin-left:5px;border:#747E80 solid 1px;<?php if($home_type=='recommendation') echo 'background:#E4EEF0'; ?>">Recommendation for You</a>
 				</span>
 				<?php
 					if($home_type == 'recommendation') renderRecommendationPapers($papers, $related_authors, $related_users);
