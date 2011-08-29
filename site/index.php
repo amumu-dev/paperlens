@@ -6,7 +6,10 @@ if($login)
 {
 	require_once('../api/db.php');
 	require_once("functions.php");
-	
+	$result = mysql_query("SELECT keywords,email FROM user WHERE id=".$_SESSION['uid']);
+	if (!$result) die("error when get keywords of user");
+	$row = mysql_fetch_row($result);
+	$keywords = $row[0];
         $email = $row[1];
 	$dom = new DOMDocument();
 	$home_type = 'recommendation';
@@ -22,10 +25,6 @@ if($login)
 	{
 		if($papers->length == 0 && strlen($keywords) > 0)
 		{
-			$result = mysql_query("SELECT keywords,email FROM user WHERE id=".$_SESSION['uid']);
-			if (!$result) die("error when get keywords of user");
-			$row = mysql_fetch_row($result);
-			$keywords = $row[0];
 			$keywords = trim($keywords, " ,.;");
 			$keywords = str_replace(',', '|', $keywords);
 			$dom->load('http://127.0.0.1/api/search/search.php?n=10&query=' . str_replace(' ','+',$keywords));
