@@ -52,7 +52,7 @@ $related_users = array();
 				<div id="logo"><?php echo $SITE_NAME; ?></div>
 				<?
 				include('./search/search_bar.php');
-				renderFirstPaper($paper_dom);
+				$paper_title = renderFirstPaper($paper_dom);
 				$has_recommend_dom = $paper_dom->getElementsByTagName("has_recommend");
 				$has_recommend = 0;
 				if($has_recommend_dom->length > 0)
@@ -64,6 +64,8 @@ $related_users = array();
 				<span class="feedback">
 					<font color=#F2583E>&#9679;&nbsp;</font>
 					<a style="font-size:12px;" onclick="document.getElementById('recommend_box').style.display='block';">Recommend</a>
+					<font color=#77BED2>&#9679;&nbsp;</font>
+					<a href="http://www.google.com/search?hl=en&q=<?php echo $paper_title; ?>" target=_blank>Google It</a>
 				</span>
 				<div style="display:none;width:100%;float:left;" id="recommend_box">
 					<form method="post" action="./behavior/recommend.php" style="width:100%;float:left;">
@@ -81,6 +83,8 @@ $related_users = array();
 				<span class="feedback">
 					<font color=#F2583E>&#9679;&nbsp;</font>
 					<a style="font-size:12px;">You have recommended the paper</a>
+					<font color=#77BED2>&#9679;&nbsp;</font>
+					<a href="http://www.google.com/search?hl=en&q=<?php echo $paper_title; ?>" target=_blank>Google It</a>
 				</span>
 				<?php } ?>
 			</div>

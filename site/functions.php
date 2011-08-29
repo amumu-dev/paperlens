@@ -27,6 +27,7 @@ function renderFirstPaper($paper)
 		echo "<div class=\"abstract\">" . $paper->getElementsByTagName('abstract')->item(0)->nodeValue . "</div>";
 	}
 	echo "</div>";
+	return $title->item(0)->nodeValue;
 }
 
 function renderPaperFeedback($j, $title, $paper_id, $download_link, $search_query='')
