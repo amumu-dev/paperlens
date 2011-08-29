@@ -92,8 +92,8 @@ if($login)
 					<a href="index.php?type=recommendation">Recommendation for You</a>
 				</span>
 				<?php
-					if(
-					renderRecommendationPapers($papers, $related_authors, $related_users);
+					if($home_type == 'recommendation') renderRecommendationPapers($papers, $related_authors, $related_users);
+					else renderPapers($papers, $related_authors, $related_users, $paper);
 				?>
 				</div>
 				<div id="side">
