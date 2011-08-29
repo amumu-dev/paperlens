@@ -152,7 +152,7 @@ else{
 		}
 		if($user_id > 0)
 		{
-			echo "<has_bookmark>" . hasBookmarked($user_id, $id) . "</has_bookmark>";
+			echo "<has_bookmark>" . hasBookmarked($user_id, $data[$k]['id']) . "</has_bookmark>";
 		}
 		echo "</paper>";
 	}
