@@ -27,6 +27,7 @@ a:hover
 #main #home_type
 {
 	width:100%;
+	float:left;
 }
 #main #home_type a
 {
