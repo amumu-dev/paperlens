@@ -11,9 +11,9 @@ if($login)
 	$dom = new DOMDocument();
 	$home_type = $_GET['type'];
 	if($home_type == 'recommendation')
-		$dom->load("http://127.0.0.1/api/recommendation/recsys_reason_xml.php?uid=" .$_SESSION['uid']))
+		$dom->load("http://127.0.0.1/api/recommendation/recsys_reason_xml.php?uid=" .$_SESSION['uid']);
 	else
-		$dom->load("http://127.0.0.1/api/user/" . $home_type . ".php?uid=" .$_SESSION['uid']))
+		$dom->load("http://127.0.0.1/api/user/" . $home_type . ".php?uid=" .$_SESSION['uid']);
 	$related_authors = array();
 	$related_users = array();
 	$papers = $dom->getElementsByTagName('paper');
@@ -53,8 +53,8 @@ if($login)
 				?>
 				<div id="toolbar">
 					<span>Hi <?php echo $email; ?></span>&nbsp;&nbsp;
-					<span><a href="/site/index.php">Home Page</a></span>&nbsp;&nbsp;
-					<span><a href="/site/logout.php">Log out</a></span>
+					<span><a href="./index.php">Home Page</a></span>&nbsp;&nbsp;
+					<span><a href="./logout.php">Log out</a></span>
 				</div>
 				<?php } else echo "&nbsp;<br>"; ?>
 				<div id="logo"><?php echo $SITE_NAME; ?></div>
