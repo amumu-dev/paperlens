@@ -93,7 +93,7 @@ if($login)
 				</span>
 				<?php
 					if($home_type == 'recommendation') renderRecommendationPapers($papers, $related_authors, $related_users);
-					else renderPapers($papers, $related_authors, $related_users, $paper);
+					else renderPapers($papers, $related_authors, $related_users);
 				?>
 				</div>
 				<div id="side">
