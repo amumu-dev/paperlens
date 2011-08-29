@@ -47,6 +47,9 @@ if($scl->IsConnectError()){
 	die('search server down!');
 }
 
+$user_id = 0;
+if(isset($_GET['user'])) $user_id = $_GET['user'];
+
 $scl->setFieldWeights(array('title'=>2000));
 $scl->SetMatchMode(SPH_MATCH_EXTENDED2);
 #$scl->SetRankingMode(SPH_RANK_BM25);
@@ -146,6 +149,10 @@ else{
 		foreach($data[$k]['author'] as $author_id => $author_name)
 		{
 			echo "<author><id>" . $author_id. "</id><name>".$author_name."</name></author>";
+		}
+		if($user_id > 0)
+		{
+			echo "<has_bookmark>" . hasBookmarked($user_id, $id) . "</has_bookmark>";
 		}
 		echo "</paper>";
 	}
