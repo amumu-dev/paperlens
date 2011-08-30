@@ -29,7 +29,7 @@ def paperSim():
 
     for year in range(1960, 52):
         simTable = dict()
-        cursor.execute("select paper_author.paper_id, paper_author.author_id, paper.year from paper_author, paper where paper.id = paper_author.paper_id and paper.year>%s and paper.year<%s order by author_id;", (year - 3, year + 3)))
+        cursor.execute("select paper_author.paper_id, paper_author.author_id, paper.year from paper_author, paper where paper.id = paper_author.paper_id and paper.year>%s and paper.year<%s order by author_id;", (year - 3, year + 3))
 
         numrows = int(cursor.rowcount)
         print year, numrows
