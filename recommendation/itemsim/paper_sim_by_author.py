@@ -5,34 +5,18 @@ from paper import Paper
 import math
 from operator import itemgetter
 
-def getDstPapers():
-    connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
-    cursor = connection.cursor()
-    papers = dict()
-    
-    cursor.execute("select id, year from paper;")
-    numrows = int(cursor.rowcount)
-    for k in range(numrows):
-        if k % 10000 == 0:
-            print k
-        row = cursor.fetchone()
-        paper_id = row[0]
-        year = row[1]
-        papers[paper_id] = year
-    return papers
-    
-
 def paperSim():
     connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
     cursor = connection.cursor()
     cursor.execute("truncate table papersim_author;")
 
     for year in range(1960, 52):
+        print year
         simTable = dict()
         cursor.execute("select paper_author.paper_id, paper_author.author_id, paper.year from paper_author, paper where paper.id = paper_author.paper_id and paper.year>%s and paper.year<%s order by author_id;", (year - 3, year + 3))
 
         numrows = int(cursor.rowcount)
-        print year, numrows
+        print numrows
 
         prev_entity = -1
         papers = dict()
