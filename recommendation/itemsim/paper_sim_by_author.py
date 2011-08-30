@@ -42,7 +42,7 @@ for year in range(1960, 2012):
                         weight = 1 / math.log(2 + len(papers))
                         simTable[i][j] = simTable[i][j] + weight
             prev_entity = entity_id
-            papers = []
+            papers = dict()
         papers[paper_id] = paper_year
     print len(simTable)
 
