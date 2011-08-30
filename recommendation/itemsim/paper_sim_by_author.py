@@ -29,12 +29,12 @@ for year in range(1960, 2012):
         paper_year = row[2]
         if prev_entity != entity_id:
             if len(papers) < 100:
-                for (i, yi) in papers:
+                for (i, yi) in papers.items():
                     if yi != year:
                         continue
                     if i not in simTable:
                         simTable[i] = dict()
-                    for j in papers:
+                    for (j, yj) in papers.items():
                         if i == j:
                             continue
                         if j not in simTable[i]:
