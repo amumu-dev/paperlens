@@ -11,7 +11,7 @@ if(!$paper_dom->load('http://127.0.0.1/api/paper.php?abstract=1&user=' . $_SESSI
 	echo 'load xml failed';
 	return;
 }
-
+$paper_title = getPaperTitle($paper_dom);
 $dom = new DOMDocument();
 //if(!$dom->load('http://50.18.105.189/api/recommendation/relate/default_related_items_xml.php?id=' . $paper))
 if(!$dom->load('http://127.0.0.1/api/recommendation/relate/related_items_xml.php?tables=papersim_author-1|cite_citeseer-0.3|default-0.1&id=' . $paper))
@@ -24,7 +24,7 @@ $related_users = array();
 ?>
 <html>
 	<head>
-		<title><?php echo $SITE_NAME; ?> : Open Source Academic Recommender System</title>
+		<title><?php echo $paper_title . " - " . $SITE_NAME; ?></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="./css/main.css" />
 		<script src="./js/main.js" type="text/javascript"></script>

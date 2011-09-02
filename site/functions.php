@@ -1,5 +1,10 @@
 <?php
 
+function getPaperTitle($paper)
+{
+	return $paper->getElementsByTagName('title')->item(0)->nodeValue;
+}
+
 function renderFirstPaper($paper)
 {
 	echo "<div id=\"paper0\">";
