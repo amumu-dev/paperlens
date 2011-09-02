@@ -3,20 +3,42 @@ require_once("../db.php");
 function GetBehavior($uid)
 {
 	$ret = array();
-	$result = mysql_query("select paper_id,behavior,weight from user_paper_behavior where user_id=$uid order by created_at desc");
+	$result = mysql_query("select paper_id,weight from user_paper_behavior where behavior=3 and user_id=$uid order by created_at desc limit 10");
 	if (!$result) {
-	    return $ret;
+		while ($row = mysql_fetch_row($result))
+		{
+			$paper_id = $row[0];
+			$weight = 0.01;
+			if(!array_key_exists($paper_id, $ret)) $ret[$paper_id] = $weight;
+		}
 	}
-
-	while ($row = mysql_fetch_row($result))
-	{
-		$paper_id = $row[0];
-		$behavior = $row[1];
-		$weight = 1;
-		if($behavior < 3) $weight = 2;
-		if(!array_key_exists($paper_id, $ret)) $ret[$paper_id] = $weight;
-		//else $ret[$paper_id] += $weight;
+	mysql_free_result($result);
+	
+	$result = mysql_query("select paper_id from recommend where user_id=$uid order by created_at desc");
+	if ($result) {
+		$k = 0;
+		while ($row = mysql_fetch_row($result))
+		{
+			$paper_id = $row[0];
+			$weight = 2 / (1 + $k);
+			++$k;
+			if(!array_key_exists($paper_id, $ret)) $ret[$paper_id] = $weight;
+		}
 	}
+	mysql_free_result($result);
+	
+	$result = mysql_query("select paper_id from behavior where user_id=$uid order by created_at desc");
+	if ($result) {
+		$k = 0;
+		while ($row = mysql_fetch_row($result))
+		{
+			$paper_id = $row[0];
+			$weight = 1 / (1 + $k);
+			++$k;
+			if(!array_key_exists($paper_id, $ret)) $ret[$paper_id] = $weight;
+		}
+	}
+	mysql_free_result($result);
 	arsort($ret);
 	return $ret;
 }
