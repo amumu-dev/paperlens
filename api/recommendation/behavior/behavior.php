@@ -20,7 +20,7 @@ function GetBehavior($uid)
 		while ($row = mysql_fetch_row($result))
 		{
 			$paper_id = $row[0];
-			$weight = 2 / (1 + $k);
+			$weight = 2 / (1 + 0.03*$k);
 			++$k;
 			if(!array_key_exists($paper_id, $ret)) $ret[$paper_id] = $weight;
 		}
@@ -33,7 +33,7 @@ function GetBehavior($uid)
 		while ($row = mysql_fetch_row($result))
 		{
 			$paper_id = $row[0];
-			$weight = 1 / (1 + $k);
+			$weight = 1 / (1 + 0.03*$k);
 			++$k;
 			if(!array_key_exists($paper_id, $ret)) $ret[$paper_id] = $weight;
 		}
