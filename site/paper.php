@@ -66,7 +66,7 @@ $related_users = array();
 					<a style="font-size:12px;" onclick="document.getElementById('recommend_box').style.display='block';">Recommend</a>&nbsp;
 					<font color=#77BED2>&#9679;&nbsp;</font>
 					<a style="font-size:12px;" href="http://www.google.com/search?hl=en&q=<?php echo $paper_title; ?>" target=_blank>Google It</a>&nbsp;
-					<a href="http://twitter.com/share" style="padding-top:3px;" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+					
 				</span>
 				<div style="display:none;width:100%;float:left;" id="recommend_box">
 					<form method="post" action="./behavior/recommend.php" style="width:100%;float:left;">
