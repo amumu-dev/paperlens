@@ -27,7 +27,7 @@ function GetBehavior($uid)
 	}
 	mysql_free_result($result);
 	
-	$result = mysql_query("select paper_id from behavior where user_id=$uid order by created_at desc");
+	$result = mysql_query("select paper_id from bookmark where user_id=$uid order by created_at desc");
 	if ($result) {
 		$k = 0;
 		while ($row = mysql_fetch_row($result))
