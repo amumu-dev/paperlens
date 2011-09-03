@@ -39,7 +39,7 @@ def paperSim():
                         simTable[i][j] = simTable[i][j] + weight
             prev_entity = entity_id
             papers = set()
-        papers.append(paper_id)
+        papers.add(paper_id)
     print len(simTable)
 
     cursor.execute("truncate table papersim_cf;")
