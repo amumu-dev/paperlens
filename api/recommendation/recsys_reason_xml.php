@@ -1,7 +1,7 @@
 <?php
 require_once("recsys.php");
 $uid = $_GET['uid'];
-$relatedTables = array("papersim_author" => 1, "papersim_feedback" => 3, "cite_citeseer"=>0.2, "papersim_cf" => 3, "default"=>1);
+$relatedTables = array("papersim_author" => 0.5, "papersim_feedback" => 3, "cite_citeseer"=>0.2, "papersim_cf" => 2, "default"=>0.2);
 makingRecommendation($uid, $relatedTables);
 $recommendations = makingRecommendation($uid, $relatedTables);
 header('Content-Type: text/xml');
@@ -11,7 +11,7 @@ $n = 0;
 echo "<recommendation>";
 foreach($recommendations[0] as $paper_id => $weight)
 {
-	if(++$n > 10) break;
+	if(++$n > 20) break;
 	arsort($recommendations[1][$paper_id]);
 	$xml = file_get_contents("http://127.0.0.1/api/paper.php?id=$paper_id&user=$uid") ;
 	$p1 = strrpos($xml, "</paper>");
