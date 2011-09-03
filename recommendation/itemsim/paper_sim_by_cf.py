@@ -23,8 +23,6 @@ def paperSim():
         row = cursor.fetchone()
         entity_id = row[1]
         paper_id = row[0]
-        if paper_id not in paper_info:
-            continue
         if prev_entity != entity_id:
             if len(papers) < 500:
                 for i in papers:
