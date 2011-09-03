@@ -39,7 +39,7 @@ def paperSim():
             prev_entity = entity_id
             papers = set()
         papers.add(paper_id)
-    print len(simTable)
+    print "sim : ", len(simTable)
 
     cursor.execute("truncate table papersim_cf;")
     n = 0
