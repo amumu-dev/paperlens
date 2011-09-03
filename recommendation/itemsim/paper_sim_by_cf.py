@@ -50,6 +50,7 @@ def paperSim():
         k = 0
         for j, weight in sorted(rels.items(), key=itemgetter(1), reverse=True):
             cursor.execute("replace into papersim_cf(src_id,dst_id,weight) values (%s,%s,%s);",(i, j, weight / math.sqrt(1 + ni[i] * ni[j])))
+            print i,j
             k = k + 1
             if k > 20:
                 break
