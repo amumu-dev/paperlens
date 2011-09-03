@@ -51,7 +51,7 @@ def GetCategories(buf):
 
 
 
-all_categories = ["graph"]
+all_categories = ["context"]
 processed_categories = set()
 c = crawler.Crawler("")
 while len(all_categories) > 0:
@@ -61,9 +61,9 @@ while len(all_categories) > 0:
     processed_categories.add(word)
     print word
     xml = c.download("http://www.citeulike.org/rss/search/all?q=" + word)
-    fp = open('./words/' + word + '.xml', 'w')
-    fp.write(xml)
-    fp.close()
+    #fp = open('./words/' + word + '.xml', 'w')
+    #fp.write(xml)
+    #fp.close()
     users = GetUsers(xml)
     categories = GetCategories(xml)
     file_user = open('users.txt','a')
