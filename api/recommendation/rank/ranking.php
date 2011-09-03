@@ -1,6 +1,6 @@
 <?php
 
-function ranking($recommendations)
+function ranking(&$recommendations)
 {
 	$used_reasons = array();
 	foreach($recommendations[1] as $paper_id => $reasons)
@@ -17,7 +17,7 @@ function ranking($recommendations)
 			$used_count = $used_reasons[$reason_id];
 			if($used_count > 1)
 			{
-				unset($recommendations[0][$paper_id]);//100 + $used_count * $used_count;
+				$recommendations[0][$paper_id] /= 1 + 2 * $used_count;
 			}
 			break;
 		}
