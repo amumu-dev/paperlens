@@ -10,7 +10,7 @@ def paperSim():
     cursor = connection.cursor()
     simTable = dict()
     ni = dict()
-    cursor.execute("select user_id,paper_id from user_paper_behavior where user_id >0 order by user_id;;")
+    cursor.execute("select paper_id,user_id from user_paper_behavior where user_id >0 order by user_id;;")
 
     numrows = int(cursor.rowcount)
     print numrows
@@ -45,9 +45,8 @@ def paperSim():
     n = 0
     for i, rels in simTable.items():
         k = 0
-        print i, len(rels)
         for j, weight in sorted(rels.items(), key=itemgetter(1), reverse=True):
-            cursor.execute("replace into papersim_cf(src_id,dst_id,weight) values (%s,%s,%s);",(i, j, weight))
+            cursor.execute("replace into papersim_cf(src_id,dst_id,weight) values (%s,%s,%s);",(i, j, weight / math.sqrt(1 + ni[i] * ni[j])))
             print i,j
             k = k + 1
             if k > 20:
