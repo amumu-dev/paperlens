@@ -10,7 +10,7 @@ function renderFirstPaper($paper)
 	echo "<div id=\"paper0\">";
 	$paper_id = $paper->getElementsByTagName('id')->item(0)->nodeValue;
 	$title = $paper->getElementsByTagName('title');
-	echo "<div class=\"title\">" . $title->item(0)->nodeValue . "&nbsp;<a href=\"http://twitter.com/share\" style=\"padding-top:3px;\" class=\"twitter-share-button\" data-count=\"horizontal\">Tweet</a><script type=\"text/javascript\" src=\"http://platform.twitter.com/widgets.js\"></script></div><br />";
+	echo "<div class=\"title\">" . $title->item(0)->nodeValue . "</div><br />";
 	$booktitle = $paper->getElementsByTagName('booktitle');
 	$year = $paper->getElementsByTagName('year');
 	if(strlen($booktitle->item(0)->nodeValue) > 0)
