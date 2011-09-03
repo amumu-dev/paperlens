@@ -24,19 +24,18 @@ def paperSim():
         entity_id = row[1]
         paper_id = row[0]
         if prev_entity != entity_id:
-            if len(papers) < 500:
-                for i in papers:
-                    if i not in simTable:
-                        simTable[i] = dict()
-                        ni[i] = 0
-                    ni[i] = ni[i] + 1
-                    for j in papers:
-                        if i == j:
-                            continue
-                        if j not in simTable[i]:
-                            simTable[i][j] = 0
-                        weight = 1 / math.log(2 + len(papers))
-                        simTable[i][j] = simTable[i][j] + weight
+            for i in papers:
+                if i not in simTable:
+                    simTable[i] = dict()
+                    ni[i] = 0
+                ni[i] = ni[i] + 1
+                for j in papers:
+                    if i == j:
+                        continue
+                    if j not in simTable[i]:
+                        simTable[i][j] = 0
+                    weight = 1 / math.log(2 + len(papers))
+                    simTable[i][j] = simTable[i][j] + weight
             prev_entity = entity_id
             papers = set()
         papers.add(paper_id)
