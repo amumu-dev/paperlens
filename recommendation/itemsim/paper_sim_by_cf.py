@@ -45,6 +45,7 @@ def paperSim():
     n = 0
     for i, rels in simTable.items():
         k = 0
+        print i, len(rels)
         for j, weight in sorted(rels.items(), key=itemgetter(1), reverse=True):
             cursor.execute("replace into papersim_cf(src_id,dst_id,weight) values (%s,%s,%s);",(i, j, weight))
             print i,j
