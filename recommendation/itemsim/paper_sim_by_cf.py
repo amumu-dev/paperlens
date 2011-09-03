@@ -44,13 +44,9 @@ def paperSim():
     cursor.execute("truncate table papersim_cf;")
     n = 0
     for i, rels in simTable.items():
-        print i
-        n = n + 1
-        if n % 10000 == 0:
-            print n
         k = 0
         for j, weight in sorted(rels.items(), key=itemgetter(1), reverse=True):
-            cursor.execute("replace into papersim_cf(src_id,dst_id,weight) values (%s,%s,%s);",(i, j, weight / math.sqrt(1 + ni[i] * ni[j])))
+            cursor.execute("replace into papersim_cf(src_id,dst_id,weight) values (%s,%s,%s);",(i, j, weight))
             print i,j
             k = k + 1
             if k > 20:
