@@ -17,7 +17,7 @@ function ranking($recommendations)
 			$used_count = $used_reasons[$reason_id];
 			if($used_count > 1)
 			{
-				$recommendations[0][$paper_id] /= 10 + $used_count * $used_count;
+				$recommendations[0][$paper_id] /= 100 + $used_count * $used_count;
 			}
 			break;
 		}
