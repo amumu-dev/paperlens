@@ -44,6 +44,7 @@ def paperSim():
     cursor.execute("truncate table papersim_cf;")
     n = 0
     for i, rels in simTable.items():
+        print i
         n = n + 1
         if n % 10000 == 0:
             print n
