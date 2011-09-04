@@ -51,6 +51,7 @@ if($login)
 				<?php
 				if($login){
 				?>
+				<div style="width:100%;float:left;">
 				<div id="toolbar">
 					<span>Hi <?php echo $email; ?></span>&nbsp;&nbsp;
 					<span><a href="./index.php">Home Page</a></span>&nbsp;&nbsp;
@@ -59,6 +60,7 @@ if($login)
 				<div id="share">
 					<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="" send="true" layout="button_count" width="90" show_faces="false" font=""></fb:like>
 					<span><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></span>
+				</div>
 				</div>
 				<?php } else echo "&nbsp;<br>"; ?>
 				<div id="logo"><?php echo $SITE_NAME; ?></div>
