@@ -62,7 +62,7 @@ if($login)
 						<script type="text/javascript" charset="utf-8">
 						(function(){
 						  var _w = 106 , _h = 24;
-						  var param = {url:location.href,type:'5',count:'', appkey:'',title:'',pic:'',ralateUid:'2363867140',rnd:new Date().valueOf()}
+						  var param = {url:location.href,type:'6',count:'', appkey:'',title:'',pic:'',ralateUid:'2363867140',rnd:new Date().valueOf()}
 						  var temp = [];
 						  for( var p in param ){
 						    temp.push(p + '=' + encodeURIComponent( param[p] || '' ) )
@@ -71,7 +71,7 @@ if($login)
 						})()
 						</script>
 					</span>
-					<span><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></span>
+					<!--<span><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></span>-->
 				</div>
 				</div>
 				<?php } else echo "&nbsp;<br>"; ?>
