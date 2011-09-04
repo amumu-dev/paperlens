@@ -19,10 +19,17 @@ a:hover
 }
 #toolbar
 {
-	width:100%;
+	width:40%;
+	height:32px;
 	float:left;
 	margin-top:5px;
 	margin-bottom:15px;
+}
+#share
+{
+	width:50%;
+	height:32px;
+	float:left;
 }
 #main #home_type
 {
