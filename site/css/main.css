@@ -27,11 +27,11 @@ a:hover
 }
 #share
 {
-	width:50%;
+	width:48%;
 	height:32px;
 	float:left;
 }
-#share span{float:right;padding-top:6px;}
+#share span{float:right;padding-top:6px;margin-right:10px;}
 #main #home_type
 {
 	width:100%;
