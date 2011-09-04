@@ -19,7 +19,7 @@ a:hover
 }
 #toolbar
 {
-	width:40%;
+	width:50%;
 	height:32px;
 	float:left;
 	margin-top:5px;
@@ -27,11 +27,11 @@ a:hover
 }
 #share
 {
-	width:60%;
+	width:50%;
 	height:32px;
 	float:left;
 }
-#share span{float:left;padding-top:5px;}
+#share span{float:right;padding-top:6px;}
 #main #home_type
 {
 	width:100%;
