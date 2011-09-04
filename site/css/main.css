@@ -31,7 +31,7 @@ a:hover
 	height:32px;
 	float:left;
 }
-#share span{height:32px;line-height:32px;}
+#share span{float:left;padding-top:5px;}
 #main #home_type
 {
 	width:100%;
