@@ -55,7 +55,7 @@ if($login)
 				<div id="toolbar">
 					<span>Hi <?php echo $email; ?></span>&nbsp;&nbsp;
 					<span><a href="./index.php">Home Page</a></span>&nbsp;&nbsp;
-					<span><a href="./logout.php">Log out</a></span>&nbsp;|&nbsp;
+					<span><a href="./logout.php">Log out</a></span>&nbsp;&nbsp;
 				</div>
 				<div id="share">
 					<span><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></span>
