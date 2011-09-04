@@ -32,7 +32,7 @@ $related_users = array();
 			<div id="header">
 				<div style="width:100%;float:left;">
 				<div id="toolbar">
-					<span>Hi <?php echo $email; ?></span>&nbsp;&nbsp;
+					<span>Hi <?php echo $_SESSION["email"]; ?></span>&nbsp;&nbsp;
 					<span><a href="./index.php">Home Page</a></span>&nbsp;&nbsp;
 					<span><a href="./logout.php">Log out</a></span>&nbsp;&nbsp;
 				</div>
