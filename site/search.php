@@ -39,10 +39,31 @@ $related_users = array();
 		<div id="content">
 			<div id="header">
 				<?php if($login){ ?>
+				<div style="width:100%;float:left;">
 				<div id="toolbar">
 					<span>Hi <?php echo $_SESSION["email"]; ?></span>&nbsp;&nbsp;
-					<span><a href="/site/index.php">Home Page</a></span>&nbsp;&nbsp;
-					<span><a href="/site/logout.php">Log out</a></span>
+					<span><a href="./index.php">Home Page</a></span>&nbsp;&nbsp;
+					<span><a href="./logout.php">Log out</a></span>&nbsp;&nbsp;
+				</div>
+				<div id="share">
+					<span>
+						<script type="text/javascript" charset="utf-8">
+						(function(){
+						  var _w = 106 , _h = 24;
+						  var param = {url:location.href,type:'6',count:'', appkey:'',title:'',pic:'',ralateUid:'2363867140',rnd:new Date().valueOf()}
+						  var temp = [];
+						  for( var p in param ){
+						    temp.push(p + '=' + encodeURIComponent( param[p] || '' ) )
+						  }
+						  document.write('<iframe allowTransparency="true" frameborder="0" scrolling="no" src="http://hits.sinajs.cn/A1/weiboshare.html?' + temp.join('&') + '" width="'+ _w+'" height="'+_h+'"></iframe>')
+						})()
+						</script>
+					</span>
+					<span>
+						<a href="javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:'',r='http://www.douban.com/recommend/?url='+e(d.location.href)+'&title='+e(d.title)+'&sel='+e(s)+'&v=1',x=function(){if(!window.open(r,'douban','toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330'))location.href=r+'&r=1'};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()"><img src="http://img2.douban.com/pics/fw2douban1.png" alt="ÍÆ¼öµ½¶¹°ê" /></a>
+					</span>
+					<!--<span><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></span>-->
+				</div>
 				</div>
 				<?php } else echo "&nbsp;<br>"; ?>
 				<div id="logo"><?php echo $SITE_NAME; ?></div>
