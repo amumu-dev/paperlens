@@ -25,11 +25,13 @@ try:
         row = cursor.fetchone()
         title = row[0].lower()
         words = re.split('\W+', title)
-        for word in words:
-            if word not in keywords:
-                keywords[word] = 1
+        count = len(words)
+        for i in range(count - 1):
+            buf = words[i] + " " + words[i+1]
+            if buf not in keywords:
+                keywords[buf] = 1
             else:
-                keywords[word] = keywords[word] + 1
+                keywords[buf] = keywords[buf] + 1
 
     connection.commit()
     cursor.close()
@@ -37,7 +39,7 @@ try:
 
     fp = open("keywords.txt", "w")
     for word, weight in sorted(keywords.items(), key=itemgetter(1), reverse=True):
-        fp.write(word + "\t" + str(weight))
+        fp.write(word + "\t" + str(weight) + "\n")
     fp.close()
     
 except MySQLdb.Error, e:
