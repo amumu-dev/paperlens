@@ -14,8 +14,8 @@ try:
     data = open("../../data/enwiki-20110722-all-titles-in-ns0")
     c = crawler.Crawler("")
     for line in data:
-        line.replace("-", " ")
-        line.replace("_", " ")
+        line = line.replace("-", " ")
+        line = line.replace("_", " ")
         if len(line) < 5 or len(line) > 48:
             continue
         if re.match("[a-z0-9 ]+", line):
