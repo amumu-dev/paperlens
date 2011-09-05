@@ -39,6 +39,8 @@ try:
 
     fp = open("keywords.txt", "w")
     for word, weight in sorted(keywords.items(), key=itemgetter(1), reverse=True):
+        if weight < 5:
+            break
         fp.write(word + "\t" + str(weight) + "\n")
     fp.close()
     
