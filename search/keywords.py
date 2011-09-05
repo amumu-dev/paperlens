@@ -22,6 +22,7 @@ try:
         matchobj = re.match("[a-z0-9 ]+", line)
         if matchobj == None:
             continue
+        print line, matchobj.group(0)
         if matchobj.group(0) == line:
             print line
     data.close()
