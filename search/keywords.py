@@ -1,5 +1,6 @@
 #ArNet
 import MySQLdb
+import re
 import sys
 sys.path.append("../importer/")
 import crawler
