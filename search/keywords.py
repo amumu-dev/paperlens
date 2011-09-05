@@ -20,6 +20,7 @@ try:
     for k in range(numrows):
         if k % 10000 == 0:
             print k
+        row = cursor.fetchone()
         title = row[0].lower()
         words = re.split('\W+', title)
         for word in words:
