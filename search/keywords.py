@@ -20,7 +20,7 @@ try:
         line = line.lower()
         if len(line) < 5 or len(line) > 48:
             continue
-        matchobj = re.match('[a-z0-9 ]+', line)
+        matchobj = re.match('[a-z]+[a-z0-9 ]+', line)
         if matchobj == None:
             continue
         if matchobj.group(0) == line:
