@@ -18,7 +18,7 @@ try:
         line = line.replace("_", " ")
         if len(line) < 5 or len(line) > 48:
             continue
-        if re.match("[a-z0-9 ]+", line):
+        if re.match("[a-z0-9 ]+", line).group(0) == line:
             print line
     data.close()
     
