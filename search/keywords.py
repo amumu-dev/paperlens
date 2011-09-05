@@ -2,6 +2,8 @@
 import MySQLdb
 import re
 import sys
+import math
+from operator import itemgetter
 sys.path.append("../importer/")
 import crawler
 
