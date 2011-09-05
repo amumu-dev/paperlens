@@ -11,24 +11,31 @@ connection.commit()
 
 
 try:
-    data = open("../../data/enwiki-20110722-all-titles-in-ns0")
-    c = crawler.Crawler("")
-    for line in data:
-        line = line.replace("-", " ")
-        line = line.replace("_", " ")
-        line = line.strip()
-        line = line.lower()
-        if len(line) < 5 or len(line) > 48:
-            continue
-        matchobj = re.match('[a-z]+', line)
-        if matchobj == None:
-            continue
-        if matchobj.group(0) == line:
-            print line
-    data.close()
-    
+    cursor.execute("select title from paper")
+
+    numrows = int(cursor.rowcount)
+    print numrows
+
+    keywords = dict()
+    for k in range(numrows):
+        if k % 10000 == 0:
+            print k
+        title = row[0].lower()
+        words = re.split('\W+', title)
+        for word in words:
+            if word not in keywords:
+                keywords[word] = 1
+            else:
+                keywords[word] = keywords[word] + 1
+
     connection.commit()
     cursor.close()
     connection.close()
+
+    fp = open("keywords.txt", "w")
+    for word, weight in sorted(keywords.items(), key=itemgetter(1), reverse=True):
+        fp.write(word + "\t" + str(weight))
+    fp.close()
+    
 except MySQLdb.Error, e:
     print e.args[0], e.args[1]
