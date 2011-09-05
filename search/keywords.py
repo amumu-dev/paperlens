@@ -10,7 +10,7 @@ connection.commit()
 
 
 try:
-    data = open("../../../data/enwiki-20110722-all-titles-in-ns0")
+    data = open("../../data/enwiki-20110722-all-titles-in-ns0")
     c = Crawler()
     for line in data:
         line.replace("-", " ")
