@@ -9,7 +9,7 @@ $limit = 15;
 $offset = ($page - 1) * $limit;
 
 $dom = new DOMDocument();
-if(!$dom->load('http://127.0.0.1/api/search/search_3.php?user=' . $_SESSION['uid']. '&query=' . str_replace(' ','+',$query). '&offset=' . $offset. '&limit=' .$limit))
+if(!$dom->load('http://127.0.0.1/api/search/search.php?user=' . $_SESSION['uid']. '&query=' . str_replace(' ','+',$query). '&offset=' . $offset. '&limit=' .$limit))
 {
 	echo 'load xml failed';
 	return;
