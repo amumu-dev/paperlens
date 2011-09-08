@@ -3,9 +3,9 @@
 header('Content-Type: text/xml');
 
 require_once('../db.php');
-$uid = $_GET['uid'];
+$id = $_GET['id'];
 
-$result = mysql_query("select b.email, a.message,created_at from recommend a, user b where a.user_id=b.id order by created_at desc limit 20");
+$result = mysql_query("select b.email, a.message,created_at from recommend a, user b where a.user_id=b.id and a.paper_id=$id order by created_at desc limit 10");
 if ($result) {
 	echo "<result>\n";
 	while ($row = mysql_fetch_row($result))
