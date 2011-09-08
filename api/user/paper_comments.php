@@ -12,7 +12,7 @@ if ($result) {
 	{
 		$email = $row[0];
 		$message = $row[1];
-		$created_at = date("Y-M-D H:i:s", strtotime($row[2]));
+		$created_at = date("Y-n-j H:i:s", strtotime($row[2]));
 		echo "<email>$email</email><message>$message</message><date>$created_at</date>";
 	}
 	echo "</result>\n";
