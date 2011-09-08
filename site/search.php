@@ -19,7 +19,7 @@ $related_users = array();
 ?>
 <html>
 	<head>
-		<title><?php echo $SITE_NAME; ?> : Open Source Academic Recommender System</title>
+		<title><?php echo $query . " - " . $SITE_NAME; ?></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="./css/main.css" />
 		<script src="./js/main.js" type="text/javascript"></script>
