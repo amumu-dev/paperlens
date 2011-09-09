@@ -97,7 +97,10 @@ function getDownLoadLink($paper_id)
 {
 	$ret = '';
 	$result = mysql_query("select citeseer_key from paper_citeseer where paper_id=$paper_id;");
-	if(!$result) return $ret;
+	if(!$result){
+		$result = mysql_query("select link from paper_link where id=$paper_id;");
+		if(!$result) return $ret;
+	}
 	
 	while($row = mysql_fetch_row($result))
 	{
