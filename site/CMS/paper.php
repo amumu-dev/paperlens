@@ -1,7 +1,5 @@
 <?php
-header('Content-Type: text/xml');
-
-require_once('db.php');
+require_once('../../api/db.php');
 
 $id = $_GET['id'];
 $result = mysql_query("select title from paper where id=$id");
