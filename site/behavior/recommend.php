@@ -9,7 +9,7 @@ $tags = explode(',', $message);
 
 foreach($tags as $tag)
 {
-	mysql_query("insert into tagging (user_id, paper_id, tag_name, created_at) values ($user_id, $paper_id, '" . $tag . "','" . date("Y-m-d H:i:s") . "');");
+	mysql_query("insert into tagging (user_id, paper_id, tag_name, created_at) values ($user_id, $paper_id, '" . trim($tag) . "','" . date("Y-m-d H:i:s") . "');");
 }
 
 Header("Location: " . $_POST['callback']);
