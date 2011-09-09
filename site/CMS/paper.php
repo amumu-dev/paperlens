@@ -1,7 +1,9 @@
 <?php
 require_once('../../api/db.php');
 
-$id = $_GET['id'];
+$id = 0;
+if(isset($_GET['id'])) $id = $_GET['id'];
+if(isset($_POST['id'])) $id = $_POST['id'];
 $result = mysql_query("select title from paper where id=$id");
 $title = "";
 if ($result) {
@@ -24,6 +26,7 @@ if(isset($_POST['link']))
 		<h3><?php echo $title; ?></h3>
 		<form action="paper.php" method="post">
 			<input type="text" name="link" />
+			<input type="hidden" name="id" value="<?php echo $id;?>"/>
 			<input type="submit" value="submit" />
 		</form>
 	</body>
