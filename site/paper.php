@@ -90,8 +90,9 @@ $related_users = array();
 					
 				</span>
 				<div style="display:none;width:100%;float:left;" id="recommend_box">
+					<span>Please input tags (seprated by comma)</span><br>
 					<form method="post" action="./behavior/recommend.php" style="width:100%;float:left;">
-						<textarea name="message" style="width:95%;float:left;height=64px;"></textarea>
+						<input name="message" style="width:95%;float:left;height=64px;line-height:24px;height:24px;" />
 						<input type="hidden" name="paper_id" value="<?php echo $paper; ?>" />
 						<input type="hidden" name="user_id" value="<?php echo $_SESSION['uid']; ?>" />
 						<input type="hidden" name="callback" value="<?php echo "http://".$_SERVER ['HTTP_HOST'].$_SERVER['REQUEST_URI']; ?>" />
