@@ -102,9 +102,6 @@ if($login)
 			}
 			else
 			{
-				
-				if($papers->length > 0)
-				{
 			?>
 				<div id="main">
 				<span id="home_type">
@@ -113,8 +110,33 @@ if($login)
 					<a href="index.php?type=recommendation" style="<?php if($home_type=='recommendation') echo 'background:#E4EEF0'; ?>">Recommendation for You</a>
 				</span>
 				<?php
+				if($papers->length > 0)
+				{
 					if($home_type == 'recommendation') renderRecommendationPapers($papers, $related_authors, $related_users);
 					else renderPapers($papers, $related_authors, $related_users);
+				?>
+				
+			<?php }
+				else
+				{
+					if($home_type == 'recommendation'){
+				?>
+					<span>As a new user, we need more information to make recommendations for you.</span>
+					<span style="color:#647B0F;">Could you please input some tags <font color=red>(seprated by comma)</font> which can bestly describe your interest:</span>
+					<form style="width:100%;float:left;" action="coldstart.php" method="post">
+						<input style="width:80%;float:left;height:26px;line-height:26px;" type="text" name="keywords" value=""/>
+						<input style="width:15%;float:left;height:26px;line-height:26px;" type="submit" value="Submit"/>
+					</form>
+					<span style="color:#1F81CD;width:100%;float:left;">Or you can use search engine now to find papers you like.</span>
+				<?php
+					}
+					else
+					{
+				?>
+					<span>Sorry! You have not done this behavior before, so there is no results!</span>
+				<?php
+					}
+				}
 				?>
 				</div>
 				<div id="side">
@@ -130,22 +152,7 @@ if($login)
 					?>
 					</div>
 				</div>
-			<?php }
-				else
-				{
-				?>
-				<div id="main">
-				&nbsp;<br/>&nbsp;<br/>
-				<span>As a new user, we need more information to make recommendations for you.</span>
-				<span style="color:#647B0F;">Could you please input some tags <font color=red>(seprated by comma)</font> which can bestly describe your interest:</span>
-				<form style="width:100%;float:left;" action="coldstart.php" method="post">
-				<input style="width:80%;float:left;height:26px;line-height:26px;" type="text" name="keywords" value=""/>
-				<input style="width:15%;float:left;height:26px;line-height:26px;" type="submit" value="Submit"/>
-				</form>
-				<span style="color:#1F81CD;width:100%;float:left;">Or you can use search engine now to find papers you like.</span>
-				</div>
 				<?php
-				}
 			}
 			?>
 		</div>
