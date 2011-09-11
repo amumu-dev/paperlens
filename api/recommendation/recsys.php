@@ -6,7 +6,8 @@ require_once("./behavior/behavior.php");
 
 //get related items of a given item
 //require_once("./relate/related_items.php");
-require_once("./relate/related_items.php");
+//require_once("./relate/related_items.php");
+require_once("./relate/redis_cache_related_items.php");
 
 //generate raw recommendations from a set of source items
 require_once("./core/recommendation_core.php");
