@@ -34,7 +34,7 @@ try:
         booktitle = papers[paper_id]
         rank = float(booktitle_citations[booktitle]) / float(booktitle_count[booktitle] + 10)
         rank = rank * 0.2 + float(paper_citations[paper_id]);
-        cursor.execute("update paper set rank=%s where id=%s", (rank, paper_id))
+        cursor.execute("update paper set search_rank=%s where id=%s", (rank, paper_id))
         k = k + 1
         if k % 100000 == 0:
             print k
