@@ -9,9 +9,10 @@ function send_mail($to_address, $to_name ,$subject, $body)
 	$mail->CharSet = 'utf-8';
 	$mail->Encoding = 'base64';
 	$mail->From = 'reculike@gmail.com';
+	$mail->SMTPSecure = "ssl";
 	$mail->FromName = 'RecULike';
-	$mail->Host = 'tls://smtp.gmail.com';
-	$mail->Port = 587; //default is 25, gmail is 465 or 587
+	$mail->Host = 'smtp.gmail.com';
+	$mail->Port = 465; //default is 25, gmail is 465 or 587
 	$mail->SMTPAuth = true;
 	$mail->Username = 'reculike@gmail.com';
 	$mail->Password = 'pi31415926';
