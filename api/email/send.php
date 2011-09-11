@@ -8,13 +8,13 @@ function send_mail($to_address, $to_name ,$subject, $body)
 	$mail->IsSMTP(); // set mailer to use SMTP
 	$mail->CharSet = 'utf-8';
 	$mail->Encoding = 'base64';
-	$mail->From = 'reculike@gmail.com';
+	$mail->From = 'reculike@yahoo.com';
 	$mail->SMTPSecure = "ssl";
 	$mail->FromName = 'RecULike';
-	$mail->Host = 'smtp.gmail.com';
+	$mail->Host = 'plus.smtp.mail.yahoo.com';
 	$mail->Port = 465; //default is 25, gmail is 465 or 587
 	$mail->SMTPAuth = true;
-	$mail->Username = 'reculike@gmail.com';
+	$mail->Username = 'reculike';
 	$mail->Password = 'pi31415926';
 	$mail->addAddress($to_address, $to_name);
 	$mail->WordWrap = 50;
