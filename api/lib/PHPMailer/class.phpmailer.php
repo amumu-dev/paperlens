@@ -848,8 +848,6 @@ class PHPMailer {
           $host = $hosts[$index];
           $port = $this->Port;
         }
-	$host = $this->Host;
-	$port = $this->Port;
 
         $tls = ($this->SMTPSecure == 'tls');
         $ssl = ($this->SMTPSecure == 'ssl');
