@@ -5,6 +5,7 @@ function ranking(&$recommendations)
 	$used_reasons = array();
 	foreach($recommendations[1] as $paper_id => $reasons)
 	{
+		if(!array_key_exists($paper_id, $recommendations[0])) continue;
 		arsort($reasons);
 		foreach($reasons as $reason_id => $weight)
 		{

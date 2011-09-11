@@ -9,6 +9,7 @@ function filtering($behaviors, &$recommendations, $debug = FALSE)
 		{
 			if($debug) echo $item . "\n";
 			unset($recommendations[0][$item]);
+			unset($recommendations[1][$item]);
 		}
 		if($debug) echo "\n";
 	}
