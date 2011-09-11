@@ -10,7 +10,7 @@ function send_mail($to_address, $to_name ,$subject, $body)
 	$mail->Encoding = 'base64';
 	$mail->From = 'reculike@gmail.com';
 	$mail->FromName = 'RecULike';
-	$mail->Host = 'ssl://smtp.gmail.com';
+	$mail->Host = 'tls://smtp.gmail.com';
 	$mail->Port = 587; //default is 25, gmail is 465 or 587
 	$mail->SMTPAuth = true;
 	$mail->Username = 'reculike@gmail.com';
