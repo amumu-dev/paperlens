@@ -32,4 +32,6 @@ function send_mail($to_address, $to_name ,$subject, $body)
 	}
 }
 
+send_mail("xlvector@gmail.com", "xlvector", "Hello", "Hello");
+
 ?>
