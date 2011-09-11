@@ -15,7 +15,7 @@ function send_mail($to_address, $to_name ,$subject, $body)
 	$mail->SMTPAuth = true;
 	$mail->Username = 'reculike@gmail.com';
 	$mail->Password = 'pi31415926';
-	$mail->>ddAddress($to_address, $to_name);
+	$mail->addAddress($to_address, $to_name);
 	$mail->WordWrap = 50;
 	$mail->IsHTML(false);
 	$mail->Subject = $subject;
