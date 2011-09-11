@@ -54,7 +54,7 @@ function makingRecommendation($uid, $relatedTables)
 	array_push($recommendations, array());
 	
 	$behaviors = GetBehavior($uid);
-	$features = array_slice($behaviors, 0, 10, TRUE);
+	$features = array_slice($behaviors, 0, 16, TRUE);
 	foreach($relatedTables as $table_name => $table_weight)
 	{
 		$one_recommendations = recommendationCore($features, $table_name, 5);
