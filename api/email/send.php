@@ -15,7 +15,7 @@ function send_mail($to_address, $to_name ,$subject, $body)
 	$mail->Port = 25; //default is 25, gmail is 465 or 587
 	$mail->SMTPAuth = true;
 	$mail->Username = 'reculike@163.com';
-	$mail->Password = 'pi31415926';
+	$mail->Password = 'RecULike';
 	$mail->addAddress($to_address, $to_name);
 	$mail->WordWrap = 50;
 	$mail->IsHTML(false);
