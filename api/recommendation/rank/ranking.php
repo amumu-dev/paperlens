@@ -22,6 +22,7 @@ function ranking(&$recommendations)
 			}
 			break;
 		}
+		$recommendations[0][$paper_id] = rand(0,100) + 100;
 	}
 }
 ?>
