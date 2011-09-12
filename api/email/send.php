@@ -18,7 +18,7 @@ function send_mail($to_address, $to_name ,$subject, $body)
 	$mail->Password = 'RecULike';
 	$mail->addAddress($to_address, $to_name);
 	$mail->WordWrap = 50;
-	$mail->IsHTML(false);
+	$mail->IsHTML(true);
 	$mail->Subject = $subject;
 	$mail->Body = $body;
 	if(!$mail->Send())
@@ -32,7 +32,5 @@ function send_mail($to_address, $to_name ,$subject, $body)
 		return true;
 	}
 }
-
-send_mail("xlvector@gmail.com", "xlvector", "Hello", "Hello");
 
 ?>
