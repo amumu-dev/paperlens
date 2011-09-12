@@ -1,6 +1,6 @@
 <?php
 
-require_once("../lib/PHPMailer/class.phpmailer.php");
+require_once("../../api/lib/PHPMailer/class.phpmailer.php");
 
 function send_mail($to_address, $to_name ,$subject, $body)
 {
