@@ -256,9 +256,9 @@ function renderSearchPapers($papers_dom, $query, &$related_authors, &$related_us
 		$download_link = "";
 		if(strlen($citeseer_key) > 0)
 		{
-			if(strpos($download_link, "http") == 0)
-				$download_link = $citeseer_key;
-			else $download_link = "http://citeseerx.ist.psu.edu/viewdoc/download?doi=" . $citeseer_key . "&rep=rep1&type=pdf";
+			if(strpos($download_link, "http") === FALSE)
+				$download_link = "http://citeseerx.ist.psu.edu/viewdoc/download?doi=" . $citeseer_key . "&rep=rep1&type=pdf";
+			else $download_link = $citeseer_key;
 		}
 		$authors = $paper->getElementsByTagName('author');
 		$k = 0;
