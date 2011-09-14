@@ -20,8 +20,7 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";
 	{
 		$paper_id = $row[0];
 		$title = $row[1];
-		echo "<item><title>$title</title><link>http://www.reculike.com/site/paper.php?id=$paper_id</link><pubDate><?php echo date('Y-m-j G:i:s'); ?></pubDate></item>";
-		break;
+		echo "<item><title>$title</title><link>http://www.reculike.com/site/paper.php?id=$paper_id</link><pubDate>echo date('Y-m-j G:i:s')</pubDate></item>";
 	}
 	?>
 </channel>
