@@ -4,7 +4,7 @@ header('Content-Type: text/xml');
 
 require_once('../../api/db.php');
 
-$result = mysql_query("select a.paper_id,b.title,count(*) as c from user_paper_behavior a, paper b where a.paper_id=b.id group by a.paper_id order by c desc limit 10;");
+$result = mysql_query("select a.paper_id,b.title,b.abstract,count(*) as c from user_paper_behavior a, paper b where a.paper_id=b.id group by a.paper_id order by c desc limit 10;");
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";
 ?>
 
@@ -19,7 +19,8 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";
 	{
 		$paper_id = $row[0];
 		$title = $row[1];
-		echo "<item><title>$title</title><link>http://www.reculike.com/site/paper.php?id=$paper_id</link><pubDate>".date('Y-m-j G:i:s')."</pubDate></item>";
+		$abstract = $row[2];
+		echo "<item><title>$title</title><link>http://www.reculike.com/site/paper.php?id=$paper_id</link><description>$abstract</description><pubDate>".date('Y-m-j G:i:s')."</pubDate></item>";
 	}
 	?>
 </channel>
