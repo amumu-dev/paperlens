@@ -20,7 +20,7 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";
 		$paper_id = $row[0];
 		$title = $row[1];
 		$abstract = $row[2];
-		echo "<item><title>$title</title><link>http://www.reculike.com/site/paper.php?id=$paper_id</link><description>$abstract</description><pubDate>".date('Y-m-j G:i:s')."</pubDate></item>";
+		echo "<item><title>$title</title><link>http://www.reculike.com/site/paper.php?id=$paper_id</link><description>[CDATA[$abstract]]</description><pubDate>".date('Y-m-j G:i:s')."</pubDate></item>";
 	}
 	?>
 </channel>
