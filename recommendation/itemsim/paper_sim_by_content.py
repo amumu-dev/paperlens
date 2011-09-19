@@ -16,6 +16,7 @@ for y in range(0, 30):
     cursor1.execute("select id, title, booktitle,journal,year from paper where year=%s", (year))
     entity_dict = dict()
     numrows = int(cursor1.rowcount)
+    print numrows
     for k in range(numrows):
         if k % 10000 == 0:
             print k
