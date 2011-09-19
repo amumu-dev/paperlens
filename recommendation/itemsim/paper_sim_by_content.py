@@ -5,14 +5,15 @@ from paper import Paper
 import math
 from operator import itemgetter
 
-def generatePaperEntities():
+for y in range(0, 30):
+    year = 2011 - y
+    print year
     connection1 = MySQLdb.connect(host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
     cursor1 = connection1.cursor()
     connection2 = MySQLdb.connect(host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
     cursor2 = connection1.cursor()
     cursor2.execute("truncate table tmp_paper_entities;")
-    #cursor1.execute("select paper.id, paper_author.author_id, paper.year, paper.title, paper.booktitle from paper_author left join paper on paper_author.paper_id = paper.id")
-    cursor1.execute("select id, title, booktitle,journal from paper where citations>2")
+    cursor1.execute("select id, title, booktitle,journal,year from paper where year=%s", (year))
     entity_dict = dict()
     numrows = int(cursor1.rowcount)
     for k in range(numrows):
@@ -43,8 +44,6 @@ def generatePaperEntities():
     cursor2.close()
     connection2.close()
     
-
-def paperSim():
     connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "paperlens")
     cursor = connection.cursor()
 
@@ -81,7 +80,7 @@ def paperSim():
         papers.append(paper_id)
     print len(simTable)
 
-    cursor.execute("truncate table papersim_author;")
+    cursor.execute("truncate table papersim_content;")
     n = 0
     for i, rels in simTable.items():
         n = n + 1
@@ -89,7 +88,7 @@ def paperSim():
             print n
         k = 0
         for j, weight in sorted(rels.items(), key=itemgetter(1), reverse=True):
-            cursor.execute("replace into papersim_author(src_id,dst_id,weight) values (%s,%s,%s);",(i, j, weight))
+            cursor.execute("replace into papersim_content(src_id,dst_id,weight) values (%s,%s,%s);",(i, j, weight))
             k = k + 1
             if k > 10:
                 break
@@ -97,6 +96,3 @@ def paperSim():
     connection.commit()
     cursor.close()
     connection.close()
-
-generatePaperEntities()
-paperSim()
