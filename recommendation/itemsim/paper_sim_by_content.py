@@ -79,7 +79,8 @@ for y in range(0, 30):
         papers.append(paper_id)
     print len(simTable)
 
-    cursor.execute("truncate table papersim_content;")
+    if y==0:
+        cursor.execute("truncate table papersim_content;")
     n = 0
     for i, rels in simTable.items():
         n = n + 1
