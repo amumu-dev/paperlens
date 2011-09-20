@@ -1,7 +1,7 @@
 <?php
 require_once("recsys.php");
 $uid = $_GET['uid'];
-$relatedTables = array("papersim_author" => 0.5, "papersim_feedback" => 3, "cite_citeseer"=>0.2, "papersim_cf" => 2, "default"=>0.2, "papersim_content"=>0.5);
+$relatedTables = array("papersim_author" => 0.5, "papersim_feedback" => 3, "cite_citeseer"=>0.2, "papersim_cf" => 2, "default"=>0.2, "papersim_content"=>0.2);
 makingRecommendation($uid, $relatedTables);
 $recommendations = makingRecommendation($uid, $relatedTables);
 header('Content-Type: text/xml');
