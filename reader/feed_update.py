@@ -7,7 +7,7 @@ def GetFeedInfo(url):
     c = crawler.Crawler('')
     rss = c.download(url)
     if len(rss) < 20:
-        return ['', '', '']
+        return ['', '']
     dom = xml.dom.minidom.parseString(str.strip(rss))
     items = dom.getElementsByTagName('item')
     title = ''
@@ -16,7 +16,6 @@ def GetFeedInfo(url):
     for item in items:
         title = item.getElementsByTagName('title')[0].firstChild.data
         link = item.getElementsByTagName('link')[0].firstChild.data
-        description = item.getElementsByTagName('description')[0].firstChild.data
         break
     return [title, link, description]
         
@@ -30,7 +29,7 @@ try:
     n = 0
     for line in data:
         [feed, title, popularity] = line.split('\t')
-        [article_title, article_link, description] = GetFeedInfo(feed)
+        [article_title, article_link] = GetFeedInfo(feed)
         if len(article_title) == 0:
             continue
         print feed, article_title, article_link
