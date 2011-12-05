@@ -41,6 +41,7 @@ try:
         [feed, title, popularity] = line.split('\t')
         if feed in feeds:
             print 'up to date', feed
+            continue
         [article_title, article_link] = GetFeedInfo(feed)
         if len(article_title) == 0:
             continue
