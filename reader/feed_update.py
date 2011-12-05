@@ -29,9 +29,18 @@ cursor.execute("set names utf8")
 data = open("feed_popularity.txt")
 
 try:
+    cursor.execute("select link from feeds where modify_at>;", (int(time.mktime(time.localtime()))) - 10000))
+    numrows = int(cursor.rowcount)
+    feeds = set()
+    for k in range(numrows):
+        row = cursor.fetchone()
+        feeds.add(row[0])
+    print 'new feed number : ', len(feeds)
     n = 0
     for line in data:
         [feed, title, popularity] = line.split('\t')
+        if feed in feeds:
+            print 'up to date', feed
         [article_title, article_link] = GetFeedInfo(feed)
         if len(article_title) == 0:
             continue
