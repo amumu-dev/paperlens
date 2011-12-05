@@ -21,6 +21,7 @@ def GetFeedInfo(url):
 
 connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "reader")
 cursor = connection.cursor()
+cursor.execute("set names 'utf8'")
 data = open("feed_popularity.txt")
 
 try:
