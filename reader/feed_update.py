@@ -2,6 +2,7 @@ import MySQLdb
 import crawler
 import xml.dom.minidom
 import time
+import random
 
 def GetFeedInfo(url):
     c = crawler.Crawler('')
@@ -38,6 +39,8 @@ try:
     print 'new feed number : ', len(feeds)
     n = 0
     for line in data:
+        if random.random() > 0.2:
+            continue
         [feed, title, popularity] = line.split('\t')
         if feed in feeds:
             print 'up to date', feed
