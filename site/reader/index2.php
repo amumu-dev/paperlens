@@ -10,7 +10,7 @@ while($row=mysql_fetch_array($result))
 {
 	$name = $row[0];
 	$link = $row[1];
-	echo "<a href=\"$link\">$name</a>";
+	echo "<a href=\"$link\" target=_blank>$name</a><br/>";
 }
 ?>
 </body></html>
