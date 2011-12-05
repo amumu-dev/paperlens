@@ -29,7 +29,7 @@ cursor.execute("set names utf8")
 data = open("feed_popularity.txt")
 
 try:
-    cursor.execute("select link from feeds where modify_at>;", (int(time.mktime(time.localtime()))) - 10000))
+    cursor.execute("select link from feeds where modify_at>;", (int(time.mktime(time.localtime())) - 10000))
     numrows = int(cursor.rowcount)
     feeds = set()
     for k in range(numrows):
