@@ -17,7 +17,7 @@ def GetFeedInfo(url):
         title = item.getElementsByTagName('title')[0].firstChild.data
         link = item.getElementsByTagName('link')[0].firstChild.data
         break
-    return [title, link, description]
+    return [title, link]
         
 
 connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "reader", charset="utf8")
