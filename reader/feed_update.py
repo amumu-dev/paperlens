@@ -6,6 +6,8 @@ import time
 def GetFeedInfo(url):
     c = crawler.Crawler('')
     rss = c.download(url)
+    if len(rss) < 20:
+        return ['', '', '']
     dom = xml.dom.minidom.parseString(str.strip(rss))
     items = dom.getElementsByTagName('item')
     title = ''
@@ -29,6 +31,8 @@ try:
     for line in data:
         [feed, title, popularity] = line.split('\t')
         [article_title, article_link, description] = GetFeedInfo(feed)
+        if len(article_title) == 0:
+            continue
         print feed, article_title, article_link
         cursor.execute("replace into feeds(name, link, popularity,latest_article_title,latest_article_link,modify_at) values (%s,%s,%s,%s,%s,%s);",
                        (title, feed, popularity, article_title, article_link, int(time.mktime(time.localtime()))))
