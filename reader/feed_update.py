@@ -16,8 +16,12 @@ def GetFeedInfo(url):
         link = ''
         description = ''
         for item in items:
-            title = item.getElementsByTagName('title')[0].firstChild.data
-            link = item.getElementsByTagName('link')[0].firstChild.data
+            title_node = item.getElementsByTagName('title')
+            if len(title_node) > 0:
+                title = title_node[0].firstChild.data
+            link_node = item.getElementsByTagName('link')
+            if len(link_node) > 0:
+                link = link_node[0].firstChild.data
             break
     except xml.parsers.expat.ExpatError, e:
         return ['', '']
