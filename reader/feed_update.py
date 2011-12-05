@@ -8,15 +8,18 @@ def GetFeedInfo(url):
     rss = c.download(url)
     if len(rss) < 20:
         return ['', '']
-    dom = xml.dom.minidom.parseString(str.strip(rss))
-    items = dom.getElementsByTagName('item')
-    title = ''
-    link = ''
-    description = ''
-    for item in items:
-        title = item.getElementsByTagName('title')[0].firstChild.data
-        link = item.getElementsByTagName('link')[0].firstChild.data
-        break
+    try:
+        dom = xml.dom.minidom.parseString(str.strip(rss))
+        items = dom.getElementsByTagName('item')
+        title = ''
+        link = ''
+        description = ''
+        for item in items:
+            title = item.getElementsByTagName('title')[0].firstChild.data
+            link = item.getElementsByTagName('link')[0].firstChild.data
+            break
+    except xml.parsers.expat.ExpatError, e:
+        return ['', '']
     return [title, link]
         
 
