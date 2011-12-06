@@ -29,7 +29,7 @@ function addHistory(feed_id)
 	
 	var node = document.getElementById('feed_' + feed_id)
 	node.innerHTML = "谢谢";
-	node.background = "#AAA";
+	node.style.background = "#AAA";
 }
 
 function getHistory()
