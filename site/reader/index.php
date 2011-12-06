@@ -67,6 +67,11 @@ function IsChinese($buf)
 					. "</div>";
 			}
 			?>
+			<div style="width:100%;margin-top:20px;">
+				<a href="http://www.reculike/site/reader/" style="display:block;margin:0 auto;width:160px;height:32px;font-size:32px;line-height:32px;">
+					刷&nbsp;新
+				</a>
+			</div>
 		</div>
 	</body>
 </html>
