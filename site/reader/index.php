@@ -29,7 +29,7 @@ require_once('db.php');
 			</div>
 			<?php
 
-			$result = mysql_query("select name, link, latest_article_title, latest_article_link from feeds order by popularity desc limit 50");
+			$result = mysql_query("select name, link, latest_article_title, latest_article_link from feeds order by popularity desc limit 32");
 			while($row=mysql_fetch_array($result))
 			{
 				$name = $row[0];
