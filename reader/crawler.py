@@ -24,4 +24,6 @@ class Crawler:
         except urllib2.URLError, e:
             print e.reason
             return ''
+        except httplib.IncompleteRead, e:
+            return ''
         
