@@ -50,6 +50,28 @@ for k in range(numrows):
     row = cursor.fetchone()
     feeds.add(row[0])
 print 'new feed number : ', len(feeds)
+
+link_id_map = dict()
+cursor.execute("select id,link from feeds;")
+numrows = int(cursor.rowcount)
+for k in range(numrows):
+    row = cursor.fetchone()
+    link_id_map[row[1]] = link_id[row[0]]
+print 'new feed number : ', len(feeds)
+
+cursor.execute("truncate table feedsim;")
+data = open("feed_similarity.txt")
+for line in data:
+    try:
+        [src_feed, dst_feed, weight] = line.split('\t')
+        if src_feed not in link_id_map or dst_feed not in link_id_map:
+            continue
+        print link_id_map[src_feed], link_id_map[dst_feed], weight
+        cursor.execute("replace into feedsim(src_id, dst_id, weight) values (%s,%s,%s);",
+                       (link_id_map[src_feed], link_id_map[dst_feed], weight))
+    except:
+        continue
+
 n = 0
 data = open("feed_popularity.txt")
 for line in data:
