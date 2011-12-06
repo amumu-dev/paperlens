@@ -35,27 +35,27 @@ cursor = connection.cursor()
 cursor.execute("set names utf8")
 
 
-try:
-    data = open("feed_popularity.txt")
-    for line in data:
-        [feed, title, popularity] = line.split('\t')
-        print feed, popularity
-        cursor.execute("insert into feeds(name, link, popularity) values (%s,%s,%s) on duplicate key update popularity=values(popularity);",
-                       (title, feed, popularity))
-    data.close()
-    
-    cursor.execute("select link from feeds where modify_at>%s;", (int(time.mktime(time.localtime())) - 10000))
-    numrows = int(cursor.rowcount)
-    feeds = set()
-    for k in range(numrows):
-        row = cursor.fetchone()
-        feeds.add(row[0])
-    print 'new feed number : ', len(feeds)
-    n = 0
-    data = open("feed_popularity.txt")
-    for line in data:
-        if random.random() > 0.2:
-            continue
+data = open("feed_popularity.txt")
+for line in data:
+    [feed, title, popularity] = line.split('\t')
+    print feed, popularity
+    cursor.execute("insert into feeds(name, link, popularity) values (%s,%s,%s) on duplicate key update popularity=values(popularity);",
+                   (title, feed, popularity))
+data.close()
+
+cursor.execute("select link from feeds where modify_at>%s;", (int(time.mktime(time.localtime())) - 10000))
+numrows = int(cursor.rowcount)
+feeds = set()
+for k in range(numrows):
+    row = cursor.fetchone()
+    feeds.add(row[0])
+print 'new feed number : ', len(feeds)
+n = 0
+data = open("feed_popularity.txt")
+for line in data:
+    if random.random() > 0.2:
+        continue
+    try:
         [feed, title, popularity] = line.split('\t')
         if feed in feeds:
             print 'up to date', feed
@@ -66,10 +66,10 @@ try:
         print feed, article_title, article_link
         cursor.execute("replace into feeds(name, link, popularity,latest_article_title,latest_article_link,modify_at) values (%s,%s,%s,%s,%s,%s);",
                        (title, feed, popularity, article_title, article_link, int(time.mktime(time.localtime()))))
-        
-    connection.commit()
-    cursor.close()
-    connection.close()
-    data.close()
-except MySQLdb.Error, e:
-    print e.args[0], e.args[1]
+    except:
+        print 'error'
+    
+connection.commit()
+cursor.close()
+connection.close()
+data.close()
