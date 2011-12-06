@@ -22,6 +22,7 @@ function addHistory(feed_id)
 	var strCookie = "his=" + feed_id;
 	for(var i = 0; i < 20 && i < tks.length; i++)
 	{
+		if(tks[i] == feed_id) continue;
 		strCookie += "_" + tks[i];
 	}
 	document.cookie = strCookie;
