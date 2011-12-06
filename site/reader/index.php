@@ -85,6 +85,7 @@ function IsChinese($buf)
 						. "</div>";
 				}
 			}
+			/*
 			$result = mysql_query("select name, link, latest_article_title, latest_article_link, id from feeds order by popularity desc limit 100");
 			while($row=mysql_fetch_array($result))
 			{
@@ -108,6 +109,7 @@ function IsChinese($buf)
 					. "<a $onclick_str target=\"_blank\" href=\"http://xianguo.com/subscribe?url=$encode_link\"><img src=\"http://xgres.com/static/images/sub/sub_XianGuo_09.gif\" /></a>"
 					. "</div>";
 			}
+			*/
 			?>
 			<div style="width:100%;margin-top:50px;">
 				<a href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;margin:0 auto;width:160px;height:40px;text-align:center;font-size:32px;line-height:40px;">
