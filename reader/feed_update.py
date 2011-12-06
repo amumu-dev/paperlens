@@ -105,7 +105,7 @@ for line in data:
         continue
     print feed, article_title, article_link, pub_date
     cursor.execute("insert into feeds(link, latest_article_title,latest_article_link,modify_at) values (%s,%s,%s,%s,%s,%s) on duplicate key update latest_article_title=values(latest_article_title),modify_at=values(modify_at),latest_article_link=values(latest_article_link), ;",
-                   (title, feed, popularity, article_title, article_link, pub_date))
+                   (feed, article_title, article_link, pub_date))
     
 connection.commit()
 cursor.close()
