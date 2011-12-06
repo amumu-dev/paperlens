@@ -61,8 +61,9 @@ function IsChinese($buf)
 			}
 			arsort($rank);
 			print_r($rank);
-			foreach($rank as $id)
+			foreach($rank as $id =>$w)
 			{
+				echo $id . "&nbsp;";
 				$result = mysql_query("select name, link, latest_article_title, latest_article_link from feeds where id=$id");
 				while($row=mysql_fetch_array($result))
 				{
