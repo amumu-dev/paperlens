@@ -1,6 +1,6 @@
 <?php
 require_once('db.php');
-
+srand(mktime())
 function IsChinese($buf)
 {
 	for($i = 0; $i < strlen($buf); ++$i)
@@ -42,6 +42,8 @@ function IsChinese($buf)
 			<?php
 			$history = array();
 			if(array_key_exists("his", $_COOKIE)) $history = explode("_", $_COOKIE["his"]);
+			$load_history = array();
+			if(array_key_exists("loadhis", $_COOKIE)) $load_history = explode("_", $_COOKIE["his"]);
 			$n = 0;
 			$k = 0;
 			$rank = array();
@@ -62,6 +64,7 @@ function IsChinese($buf)
 			arsort($rank);
 			foreach($rank as $id =>$w)
 			{
+				if(in_array($id, $load_history) && rand() % 2 == 0) continue;
 				$result = mysql_query("select name, link, latest_article_title, latest_article_link from feeds where id=$id");
 				while($row=mysql_fetch_array($result))
 				{
@@ -84,6 +87,9 @@ function IsChinese($buf)
 						. "<a $onclick_str href=\"http://9.douban.com/reader/subscribe?url=$encode_link\" target=\"_blank\"><img src=\"http://www.douban.com/pics/newnine/feedbutton1.gif\"/></a>&nbsp;"
 						. "<a $onclick_str target=\"_blank\" href=\"http://xianguo.com/subscribe?url=$encode_link\"><img src=\"http://xgres.com/static/images/sub/sub_XianGuo_09.gif\" /></a>"
 						. "</div>";
+					if(array_key_exists("loadhis", $_COOKIE))
+						setcookie("loadhis", $id . "_" . $_COOKIE["loadhis"]);
+					else setcookie("loadhis", $id);
 				}
 			}
 			echo "<hr/>";
@@ -99,6 +105,7 @@ function IsChinese($buf)
 				$article = $row[2];
 				$article_link = $row[3];
 				$id = $row[4];
+				if(in_array($id, $load_history) && rand() % 2 == 0) continue;
 				if(array_key_exists($id, $rank)) continue;
 				if(in_array($id, $history)) continue;
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
@@ -113,6 +120,9 @@ function IsChinese($buf)
 					. "<a $onclick_str href=\"http://9.douban.com/reader/subscribe?url=$encode_link\" target=\"_blank\"><img src=\"http://www.douban.com/pics/newnine/feedbutton1.gif\"/></a>&nbsp;"
 					. "<a $onclick_str target=\"_blank\" href=\"http://xianguo.com/subscribe?url=$encode_link\"><img src=\"http://xgres.com/static/images/sub/sub_XianGuo_09.gif\" /></a>"
 					. "</div>";
+				if(array_key_exists("loadhis", $_COOKIE))
+						setcookie("loadhis", $id . "_" . $_COOKIE["loadhis"]);
+				else setcookie("loadhis", $id);
 			}
 			
 			?>
