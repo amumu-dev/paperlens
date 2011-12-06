@@ -87,7 +87,7 @@ for line in data:
         if len(article_title) == 0:
             continue
         print feed, article_title, article_link
-        cursor.execute("replace into feeds(name, link, popularity,latest_article_title,latest_article_link,modify_at) values (%s,%s,%s,%s,%s,%s);",
+        cursor.execute("insert into feeds(link, latest_article_title,latest_article_link,modify_at) values (%s,%s,%s,%s,%s,%s) on duplicate key update latest_article_title=values(latest_article_title),modify_at=values(modify_at),latest_article_link=values(latest_article_link), ;",
                        (title, feed, popularity, article_title, article_link, int(time.mktime(time.localtime()))))
     except:
         print 'error'
