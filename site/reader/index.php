@@ -40,7 +40,7 @@ function IsChinese($buf)
 				<span class="subscribe" style="font-size:16px;line-height:36px;font-weight:bold;">订阅</span>
 			</div>
 			<?php
-			echo $_COOKIE["his"];
+			$history = $_COOKIE["his"].explode("_");
 			$n = 0;
 			$k = 0;
 			$result = mysql_query("select name, link, latest_article_title, latest_article_link, id from feeds order by popularity desc limit 100");
@@ -57,7 +57,9 @@ function IsChinese($buf)
 				if(!IsChinese($article)) continue;
 				if(++$n > 16) break;
 				$onclick_str = "onclick=\"addHistory($id);\"";
-				echo "<div class=\"item\"><span class=\"feed\"><a id=\"feed_$id\" class=\"like\" $onclick_str>喜欢</a>&nbsp;<a href=\"$link\" target=_blank>$name</a></span>"
+				$like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str>喜欢</a>";
+				if(in_array($id, $history)) $like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str style=\"background=#AAA;\">谢谢</a>";
+				echo "<div class=\"item\"><span class=\"feed\">$like_str &nbsp;<a href=\"$link\" target=_blank>$name</a></span>"
 					. "<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>"
 					. "<span class=\"subscribe\"><a href=\"http://fusion.google.com/add?feedurl=$encode_link\" target=_blank><img src=\"http://gmodules.com/ig/images/plus_google.gif\" /></a>&nbsp;"
 					. "<a href=\"http://9.douban.com/reader/subscribe?url=$encode_link\" target=\"_blank\"><img src=\"http://www.douban.com/pics/newnine/feedbutton1.gif\"/></a>&nbsp;"
