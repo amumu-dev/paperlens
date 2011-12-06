@@ -1,5 +1,14 @@
 <?php
 require_once('db.php');
+
+function IsChinese($buf)
+{
+	for($i = 0; $i < strlen($buf); ++$i)
+	{
+		if(ord($buf[$i]) > 127) return true;
+	}
+	return false;
+}
 ?>
 
 <html>
@@ -40,6 +49,7 @@ require_once('db.php');
 				$article = $row[2];
 				$article_link = $row[3];
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
+				if(!IsChinese($article)) continue;
 				if(++$n > 16) break;
 				echo "<div class=\"item\"><span class=\"feed\"><a href=\"$link\" target=_blank>$name</a></span>"
 					. "<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>"
