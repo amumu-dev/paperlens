@@ -10,8 +10,9 @@ require_once('db.php');
 			body {font-family:Verdana; font-size:13px;line-height:26px;}
 			#main{width:900px; margin:0 auto; margin-top:20px;}
 			#head{width:900px; margin:0 auto; font-size:40px;margin-top:10px;}
-			.feed {width:30%; float:left; }
-			.article {width:70%; float:left; }
+			.feed {width:25%; float:left; }
+			.article {width:60%; float:left; }
+			.add {width:15%; float:left; }
 			a {font-size:14px; color: #1D5261; }
 			a:hover {font-size:14px; color: #5697A3; }
 			img {border:none;}
@@ -36,7 +37,7 @@ require_once('db.php');
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
 				echo "<div><span class=\"feed\"><a href=\"$link\" target=_blank>$name</a></span>"
 					."<span class=\"article\"><a href=\"$article_link\">$article</a></span>"
-					."<span class=\"article\"><a href=\"http://fusion.google.com/add?feedurl=$link\"><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" /></a></span>"
+					."<span class=\"add\"><a href=\"http://fusion.google.com/add?feedurl=$link\"><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" /></a></span>"
 					. "</div>";
 			}
 			?>
