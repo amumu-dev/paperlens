@@ -1,5 +1,6 @@
 import urllib2
 import httplib
+import socket
 
 class Crawler:
 
@@ -26,5 +27,7 @@ class Crawler:
             print e.reason
             return ''
         except httplib.IncompleteRead, e:
+            return ''
+        except socket.timeout. e:
             return ''
         
