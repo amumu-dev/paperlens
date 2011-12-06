@@ -118,8 +118,11 @@ function IsChinese($buf)
 			
 			?>
 			<div style="width:100%;margin-top:50px;">
-				<a href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;margin:0 auto;width:160px;height:40px;text-align:center;font-size:32px;line-height:40px;">
-					刷&nbsp;新
+				<a href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;margin:0 auto;width:200px;height:40px;text-align:center;font-size:32px;line-height:40px;">
+					刷新结果
+				</a>&nbsp;
+				<a onclick="deleteHistory();" href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;margin:0 auto;width:200px;height:40px;text-align:center;font-size:32px;line-height:40px;">
+					重新开始
 				</a>
 			</div>
 		</div>

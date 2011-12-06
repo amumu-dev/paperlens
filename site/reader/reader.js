@@ -32,6 +32,11 @@ function addHistory(feed_id)
 	node.style.background = "#AAA";
 }
 
+function deleteHistory(feed_id)
+{
+	document.cookie = "his=";
+}
+
 function getHistory()
 {
 	return getCookie("his");
