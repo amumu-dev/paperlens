@@ -38,8 +38,8 @@ require_once('db.php');
 				$article_link = $row[3];
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
 				echo "<div class=\"item\"><span class=\"feed\"><a href=\"$link\" target=_blank>$name</a></span>"
-					."<span class=\"article\"><a href=\"$article_link\">$article</a></span>"
-					."<span class=\"subscribe\"><a href=\"http://fusion.google.com/add?feedurl=$link\"><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" /></a></span>"
+					."<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>"
+					."<span class=\"subscribe\"><a href=\"http://fusion.google.com/add?feedurl=$link\" target=_blank><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" /></a></span>"
 					. "</div>";
 			}
 			?>
