@@ -78,8 +78,6 @@ for line in data:
 n = 0
 data = open("feed_popularity.txt")
 for line in data:
-    if random.random() > 0.2:
-        continue
     try:
         [feed, title, popularity] = line.split('\t')
         if feed in feeds:
