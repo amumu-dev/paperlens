@@ -29,9 +29,10 @@ require_once('db.php');
 			</div>
 			<?php
 			$n = 0;
-			$result = mysql_query("select name, link, latest_article_title, latest_article_link from feeds order by popularity desc limit 32");
+			$result = mysql_query("select name, link, latest_article_title, latest_article_link from feeds order by popularity desc limit 100");
 			while($row=mysql_fetch_array($result))
 			{
+				if(date("i") % 3 == $n % 3) continue;
 				$name = $row[0];
 				$link = $row[1];
 				$encode_link = urlencode($link);
