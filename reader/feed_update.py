@@ -28,7 +28,7 @@ def GetFeedInfo(url):
         items = dom.getElementsByTagName('item')
         title = ''
         link = ''
-        description = ''
+        pub_date = ''
         for item in items:
             title_node = item.getElementsByTagName('title')
             if len(title_node) > 0:
@@ -100,8 +100,6 @@ for line in data:
         print 'up to date', feed
         continue
     [article_title, article_link, pub_date] = GetFeedInfo(feed)
-    if pub_date <= 0:
-        continue
     if len(article_title) == 0:
         continue
     print feed, article_title, article_link, pub_date
