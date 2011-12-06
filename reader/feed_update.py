@@ -33,9 +33,17 @@ def GetFeedInfo(url):
 connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "reader", charset="utf8")
 cursor = connection.cursor()
 cursor.execute("set names utf8")
-data = open("feed_popularity.txt")
+
 
 try:
+    data = open("feed_popularity.txt")
+    for line in data:
+        [feed, title, popularity] = line.split('\t')
+        print feed, popularity
+        cursor.execute("replace into feeds(name, link, popularity) values (%s,%s,%s);",
+                       (title, feed, popularity))
+    data.close()
+    
     cursor.execute("select link from feeds where modify_at>%s;", (int(time.mktime(time.localtime())) - 10000))
     numrows = int(cursor.rowcount)
     feeds = set()
@@ -44,6 +52,7 @@ try:
         feeds.add(row[0])
     print 'new feed number : ', len(feeds)
     n = 0
+    data = open("feed_popularity.txt")
     for line in data:
         if random.random() > 0.2:
             continue
@@ -61,5 +70,6 @@ try:
     connection.commit()
     cursor.close()
     connection.close()
+    data.close()
 except MySQLdb.Error, e:
     print e.args[0], e.args[1]
