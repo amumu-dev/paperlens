@@ -52,7 +52,7 @@ function IsChinese($buf)
 			foreach($history as $src_id)
 			{
 				if(strlen($src_id) == 0) continue;
-				$result = mysql_query("select dst_id,weight from feedsim where src_id=$src_id limit 10");
+				$result = mysql_query("select dst_id,weight from feedsim where src_id=$src_id order by weight desc limit 10");
 				while($row=mysql_fetch_array($result))
 				{
 					$dst_id = $row[0];

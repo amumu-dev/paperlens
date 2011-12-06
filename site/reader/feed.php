@@ -1,4 +1,5 @@
 ﻿<?php
+header("Content-type: text/xml");
 require_once('db.php');
 $id = $_GET['id'];
 $result = mysql_query("select name, link, latest_article_title, latest_article_link from feeds where id=$id");
