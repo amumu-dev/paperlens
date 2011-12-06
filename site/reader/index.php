@@ -44,6 +44,44 @@ function IsChinese($buf)
 			if(array_key_exists("his", $_COOKIE)) $history = explode("_", $_COOKIE["his"]);
 			$n = 0;
 			$k = 0;
+			$rank = array();
+			for($history as $src_id)
+			{
+				if(strlen($src_id) == 0) continue;
+				$result = mysql_query("select dst_id,weight from feedsim where src_id=$src_id");
+				while($row=mysql_fetch_array($result))
+				{
+					$dst_id = $row[0];
+					$weight = $row[1];
+					if(array_key_exists($dst_id, $rank)) $rank[$dst_id] = $weight;
+					else $rank[$dst_id] += $weight;
+				}
+			}
+			arsort($rank);
+			for($rank as $id)
+			{
+				$result = mysql_query("select name, link, latest_article_title, latest_article_link, id from feeds where id=$id");
+				while($row=mysql_fetch_array($result))
+				{
+					$name = $row[0];
+					$link = $row[1];
+					$encode_link = urlencode($link);
+					$article = $row[2];
+					$article_link = $row[3];
+					if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
+					if(!IsChinese($article)) continue;
+					if(++$n > 16) break;
+					$onclick_str = "onclick=\"addHistory($id);\"";
+					$like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str>喜欢</a>";
+					if(in_array($id, $history)) $like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str style=\"background:#AAA;\">谢谢</a>";
+					echo "<div class=\"item\"><span class=\"feed\">$like_str &nbsp;<a href=\"$link\" target=_blank>$name</a></span>"
+						. "<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>"
+						. "<span class=\"subscribe\"><a $onclick_str href=\"http://fusion.google.com/add?feedurl=$encode_link\" target=_blank><img src=\"http://gmodules.com/ig/images/plus_google.gif\" /></a>&nbsp;"
+						. "<a $onclick_str href=\"http://9.douban.com/reader/subscribe?url=$encode_link\" target=\"_blank\"><img src=\"http://www.douban.com/pics/newnine/feedbutton1.gif\"/></a>&nbsp;"
+						. "<a $onclick_str target=\"_blank\" href=\"http://xianguo.com/subscribe?url=$encode_link\"><img src=\"http://xgres.com/static/images/sub/sub_XianGuo_09.gif\" /></a>"
+						. "</div>";
+				}
+			}
 			$result = mysql_query("select name, link, latest_article_title, latest_article_link, id from feeds order by popularity desc limit 100");
 			while($row=mysql_fetch_array($result))
 			{
