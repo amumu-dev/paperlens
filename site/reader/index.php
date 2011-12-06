@@ -96,6 +96,7 @@ function IsChinese($buf)
 				$article_link = $row[3];
 				$id = $row[4];
 				if(array_key_exists($id, $rank)) continue;
+				if(in_array($id, $history)) continue;
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
 				if(!IsChinese($article)) continue;
 				if(++$n > 16) break;
