@@ -11,16 +11,16 @@ require_once('db.php');
 			#head{width:900px; margin:0 auto; font-size:40px;}
 			.feed {width:30%; float:left; }
 			.article {width:70%; float:left; }
-			a {font-size:14px; color: #0E2D3D; }
-			a:hover {font-size:14px; color: #FF614F; }
+			a {font-size:14px; color: #3A754E; }
+			a:hover {font-size:14px; color: #AFCF5D; }
 		</style>
 	<head>
 	<body>
 		<div id="head">RSS源推荐</div>
 		<div id="main">
 			<div>
-				<span class="feed" style="font-size:16px;line-height:36px;">RSS源</span>
-				<span class="article" style="font-size:16px;line-height:36px;">最新文章</span>
+				<span class="feed" style="font-size:16px;line-height:36px;font-weight:bold;">RSS源</span>
+				<span class="article" style="font-size:16px;line-height:36px;font-weight:bold;">最新文章</span>
 			</div>
 			<?php
 
