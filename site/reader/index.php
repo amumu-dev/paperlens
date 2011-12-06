@@ -10,8 +10,8 @@ require_once('db.php');
 			#main{width:900px; margin:0 auto;}
 			.feed {width:30%; float:left; }
 			.article {width:70%; float:left; }
-			a {font-size:13px; color: #031221; }
-			a:hover {font-size:13px; color: #0E2D3D; }
+			a {font-size:13px; color: #0E2D3D; }
+			a:hover {font-size:13px; color: #FF614F; }
 		</style>
 	<head>
 	<body>
