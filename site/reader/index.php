@@ -28,7 +28,7 @@ require_once('db.php');
 				<span class="subscribe" style="font-size:16px;line-height:36px;font-weight:bold;">订阅</span>
 			</div>
 			<?php
-
+			$n = 0;
 			$result = mysql_query("select name, link, latest_article_title, latest_article_link from feeds order by popularity desc limit 32");
 			while($row=mysql_fetch_array($result))
 			{
@@ -37,6 +37,7 @@ require_once('db.php');
 				$article = $row[2];
 				$article_link = $row[3];
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
+				if(++$n > 16) break;
 				echo "<div class=\"item\"><span class=\"feed\"><a href=\"$link\" target=_blank>$name</a></span>"
 					. "<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>"
 					. "<span class=\"subscribe\"><a href=\"http://fusion.google.com/add?feedurl=$link\" target=_blank><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" /></a>&nbsp;"
