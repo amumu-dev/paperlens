@@ -55,7 +55,7 @@ function IsChinese($buf)
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
 				if(!IsChinese($article)) continue;
 				if(++$n > 16) break;
-				$onclick_str = "onclick=\"addHistory($id);this.backgroundColor=\"#AAA\";\"";
+				$onclick_str = "onclick=\"addHistory($id);\"";
 				echo "<div class=\"item\"><span class=\"feed\"><a class=\"like\" $onclick_str>喜欢</a>&nbsp;<a href=\"$link\" target=_blank>$name</a></span>"
 					. "<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>"
 					. "<span class=\"subscribe\"><a href=\"http://fusion.google.com/add?feedurl=$encode_link\" target=_blank><img src=\"http://gmodules.com/ig/images/plus_google.gif\" /></a>&nbsp;"
