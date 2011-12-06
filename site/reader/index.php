@@ -22,6 +22,10 @@ require_once('db.php');
 				<span class="feed" style="font-size:16px;">RSS源</span>
 				<span class="article" style="font-size:16px;">最新文章</span>
 			</div>
+			<div>
+				<span class="feed" style="font-size:16px;">&nbsp;</span>
+				<span class="article" style="font-size:16px;">&nbsp;</span>
+			</div>
 			<?php
 
 			$result = mysql_query("select name, link, latest_article_title, latest_article_link from feeds order by popularity desc limit 20");
