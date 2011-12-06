@@ -8,6 +8,7 @@ require_once('db.php');
 		<style type="text/css">
 			body {font-family:Verdana; font-size:13px;}
 			#main{width:900px; margin:0 auto;}
+			#head{width:900px; margin:0 auto; font-size:40px;}
 			.feed {width:30%; float:left; }
 			.article {width:70%; float:left; }
 			a {font-size:14px; color: #0E2D3D; }
