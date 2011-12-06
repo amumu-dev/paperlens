@@ -15,6 +15,7 @@ function IsChinese($buf)
 	<head>
 		<title>RSS源推荐</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="reader.js" type="text/javascript"></script>
 		<style type="text/css">
 			body {font-family:Verdana; font-size:13px;line-height:26px;}
 			#main{width:960px; margin:0 auto; margin-top:20px;padding-left:5px;}
@@ -41,7 +42,7 @@ function IsChinese($buf)
 			<?php
 			$n = 0;
 			$k = 0;
-			$result = mysql_query("select name, link, latest_article_title, latest_article_link from feeds order by popularity desc limit 100");
+			$result = mysql_query("select name, link, latest_article_title, latest_article_link, $id from feeds order by popularity desc limit 100");
 			while($row=mysql_fetch_array($result))
 			{
 				if(date("i") % 3 == (++$k) % 3) continue;
@@ -50,9 +51,11 @@ function IsChinese($buf)
 				$encode_link = urlencode($link);
 				$article = $row[2];
 				$article_link = $row[3];
+				$id = $row[4];
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
 				if(!IsChinese($article)) continue;
 				if(++$n > 16) break;
+				$onclick_str = "onclick=\"addHistory($id);this.backgroundColor=\"#AAA\";\"";
 				echo "<div class=\"item\"><span class=\"feed\"><a class=\"like\">喜欢</a>&nbsp;<a href=\"$link\" target=_blank>$name</a></span>"
 					. "<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>"
 					. "<span class=\"subscribe\"><a href=\"http://fusion.google.com/add?feedurl=$encode_link\" target=_blank><img src=\"http://gmodules.com/ig/images/plus_google.gif\" /></a>&nbsp;"
