@@ -10,9 +10,10 @@ require_once('db.php');
 			body {font-family:Verdana; font-size:13px;line-height:26px;}
 			#main{width:900px; margin:0 auto; margin-top:20px;}
 			#head{width:900px; margin:0 auto; font-size:40px;margin-top:10px;}
+			.item {width:100%;text-align:left;clear:both;}
 			.feed {width:25%; float:left; }
-			.article {width:60%; float:left; }
-			.add {width:15%; float:left; }
+			.article {width:55%; float:left; }
+			.subscribe {width:20%; float:left; }
 			a {font-size:14px; color: #1D5261; }
 			a:hover {font-size:14px; color: #5697A3; }
 			img {border:none;}
@@ -21,9 +22,10 @@ require_once('db.php');
 	<body>
 		<div id="head">RSS源推荐</div>
 		<div id="main">
-			<div>
+			<div class="item">
 				<span class="feed" style="font-size:16px;line-height:36px;font-weight:bold;">RSS源</span>
 				<span class="article" style="font-size:16px;line-height:36px;font-weight:bold;">最新文章</span>
+				<span class="subscribe" style="font-size:16px;line-height:36px;font-weight:bold;">订阅</span>
 			</div>
 			<?php
 
@@ -35,9 +37,9 @@ require_once('db.php');
 				$article = $row[2];
 				$article_link = $row[3];
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
-				echo "<div><span class=\"feed\"><a href=\"$link\" target=_blank>$name</a></span>"
+				echo "<div class=\"item\"><span class=\"feed\"><a href=\"$link\" target=_blank>$name</a></span>"
 					."<span class=\"article\"><a href=\"$article_link\">$article</a></span>"
-					."<span class=\"add\"><a href=\"http://fusion.google.com/add?feedurl=$link\"><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" /></a></span>"
+					."<span class=\"subscribe\"><a href=\"http://fusion.google.com/add?feedurl=$link\"><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" /></a></span>"
 					. "</div>";
 			}
 			?>
