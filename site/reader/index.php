@@ -14,6 +14,7 @@ require_once('db.php');
 			.article {width:70%; float:left; }
 			a {font-size:14px; color: #1D5261; }
 			a:hover {font-size:14px; color: #5697A3; }
+			img {border:none;}
 		</style>
 	<head>
 	<body>
@@ -33,7 +34,10 @@ require_once('db.php');
 				$article = $row[2];
 				$article_link = $row[3];
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
-				echo "<div><span class=\"feed\"><a href=\"$link\" target=_blank>$name</a></span><span class=\"article\"><a href=\"$article_link\">$article</a></span></div>";
+				echo "<div><span class=\"feed\"><a href=\"$link\" target=_blank>$name</a></span>"
+					."<span class=\"article\"><a href=\"$article_link\">$article</a></span>"
+					."<span class=\"article\"><a href=\"http://fusion.google.com/add?feedurl=$link\"><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" /></a></span>"
+					. "</div>";
 			}
 			?>
 		</div>
