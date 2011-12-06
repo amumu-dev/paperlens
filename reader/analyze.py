@@ -121,13 +121,13 @@ def FeedSimilarityByCF(feed_title_map):
             if i not in sim:
                 sim[i] = dict()
                 ni[i] = 0
-            ni[i] += wi
+            ni[i] += 1
             for j, wj in feeds.items():
                 if i == j:
                     continue
                 if j not in sim[i]:
                     sim[i][j] = 0
-                sim[i][j] += idf * wi * wj
+                sim[i][j] += idf
     sw = codecs.open('feed_popularity.txt', 'w', 'utf-8')
     for feed, pop in sorted(ni.items(), key=itemgetter(1), reverse=True):
         sw.write(feed + '\t' + feed_title_map[feed] + '\t' + str(pop) + '\n')
@@ -140,7 +140,9 @@ def FeedSimilarityByCF(feed_title_map):
         for j, wij in rel_items.items():
             if ni[j] < 10:
                 continue
-            rank[j] = wij / math.sqrt(1 + ni[i] * ni[j] * 1.0)
+            if ni[j] > ni[i] * 2:
+                continue
+            rank[j] = wij / (1 + math.sqrt(ni[i] * ni[j]))
         for j, wij in sorted(rank.items(), key=itemgetter(1), reverse=True)[0:20]:
             sw.write(i + '\t' + j + '\t' + str(wij) + '\n')
     sw.close()
