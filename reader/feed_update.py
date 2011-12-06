@@ -56,7 +56,7 @@ cursor.execute("select id,link from feeds;")
 numrows = int(cursor.rowcount)
 for k in range(numrows):
     row = cursor.fetchone()
-    link_id_map[row[1]] = link_id[row[0]]
+    link_id_map[row[1]] = row[0]
 print 'new feed number : ', len(feeds)
 
 cursor.execute("truncate table feedsim;")
