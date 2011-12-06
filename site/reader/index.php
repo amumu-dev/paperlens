@@ -16,7 +16,7 @@ while($row=mysql_fetch_array($result))
 	$link = $row[1];
 	$article = $row[2];
 	$article_link = $row[3];
-	if(strlen($article) < 10 || strlen($article_link) > 180) continue;
+	if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
 	echo "<div class=\"feed\"><span><a href=\"$link\" target=_blank>$name</a></span><span><a href=\"$article_link\">$article</a></span></div>";
 }
 ?>
