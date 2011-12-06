@@ -8,8 +8,8 @@ require_once('db.php');
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<style type="text/css">
 			body {font-family:Verdana; font-size:13px;line-height:26px;}
-			#main{width:900px; margin:0 auto; margin-top:20px;}
-			#head{width:900px; margin:0 auto; font-size:40px;margin-top:30px; font-weight:bold;}
+			#main{width:960px; margin:0 auto; margin-top:20px;}
+			#head{width:960px; margin:0 auto; font-size:40px;margin-top:30px; font-weight:bold;}
 			.item {width:100%;text-align:left;clear:both;}
 			.feed {width:30%; float:left; }
 			.article {width:40%; float:left; }
@@ -42,7 +42,8 @@ require_once('db.php');
 				echo "<div class=\"item\"><span class=\"feed\"><a href=\"$link\" target=_blank>$name</a></span>"
 					. "<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>"
 					. "<span class=\"subscribe\"><a href=\"http://fusion.google.com/add?feedurl=$encode_link\" target=_blank><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" /></a>&nbsp;"
-					. "<a href=\"http://9.douban.com/reader/subscribe?url=$encode_link\" target=\"_blank\"><img src=\"http://www.douban.com/pics/newnine/feedbutton1.gif\"/></a>"
+					. "<a href=\"http://9.douban.com/reader/subscribe?url=$encode_link\" target=\"_blank\"><img src=\"http://www.douban.com/pics/newnine/feedbutton1.gif\"/></a>&nbsp;"
+					. "<a target=\"_blank\" href=\"http://xianguo.com/subscribe?url=$encode_link\"><img src=\"http://xgres.com/static/images/sub/sub_XianGuo_09.gif\" /></a>"
 					. "</div>";
 			}
 			?>
