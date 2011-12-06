@@ -10,13 +10,17 @@ require_once('db.php');
 			#main{width:900px; margin:0 auto;}
 			.feed {width:30%; float:left; }
 			.article {width:70%; float:left; }
-			a {font-size:13px; color: #0E2D3D; }
-			a:hover {font-size:13px; color: #FF614F; }
+			a {font-size:14px; color: #0E2D3D; }
+			a:hover {font-size:14px; color: #FF614F; }
 		</style>
 	<head>
 	<body>
+		<div id="head">RSS源推荐</div>
 		<div id="main">
-			<div><span class="feed">RSS源</span><span class="article">最新文章</span></div>
+			<div>
+				<span class="feed" style="font-size:16px;">RSS源</span>
+				<span class="article" style="font-size:16px;">最新文章</span>
+			</div>
 			<?php
 
 			$result = mysql_query("select name, link, latest_article_title, latest_article_link from feeds order by popularity desc limit 20");
