@@ -38,9 +38,9 @@ require_once('db.php');
 				$article_link = $row[3];
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
 				echo "<div class=\"item\"><span class=\"feed\"><a href=\"$link\" target=_blank>$name</a></span>"
-					."<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>"
-					."<span class=\"subscribe\"><a href=\"http://fusion.google.com/add?feedurl=$link\" target=_blank><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" /></a>&nbsp;"
-					. "<a target=\"_blank\" href=\"http://xianguo.com/subscribe?url=$link\"><img src=\"http://xgres.com/static/images/sub/sub_XianGuo_01.gif\" border="0"/></a></span>"
+					. "<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>"
+					. "<span class=\"subscribe\"><a href=\"http://fusion.google.com/add?feedurl=$link\" target=_blank><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" /></a>&nbsp;"
+					. "<a target=\"_blank\" href=\"http://xianguo.com/subscribe?url=$link\"><img src=\"http://xgres.com/static/images/sub/sub_XianGuo_01.gif\"/></a></span>"
 					. "</div>";
 			}
 			?>
