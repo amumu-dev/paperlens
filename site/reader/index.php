@@ -4,11 +4,12 @@ require_once('db.php');
 
 <html>
 	<head>
+		<title>RSS源推荐</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<style type="text/css">
 			body {font-family:Verdana; font-size:13px;line-height:26px;}
 			#main{width:900px; margin:0 auto; margin-top:20px;}
-			#head{width:900px; margin:0 auto; font-size:40px;}
+			#head{width:900px; margin:0 auto; font-size:40px;margin-top:10px;}
 			.feed {width:30%; float:left; }
 			.article {width:70%; float:left; }
 			a {font-size:14px; color: #1D5261; }
