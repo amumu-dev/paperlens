@@ -1,6 +1,6 @@
 <?php
 require_once('db.php');
-srand(mktime());
+srand(time());
 
 function IsChinese($buf)
 {
@@ -88,9 +88,7 @@ function IsChinese($buf)
 						. "<a $onclick_str href=\"http://9.douban.com/reader/subscribe?url=$encode_link\" target=\"_blank\"><img src=\"http://www.douban.com/pics/newnine/feedbutton1.gif\"/></a>&nbsp;"
 						. "<a $onclick_str target=\"_blank\" href=\"http://xianguo.com/subscribe?url=$encode_link\"><img src=\"http://xgres.com/static/images/sub/sub_XianGuo_09.gif\" /></a>"
 						. "</div>";
-					if(array_key_exists("loadhis", $_COOKIE))
-						setcookie("loadhis", $id . "_" . $_COOKIE["loadhis"]);
-					else setcookie("loadhis", $id);
+					echo "<script type=\"text/javascript\">addLoadHistory($id)</script>";
 				}
 			}
 			echo "<hr/>";
@@ -121,9 +119,7 @@ function IsChinese($buf)
 					. "<a $onclick_str href=\"http://9.douban.com/reader/subscribe?url=$encode_link\" target=\"_blank\"><img src=\"http://www.douban.com/pics/newnine/feedbutton1.gif\"/></a>&nbsp;"
 					. "<a $onclick_str target=\"_blank\" href=\"http://xianguo.com/subscribe?url=$encode_link\"><img src=\"http://xgres.com/static/images/sub/sub_XianGuo_09.gif\" /></a>"
 					. "</div>";
-				if(array_key_exists("loadhis", $_COOKIE))
-						setcookie("loadhis", $id . "_" . $_COOKIE["loadhis"]);
-				else setcookie("loadhis", $id);
+				echo "<script type=\"text/javascript\">addLoadHistory($id)</script>";
 			}
 			
 			?>

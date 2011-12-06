@@ -32,6 +32,19 @@ function addHistory(feed_id)
 	node.style.background = "#AAA";
 }
 
+function addLoadHistory(feed_id)
+{
+	oldHistory = getCookie("loadhis");
+	var tks = oldHistory.split("_");
+	var strCookie = "loadhis=" + feed_id;
+	for(var i = 0; i < 20 && i < tks.length; i++)
+	{
+		if(tks[i] == feed_id) continue;
+		strCookie += "_" + tks[i];
+	}
+	document.cookie = strCookie;
+}
+
 function deleteHistory(feed_id)
 {
 	document.cookie = "his=";
