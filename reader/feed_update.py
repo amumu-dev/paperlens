@@ -5,7 +5,11 @@ import time
 import random
 
 def GetDate(pub_date):
-    tks = unicode.split(pub_date, ' ')
+    tks = []
+    try:
+        tks = unicode.split(pub_date, ' ')
+    except TypeError, e:
+        tks = str.split(pub_date, ' ')
     if len(tks) < 5:
         return 0
     buf = ''
