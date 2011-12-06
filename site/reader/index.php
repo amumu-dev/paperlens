@@ -12,8 +12,8 @@ require_once('db.php');
 			#head{width:900px; margin:0 auto; font-size:40px;margin-top:30px; font-weight:bold;}
 			.item {width:100%;text-align:left;clear:both;}
 			.feed {width:30%; float:left; }
-			.article {width:50%; float:left; }
-			.subscribe {width:20%; float:left; }
+			.article {width:40%; float:left; }
+			.subscribe {width:30%; float:left; }
 			a {font-size:13px; color: #1D5261; }
 			a:hover {font-size:13px; color: #5697A3; }
 			img {border:none;}
