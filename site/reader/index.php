@@ -8,7 +8,7 @@ require_once('db.php');
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<style type="text/css">
 			body {font-family:Verdana; font-size:13px;line-height:26px;}
-			#main{width:960px; margin:0 auto; margin-top:20px;}
+			#main{width:960px; margin:0 auto; margin-top:20px;padding-left:5px;}
 			#head{width:960px; margin:0 auto; font-size:40px;margin-top:30px; font-weight:bold;}
 			.item {width:100%;text-align:left;clear:both;}
 			.feed {width:30%; float:left; }
