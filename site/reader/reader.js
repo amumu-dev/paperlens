@@ -20,7 +20,7 @@ function addHistory(feed_id)
 	oldHistory = getCookie("his");
 	var tks = oldHistory.split("_");
 	var strCookie = "his=" + feed_id;
-	for(var i = 0; i < 20 && i < tks.length; i++)
+	for(var i = 0; i < 100 && i < tks.length; i++)
 	{
 		if(tks[i] == feed_id) continue;
 		strCookie += "_" + tks[i];
@@ -37,7 +37,7 @@ function addLoadHistory(feed_id)
 	oldHistory = getCookie("loadhis");
 	var tks = oldHistory.split("_");
 	var strCookie = "loadhis=" + feed_id;
-	for(var i = 0; i < 20 && i < tks.length; i++)
+	for(var i = 0; i < 100 && i < tks.length; i++)
 	{
 		if(tks[i] == feed_id) continue;
 		strCookie += "_" + tks[i];

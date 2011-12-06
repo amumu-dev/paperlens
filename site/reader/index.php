@@ -65,7 +65,7 @@ function IsChinese($buf)
 			arsort($rank);
 			foreach($rank as $id =>$w)
 			{
-				if(in_array($id, $load_history) && rand() % 2 == 0) continue;
+				if(in_array($id, $load_history)) continue;
 				$result = mysql_query("select name, link, latest_article_title, latest_article_link from feeds where id=$id");
 				while($row=mysql_fetch_array($result))
 				{
@@ -104,7 +104,7 @@ function IsChinese($buf)
 				$article = $row[2];
 				$article_link = $row[3];
 				$id = $row[4];
-				if(in_array($id, $load_history) && rand() % 2 == 0) continue;
+				if(in_array($id, $load_history)) continue;
 				if(array_key_exists($id, $rank)) continue;
 				if(in_array($id, $history)) continue;
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
