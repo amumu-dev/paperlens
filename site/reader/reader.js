@@ -48,6 +48,7 @@ function addLoadHistory(feed_id)
 function deleteHistory(feed_id)
 {
 	document.cookie = "his=";
+	document.cookie = "loadhis=";
 }
 
 function getHistory()
