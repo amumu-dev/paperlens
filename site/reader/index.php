@@ -20,9 +20,10 @@ function IsChinese($buf)
 			#main{width:960px; margin:0 auto; margin-top:20px;padding-left:5px;}
 			#head{width:960px; margin:0 auto; font-size:40px;margin-top:30px; font-weight:bold;}
 			.item {width:100%;text-align:left;clear:both;}
-			.feed {width:30%; float:left; }
+			.feed {width:27%; float:left; }
 			.article {width:40%; float:left; }
-			.subscribe {width:30%; float:left;vertical-align:bottom; }
+			.like{width:5%; float:left;background:#97AF22;height:20px;font-size:12px;}
+			.subscribe {width:27%; float:left;vertical-align:bottom; }
 			a {font-size:13px; color: #1D5261; }
 			a:hover {font-size:13px; color: #5697A3; }
 			img {border:none;}
@@ -51,7 +52,7 @@ function IsChinese($buf)
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
 				if(!IsChinese($article)) continue;
 				if(++$n > 16) break;
-				echo "<div class=\"item\"><span class=\"feed\"><a href=\"$link\" target=_blank>$name</a></span>"
+				echo "<div class=\"item\"><span class=\"like\">喜欢</span><span class=\"feed\"><a href=\"$link\" target=_blank>$name</a></span>"
 					. "<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>"
 					. "<span class=\"subscribe\"><a href=\"http://fusion.google.com/add?feedurl=$encode_link\" target=_blank><img src=\"http://gmodules.com/ig/images/plus_google.gif\" /></a>&nbsp;"
 					. "<a href=\"http://9.douban.com/reader/subscribe?url=$encode_link\" target=\"_blank\"><img src=\"http://www.douban.com/pics/newnine/feedbutton1.gif\"/></a>&nbsp;"
