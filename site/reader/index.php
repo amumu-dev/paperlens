@@ -1,6 +1,7 @@
 <?php
 require_once('db.php');
-srand(mktime())
+srand(mktime());
+
 function IsChinese($buf)
 {
 	for($i = 0; $i < strlen($buf); ++$i)
