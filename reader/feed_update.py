@@ -61,12 +61,15 @@ print 'new feed number : ', len(feeds)
 
 cursor.execute("truncate table feedsim;")
 data = open("feed_similarity.txt")
+n = 0
 for line in data:
     try:
+        n += 1
         [src_feed, dst_feed, weight] = line.split('\t')
         if src_feed not in link_id_map or dst_feed not in link_id_map:
             continue
-        print link_id_map[src_feed], link_id_map[dst_feed], weight
+        if n % 100 == 0:
+            print n, link_id_map[src_feed], link_id_map[dst_feed], weight
         cursor.execute("replace into feedsim(src_id, dst_id, weight) values (%s,%s,%s);",
                        (link_id_map[src_feed], link_id_map[dst_feed], weight))
     except:
