@@ -9,7 +9,7 @@ require_once('db.php');
 		<style type="text/css">
 			body {font-family:Verdana; font-size:13px;line-height:26px;}
 			#main{width:900px; margin:0 auto; margin-top:20px;}
-			#head{width:900px; margin:0 auto; font-size:40px;margin-top:10px;}
+			#head{width:900px; margin:0 auto; font-size:40px;margin-top:30px; font-weight:bold;}
 			.item {width:100%;text-align:left;clear:both;}
 			.feed {width:30%; float:left; }
 			.article {width:50%; float:left; }
@@ -39,7 +39,8 @@ require_once('db.php');
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
 				echo "<div class=\"item\"><span class=\"feed\"><a href=\"$link\" target=_blank>$name</a></span>"
 					."<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>"
-					."<span class=\"subscribe\"><a href=\"http://fusion.google.com/add?feedurl=$link\" target=_blank><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" /></a></span>"
+					."<span class=\"subscribe\"><a href=\"http://fusion.google.com/add?feedurl=$link\" target=_blank><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" /></a>&nbsp;"
+					. "<a target=\"_blank\" href=\"http://xianguo.com/subscribe?url=$link\"><img src=\"http://xgres.com/static/images/sub/sub_XianGuo_01.gif\" border="0"/></a></span>"
 					. "</div>";
 			}
 			?>
