@@ -11,8 +11,8 @@ require_once('db.php');
 			#head{width:900px; margin:0 auto; font-size:40px;}
 			.feed {width:30%; float:left; }
 			.article {width:70%; float:left; }
-			a {font-size:14px; color: #3A754E; }
-			a:hover {font-size:14px; color: #AFCF5D; }
+			a {font-size:14px; color: #1D5261; }
+			a:hover {font-size:14px; color: #5697A3; }
 		</style>
 	<head>
 	<body>
