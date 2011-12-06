@@ -22,11 +22,11 @@ function IsChinese($buf)
 			.item {width:100%;text-align:left;clear:both;}
 			.feed {width:30%; float:left; }
 			.article {width:40%; float:left; }
-			.like{display:block;width:40px;float:left;background:#000;height:18px;line-height:18px;cursor:pointer; font-size:12px;text-align:center;color:#FFF;}
+			.like{display:block;width:40px;float:left;background:#000;height:18px;line-height:18px;cursor:pointer;margin-top:3px;font-size:12px;text-align:center;color:#FFF;}
 			.subscribe {width:30%; float:left;vertical-align:bottom; }
 			a {font-size:13px; color: #1D5261;}
 			a:hover {color: #5697A3;}
-			.feedtitle {height:18px;line-height:18px; display:block;float:left;width:95%;}
+			/*.feedtitle {height:18px;line-height:18px; display:block;float:left;width:95%;}*/
 			img {border:none;}
 		</style>
 	<head>
@@ -53,7 +53,7 @@ function IsChinese($buf)
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
 				if(!IsChinese($article)) continue;
 				if(++$n > 16) break;
-				echo "<div class=\"item\"><span class=\"feed\"><a class=\"like\">喜欢</a>&nbsp;<a class=\"feedtitle\" href=\"$link\" target=_blank>$name</a></span>"
+				echo "<div class=\"item\"><span class=\"feed\"><a class=\"like\">喜欢</a>&nbsp;<a href=\"$link\" target=_blank>$name</a></span>"
 					. "<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>"
 					. "<span class=\"subscribe\"><a href=\"http://fusion.google.com/add?feedurl=$encode_link\" target=_blank><img src=\"http://gmodules.com/ig/images/plus_google.gif\" /></a>&nbsp;"
 					. "<a href=\"http://9.douban.com/reader/subscribe?url=$encode_link\" target=\"_blank\"><img src=\"http://www.douban.com/pics/newnine/feedbutton1.gif\"/></a>&nbsp;"
