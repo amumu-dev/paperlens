@@ -22,7 +22,7 @@ function IsChinese($buf)
 			.item {width:100%;text-align:left;clear:both;}
 			.feed {width:27%; float:left; }
 			.article {width:40%; float:left; }
-			.like{width:3.5%; margin-right:1.5%; float:left;background:#97AF22;height:18px;line-height:18px;cursor:pointer; font-size:12px;text-align:center;vertical-align:middle;color:#FFF;}
+			.like{width:3.5%; margin-right:1.5%; float:left;background:#000;height:18px;line-height:18px;cursor:pointer; font-size:12px;text-align:center;color:#FFF;}
 			.subscribe {width:27%; float:left;vertical-align:bottom; }
 			a {font-size:13px; color: #1D5261; }
 			a:hover {font-size:13px; color: #5697A3; }
