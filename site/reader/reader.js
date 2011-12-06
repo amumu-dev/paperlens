@@ -24,9 +24,10 @@ function addHistory(feed_id)
 	{
 		strCookie += "_" + tks[i];
 	}
-	var date=new Date(); 
-	date.setTime(date.getTime+12*3600*1000);
-	document.cookie = strCookie +"; expire="+date.toGMTString();
+	document.cookie = strCookie;
+	
+	var node = document.getElementById('feed_' + feed_id)
+	node.innerHTML = "лл";
 }
 
 function getHistory()
