@@ -1,4 +1,4 @@
-function getCookie(name){ 
+﻿function getCookie(name){ 
 	var strCookie=document.cookie; 
 	var arrCookie=strCookie.split("; "); 
 	for(var i=0;i<arrCookie.length;i++)
@@ -28,7 +28,7 @@ function addHistory(feed_id)
 	document.cookie = strCookie;
 	
 	var node = document.getElementById('feed_' + feed_id)
-	node.innerHTML = "лл";
+	node.innerHTML = "谢谢";
 }
 
 function getHistory()
