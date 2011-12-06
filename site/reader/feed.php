@@ -9,7 +9,6 @@ while($row=mysql_fetch_array($result))
 	$link = $row[1];
 	$article = $row[2];
 	$article_link = $row[3];
-	echo "<?XML version=\"1.0\"?>";
 	echo "<item><name><![CDATA[$name]]></name><link>$link</link><article><![CDATA[$article]]></article><article_link>$article_link</article_link></item>";
 }
 ?>
