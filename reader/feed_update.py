@@ -94,21 +94,18 @@ for line in data:
 n = 0
 data = open("feed_popularity.txt")
 for line in data:
-    try:
-        [feed, title, popularity] = line.split('\t')
-        if feed in feeds:
-            print 'up to date', feed
-            continue
-        [article_title, article_link, pub_date] = GetFeedInfo(feed)
-        if pub_date <= 0:
-            continue
-        if len(article_title) == 0:
-            continue
-        print feed, article_title, article_link, pub_date
-        cursor.execute("insert into feeds(link, latest_article_title,latest_article_link,modify_at) values (%s,%s,%s,%s,%s,%s) on duplicate key update latest_article_title=values(latest_article_title),modify_at=values(modify_at),latest_article_link=values(latest_article_link), ;",
-                       (title, feed, popularity, article_title, article_link, pub_date))
-    except:
-        print 'error'
+    [feed, title, popularity] = line.split('\t')
+    if feed in feeds:
+        print 'up to date', feed
+        continue
+    [article_title, article_link, pub_date] = GetFeedInfo(feed)
+    if pub_date <= 0:
+        continue
+    if len(article_title) == 0:
+        continue
+    print feed, article_title, article_link, pub_date
+    cursor.execute("insert into feeds(link, latest_article_title,latest_article_link,modify_at) values (%s,%s,%s,%s,%s,%s) on duplicate key update latest_article_title=values(latest_article_title),modify_at=values(modify_at),latest_article_link=values(latest_article_link), ;",
+                   (title, feed, popularity, article_title, article_link, pub_date))
     
 connection.commit()
 cursor.close()
