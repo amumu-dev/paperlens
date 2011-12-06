@@ -9,6 +9,12 @@ function getCookie(name){
 	return ""; 
 }
 
+function deleteCookie(name){ 
+	var date=new Date(); 
+	date.setTime(date.getTime()-10000); 
+	document.cookie=name+"=; expire="+date.toGMTString(); 
+}
+
 function addHistory(feed_id)
 {
 	oldHistory = getCookie("his");
@@ -18,7 +24,9 @@ function addHistory(feed_id)
 	{
 		strCookie += "_" + tks[i];
 	}
-	document.cookie = strCookie;
+	var date=new Date(); 
+	date.setTime(date.getTime+12*3600*1000);
+	document.cookie = strCookie +"; expire="+date.toGMTString();
 }
 
 function getHistory()
