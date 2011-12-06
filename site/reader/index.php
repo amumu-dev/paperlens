@@ -40,7 +40,8 @@ function IsChinese($buf)
 				<span class="subscribe" style="font-size:16px;line-height:36px;font-weight:bold;">订阅</span>
 			</div>
 			<?php
-			$history = explode("_", $_COOKIE["his"]);
+			$history = array();
+			if(array_key_exists("his", $_COOKIE)) $history = explode("_", $_COOKIE["his"]);
 			$n = 0;
 			$k = 0;
 			$result = mysql_query("select name, link, latest_article_title, latest_article_link, id from feeds order by popularity desc limit 100");
