@@ -25,6 +25,8 @@ def GetFeedInfo(url):
             break
     except xml.parsers.expat.ExpatError, e:
         return ['', '']
+    except AttributeError, e:
+        return ['', '']
     return [title, link]
         
 
