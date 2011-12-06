@@ -11,7 +11,7 @@ function getCookie(name){
 
 function addHistory(feed_id)
 {
-	document.cookie = "his=feed_id_" + getCookie("his");
+	document.cookie = "his=" + feed_id + "_" + getCookie("his");
 }
 
 function getHistory()
