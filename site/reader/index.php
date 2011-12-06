@@ -34,14 +34,15 @@ require_once('db.php');
 			{
 				$name = $row[0];
 				$link = $row[1];
+				$encode_link = urlencode($link);
 				$article = $row[2];
 				$article_link = $row[3];
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
 				if(++$n > 16) break;
 				echo "<div class=\"item\"><span class=\"feed\"><a href=\"$link\" target=_blank>$name</a></span>"
 					. "<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>"
-					. "<span class=\"subscribe\"><a href=\"http://fusion.google.com/add?feedurl=$link\" target=_blank><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" /></a>&nbsp;"
-					. "<a target=\"_blank\" href=\"http://xianguo.com/subscribe?url=$link\"><img src=\"http://xgres.com/static/images/sub/sub_XianGuo_01.gif\"/></a></span>"
+					. "<span class=\"subscribe\"><a href=\"http://fusion.google.com/add?feedurl=$encode_link\" target=_blank><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" /></a>&nbsp;"
+					. "<a target=\"_blank\" href=\"http://xianguo.com/subscribe?url=$encode_link\"><img src=\"http://xgres.com/static/images/sub/sub_XianGuo_01.gif\"/></a></span>"
 					. "</div>";
 			}
 			?>
