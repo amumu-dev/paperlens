@@ -5,8 +5,6 @@ $result = mysql_query("select name, link, latest_article_title, latest_article_l
 while($row=mysql_fetch_array($result))
 {
 	$name = $row[0];
-	if(in_array($name, $names)) continue;
-	array_push($names, $name);
 	$link = $row[1];
 	$article = $row[2];
 	$article_link = $row[3];
