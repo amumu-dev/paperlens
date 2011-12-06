@@ -45,6 +45,7 @@ function IsChinese($buf)
 			$n = 0;
 			$k = 0;
 			$rank = array();
+			$names = array();
 			foreach($history as $src_id)
 			{
 				if(strlen($src_id) == 0) continue;
@@ -66,6 +67,8 @@ function IsChinese($buf)
 				while($row=mysql_fetch_array($result))
 				{
 					$name = $row[0];
+					if(in_array($name, $names)) continue;
+					array_push($names, $name);
 					$link = $row[1];
 					$encode_link = urlencode($link);
 					$article = $row[2];
@@ -90,6 +93,8 @@ function IsChinese($buf)
 			{
 				if(date("i") % 3 == (++$k) % 3) continue;
 				$name = $row[0];
+				if(in_array($name, $names)) continue;
+					array_push($names, $name);
 				$link = $row[1];
 				$encode_link = urlencode($link);
 				$article = $row[2];
