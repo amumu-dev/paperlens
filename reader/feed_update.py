@@ -40,11 +40,12 @@ def GetFeedInfo(url):
             if len(date_node) > 0:
                 pub_date = date_node[0].firstChild.data
             break
+        pdate = GetDate(pub_date)
+        return [title, link, pdate]
     except xml.parsers.expat.ExpatError, e:
         return ['', '', 0]
     except AttributeError, e:
         return ['', '', 0]
-    return [title, link, GetDate(pub_date)]
         
 
 connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "reader", charset="utf8")
