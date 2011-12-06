@@ -24,8 +24,8 @@ function IsChinese($buf)
 			.article {width:40%; float:left; }
 			.like{display:block;width:40px;float:left;background:#000;height:18px;line-height:18px;cursor:pointer; font-size:12px;text-align:center;color:#FFF;}
 			.subscribe {width:30%; float:left;vertical-align:bottom; }
-			a {font-size:13px; color: #1D5261;height:18px;line-height:18px; }
-			a:hover {font-size:13px; color: #5697A3; height:18px;line-height:18px;}
+			a {font-size:13px; color: #1D5261;height:18px;line-height:18px; display:block;float:left;width:97%;}
+			a:hover {color: #5697A3;}
 			img {border:none;}
 		</style>
 	<head>
