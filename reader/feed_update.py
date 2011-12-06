@@ -40,7 +40,7 @@ try:
     for line in data:
         [feed, title, popularity] = line.split('\t')
         print feed, popularity
-        cursor.execute("replace into feeds(name, link, popularity) values (%s,%s,%s);",
+        cursor.execute("insert into feeds(name, link, popularity) values (%s,%s,%s) on duplicate key update popularity=values(popularity);",
                        (title, feed, popularity))
     data.close()
     
