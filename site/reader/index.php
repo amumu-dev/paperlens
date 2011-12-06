@@ -60,6 +60,7 @@ function IsChinese($buf)
 					if(in_array($dst_id, $history)) continue;
 					if(!array_key_exists($dst_id, $rank)) $rank[$dst_id] = $weight;
 					else $rank[$dst_id] += $weight;
+					echo $src_id . "&nbsp;" $dst_id . "&nbsp;" . $weight . "<br>";
 				}
 			}
 			arsort($rank);
