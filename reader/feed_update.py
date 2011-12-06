@@ -4,11 +4,25 @@ import xml.dom.minidom
 import time
 import random
 
+def GetDate(pub_date):
+    tks = unicode.split(pub_date, ' ')
+    if len(tks) < 5:
+        return 0
+    buf = ''
+    for i in range(0,5):
+        buf += tks[i] + ' '
+    try:
+        ret = int(time.mktime(time.strptime(unicode.strip(buf), '%a, %d %b %Y %H:%M:%S')))
+        return ret
+    except:
+        return 0
+
+
 def GetFeedInfo(url):
     c = crawler.Crawler('')
     rss = c.download(url)
     if len(rss) < 20:
-        return ['', '']
+        return ['', '', 0]
     try:
         dom = xml.dom.minidom.parseString(str.strip(rss))
         items = dom.getElementsByTagName('item')
@@ -22,12 +36,15 @@ def GetFeedInfo(url):
             link_node = item.getElementsByTagName('link')
             if len(link_node) > 0:
                 link = link_node[0].firstChild.data
+            date_node = item.getElementsByTagName('pubDate')
+            if len(date_node) > 0:
+                pub_date = date_node[0].firstChild.data
             break
     except xml.parsers.expat.ExpatError, e:
-        return ['', '']
+        return ['', '', 0]
     except AttributeError, e:
-        return ['', '']
-    return [title, link]
+        return ['', '', 0]
+    return [title, link, GetDate(pub_date)]
         
 
 connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "reader", charset="utf8")
@@ -83,12 +100,14 @@ for line in data:
         if feed in feeds:
             print 'up to date', feed
             continue
-        [article_title, article_link] = GetFeedInfo(feed)
+        [article_title, article_link, pub_date] = GetFeedInfo(feed)
+        if pub_date <= 0:
+            continue
         if len(article_title) == 0:
             continue
         print feed, article_title, article_link
         cursor.execute("insert into feeds(link, latest_article_title,latest_article_link,modify_at) values (%s,%s,%s,%s,%s,%s) on duplicate key update latest_article_title=values(latest_article_title),modify_at=values(modify_at),latest_article_link=values(latest_article_link), ;",
-                       (title, feed, popularity, article_title, article_link, int(time.mktime(time.localtime()))))
+                       (title, feed, popularity, article_title, article_link, pub_date))
     except:
         print 'error'
     
