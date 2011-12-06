@@ -11,7 +11,14 @@ function getCookie(name){
 
 function addHistory(feed_id)
 {
-	document.cookie = "his=" + feed_id + "_" + getCookie("his");
+	oldHistory = getCookie("his");
+	var tks = oldHistory.split("_");
+	var strCookie = "his=" + feed_id;
+	for(var i = 0; i < 20 && i < tks.length; i++)
+	{
+		strCookie += "_" + tks[i];
+	}
+	document.cookie = strCookie;
 }
 
 function getHistory()
