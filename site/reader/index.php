@@ -42,7 +42,7 @@ function IsChinese($buf)
 			<?php
 			$n = 0;
 			$k = 0;
-			$result = mysql_query("select name, link, latest_article_title, latest_article_link, $id from feeds order by popularity desc limit 100");
+			$result = mysql_query("select name, link, latest_article_title, latest_article_link, id from feeds order by popularity desc limit 100");
 			while($row=mysql_fetch_array($result))
 			{
 				if(date("i") % 3 == (++$k) % 3) continue;
