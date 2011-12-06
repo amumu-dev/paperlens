@@ -86,7 +86,7 @@ function IsChinese($buf)
 						. "</div>";
 				}
 			}
-			
+			echo "<hr/>";
 			$result = mysql_query("select name, link, latest_article_title, latest_article_link, id from feeds order by popularity desc limit 100");
 			while($row=mysql_fetch_array($result))
 			{
