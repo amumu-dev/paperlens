@@ -13,7 +13,7 @@ require_once('db.php');
 			.item {width:100%;text-align:left;clear:both;}
 			.feed {width:30%; float:left; }
 			.article {width:40%; float:left; }
-			.subscribe {width:30%; float:left; }
+			.subscribe {width:30%; float:left;vertical-alignment:bottom; }
 			a {font-size:13px; color: #1D5261; }
 			a:hover {font-size:13px; color: #5697A3; }
 			img {border:none;}
