@@ -44,7 +44,7 @@ function IsChinese($buf)
 			$history = array();
 			if(array_key_exists("his", $_COOKIE)) $history = explode("_", $_COOKIE["his"]);
 			$load_history = array();
-			if(array_key_exists("loadhis", $_COOKIE)) $load_history = explode("_", $_COOKIE["his"]);
+			if(array_key_exists("loadhis", $_COOKIE)) $load_history = explode("_", $_COOKIE["loadhis"]);
 			$n = 0;
 			$k = 0;
 			$rank = array();
