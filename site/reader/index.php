@@ -6,7 +6,7 @@ require_once('db.php');
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<style type="text/css">
-			body {font-family:Verdana; font-size:13px;line-height=30px;}
+			body {font-family:Verdana; font-size:13px;line-height:30px;}
 			#main{width:900px; margin:0 auto;}
 			#head{width:900px; margin:0 auto; font-size:40px;}
 			.feed {width:30%; float:left; }
@@ -19,8 +19,8 @@ require_once('db.php');
 		<div id="head">RSS源推荐</div>
 		<div id="main">
 			<div>
-				<span class="feed" style="font-size:16px;line-height=36px;">RSS源</span>
-				<span class="article" style="font-size:16px;line-height=36px;">最新文章</span>
+				<span class="feed" style="font-size:16px;line-height:36px;">RSS源</span>
+				<span class="article" style="font-size:16px;line-height:36px;">最新文章</span>
 			</div>
 			<?php
 
