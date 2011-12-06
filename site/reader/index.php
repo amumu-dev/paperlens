@@ -11,11 +11,11 @@ require_once('db.php');
 			#main{width:900px; margin:0 auto; margin-top:20px;}
 			#head{width:900px; margin:0 auto; font-size:40px;margin-top:10px;}
 			.item {width:100%;text-align:left;clear:both;}
-			.feed {width:25%; float:left; }
-			.article {width:55%; float:left; }
+			.feed {width:30%; float:left; }
+			.article {width:50%; float:left; }
 			.subscribe {width:20%; float:left; }
-			a {font-size:14px; color: #1D5261; }
-			a:hover {font-size:14px; color: #5697A3; }
+			a {font-size:13px; color: #1D5261; }
+			a:hover {font-size:13px; color: #5697A3; }
 			img {border:none;}
 		</style>
 	<head>
