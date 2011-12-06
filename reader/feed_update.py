@@ -55,7 +55,6 @@ cursor.execute("set names utf8")
 data = open("feed_popularity.txt")
 for line in data:
     [feed, title, popularity] = line.split('\t')
-    print feed, popularity
     cursor.execute("insert into feeds(name, link, popularity) values (%s,%s,%s) on duplicate key update popularity=values(popularity);",
                    (title, feed, popularity))
 data.close()
@@ -105,7 +104,7 @@ for line in data:
             continue
         if len(article_title) == 0:
             continue
-        print feed, article_title, article_link
+        print feed, article_title, article_link, pub_date
         cursor.execute("insert into feeds(link, latest_article_title,latest_article_link,modify_at) values (%s,%s,%s,%s,%s,%s) on duplicate key update latest_article_title=values(latest_article_title),modify_at=values(modify_at),latest_article_link=values(latest_article_link), ;",
                        (title, feed, popularity, article_title, article_link, pub_date))
     except:
