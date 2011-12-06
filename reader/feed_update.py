@@ -68,7 +68,7 @@ for line in data:
         [src_feed, dst_feed, weight] = line.split('\t')
         if src_feed not in link_id_map or dst_feed not in link_id_map:
             continue
-        if n % 100 == 0:
+        if n % 10000 == 0:
             print n, link_id_map[src_feed], link_id_map[dst_feed], weight
         cursor.execute("replace into feedsim(src_id, dst_id, weight) values (%s,%s,%s);",
                        (link_id_map[src_feed], link_id_map[dst_feed], weight))
