@@ -10,13 +10,13 @@ require_once('db.php');
 			#main{width:900px; margin:0 auto;}
 			.feed {width:30%; float:left; }
 			.article {width:70%; float:left; }
-			a {font-size:13px; font-color #031221; }
-			a:hover {font-size:13px; font-color #0E2D3D; }
+			a {font-size:13px; color #031221; }
+			a:hover {font-size:13px; color #0E2D3D; }
 		</style>
 	<head>
 	<body>
 		<div id="main">
-			<div><span class="feed">RSSÔ´</span><span class="article">×îĞÂÎÄÕÂ</span></div>
+			<div><span class="feed">RSSæº</span><span class="article">æœ€æ–°æ–‡ç« </span></div>
 			<?php
 
 			$result = mysql_query("select name, link, latest_article_title, latest_article_link from feeds order by popularity desc limit 20");
