@@ -33,7 +33,14 @@ function IsChinese($buf)
 		</style>
 	<head>
 	<body>
-		<div id="head">RSS源推荐</div>
+		<div id="head">
+			<a href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;margin:0 auto;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;">
+				刷新
+			</a>&nbsp;
+			<a onclick="deleteHistory();" href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;margin:0 auto;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;">
+				重置
+			</a>
+		</div>
 		<div id="main">
 			<div class="item">
 				<span class="feed" style="font-size:16px;line-height:36px;font-weight:bold;">RSS源</span>
@@ -115,14 +122,6 @@ function IsChinese($buf)
 				//. "<a $onclick_str href=\"http://9.douban.com/reader/subscribe?url=$encode_link\" target=\"_blank\"><img src=\"http://www.douban.com/pics/newnine/feedbutton1.gif\"/></a>&nbsp;"
 			}
 			?>
-			<div style="width:100%;margin-top:50px;">
-				<a href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;margin:0 auto;width:200px;height:40px;text-align:center;font-size:32px;line-height:40px;">
-					刷新结果
-				</a>&nbsp;
-				<a onclick="deleteHistory();" href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;margin:0 auto;width:200px;height:40px;text-align:center;font-size:32px;line-height:40px;">
-					重新开始
-				</a>
-			</div>
 		</div>
 	</body>
 </html>
