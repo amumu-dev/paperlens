@@ -64,11 +64,16 @@ for line in data:
                    (title, feed, popularity))
 data.close()
 
-cursor.execute("select link from feeds where modify_at>%s;", (int(time.mktime(time.localtime())) - 3600 * 3))
+now_timestamp = int(time.mktime(time.localtime()))
+cursor.execute("select link,modify_at from feeds where modify_at>%s;", (now_timestamp - 3600 * 3))
 numrows = int(cursor.rowcount)
 feeds = set()
 for k in range(numrows):
     row = cursor.fetchone()
+    tm = int(row[1])
+    if now_timestamp - tm > 24 * 3600:
+        if random.random() > 0.3:
+            continue
     feeds.add(row[0])
 print 'new feed number : ', len(feeds)
 
