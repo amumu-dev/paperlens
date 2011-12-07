@@ -83,7 +83,7 @@ function IsChinese($buf)
 			foreach($rank as $id => $w)
 			{
 				$ids .= $id . ',';
-				if(++$n > 48) break;
+				if(++$n > 64) break;
 			}
 			$ids .= '0';
 			$n = 0;
@@ -101,7 +101,7 @@ function IsChinese($buf)
 				$article_link = $row[3];
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
 				if(!IsChinese($article)) continue;
-				if(++$n > 16) break;
+				if(++$n > 32) break;
 				$onclick_str = "onclick=\"addHistory($id);\"";
 				$like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str>喜欢</a>";
 				if(in_array($id, $history)) $like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str style=\"background:#AAA;\">谢谢</a>";
@@ -111,7 +111,7 @@ function IsChinese($buf)
 					. "<span class=\"subscribe\"><a $onclick_str href=\"http://fusion.google.com/add?feedurl=$encode_link\" target=_blank><img src=\"http://gmodules.com/ig/images/plus_google.gif\" /></a>&nbsp;"
 					. "<a $onclick_str target=\"_blank\" href=\"http://xianguo.com/subscribe?url=$encode_link\"><img src=\"http://xgres.com/static/images/sub/sub_XianGuo_09.gif\" /></a>"
 					. "</div>";
-				echo "<script type=\"text/javascript\">addLoadHistory($id)</script>";
+				//echo "<script type=\"text/javascript\">addLoadHistory($id)</script>";
 				//. "<a $onclick_str href=\"http://9.douban.com/reader/subscribe?url=$encode_link\" target=\"_blank\"><img src=\"http://www.douban.com/pics/newnine/feedbutton1.gif\"/></a>&nbsp;"
 			}
 			?>
