@@ -99,7 +99,6 @@ numrows = int(cursor.rowcount)
 for k in range(numrows):
     row = cursor.fetchone()
     link_id_map[row[1]] = row[0]
-print 'new feed number : ', len(feeds)
 
 cursor.execute("truncate table feedsim;")
 data = open("feed_similarity.txt")
