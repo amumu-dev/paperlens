@@ -118,7 +118,7 @@ function IsChinese($buf)
 				if(in_array($id, $history)) $like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str style=\"background:#AAA;\">谢谢</a>";
 
 				echo "<div class=\"item\"><span class=\"feed\">$like_str &nbsp;<a href=\"$link\" target=_blank>$name</a></span>"
-					. "<span class=\"article\">" .date("Y-m-d H:i:s",$pubdate) . "<a href=\"$article_link\" target=_blank>$article</a></span>"
+					. "<span class=\"article\">" .date("Y-m-d H:i:s",$pubdate) . "&nbsp;<a href=\"$article_link\" target=_blank>$article</a></span>"
 					. "<span class=\"subscribe\"><a $onclick_str href=\"http://fusion.google.com/add?feedurl=$encode_link\" target=_blank><img src=\"http://gmodules.com/ig/images/plus_google.gif\" /></a>&nbsp;"
 					. "<a $onclick_str target=\"_blank\" href=\"http://xianguo.com/subscribe?url=$encode_link\"><img src=\"http://xgres.com/static/images/sub/sub_XianGuo_09.gif\" /></a>"
 					. "</div>";
