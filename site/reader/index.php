@@ -49,6 +49,7 @@ function IsChinese($buf)
 			$k = 0;
 			$rank = array();
 			$names = array();
+			$articles = array();
 			foreach($history as $src_id)
 			{
 				if(strlen($src_id) == 0) continue;
@@ -95,6 +96,8 @@ function IsChinese($buf)
 				$link = $row[1];
 				$encode_link = urlencode($link);
 				$article = $row[2];
+				if(in_array($article, $articles)) continue;
+				array_push($articles, $article);
 				$article_link = $row[3];
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
 				if(!IsChinese($article)) continue;
