@@ -63,51 +63,38 @@ function IsChinese($buf)
 					echo $src_id . "&nbsp;" . $dst_id . "&nbsp;" . $weight . "<br>";
 				}
 			}
-			arsort($rank);
-			foreach($rank as $id =>$w)
+			$minvalue = 10000;
+			foreach($rank as $id => $w)
 			{
-				if(in_array($id, $load_history)) continue;
-				$result = mysql_query("select name, link, latest_article_title, latest_article_link from feeds where id=$id");
-				while($row=mysql_fetch_array($result))
-				{
-					$name = $row[0];
-					if(in_array($name, $names)) continue;
-					array_push($names, $name);
-					$link = $row[1];
-					$encode_link = urlencode($link);
-					$article = $row[2];
-					$article_link = $row[3];
-					if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
-					if(!IsChinese($article)) continue;
-					if(++$n > 16) break;
-					$onclick_str = "onclick=\"addHistory($id);\"";
-					$like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str>喜欢</a>";
-					if(in_array($id, $history)) $like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str style=\"background:#AAA;\">谢谢</a>";
-					echo "<div class=\"item\"><span class=\"feed\">$like_str &nbsp;<a href=\"$link\" target=_blank>$name</a></span>"
-						. "<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>"
-						. "<span class=\"subscribe\"><a $onclick_str href=\"http://fusion.google.com/add?feedurl=$encode_link\" target=_blank><img src=\"http://gmodules.com/ig/images/plus_google.gif\" /></a>&nbsp;"
-						. "<a $onclick_str href=\"http://9.douban.com/reader/subscribe?url=$encode_link\" target=\"_blank\"><img src=\"http://www.douban.com/pics/newnine/feedbutton1.gif\"/></a>&nbsp;"
-						. "<a $onclick_str target=\"_blank\" href=\"http://xianguo.com/subscribe?url=$encode_link\"><img src=\"http://xgres.com/static/images/sub/sub_XianGuo_09.gif\" /></a>"
-						. "</div>";
-					echo "<script type=\"text/javascript\">addLoadHistory($id)</script>";
-				}
+				if($minvalue > $w) $minvalue = $w;
 			}
-			echo "<hr/>";
-			$result = mysql_query("select name, link, latest_article_title, latest_article_link, id from feeds order by popularity desc limit 100");
+			$result = mysql_query("select id from feeds order by popularity desc limit 100");
 			while($row=mysql_fetch_array($result))
 			{
-				if(date("i") % 3 == (++$k) % 3) continue;
+				$id = $row[0];
+				if(array_key_exists($id, $rank)) continue;
+				$rank[$id] = $minvalue * 0.95;
+				$minvalue *= 0.95;
+			}
+			arsort($rank);
+			$ids = '';
+			$n = 0;
+			foreach($rank as $id => $w)
+			{
+				$ids .= $id . ',';
+				if(++$n > 100) break;
+			}
+			$ids .= '0';
+			$result = mysql_query("select name, link, latest_article_title, latest_article_link from feeds where id in $ids order by modify_at");
+			while($row=mysql_fetch_array($result))
+			{
 				$name = $row[0];
 				if(in_array($name, $names)) continue;
-					array_push($names, $name);
+				array_push($names, $name);
 				$link = $row[1];
 				$encode_link = urlencode($link);
 				$article = $row[2];
 				$article_link = $row[3];
-				$id = $row[4];
-				if(in_array($id, $load_history)) continue;
-				if(array_key_exists($id, $rank)) continue;
-				if(in_array($id, $history)) continue;
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
 				if(!IsChinese($article)) continue;
 				if(++$n > 16) break;
@@ -122,7 +109,6 @@ function IsChinese($buf)
 					. "</div>";
 				echo "<script type=\"text/javascript\">addLoadHistory($id)</script>";
 			}
-			
 			?>
 			<div style="width:100%;margin-top:50px;">
 				<a href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;margin:0 auto;width:200px;height:40px;text-align:center;font-size:32px;line-height:40px;">
