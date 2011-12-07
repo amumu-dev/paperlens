@@ -87,7 +87,7 @@ function IsChinese($buf)
 			$ids .= '0';
 			$n = 0;
 			echo "select name, link, latest_article_title, latest_article_link, modify from feeds where id in ($ids) order by modify_at desc";
-			$result = mysql_query("select name, link, latest_article_title, latest_article_link, modify from feeds where id in ($ids) order by modify_at desc");
+			$result = mysql_query("select name, link, latest_article_title, latest_article_link, modify_at from feeds where id in ($ids) order by modify_at desc");
 			while($row=mysql_fetch_array($result))
 			{
 				$name = $row[0];
