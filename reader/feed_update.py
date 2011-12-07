@@ -64,7 +64,7 @@ for line in data:
                    (title, feed, popularity))
 data.close()
 
-cursor.execute("select link from feeds where modify_at>%s;", (int(time.mktime(time.localtime())) - 10000))
+cursor.execute("select link from feeds where modify_at>%s;", (int(time.mktime(time.localtime())) - 3600 * 3))
 numrows = int(cursor.rowcount)
 feeds = set()
 for k in range(numrows):
@@ -102,24 +102,11 @@ for line in data:
     [feed, title, popularity] = line.split('\t')
     if feed in feeds:
         print 'up to date', feed
-        continue
+        continue    
     [article_title, article_link, pub_date] = GetFeedInfo(feed)
     if len(article_title) == 0:
         continue
     print feed, article_title, article_link, pub_date
-    cursor.execute("select modify_at from feeds where link=%s", (feed));
-    numrows = int(cursor.rowcount)
-    last_modify_at = 0
-    for k in range(numrows):
-        row = cursor.fetchone()
-        last_modify_at = int(row[0])
-    if pub_date - last_modify_at > 3600 * 24:
-        print "un updated for ", float(pub_date - last_modify_at) / (3600.0 * 24.0), " days"
-        if random.random() > 0.3:
-            continue
-    if pub_date - last_modify_at < 3600:
-        print "updated in one hour"
-        continue
     cursor.execute("insert into feeds(link, latest_article_title,latest_article_link,modify_at) values (%s,%s,%s,%s) on duplicate key update latest_article_title=values(latest_article_title),modify_at=values(modify_at),latest_article_link=values(latest_article_link);", (feed, article_title, article_link, pub_date))
 
 connection.commit()
