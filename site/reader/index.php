@@ -66,6 +66,7 @@ function IsChinese($buf)
 					$dst_id = $row[0];
 					$weight = $row[1];
 					if(in_array($dst_id, $history)) continue;
+					if(in_array($dst_id, $load_history)) $weight *= 0.1;
 					if(!array_key_exists($dst_id, $rank)) $rank[$dst_id] = $weight;
 					else $rank[$dst_id] += $weight;
 					//echo $src_id . "&nbsp;" . $dst_id . "&nbsp;" . $weight . "<br>";
@@ -81,7 +82,8 @@ function IsChinese($buf)
 			{
 				$id = $row[0];
 				if(array_key_exists($id, $rank)) continue;
-				$rank[$id] = $minvalue * 0.95;
+				if(in_array($id, $load_history)) $rank[$id] = $minvalue * 0.05;
+				else $rank[$id] = $minvalue * 0.95;
 				$minvalue *= 0.95;
 			}
 			arsort($rank);
@@ -119,8 +121,7 @@ function IsChinese($buf)
 					. "<span class=\"subscribe\"><a $onclick_str href=\"http://fusion.google.com/add?feedurl=$encode_link\" target=_blank><img src=\"http://gmodules.com/ig/images/plus_google.gif\" /></a>&nbsp;"
 					. "<a $onclick_str target=\"_blank\" href=\"http://xianguo.com/subscribe?url=$encode_link\"><img src=\"http://xgres.com/static/images/sub/sub_XianGuo_09.gif\" /></a>"
 					. "</div>";
-				//echo "<script type=\"text/javascript\">addLoadHistory($id)</script>";
-				//. "<a $onclick_str href=\"http://9.douban.com/reader/subscribe?url=$encode_link\" target=\"_blank\"><img src=\"http://www.douban.com/pics/newnine/feedbutton1.gif\"/></a>&nbsp;"
+				echo "<script type=\"text/javascript\">addLoadHistory($id)</script>";
 			}
 			?>
 		</div>
