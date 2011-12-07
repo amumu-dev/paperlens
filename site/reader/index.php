@@ -34,10 +34,10 @@ function IsChinese($buf)
 	<head>
 	<body>
 		<div id="head">
-			<a href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;margin:0 auto;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;">
+			<a href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;">
 				刷新
 			</a>&nbsp;
-			<a onclick="deleteHistory();" href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;margin:0 auto;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;">
+			<a onclick="deleteHistory();" href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;">
 				重置
 			</a>
 		</div>
