@@ -61,7 +61,7 @@ def InsertArticle(article, cursor):
     numrows = int(cursor.rowcount)
     if numrows <= 0:
         cursor.execute("insert into articles(title, link, pub_at, content) values (%s, %s, %s, %s);",
-                       (title, link, pdat, xml))
+                       (title, link, pdate, xml))
         cursor.execute("select id from articles where link=%s;", (link))
         numrows = int(cursor.rowcount)
     if numrows <= 0:
