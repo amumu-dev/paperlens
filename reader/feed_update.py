@@ -45,7 +45,8 @@ def GetFeedInfo(url):
             if len(date_node) > 0:
                 pub_date = date_node[0].firstChild.data
             pdate = GetDate(pub_date)
-            ret.append(title, link, pdate, item.toxml())
+            if pdate > 0:
+                ret.append([title, link, pdate, item.toxml()])
         return ret
     except xml.parsers.expat.ExpatError, e:
         return ret
@@ -134,8 +135,10 @@ for line in data:
     if feed in feeds:
         print 'up to date', feed
         continue
-    articles = GetFeedInfo(feed)
     feed_id = GetFeedId(feed, cursor)
+    if feed_id < 0:
+        continue
+    articles = GetFeedInfo(feed)
     print feed, title, len(articles)
     for article in articles:
         article_id = InsertArticle(article, cursor)
