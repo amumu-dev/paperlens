@@ -82,7 +82,7 @@ function IsChinese($buf)
 			foreach($rank as $id => $w)
 			{
 				$ids .= $id . ',';
-				if(++$n > 100) break;
+				if(++$n > 48) break;
 			}
 			$ids .= '0';
 			$n = 0;
