@@ -72,6 +72,7 @@ function IsChinese($buf)
 					echo $src_id . "&nbsp;" . $dst_id . "&nbsp;" . $weight . "<br>";
 				}
 			}
+			print_r($rank);
 			$minvalue = 10000;
 			foreach($rank as $id => $w)
 			{
