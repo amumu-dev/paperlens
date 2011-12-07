@@ -142,7 +142,8 @@ for line in data:
     print feed, title, len(articles)
     for article in articles:
         article_id = InsertArticle(article, cursor)
-        if article_id < 0:
+        [atitle, alink, apdate, axml] = article
+        if article_id < 0 or (now_timestamp - apdate) > 24 * 3600 * 10:
             continue
         cursor.execute("replace into feed_articles(feed_id, article_id) values (%s, %s)", (feed_id, article_id))
 
