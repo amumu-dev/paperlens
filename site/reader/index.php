@@ -69,7 +69,6 @@ function IsChinese($buf)
 					if(in_array($dst_id, $load_history)) $weight *= 0.1;
 					if(!array_key_exists($dst_id, $rank)) $rank[$dst_id] = $weight;
 					else $rank[$dst_id] += $weight;
-					echo $src_id . "&nbsp;" . $dst_id . "&nbsp;" . $weight . "<br>";
 				}
 			}
 			
@@ -78,18 +77,18 @@ function IsChinese($buf)
 			{
 				if($minvalue > $w) $minvalue = $w;
 			}
-			$result = mysql_query("select id from feeds order by popularity desc limit 100");
+			$result = mysql_query("select id from feeds order by popularity desc limit 64");
 			while($row=mysql_fetch_array($result))
 			{
 				$id = $row[0];
 				if(array_key_exists($id, $rank)) continue;
+				if(in_array($id, $history)) continue;
 				if(in_array($id, $load_history)) $rank[$id] = $minvalue * 0.05;
 				else $rank[$id] = $minvalue * 0.95;
 				$minvalue *= 0.95;
 			}
 			
 			arsort($rank);
-			print_r($rank);
 			$ids = '';
 			$n = 0;
 			foreach($rank as $id => $w)
@@ -132,7 +131,7 @@ function IsChinese($buf)
 					if(in_array($id, $history)) $like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str style=\"background:#AAA;\">谢谢</a>";
 
 					echo "<div class=\"item\">$id<span class=\"feed\">$like_str &nbsp;<a href=\"$link\" target=_blank>$name</a></span>"
-					     . "<span class=\"article\">" .date("Y-m-d H:i:s",$pubdate) . "&nbsp;<a href=\"$article_link\" target=_blank>$article</a></span>"
+					     . "<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>"
 					     . "<span class=\"subscribe\"><a $onclick_str href=\"http://fusion.google.com/add?feedurl=$encode_link\" target=_blank><img src=\"http://gmodules.com/ig/images/plus_google.gif\" /></a>&nbsp;"
 					     . "<a $onclick_str target=\"_blank\" href=\"http://xianguo.com/subscribe?url=$encode_link\"><img src=\"http://xgres.com/static/images/sub/sub_XianGuo_09.gif\" /></a>"
 					     . "</div>";
