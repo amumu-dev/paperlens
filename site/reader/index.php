@@ -94,7 +94,7 @@ function IsChinese($buf)
 			}
 			$ids .= '0';
 			$n = 0;
-			$result = mysql_query("select name, link, latest_article_title, latest_article_link, modify_at from feeds where id in ($ids) order by modify_at desc");
+			$result = mysql_query("select name, link, latest_article_title, latest_article_link, modify_at, id from feeds where id in ($ids) order by modify_at desc");
 			while($row=mysql_fetch_array($result))
 			{
 				$name = $row[0];
@@ -106,6 +106,7 @@ function IsChinese($buf)
 				if(in_array($article, $articles)) continue;
 				array_push($articles, $article);
 				$article_link = $row[3];
+				$id = $row[4];
 				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
 				if(!IsChinese($article)) continue;
 				if(++$n > 32) break;
