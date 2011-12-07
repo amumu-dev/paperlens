@@ -105,6 +105,8 @@ n = 0
 data = open("feed_popularity.txt")
 for line in data:
     try:
+        if random.random() > 0.3:
+            continue
         [feed, title, popularity] = line.split('\t')
         if feed in feeds:
             print 'up to date', feed
