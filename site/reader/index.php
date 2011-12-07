@@ -85,7 +85,7 @@ function IsChinese($buf)
 				if(++$n > 100) break;
 			}
 			$ids .= '0';
-			//echo "select name, link, latest_article_title, latest_article_link from feeds where id in $ids order by modify_at desc";
+			$n = 0;
 			$result = mysql_query("select name, link, latest_article_title, latest_article_link from feeds where id in ($ids) order by modify_at desc");
 			while($row=mysql_fetch_array($result))
 			{
