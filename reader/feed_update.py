@@ -117,6 +117,9 @@ for line in data:
         print "un updated for ", float(pub_date - last_modify_at) / (3600.0 * 24.0), " days"
         if random.random() > 0.3:
             continue
+    if pub_date - last_modify_at < 3600:
+        print "updated in one hour"
+        continue
     cursor.execute("insert into feeds(link, latest_article_title,latest_article_link,modify_at) values (%s,%s,%s,%s) on duplicate key update latest_article_title=values(latest_article_title),modify_at=values(modify_at),latest_article_link=values(latest_article_link);", (feed, article_title, article_link, pub_date))
 
 connection.commit()
