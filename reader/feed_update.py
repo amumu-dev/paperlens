@@ -97,23 +97,26 @@ for line in data:
         if n % 10000 == 0:
             print n, link_id_map[src_feed], link_id_map[dst_feed], weight
         cursor.execute("replace into feedsim(src_id, dst_id, weight) values (%s,%s,%s);",
-                       (link_id_map[src_feed], link_id_map[dst_feed], weight))
+                       (link_id_map[src_feed], link_id_map[dst_feed], float(weight)))
     except:
         continue
 
 n = 0
 data = open("feed_popularity.txt")
 for line in data:
-    [feed, title, popularity] = line.split('\t')
-    if feed in feeds:
-        print 'up to date', feed
-        continue    
-    [article_title, article_link, pub_date] = GetFeedInfo(feed)
-    if len(article_title) == 0:
+    try:
+        [feed, title, popularity] = line.split('\t')
+        if feed in feeds:
+            print 'up to date', feed
+            continue    
+        [article_title, article_link, pub_date] = GetFeedInfo(feed)
+        if len(article_title) == 0:
+            continue
+        print feed, article_title, article_link, pub_date
+        cursor.execute("insert into feeds(link, latest_article_title,latest_article_link,modify_at) values (%s,%s,%s,%s) on duplicate key update latest_article_title=values(latest_article_title),modify_at=values(modify_at),latest_article_link=values(latest_article_link);", (feed, article_title, article_link, pub_date))
+    except:
+        print "error"
         continue
-    print feed, article_title, article_link, pub_date
-    cursor.execute("insert into feeds(link, latest_article_title,latest_article_link,modify_at) values (%s,%s,%s,%s) on duplicate key update latest_article_title=values(latest_article_title),modify_at=values(modify_at),latest_article_link=values(latest_article_link);", (feed, article_title, article_link, pub_date))
-
 connection.commit()
 cursor.close()
 connection.close()
