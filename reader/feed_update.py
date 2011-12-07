@@ -46,8 +46,9 @@ def GetFeedInfo(url):
             if len(date_node) > 0:
                 pub_date = date_node[0].firstChild.data
             pdate = GetDate(pub_date)
-            if pdate > 0:
-                ret.append([title, link, pdate, item.toxml()])
+            itemxml = item.toxml()
+            if pdate > 0 and len(itemxml) > 200 and len(itemxml) < 2000:
+                ret.append([title, link, pdate, itemxml])
         return ret
     except xml.parsers.expat.ExpatError, e:
         return ret
@@ -91,7 +92,6 @@ for line in data:
 data.close()
 
 now_timestamp = int(time.mktime(time.localtime()))
-cursor.execute("delete from articles where pub_at < %s;", (now_timestamp - 3600 * 24 * 10))
 
 link_id_map = dict()
 cursor.execute("select id,link from feeds;")
