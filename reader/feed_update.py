@@ -3,7 +3,6 @@ import crawler
 import xml.dom.minidom
 import time
 import random
-import zlib
 
 def GetDate(pub_date):
     tks = []
@@ -63,7 +62,7 @@ def InsertArticle(article, cursor):
     numrows = int(cursor.rowcount)
     if numrows <= 0:
         cursor.execute("insert into articles(title, link, pub_at, content) values (%s, %s, %s, %s);",
-                       (title, link, pdate, zlib.compress(xml)))
+                       (title, link, pdate, xml))
         cursor.execute("select id from articles where link=%s;", (link))
         numrows = int(cursor.rowcount)
     if numrows <= 0:
