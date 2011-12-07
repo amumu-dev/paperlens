@@ -3,6 +3,7 @@ import crawler
 import xml.dom.minidom
 import time
 import random
+import zlib
 
 def GetDate(pub_date):
     tks = []
@@ -61,7 +62,7 @@ def InsertArticle(article, cursor):
     numrows = int(cursor.rowcount)
     if numrows <= 0:
         cursor.execute("insert into articles(title, link, pub_at, content) values (%s, %s, %s, %s);",
-                       (title, link, pdate, xml))
+                       (title, link, pdate, zlib.compress(xml)))
         cursor.execute("select id from articles where link=%s;", (link))
         numrows = int(cursor.rowcount)
     if numrows <= 0:
@@ -90,17 +91,7 @@ for line in data:
 data.close()
 
 now_timestamp = int(time.mktime(time.localtime()))
-cursor.execute("select link,modify_at from feeds where modify_at>%s;", (now_timestamp - 3600 * 3))
-numrows = int(cursor.rowcount)
-feeds = set()
-for k in range(numrows):
-    row = cursor.fetchone()
-    tm = int(row[1])
-    if now_timestamp - tm > 24 * 3600:
-        if random.random() > 0.3:
-            continue
-    feeds.add(row[0])
-print 'new feed number : ', len(feeds)
+cursor.execute("delete from articles where pub_at < %s;", (now_timestamp - 3600 * 24 * 10))
 
 link_id_map = dict()
 cursor.execute("select id,link from feeds;")
@@ -132,9 +123,6 @@ for line in data:
     if random.random() > 0.3:
         continue
     [feed, title, popularity] = line.split('\t')
-    if feed in feeds:
-        print 'up to date', feed
-        continue
     feed_id = GetFeedId(feed, cursor)
     if feed_id < 0:
         continue
