@@ -128,24 +128,21 @@ for line in data:
 n = 0
 data = open("feed_popularity.txt")
 for line in data:
-    try:
-        if random.random() > 0.3:
-            continue
-        [feed, title, popularity] = line.split('\t')
-        if feed in feeds:
-            print 'up to date', feed
-            continue
-        articles = GetFeedInfo(feed)
-        feed_id = GetFeedId(feed, cursor)
-        print feed, title, len(articles)
-        for article in articles:
-            article_id = InsertArticle(article, cursor)
-            if article_id < 0:
-                continue
-            cursor.execute("replace into feed_articles(feed_id, article_id) values (%s, %s)", (feed_id, article_id))
-    except:
-        print "error"
+    if random.random() > 0.3:
         continue
+    [feed, title, popularity] = line.split('\t')
+    if feed in feeds:
+        print 'up to date', feed
+        continue
+    articles = GetFeedInfo(feed)
+    feed_id = GetFeedId(feed, cursor)
+    print feed, title, len(articles)
+    for article in articles:
+        article_id = InsertArticle(article, cursor)
+        if article_id < 0:
+            continue
+        cursor.execute("replace into feed_articles(feed_id, article_id) values (%s, %s)", (feed_id, article_id))
+
 connection.commit()
 cursor.close()
 connection.close()
