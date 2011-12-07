@@ -73,7 +73,6 @@ function IsChinese($buf)
 				}
 			}
 			
-			/*
 			$minvalue = 10000;
 			foreach($rank as $id => $w)
 			{
@@ -88,7 +87,7 @@ function IsChinese($buf)
 				else $rank[$id] = $minvalue * 0.95;
 				$minvalue *= 0.95;
 			}
-			*/
+			
 			arsort($rank);
 			print_r($rank);
 			$ids = '';
@@ -99,34 +98,46 @@ function IsChinese($buf)
 				if(++$n > 100) break;
 			}
 			$ids .= '0';
-			$n = 0;
-			$result = mysql_query("select name, link, latest_article_title, latest_article_link, id, modify_at from feeds where id in ($ids) and modify_at>0 order by modify_at desc");
+			$result = mysql_query("select id, modify_at from feeds where id in ($ids) and modify_at>0 order by modify_at desc");
 			while($row=mysql_fetch_array($result))
 			{
-				$name = $row[0];
-				if(in_array($name, $names)) continue;
-				array_push($names, $name);
-				$link = $row[1];
-				$encode_link = urlencode($link);
-				$article = $row[2];
-				if(in_array($article, $articles)) continue;
-				array_push($articles, $article);
-				$article_link = $row[3];
-				$id = $row[4];
-				$pubdate = $row[5];
-				if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
-				if(!IsChinese($article)) continue;
-				if(++$n > 24) break;
-				$onclick_str = "onclick=\"addHistory($id);\"";
-				$like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str>喜欢</a>";
-				if(in_array($id, $history)) $like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str style=\"background:#AAA;\">谢谢</a>";
+				$id = $row[0];
+				$pubdate = $row[1];
+				if(!array_key_exists($id, $rank)) continue;
+				$rank[$id] /= (1 + 0.1 * (time() - $pubdate));
+			}
+			$n = 0;
+			arsort($rank);
+			foreach($rank as $id => $w)
+			{
+				$result = mysql_query("select name, link, latest_article_title, latest_article_link, id, modify_at from feeds where id =$id modify_at>0 desc");
+				while($row=mysql_fetch_array($result))
+				{
+					$name = $row[0];
+					if(in_array($name, $names)) continue;
+					array_push($names, $name);
+					$link = $row[1];
+					$encode_link = urlencode($link);
+					$article = $row[2];
+					if(in_array($article, $articles)) continue;
+					array_push($articles, $article);
+					$article_link = $row[3];
+					//$id = $row[4];
+					$pubdate = $row[5];
+					if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
+					if(!IsChinese($article)) continue;
+					if(++$n > 24) break;
+					$onclick_str = "onclick=\"addHistory($id);\"";
+					$like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str>喜欢</a>";
+					if(in_array($id, $history)) $like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str style=\"background:#AAA;\">谢谢</a>";
 
-				echo "<div class=\"item\">$id<span class=\"feed\">$like_str &nbsp;<a href=\"$link\" target=_blank>$name</a></span>"
-					. "<span class=\"article\">" .date("Y-m-d H:i:s",$pubdate) . "&nbsp;<a href=\"$article_link\" target=_blank>$article</a></span>"
-					. "<span class=\"subscribe\"><a $onclick_str href=\"http://fusion.google.com/add?feedurl=$encode_link\" target=_blank><img src=\"http://gmodules.com/ig/images/plus_google.gif\" /></a>&nbsp;"
-					. "<a $onclick_str target=\"_blank\" href=\"http://xianguo.com/subscribe?url=$encode_link\"><img src=\"http://xgres.com/static/images/sub/sub_XianGuo_09.gif\" /></a>"
-					. "</div>";
-				echo "<script type=\"text/javascript\">addLoadHistory($id)</script>";
+					echo "<div class=\"item\">$id<span class=\"feed\">$like_str &nbsp;<a href=\"$link\" target=_blank>$name</a></span>"
+					     . "<span class=\"article\">" .date("Y-m-d H:i:s",$pubdate) . "&nbsp;<a href=\"$article_link\" target=_blank>$article</a></span>"
+					     . "<span class=\"subscribe\"><a $onclick_str href=\"http://fusion.google.com/add?feedurl=$encode_link\" target=_blank><img src=\"http://gmodules.com/ig/images/plus_google.gif\" /></a>&nbsp;"
+					     . "<a $onclick_str target=\"_blank\" href=\"http://xianguo.com/subscribe?url=$encode_link\"><img src=\"http://xgres.com/static/images/sub/sub_XianGuo_09.gif\" /></a>"
+					     . "</div>";
+					     echo "<script type=\"text/javascript\">addLoadHistory($id)</script>";
+				}
 			}
 			?>
 		</div>
