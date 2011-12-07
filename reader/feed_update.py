@@ -25,8 +25,9 @@ def GetDate(pub_date):
 def GetFeedInfo(url):
     c = crawler.Crawler('')
     rss = c.download(url)
+    ret = []
     if len(rss) < 20:
-        return ['', '', 0]
+        return ret
     try:
         dom = xml.dom.minidom.parseString(str.strip(rss))
         items = dom.getElementsByTagName('item')
@@ -43,14 +44,37 @@ def GetFeedInfo(url):
             date_node = item.getElementsByTagName('pubDate')
             if len(date_node) > 0:
                 pub_date = date_node[0].firstChild.data
-            break
-        pdate = GetDate(pub_date)
-        return [title, link, pdate]
+            pdate = GetDate(pub_date)
+            ret.append(title, link, pdate, item.toxml())
+        return ret
     except xml.parsers.expat.ExpatError, e:
-        return ['', '', 0]
+        return ret
     except AttributeError, e:
-        return ['', '', 0]
+        return ret
         
+def InsertArticle(article, cursor):
+    if len(article) != 4:
+        return -1
+    [title, link, pdate, xml] = article
+    cursor.execute("select id from articles where link=%s;", (link))
+    numrows = int(cursor.rowcount)
+    if numrows <= 0:
+        cursor.execute("insert into articles(title, link, pub_at, content) values (%s, %s, %s, %s);",
+                       (title, link, pdat, xml))
+        cursor.execute("select id from articles where link=%s;", (link))
+        numrows = int(cursor.rowcount)
+    if numrows <= 0:
+        return -1
+    row = cursor.fetchone()
+    return int(row[0])
+
+def GetFeedId(link, cursor):
+    cursor.execute("select id from feeds where link=%s;", (link))
+    numrows = int(cursor.rowcount)
+    if numrows <= 0:
+        return -1
+    row = cursor.fetchone()
+    return int(row[0])
 
 connection = MySQLdb.connect (host = "127.0.0.1", user = "paperlens", passwd = "paper1ens", db = "reader", charset="utf8")
 cursor = connection.cursor()
@@ -110,12 +134,15 @@ for line in data:
         [feed, title, popularity] = line.split('\t')
         if feed in feeds:
             print 'up to date', feed
-            continue    
-        [article_title, article_link, pub_date] = GetFeedInfo(feed)
-        if len(article_title) == 0:
             continue
-        print feed, article_title, article_link, pub_date
-        cursor.execute("insert into feeds(link, latest_article_title,latest_article_link,modify_at) values (%s,%s,%s,%s) on duplicate key update latest_article_title=values(latest_article_title),modify_at=values(modify_at),latest_article_link=values(latest_article_link);", (feed, article_title, article_link, pub_date))
+        articles = GetFeedInfo(feed)
+        feed_id = GetFeedId(feed, cursor)
+        print feed, title, len(articles)
+        for article in articles:
+            article_id = InsertArticle(article, cursor)
+            if article_id < 0:
+                continue
+            cursor.execute("replace into feed_articles(feed_id, article_id) values (%s, %s)", (feed_id, article_id))
     except:
         print "error"
         continue
