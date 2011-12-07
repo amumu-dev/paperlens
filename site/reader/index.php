@@ -86,6 +86,7 @@ function IsChinese($buf)
 			}
 			$ids .= '0';
 			$n = 0;
+			echo "select name, link, latest_article_title, latest_article_link, modify from feeds where id in ($ids) order by modify_at desc";
 			$result = mysql_query("select name, link, latest_article_title, latest_article_link, modify from feeds where id in ($ids) order by modify_at desc");
 			while($row=mysql_fetch_array($result))
 			{
@@ -111,7 +112,7 @@ function IsChinese($buf)
 					. "</div>";
 					*/
 				echo "<div class=\"item\"><span class=\"feed\">$like_str &nbsp;<a href=\"$link\" target=_blank>$name</a></span>"
-					. "<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>";
+					. "<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span></div>";
 				echo "<div class=\"item\"><span class=\"feed\">&nbsp;</span>"
 					. "<span class=\"article\"><a $onclick_str href=\"http://fusion.google.com/add?feedurl=$encode_link\" target=_blank><img src=\"http://gmodules.com/ig/images/plus_google.gif\" /></a>&nbsp;"
 					. "<a $onclick_str href=\"http://9.douban.com/reader/subscribe?url=$encode_link\" target=\"_blank\"><img src=\"http://www.douban.com/pics/newnine/feedbutton1.gif\"/></a>&nbsp;"
