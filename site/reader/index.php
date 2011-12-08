@@ -39,7 +39,7 @@ if($get_rss == 1)
 
 <html>
 	<head>
-		<title>RSS源推荐</title>
+		<title>个性化RSS</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<script src="reader.js" type="text/javascript"></script>
 		<style type="text/css">
