@@ -72,7 +72,10 @@ if($get_rss == 1)
 				}
 				else
 				{
-					echo "<a target=\"_blank\" href=\"http://www.reculike.com/site/reader/myfeed.php?uid=$uid\" style=\"background:#000;color:#FFF;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;\">我的RSS</a>";
+					$rss_link = "http://www.reculike.com/site/reader/myfeed.php?uid=$uid";
+					$rss_encode_link = urlencode($rss_link);
+					echo "<a target=\"_blank\" href=\"$rss_link\" style=\"background:#000;color:#FFF;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;\">我的RSS</a>";
+					echo "<a style=\"display:block;float:left;margin-right:10px;\" target=\"_blank\" href=\"http://fusion.google.com/add?source=atgs&feedurl=$rss_encode_link\"><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" border=\"0\" alt=\"Add to Google\"></a>";
 				}
 			?>
 		</div>
