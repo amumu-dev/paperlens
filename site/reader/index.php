@@ -59,6 +59,7 @@ if($get_rss == 1)
 	<head>
 	<body>
 		<div id="head">
+			<p style="font-size:14px;color:#888;">选择自己喜欢的feed点击订阅，点击刷新看到更多的候选feed，选定后点击生成RSS可以生成一个RSS链接</p>
 			<a href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;">
 				刷新
 			</a>&nbsp;
