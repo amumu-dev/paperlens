@@ -19,13 +19,13 @@ function IsChinese($buf)
 		<script src="reader.js" type="text/javascript"></script>
 		<style type="text/css">
 			body {font-family:Verdana; font-size:13px;line-height:26px;}
-			#main{width:1000px; margin:0 auto; margin-top:20px;padding-left:5px;}
-			#head{width:1000px; margin:0 auto; font-size:40px;margin-top:30px; font-weight:bold;}
+			#main{width:900px; margin:0 auto; margin-top:20px;padding-left:5px;}
+			#head{width:900px; margin:0 auto; font-size:40px;margin-top:30px; font-weight:bold;}
 			.item {width:100%;text-align:left;clear:both;}
 			.feed {width:30%; float:left; }
-			.article {width:55%; float:left; }
+			.article {width:60%; float:left; }
 			.like{display:block;width:40px;float:left;background:#000;height:18px;line-height:18px;cursor:pointer;margin-top:3px;font-size:12px;text-align:center;color:#FFF;}
-			.subscribe {width:15%; float:left;vertical-align:bottom; }
+			.subscribe {width:10%; float:left;vertical-align:bottom; }
 			a {font-size:13px; color: #1D5261;}
 			a:hover {color: #5697A3;}
 			/*.feedtitle {height:18px;line-height:18px; display:block;float:left;width:95%;}*/
