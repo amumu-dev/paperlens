@@ -3,6 +3,7 @@ import crawler
 import xml.dom.minidom
 import time
 import random
+import codecs
 
 def GetDate(pub_date):
     tks = []
@@ -61,13 +62,17 @@ def InsertArticle(article, cursor):
     cursor.execute("select id from articles where link=%s;", (link))
     numrows = int(cursor.rowcount)
     if numrows <= 0:
-        cursor.execute("insert into articles(title, link, pub_at, content) values (%s, %s, %s, %s);",
-                       (title, link, pdate, xml))
+        cursor.execute("insert into articles(title, link, pub_at) values (%s, %s, %s);",
+                       (title, link, pdate))
         cursor.execute("select id from articles where link=%s;", (link))
         numrows = int(cursor.rowcount)
     if numrows <= 0:
         return -1
     row = cursor.fetchone()
+    article_id = int(row[0])
+    sw = codecs.open('/data/www/site/reader/articles/' + row[0], 'w', 'utf-8')
+    sw.write(xml)
+    sw.close()
     return int(row[0])
 
 def GetFeedId(link, cursor):
