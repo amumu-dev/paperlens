@@ -47,7 +47,7 @@ def GetFeedInfo(url):
                 pub_date = date_node[0].firstChild.data
             pdate = GetDate(pub_date)
             itemxml = item.toxml()
-            if pdate > 0 and len(itemxml) > 200 and len(itemxml) < 2000:
+            if pdate > 0:
                 ret.append([title, link, pdate, itemxml])
         return ret
     except xml.parsers.expat.ExpatError, e:
