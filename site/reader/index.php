@@ -66,9 +66,22 @@ function IsChinese($buf)
 					$dst_id = $row[0];
 					$weight = $row[1];
 					if(in_array($dst_id, $history)) continue;
-					if(in_array($dst_id, $load_history)) $weight *= 0.1;
 					if(!array_key_exists($dst_id, $rank)) $rank[$dst_id] = $weight;
 					else $rank[$dst_id] += $weight;
+				}
+			}
+			foreach($load_history as $src_id)
+			{
+				if(strlen($src_id) == 0) continue;
+				if(in_array($src_id, $history)) continue;
+				$result = mysql_query("select dst_id,weight from feedsim where src_id=$src_id");
+				while($row=mysql_fetch_array($result))
+				{
+					$dst_id = $row[0];
+					$weight = $row[1];
+					if(in_array($dst_id, $history)) continue;
+					if(!array_key_exists($dst_id, $rank)) $rank[$dst_id] = (-0.1) * $weight;
+					else $rank[$dst_id] += (-0.1) * $weight;
 				}
 			}
 			
@@ -121,7 +134,6 @@ function IsChinese($buf)
 					if(in_array($article, $articles)) continue;
 					array_push($articles, $article);
 					$article_link = $row[3];
-					//$id = $row[4];
 					if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
 					if(!IsChinese($article)) continue;
 					if(++$n > 24) break;
