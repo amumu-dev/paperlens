@@ -75,7 +75,7 @@ if($get_rss == 1)
 					$rss_link = "http://www.reculike.com/site/reader/myfeed.php?uid=$uid";
 					$rss_encode_link = urlencode($rss_link);
 					echo "<a target=\"_blank\" href=\"$rss_link\" class=\"butn\">我的RSS</a>";
-					echo "<a class=\"butn\" target=\"_blank\" href=\"http://fusion.google.com/add?source=atgs&feedurl=$rss_encode_link\"><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" border=\"0\" alt=\"Add to Google\"></a>";
+					echo "<a class=\"butn\" style=\"background:#FFF;\" target=\"_blank\" href=\"http://fusion.google.com/add?source=atgs&feedurl=$rss_encode_link\"><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" border=\"0\" alt=\"Add to Google\"></a>";
 				}
 			?>
 		</div>
