@@ -19,11 +19,13 @@ $feeds .= '0';
     <link>http://www.reculike.com/site/reader/</link>
 
 <?php
-$result = mysql_query("select a.article_id from feed_articles a, articles b where a.article_id = b.id and a.feed_id in ($feeds) order by b.pub_at desc limit 20");
+$result = mysql_query("select a.article_id from feed_articles a, articles b where a.article_id = b.id and a.feed_id in ($feeds) order by b.pub_at desc limit 100");
 while($row = mysql_fetch_array($result))
 {
 	$article_id = $row[0];
-	echo file_get_contents("http://www.reculike.com/site/reader/articles/" . (string)($article_id % 10) . "/" . (string)($article_id));
+	$itemxml = file_get_contents("http://www.reculike.com/site/reader/articles/" . (string)($article_id % 10) . "/" . (string)($article_id));
+	if(strlen($itemxml) > 500)
+		echo $itemxml;
 }
 ?>
 </channel></rss>
