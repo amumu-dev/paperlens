@@ -73,7 +73,6 @@ if($get_rss == 1)
 				{
 					echo "<a href=\"http://www.reculike.com/site/reader/myfeed.php?uid=$uid\" style=\"background:#000;color:#FFF;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;\">我的RSS</a>";
 				}
-			</a>
 			?>
 			<a onclick="deleteHistory();" href="http://www.reculike.com/site/reader/?rss=1" style="background:#EEE;color:#888;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;">
 				生成RSS
