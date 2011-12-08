@@ -122,6 +122,7 @@ function IsChinese($buf)
 			arsort($rank);
 			foreach($history as $id)
 			{
+				if(strlen($id) == 0) continue;
 				$result = mysql_query("select a.name, a.link, c.title, c.link  from feeds a, feed_articles b, articles c where a.id=$id and a.id=b.feed_id and b.article_id=c.id order by c.pub_at desc");
 				while($row=mysql_fetch_array($result))
 				{
