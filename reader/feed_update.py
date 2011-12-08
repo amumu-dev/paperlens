@@ -70,7 +70,7 @@ def InsertArticle(article, cursor):
         return -1
     row = cursor.fetchone()
     article_id = int(row[0])
-    sw = codecs.open('/data/www/site/reader/articles/' + row[0], 'w', 'utf-8')
+    sw = codecs.open('/data/www/site/reader/articles/' + str(row[0]), 'w', 'utf-8')
     sw.write(xml)
     sw.close()
     return int(row[0])
