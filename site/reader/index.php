@@ -10,6 +10,30 @@ function IsChinese($buf)
 	}
 	return false;
 }
+$get_rss = $_GET["rss"];
+
+$history = array();
+if(array_key_exists("his", $_COOKIE)) $history = explode("_", $_COOKIE["his"]);
+$load_history = array();
+if(array_key_exists("loadhis", $_COOKIE)) $load_history = explode("_", $_COOKIE["loadhis"]);
+$uid = -1;
+if($get_rss == 1)
+{
+	if(count($history) > 0)
+	{
+		$result = mysql_query("select max(user_id) from myfeed;");
+		while($row=mysql_fetch_array($result))
+		{
+			$uid = $row[0];
+		}
+		$uid += 1;
+		for($history as $id)
+		{
+			if(strlen($id) == 0) continue;
+			mysql_query("insert into myfeed (user_id, feed_id) values ($uid, $id)");
+		}
+	}
+}
 ?>
 
 <html>
@@ -40,6 +64,20 @@ function IsChinese($buf)
 			<a onclick="deleteHistory();" href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;">
 				重置
 			</a>
+			<?php
+				if($uid < 0)
+				{
+					echo "<a href=\"http://www.reculike.com/site/reader/?rss=1\" style=\"background:#EEE;color:#888;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;\">生成RSS</a>";
+				}
+				else
+				{
+					echo "<a href=\"http://www.reculike.com/site/reader/myfeed.php?uid=$uid\" style=\"background:#000;color:#FFF;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;\">我的RSS</a>";
+				}
+			</a>
+			?>
+			<a onclick="deleteHistory();" href="http://www.reculike.com/site/reader/?rss=1" style="background:#EEE;color:#888;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;">
+				生成RSS
+			</a>
 		</div>
 		<div id="main">
 			<div class="item">
@@ -48,10 +86,7 @@ function IsChinese($buf)
 				<span class="subscribe" style="font-size:16px;line-height:36px;font-weight:bold;">订阅</span>
 			</div>
 			<?php
-			$history = array();
-			if(array_key_exists("his", $_COOKIE)) $history = explode("_", $_COOKIE["his"]);
-			$load_history = array();
-			if(array_key_exists("loadhis", $_COOKIE)) $load_history = explode("_", $_COOKIE["loadhis"]);
+			
 			$n = 0;
 			$k = 0;
 			$rank = array();
