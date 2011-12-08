@@ -120,6 +120,31 @@ function IsChinese($buf)
 			}
 			$n = 0;
 			arsort($rank);
+			foreach($history as $id)
+			{
+				$result = mysql_query("select a.name, a.link, c.title, c.link  from feeds a, feed_articles b, articles c where a.id=$id and a.id=b.feed_id and b.article_id=c.id order by c.pub_at desc");
+				while($row=mysql_fetch_array($result))
+				{
+					$name = $row[0];
+					if(in_array($name, $names)) continue;
+					array_push($names, $name);
+					$link = $row[1];
+					$encode_link = urlencode($link);
+					$article = $row[2];
+					if(in_array($article, $articles)) continue;
+					array_push($articles, $article);
+					$article_link = $row[3];
+					if(++$n > 24) break;
+					$onclick_str = "onclick=\"addHistory($id);\"";
+					$like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str>订阅</a>";
+					if(in_array($id, $history)) $like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str style=\"background:#AAA;\">谢谢</a>";
+
+					echo "<div class=\"item\"><span class=\"feed\"><a href=\"$link\" target=_blank>$name</a></span>"
+					     . "<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>"
+					     . "<span class=\"subscribe\">$like_str</span>"
+					     . "</div>";
+				}
+			}
 			foreach($rank as $id => $w)
 			{
 				$result = mysql_query("select a.name, a.link, c.title, c.link  from feeds a, feed_articles b, articles c where a.id=$id and a.id=b.feed_id and b.article_id=c.id order by c.pub_at desc");
@@ -145,7 +170,7 @@ function IsChinese($buf)
 					     . "<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>"
 					     . "<span class=\"subscribe\">$like_str</span>"
 					     . "</div>";
-					     echo "<script type=\"text/javascript\">addLoadHistory($id)</script>";
+					echo "<script type=\"text/javascript\">addLoadHistory($id)</script>";
 				}
 			}
 			?>
