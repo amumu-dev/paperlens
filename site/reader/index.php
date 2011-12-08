@@ -63,20 +63,20 @@ if($get_rss == 1)
 			<a href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;">
 				刷新
 			</a>&nbsp;
-			<a onclick="deleteHistory();" href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;">
+			<a onclick="deleteHistory();" href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;">
 				重置
 			</a>
 			<?php
 				if($uid < 0)
 				{
-					echo "<a href=\"http://www.reculike.com/site/reader/?rss=1\" style=\"background:#EEE;color:#888;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;\">生成RSS</a>";
+					echo "<a href=\"http://www.reculike.com/site/reader/?rss=1\" style=\"background:#EEE;color:#888;text-decoration:none;display:block;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;\">生成RSS</a>";
 				}
 				else
 				{
 					$rss_link = "http://www.reculike.com/site/reader/myfeed.php?uid=$uid";
 					$rss_encode_link = urlencode($rss_link);
-					echo "<a target=\"_blank\" href=\"$rss_link\" style=\"background:#000;color:#FFF;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;\">我的RSS</a>";
-					echo "<a style=\"display:block;float:left;margin-right:10px;\" target=\"_blank\" href=\"http://fusion.google.com/add?source=atgs&feedurl=$rss_encode_link\"><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" border=\"0\" alt=\"Add to Google\"></a>";
+					echo "<a target=\"_blank\" href=\"$rss_link\" style=\"background:#000;color:#FFF;text-decoration:none;display:block;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;\">我的RSS</a>";
+					echo "<a style=\"display:block;margin-right:10px;\" target=\"_blank\" href=\"http://fusion.google.com/add?source=atgs&feedurl=$rss_encode_link\"><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" border=\"0\" alt=\"Add to Google\"></a>";
 				}
 			?>
 		</div>
