@@ -53,7 +53,7 @@ if($get_rss == 1)
 			.subscribe {width:9%; float:left;vertical-align:bottom; }
 			a {font-size:13px; color: #1D5261;}
 			a:hover {color: #5697A3;}
-			.button {display:block; float:left; margin-left:5px;width:120px;height:28px;}
+			.butn {display:block; float:left; margin-left:5px;width:120px;height:28px;}
 			/*.feedtitle {height:18px;line-height:18px; display:block;float:left;width:95%;}*/
 			img {border:none;}
 		</style>
@@ -61,23 +61,23 @@ if($get_rss == 1)
 	<body>
 		<div id="head">
 			<p style="font-size:14px;color:#888;">选择自己喜欢的feed点击订阅，点击刷新看到更多的候选feed，选定后点击生成RSS可以生成一个RSS链接</p>
-			<a href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;">
+			<a href="http://www.reculike.com/site/reader/" class="butn">
 				刷新
 			</a>&nbsp;
-			<a onclick="deleteHistory();" href="http://www.reculike.com/site/reader/" class="button">
+			<a onclick="deleteHistory();" href="http://www.reculike.com/site/reader/" class="butn">
 				重置
 			</a>
 			<?php
 				if($uid < 0)
 				{
-					echo "<a href=\"http://www.reculike.com/site/reader/?rss=1\" class=\"button\">生成RSS</a>";
+					echo "<a href=\"http://www.reculike.com/site/reader/?rss=1\" class=\"butn\">生成RSS</a>";
 				}
 				else
 				{
 					$rss_link = "http://www.reculike.com/site/reader/myfeed.php?uid=$uid";
 					$rss_encode_link = urlencode($rss_link);
-					echo "<a target=\"_blank\" href=\"$rss_link\" class=\"button\">我的RSS</a>";
-					echo "<a class=\"button\" target=\"_blank\" href=\"http://fusion.google.com/add?source=atgs&feedurl=$rss_encode_link\"><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" border=\"0\" alt=\"Add to Google\"></a>";
+					echo "<a target=\"_blank\" href=\"$rss_link\" class=\"butn\">我的RSS</a>";
+					echo "<a class=\"butn\" target=\"_blank\" href=\"http://fusion.google.com/add?source=atgs&feedurl=$rss_encode_link\"><img src=\"http://buttons.googlesyndication.com/fusion/add.gif\" border=\"0\" alt=\"Add to Google\"></a>";
 				}
 			?>
 		</div>
