@@ -23,7 +23,6 @@ $result = mysql_query("select a.article_id from feed_articles a, articles b wher
 while($row = mysql_fetch_array($result))
 {
 	$article_id = $row[0];
-	echo $article_id;
 	echo file_get_contents("http://www.reculike.com/site/reader/articles/" . (string)($article_id % 10) . "/" . (string)($article_id));
 }
 ?>
