@@ -77,7 +77,7 @@ function IsChinese($buf)
 			{
 				if($minvalue > $w) $minvalue = $w;
 			}
-			$result = mysql_query("select id from feeds order by popularity desc limit 64");
+			$result = mysql_query("select id from feeds order by popularity desc limit 200");
 			while($row=mysql_fetch_array($result))
 			{
 				$id = $row[0];
