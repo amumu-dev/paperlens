@@ -1,5 +1,5 @@
 <?php
-header("Content-type: text/xml");
+header("Content-Type: text/xml; charset=utf-8");
 require_once('db.php');
 $user_id = $_GET['uid'];
 $result = mysql_query("select feed_id from myfeed where user_id=$user_id;");
@@ -11,7 +11,7 @@ while($row = mysql_fetch_array($result))
 }
 $feeds .= '0';
 ?>
-<?xml version= "1.0" encoding= "utf-8" ?> 
+
 <rss version="2.0">
   <channel>
     <title>我的阅读列表</title>
