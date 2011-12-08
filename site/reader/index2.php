@@ -122,7 +122,6 @@ function IsChinese($buf)
 					array_push($articles, $article);
 					$article_link = $row[3];
 					//$id = $row[4];
-					$pubdate = $row[5];
 					if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
 					if(!IsChinese($article)) continue;
 					if(++$n > 24) break;
