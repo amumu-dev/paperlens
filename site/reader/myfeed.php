@@ -2,7 +2,7 @@
 require_once('db.php');
 $user_id = $_GET['uid'];
 $result = mysql_query("select feed_id from myfeed where user_id=$user_id;");
-$feeds = ''
+$feeds = '';
 while($row = mysql_fetch_array($result))
 {
 	$feed_id = $row[0];
