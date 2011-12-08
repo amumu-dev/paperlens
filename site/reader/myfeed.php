@@ -11,6 +11,7 @@ while($row = mysql_fetch_array($result))
 }
 $feeds .= '0';
 ?>
+<?xml version= "1.0" encoding= "utf-8" ?> 
 <rss version="2.0">
   <channel>
     <title>我的阅读列表</title>
