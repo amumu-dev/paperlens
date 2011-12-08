@@ -126,20 +126,23 @@ for line in data:
     if random.random() > 0.3:
         continue
     [feed, title, popularity] = line.split('\t')
-    feed_id = GetFeedId(feed, cursor)
-    if feed_id < 0:
+    try:
+        feed_id = GetFeedId(feed, cursor)
+        if feed_id < 0:
+            continue
+        articles = GetFeedInfo(feed)
+        print feed, title, len(articles)
+        for article in articles:
+            [atitle, alink, apdate, axml] = article
+            if (now_timestamp - apdate) > 24 * 3600 * 10:
+                continue
+            article_id = InsertArticle(article, cursor)
+            if article_id < 0:
+                continue
+            cursor.execute("replace into feed_articles(feed_id, article_id) values (%s, %s)", (feed_id, article_id))
+    except:
+        print "error"
         continue
-    articles = GetFeedInfo(feed)
-    print feed, title, len(articles)
-    for article in articles:
-        [atitle, alink, apdate, axml] = article
-        if (now_timestamp - apdate) > 24 * 3600 * 10:
-            continue
-        article_id = InsertArticle(article, cursor)
-        if article_id < 0:
-            continue
-        cursor.execute("replace into feed_articles(feed_id, article_id) values (%s, %s)", (feed_id, article_id))
-
 connection.commit()
 cursor.close()
 connection.close()
