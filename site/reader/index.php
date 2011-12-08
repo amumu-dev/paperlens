@@ -53,7 +53,7 @@ if($get_rss == 1)
 			.subscribe {width:9%; float:left;vertical-align:bottom; }
 			a {font-size:13px; color: #1D5261;}
 			a:hover {color: #5697A3;}
-			.butn {display:block; float:left; margin-left:5px;width:120px;height:28px;}
+			.butn {display:block; float:left; margin-left:5px;width:120px;height:28px;background:#888;color:#333;font-size:14px;}
 			/*.feedtitle {height:18px;line-height:18px; display:block;float:left;width:95%;}*/
 			img {border:none;}
 		</style>
@@ -61,9 +61,7 @@ if($get_rss == 1)
 	<body>
 		<div id="head">
 			<p style="font-size:14px;color:#888;">选择自己喜欢的feed点击订阅，点击刷新看到更多的候选feed，选定后点击生成RSS可以生成一个RSS链接</p>
-			<a href="http://www.reculike.com/site/reader/" class="butn">
-				刷新
-			</a>&nbsp;
+			<a href="http://www.reculike.com/site/reader/" class="butn">刷新</a>
 			<a onclick="deleteHistory();" href="http://www.reculike.com/site/reader/" class="butn">
 				重置
 			</a>
