@@ -138,7 +138,7 @@ function IsChinese($buf)
 					if(!IsChinese($article)) continue;
 					if(++$n > 24) break;
 					$onclick_str = "onclick=\"addHistory($id);\"";
-					$like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str>喜欢</a>";
+					$like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str>订阅</a>";
 					if(in_array($id, $history)) $like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str style=\"background:#AAA;\">谢谢</a>";
 
 					echo "<div class=\"item\"><span class=\"feed\"><a href=\"$link\" target=_blank>$name</a></span>"

@@ -19,17 +19,30 @@ function addHistory(feed_id)
 {
 	oldHistory = getCookie("his");
 	var tks = oldHistory.split("_");
-	var strCookie = "his=" + feed_id;
+	var strCookie = "his=";
+	var exist = 0;
 	for(var i = 0; i < 100 && i < tks.length; i++)
 	{
-		if(tks[i] == feed_id) continue;
-		strCookie += "_" + tks[i];
+		if(tks[i] == feed_id){
+			exist = 1;
+			continue;
+		}
+		strCookie += tks[i] + "_";
 	}
-	document.cookie = strCookie;
-	
-	var node = document.getElementById('feed_' + feed_id)
-	node.innerHTML = "谢谢";
-	node.style.background = "#AAA";
+	if(exist == 1)
+	{
+		document.cookie = strCookie;
+		var node = document.getElementById('feed_' + feed_id)
+		node.innerHTML = "订阅";
+		node.style.background = "#000";
+	}
+	else
+	{
+		document.cookie = strCookie + feed_id;
+		var node = document.getElementById('feed_' + feed_id)
+		node.innerHTML = "取消";
+		node.style.background = "#AAA";
+	}
 }
 
 function addLoadHistory(feed_id)
