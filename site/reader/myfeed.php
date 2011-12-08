@@ -14,9 +14,9 @@ $feeds .= '0';
 
 <rss version="2.0">
   <channel>
-    <title>我的阅读列表</title>
-    <description>个性化阅读列表</description>
-    <link>http://www.reculike.com/site/reader/myfeed.php?uid=1</link>
+    <title>Personal Feeds</title>
+    <description>Personal Reeds</description>
+    <link>http://www.reculike.com/site/reader/</link>
 
 <?php
 $result = mysql_query("select a.article_id from feed_articles a, articles b where a.article_id = b.id and a.feed_id in ($feeds) order by b.pub_at desc limit 20");
