@@ -160,7 +160,7 @@ function IsChinese($buf)
 					if(in_array($article, $articles)) continue;
 					array_push($articles, $article);
 					$article_link = $row[3];
-					if(strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
+					if(strlen($name) > 40 || strlen($article) < 10 || strlen($article_link) > 180 || strlen($article) > 80) continue;
 					if(!IsChinese($article)) continue;
 					if(++$n > 24) break;
 					$onclick_str = "onclick=\"addHistory($id);\"";
