@@ -53,7 +53,7 @@ if($get_rss == 1)
 			.subscribe {width:9%; float:left;vertical-align:bottom; }
 			a {font-size:13px; color: #1D5261;}
 			a:hover {color: #5697A3;}
-			.butn {display:block; float:left; margin-left:5px;width:120px;height:28px;background:#888;color:#333;font-size:14px;}
+			.butn {display:block; float:left; margin-left:5px;width:120px;height:28px;background:#DDD;text-decoration:none;text-align:center;color:#333;font-size:14px;cursor:pointer;}
 			/*.feedtitle {height:18px;line-height:18px; display:block;float:left;width:95%;}*/
 			img {border:none;}
 		</style>
