@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 require_once('db.php');
 srand(time());
 
@@ -14,7 +14,7 @@ function IsChinese($buf)
 
 <html>
 	<head>
-		<title>RSSÔ´ÍÆ¼ö</title>
+		<title>RSSæºæ¨è</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<script src="reader.js" type="text/javascript"></script>
 		<style type="text/css">
@@ -35,17 +35,17 @@ function IsChinese($buf)
 	<body>
 		<div id="head">
 			<a href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;">
-				Ë¢ĞÂ
+				åˆ·æ–°
 			</a>&nbsp;
 			<a onclick="deleteHistory();" href="http://www.reculike.com/site/reader/" style="background:#EEE;color:#888;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;">
-				ÖØÖÃ
+				é‡ç½®
 			</a>
 		</div>
 		<div id="main">
 			<div class="item">
-				<span class="feed" style="font-size:16px;line-height:36px;font-weight:bold;">RSSÔ´</span>
-				<span class="article" style="font-size:16px;line-height:36px;font-weight:bold;">×îĞÂÎÄÕÂ</span>
-				<span class="subscribe" style="font-size:16px;line-height:36px;font-weight:bold;">¶©ÔÄ</span>
+				<span class="feed" style="font-size:16px;line-height:36px;font-weight:bold;">RSSæº</span>
+				<span class="article" style="font-size:16px;line-height:36px;font-weight:bold;">æœ€æ–°æ–‡ç« </span>
+				<span class="subscribe" style="font-size:16px;line-height:36px;font-weight:bold;">è®¢é˜…</span>
 			</div>
 			<?php
 			$history = array();
@@ -127,8 +127,8 @@ function IsChinese($buf)
 					if(!IsChinese($article)) continue;
 					if(++$n > 24) break;
 					$onclick_str = "onclick=\"addHistory($id);\"";
-					$like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str>Ï²»¶</a>";
-					if(in_array($id, $history)) $like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str style=\"background:#AAA;\">Ğ»Ğ»</a>";
+					$like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str>å–œæ¬¢</a>";
+					if(in_array($id, $history)) $like_str = "<a id=\"feed_$id\" class=\"like\" $onclick_str style=\"background:#AAA;\">è°¢è°¢</a>";
 
 					echo "<div class=\"item\"><span class=\"feed\"><a href=\"$link\" target=_blank>$name</a></span>"
 					     . "<span class=\"article\"><a href=\"$article_link\" target=_blank>$article</a></span>"
