@@ -10,7 +10,8 @@ function IsChinese($buf)
 	}
 	return false;
 }
-$get_rss = $_GET["rss"];
+$get_rss = 0;
+if(isset($_GET["rss"])) $get_rss = 1;
 
 $history = array();
 if(array_key_exists("his", $_COOKIE)) $history = explode("_", $_COOKIE["his"]);
@@ -74,9 +75,6 @@ if($get_rss == 1)
 					echo "<a href=\"http://www.reculike.com/site/reader/myfeed.php?uid=$uid\" style=\"background:#000;color:#FFF;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;\">我的RSS</a>";
 				}
 			?>
-			<a onclick="deleteHistory();" href="http://www.reculike.com/site/reader/?rss=1" style="background:#EEE;color:#888;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;">
-				生成RSS
-			</a>
 		</div>
 		<div id="main">
 			<div class="item">
