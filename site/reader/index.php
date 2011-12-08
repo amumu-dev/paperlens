@@ -72,7 +72,7 @@ if($get_rss == 1)
 				}
 				else
 				{
-					echo "<a href=\"http://www.reculike.com/site/reader/myfeed.php?uid=$uid\" style=\"background:#000;color:#FFF;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;\">我的RSS</a>";
+					echo "<a target=\"_blank\" href=\"http://www.reculike.com/site/reader/myfeed.php?uid=$uid\" style=\"background:#000;color:#FFF;text-decoration:none;display:block;float:left;margin-right:10px;width:120px;height:28px;text-align:center;font-size:14px;line-height:28px;\">我的RSS</a>";
 				}
 			?>
 		</div>
