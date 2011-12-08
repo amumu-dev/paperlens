@@ -27,7 +27,7 @@ if($get_rss == 1)
 			$uid = $row[0];
 		}
 		$uid += 1;
-		for($history as $id)
+		foreach($history as $id)
 		{
 			if(strlen($id) == 0) continue;
 			mysql_query("insert into myfeed (user_id, feed_id) values ($uid, $id)");
