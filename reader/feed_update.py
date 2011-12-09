@@ -131,7 +131,7 @@ for line in data:
         if feed_id < 0:
             continue
         articles = GetFeedInfo(feed)
-        print feed, title, len(articles)
+        print feed, len(articles)
         for article in articles:
             [atitle, alink, apdate, axml] = article
             if (now_timestamp - apdate) > 24 * 3600 * 10:
