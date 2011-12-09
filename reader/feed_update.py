@@ -141,8 +141,11 @@ for line in data:
             if article_id < 0:
                 continue
             cursor.execute("replace into feed_articles(feed_id, article_id) values (%s, %s)", (feed_id, article_id))
+    except KeyboardInterrupt:
+        print "Exit by user"
+        break
     except:
-        print "error"
+        print "unknown error"
         continue
 connection.commit()
 cursor.close()
